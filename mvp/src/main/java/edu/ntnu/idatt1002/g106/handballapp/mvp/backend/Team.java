@@ -1,5 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
+import java.util.Objects;
+
 /**
  * This class creates a general structure for a handball team. It, therefore, contains essential attributes and methods
  * for altering and retrieving the statistics.
@@ -163,9 +165,9 @@ public class Team {
         if (totGoals != team.totGoals) return false;
         if (totWins != team.totWins) return false;
         if (totLosses != team.totLosses) return false;
-        if (teamName != null ? !teamName.equals(team.teamName) : team.teamName != null) return false;
-        if (teamLeader != null ? !teamLeader.equals(team.teamLeader) : team.teamLeader != null) return false;
-        return region != null ? region.equals(team.region) : team.region == null;
+        if (!Objects.equals(teamName, team.teamName)) return false;
+        if (!Objects.equals(teamLeader, team.teamLeader)) return false;
+        return Objects.equals(region, team.region);
     }
 
     @Override
