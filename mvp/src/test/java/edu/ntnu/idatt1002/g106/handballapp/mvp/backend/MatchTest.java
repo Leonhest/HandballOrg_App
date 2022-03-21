@@ -2,10 +2,7 @@ package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
 import java.time.LocalTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MatchTest {
@@ -123,6 +120,4 @@ class MatchTest {
             assertEquals("0 - 0", matchTest.getFinalResult());
         }
     }
-
-
 }
