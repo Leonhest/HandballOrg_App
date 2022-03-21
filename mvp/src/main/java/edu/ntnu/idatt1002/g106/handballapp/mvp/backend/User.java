@@ -1,12 +1,16 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
 import java.security.SecureRandom;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * Represents a user of the application
  */
 public class User {
+    private final Pattern emailPattern = Pattern.compile("^[\\w._%+-]+@[\\w.-]+\\.[A-Z]{2,5}$", Pattern.CASE_INSENSITIVE);
     private String firstName;
     private String lastName;
     private String password;
@@ -21,9 +25,13 @@ public class User {
      * @param password      User password as String
      * @param email         User Email as String
      */
-    public User(String firstName, String lastName, String password, String email) {
+    public User(String firstName, String lastName, String password, String email) throws NullPointerException{
+        if(firstName.isEmpty() || firstName.isBlank() || lastName.isEmpty() || lastName.isBlank()) throw new
+                IllegalArgumentException("First and/or last name is invalid due to being empty or blank");
         this.firstName = firstName;
         this.lastName = lastName;
+        Matcher matcher = emailPattern.matcher(email);
+        if(!matcher.matches()) throw new IllegalArgumentException("Email is invalid, should be in the form ---@---.---");
         this.email = email;
         this.salt = generateSalt();
         this.password = hashPassword(password, this.salt);
@@ -146,8 +154,8 @@ public class User {
     public String hashPassword(String password, byte[] salt){
         String sha256Pass = null;
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < salt.length; i++){
-            stringBuilder.append(Integer.toString((salt[i] & 0xff) + 0x100, 16).substring(1));
+        for (byte b : salt) {
+            stringBuilder.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
         String saltstring = stringBuilder.toString();
         sha256Pass = DigestUtils.sha256Hex(password + saltstring);
