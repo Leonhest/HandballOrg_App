@@ -33,7 +33,6 @@ public class Tournament {
         this.endDate = endDate;
         this.results = new Results();
     }
-
     /**
      * This method adds a match to the list of matches
      * @param match Match to be added
@@ -43,25 +42,16 @@ public class Tournament {
         if(tournament.contains(match) || match == null){
             return false;
         }
-        tournament.add(match);
-        return true;
+        return tournament.add(match);
     }
-
     /**
      * This method removes a match from the list based on a given matchID
      * @param matchID A match's identification number, represented as an int
      * @return        Status on whether it was successfully removed, true if it was, false if it wasn't
      */
     public boolean removeMatchByMatchID(int matchID){
-        for(Match i: tournament){
-            if(i.getMatchID() == matchID){
-                tournament.remove(i);
-                return true;
-            }
-        }
-        return false;
+        return tournament.removeIf(m -> m.getMatchID() == matchID);
     }
-
     /**
      * This method retrieves the tournament list of matches.
      * @return List of matches registered in the tournament
