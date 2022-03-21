@@ -22,7 +22,10 @@ public class Tournament {
      * @param startDate    The date for which the tournament starts, represented as a LocalDate
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
-    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) {
+    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
+        if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
+        this.tournament = new ArrayList<>();
+        this.teamRegister = new TeamRegister();
         this.tournamentID = tournamentID;
         this.startDate = startDate;
         this.endDate = endDate;
