@@ -40,8 +40,7 @@ public class Tournament {
      * @return      Status whether the match was added, if it's already in the list it returns false, if it's added true
      */
     public boolean addMatch(Match match){
-        Objects.requireNonNull(match);
-        if(tournament.contains(match)){
+        if(tournament.contains(match) || match == null){
             return false;
         }
         tournament.add(match);
