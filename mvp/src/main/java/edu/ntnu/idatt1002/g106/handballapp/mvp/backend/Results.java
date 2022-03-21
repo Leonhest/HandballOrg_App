@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -9,16 +10,26 @@ public class Results {
     private Map<Integer, Match> matchResults;
 
     /**
+     * Constructor for results
+     */
+    public Results() {
+        matchResults = new HashMap<>();
+    }
+
+    /**
      * This method adds a match to the matchResults map.
      * @param match Match to be added
      * @return      Status on whether the match was successfully added, true if yes, else false
      */
-    public boolean addToMatchResults(Match match){
+    public boolean addMatchToResults(Match match){
+        if(match == null || !matchResults.containsKey(match.getMatchID())) return false;
+        /*
         for(int existingMatchID : matchResults.keySet()){
             if(existingMatchID == match.getMatchID()){
                 return false;
             }
         }
+         */
         matchResults.put(match.getMatchID(), match);
         return true;
     }
