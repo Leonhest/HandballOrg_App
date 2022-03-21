@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Map;
  * and the list.
  */
 public class TeamRegister {
-    private Map<String, Team> teams;
+    private Map<String, Team> teams = new HashMap<>();
 
     /**
      * This method adds a team to the map, as long as it doesn't already exist
@@ -16,6 +17,7 @@ public class TeamRegister {
      * @return     Status of the action, true if it successfully added the team, otherwise false
      */
     public boolean addTeam(Team team){
+        if(team == null) return false;
         if(!teams.containsKey(team.getTeamName())){
             teams.put(team.getTeamName(), team);
             return true;
@@ -44,7 +46,9 @@ public class TeamRegister {
     public Team findTeamBasedOnTeamName(String teamName){
         return teams.get(teamName);
     }
+
     public void editTotWins(String teamName, int newTotWins){
+        if(newTotWins < 0) throw new IllegalArgumentException("Total wins cannot be negative");
         for(Team i: this.teams.values()){
             if(i.getTeamName().equals(teamName)){
                 i.setTotWins(newTotWins);
@@ -58,6 +62,7 @@ public class TeamRegister {
      * @param newTotLosses The new number of losses, represented as an int
      */
     public void editTotLosses(String teamName, int newTotLosses){
+        if(newTotLosses < 0) throw new IllegalArgumentException("Total losses cannot be negative");
         for(Team i: this.teams.values()){
             if(i.getTeamName().equals(teamName)){
                 i.setTotWins(newTotLosses);
@@ -71,6 +76,7 @@ public class TeamRegister {
      * @param newTotGoals  The new number of goals, represented as an int
      */
     public void editTotGoals(String teamName, int newTotGoals){
+        if(newTotGoals < 0) throw new IllegalArgumentException("Total goals cannot be negative");
         for(Team i: this.teams.values()){
             if(i.getTeamName().equals(teamName)){
                 i.setTotGoals(newTotGoals);
@@ -84,6 +90,7 @@ public class TeamRegister {
      * @param newNumPlayers The new number of players, represented as an int
      */
     public void editNumPlayers(String teamName, int newNumPlayers){
+        if(newNumPlayers < 0) throw new IllegalArgumentException("Number of players cannot be negative");
         for(Team i: this.teams.values()){
             if(i.getTeamName().equals(teamName)){
                 i.setNumPlayers(newNumPlayers);
