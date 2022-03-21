@@ -61,6 +61,16 @@ public class Match {
     }
 
     /**
+     * This method gets the score by looking at the team
+     * @param teamName Name of the team, represented as a String
+     * @return         Score of the given team, represented as an int
+     */
+    public int getScoreByTeamName(String teamName){
+        if(teamName.isBlank() || teamName.isEmpty()) throw new IllegalArgumentException("Name is invalid (empty or blank)");
+        return teamScore.get(teamName);
+    }
+
+    /**
      * Gets start time of match
      *
      * @return  match start time
