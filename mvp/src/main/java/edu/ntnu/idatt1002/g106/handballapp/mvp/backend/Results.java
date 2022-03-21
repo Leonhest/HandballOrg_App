@@ -22,14 +22,8 @@ public class Results {
      * @return      Status on whether the match was successfully added, true if yes, else false
      */
     public boolean addMatchToResults(Match match){
-        if(match == null || !matchResults.containsKey(match.getMatchID())) return false;
-        /*
-        for(int existingMatchID : matchResults.keySet()){
-            if(existingMatchID == match.getMatchID()){
-                return false;
-            }
-        }
-         */
+        if(match == null || matchResults.containsKey(match.getMatchID())) return false;
+
         matchResults.put(match.getMatchID(), match);
         return true;
     }
