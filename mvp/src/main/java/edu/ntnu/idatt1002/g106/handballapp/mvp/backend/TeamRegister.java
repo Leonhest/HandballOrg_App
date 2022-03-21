@@ -65,7 +65,7 @@ public class TeamRegister {
         if(newTotLosses < 0) throw new IllegalArgumentException("Total losses cannot be negative");
         for(Team i: this.teams.values()){
             if(i.getTeamName().equals(teamName)){
-                i.setTotWins(newTotLosses);
+                i.setTotLosses(newTotLosses);
             }
         }
     }
