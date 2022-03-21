@@ -17,7 +17,7 @@ public class TournamentRegister {
      * @return           Whether the tournament was added successfully to the list or not, true if it was, false if not
      */
     public boolean addTournament(Tournament tournament){
-        Objects.requireNonNull(tournament);
+        if(tournament == null) return false;
         for(Tournament i: tournaments){
             if(i.getTournamentID() == tournament.getTournamentID())
                 return false;
