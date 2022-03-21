@@ -24,9 +24,9 @@ public class Tournament {
      */
     public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
+        this.tournamentID = tournamentID;
         this.tournament = new ArrayList<>();
         this.teamRegister = new TeamRegister();
-        this.tournamentID = tournamentID;
         this.startDate = startDate;
         this.endDate = endDate;
         this.results = new Results();
