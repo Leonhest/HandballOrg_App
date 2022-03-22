@@ -30,6 +30,7 @@
                     <nohelp>true</nohelp>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
