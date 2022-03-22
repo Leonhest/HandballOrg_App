@@ -1,7 +1,9 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This is a class which creates the structure of tournament. Therefore, it contains all the relevant fields and methods
@@ -22,41 +24,34 @@ public class Tournament {
      * @param startDate    The date for which the tournament starts, represented as a LocalDate
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
-    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) {
+    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
+        if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
+        this.tournament = new ArrayList<>();
+        this.teamRegister = new TeamRegister();
         this.startDate = startDate;
         this.endDate = endDate;
         this.results = new Results();
     }
-
     /**
      * This method adds a match to the list of matches
      * @param match Match to be added
      * @return      Status whether the match was added, if it's already in the list it returns false, if it's added true
      */
     public boolean addMatch(Match match){
-        if(tournament.contains(match)){
+        if(tournament.contains(match) || match == null){
             return false;
         }
-        tournament.add(match);
-        return true;
+        return tournament.add(match);
     }
-
     /**
      * This method removes a match from the list based on a given matchID
      * @param matchID A match's identification number, represented as an int
      * @return        Status on whether it was successfully removed, true if it was, false if it wasn't
      */
     public boolean removeMatchByMatchID(int matchID){
-        for(Match i: tournament){
-            if(i.getMatchID() == matchID){
-                tournament.remove(i);
-                return true;
-            }
-        }
-        return false;
+        return tournament.removeIf(m -> m.getMatchID() == matchID);
     }
-
     /**
      * This method retrieves the tournament list of matches.
      * @return List of matches registered in the tournament

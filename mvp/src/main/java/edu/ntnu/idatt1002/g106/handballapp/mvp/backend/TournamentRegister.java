@@ -1,13 +1,15 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This class serves as the structure of a tournament register. Therefore, at its core, it works with manipulating a
  * list of Tournament objects.
  */
 public class TournamentRegister {
-    private List<Tournament> tournaments;
+    private List<Tournament> tournaments = new ArrayList<>();
 
     /**
      * This method adds a tournament to the register.
@@ -15,8 +17,10 @@ public class TournamentRegister {
      * @return           Whether the tournament was added successfully to the list or not, true if it was, false if not
      */
     public boolean addTournament(Tournament tournament){
-        if(tournaments.contains(tournament)){
-            return false;
+        if(tournament == null) return false;
+        for(Tournament i: tournaments){
+            if(i.getTournamentID() == tournament.getTournamentID())
+                return false;
         }
         tournaments.add(tournament);
         return true;

@@ -1,7 +1,10 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.Supplier;
 
 /**
  * Represents a match in a tournament.
@@ -28,7 +31,11 @@ public class Match {
      * @param matchID       Identifier of the match
      * @param numField      Number of the field to be played on
      */
-    public Match(LocalTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) {
+    public Match(LocalTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) throws IllegalArgumentException, NullPointerException{
+        Objects.requireNonNull(team1);
+        Objects.requireNonNull(team2);
+        if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
+        teamScore = new HashMap<>();
         this.startTime = startTime;
         this.roundNum = roundNum;
         this.team1 = team1;
@@ -47,8 +54,20 @@ public class Match {
      */
     //TODO: Exception handling for the different methods, for this one e.g. replace throws NULLPOINTEREXCEPTIOn if teamName doesnt exist
     public void setScore(String teamName, int score){
+        if(score < 0) throw new IllegalArgumentException("Score cannot be negative");
+        if(teamName.isBlank() || teamName.isEmpty()) throw new IllegalArgumentException("Name is invalid (empty or blank)");
         teamScore.replace(teamName, score);
 
+    }
+
+    /**
+     * This method gets the score by looking at the team
+     * @param teamName Name of the team, represented as a String
+     * @return         Score of the given team, represented as an int
+     */
+    public int getScoreByTeamName(String teamName){
+        if(teamName.isBlank() || teamName.isEmpty()) throw new IllegalArgumentException("Name is invalid (empty or blank)");
+        return teamScore.get(teamName);
     }
 
     /**
@@ -118,6 +137,6 @@ public class Match {
     @Override
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +
-                "***\n The game ended with " + getFinalResult() + " and the winner was " + getFinalResult().toString();
+                "***\n The game ended with " + getFinalResult() + " and the winner was " + getFinalResult();
     }
 }

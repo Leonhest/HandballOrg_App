@@ -28,6 +28,7 @@ public class Team {
      * @param telephoneNum Phone number attached to the team, represented as an int
      */
     public Team(String teamName, String teamLeader, String region, int numPlayers, int telephoneNum) {
+        if(numPlayers < 7) throw new IllegalArgumentException("Number of players cannot be negative");
         this.teamName = teamName;
         this.teamLeader = teamLeader;
         this.region = region;
