@@ -43,7 +43,7 @@ public class TournamentController implements Initializable {
         TournamentNumTeamsInput.getItems().add(6,10);
         TournamentNumTeamsInput.setValue(4);
 
-        //TournamentNameTextFieldInput
+        TournamentNameTextFieldInput.getText();
     }
 
     public void TournamentLayoutInput(){
