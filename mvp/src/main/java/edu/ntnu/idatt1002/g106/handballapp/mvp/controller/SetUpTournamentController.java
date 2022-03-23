@@ -3,7 +3,6 @@ package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
