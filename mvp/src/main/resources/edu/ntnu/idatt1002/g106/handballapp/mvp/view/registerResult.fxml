@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.RegisterResultController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" />
+                <TableView prefHeight="112.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn prefWidth="123.0" text="Time" />
+                        <TableColumn prefWidth="364.0" text="Match" />
+                        <TableColumn prefWidth="99.0" text="Score" />
+                    </columns>
+                </TableView>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button mnemonicParsing="false" text="Next date" AnchorPane.rightAnchor="0.0" />
+                        <Button mnemonicParsing="false" text="&lt; Back to results" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Text layoutX="29.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Winner" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>
