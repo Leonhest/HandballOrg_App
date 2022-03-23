@@ -1,6 +1,5 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

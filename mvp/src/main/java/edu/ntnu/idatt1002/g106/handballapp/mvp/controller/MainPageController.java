@@ -3,7 +3,6 @@ package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -14,10 +13,7 @@ import java.util.ResourceBundle;
 public class MainPageController implements Initializable {
 
     @FXML
-    private Button logoutButton;
-
-    @FXML
-    private AnchorPane scenePane;
+     private AnchorPane scenePane;
     Stage stage;
 
     @Override
