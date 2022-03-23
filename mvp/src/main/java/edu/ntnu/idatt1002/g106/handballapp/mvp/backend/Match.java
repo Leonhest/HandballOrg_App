@@ -46,6 +46,14 @@ public class Match {
         this.numField = numField;
     }
 
+    public Team getTeam1() {
+        return team1;
+    }
+
+    public Team getTeam2() {
+        return team2;
+    }
+
     /**
      * Sets the score of a team during a match
      *
@@ -127,6 +135,10 @@ public class Match {
             return team2;
         }
         return null;
+    }
+
+    public String getPlayers() {
+        return team1.getTeamName() + " vs. " + team2.getTeamName();
     }
 
 
