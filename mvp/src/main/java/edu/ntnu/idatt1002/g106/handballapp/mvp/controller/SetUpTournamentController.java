@@ -25,7 +25,6 @@ public class SetUpTournamentController implements Initializable {
     @FXML private DatePicker tournamentEndDateInput;
     //Button for tournamentConfirm to confirm the layout of the tournament
     @FXML private Button tournamentConfirm;
-    //@FXML private Label TestLabel;
 
 
 
