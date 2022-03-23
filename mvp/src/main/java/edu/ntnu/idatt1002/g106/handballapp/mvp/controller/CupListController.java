@@ -1,7 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
