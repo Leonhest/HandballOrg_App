@@ -23,8 +23,6 @@ public class SetUpTournamentController implements Initializable {
     @FXML private DatePicker tournamentStartDateInput;
     //DatePicker for tournamentEndDateInput where user picks end date for the tournament
     @FXML private DatePicker tournamentEndDateInput;
-    //Button for tournamentConfirm to confirm the layout of the tournament
-    @FXML private Button tournamentConfirm;
 
 
 
