@@ -48,7 +48,7 @@
 
       <Text layoutX="12.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of fields" wrappingWidth="100.98307228088379" />
       <Text layoutX="12.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of teams" wrappingWidth="108.21630859375" />
-      <Button id="tournamentConfirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm">
+      <Button fx:id="tournamentConfirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm">
          <effect>
             <InnerShadow />
          </effect></Button>

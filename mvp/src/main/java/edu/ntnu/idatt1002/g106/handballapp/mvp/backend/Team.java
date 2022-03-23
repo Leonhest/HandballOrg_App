@@ -157,6 +157,18 @@ public class Team {
     }
 
     @Override
+    public String toString() {
+        return "*******" + teamName + "*******\n" +
+                "Team Leader:" + teamLeader + '\n' +
+                "Region: " + region + '\n' +
+                "Number of Players: " + numPlayers + '\n' +
+                "Phone number: " + telephoneNum + '\n' +
+                "Total goals scored: " + totGoals + '\n' +
+                "Total wins: " + totWins + '\n' +
+                "Total losses: " + totLosses;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Team team)) return false;
