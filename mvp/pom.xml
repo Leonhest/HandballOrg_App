@@ -47,7 +47,6 @@
                     <mainClass>src/main/java/edu/ntnu/idatt1002/g106/handballapp/mvp/controller/HandballApplication.java</mainClass>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
