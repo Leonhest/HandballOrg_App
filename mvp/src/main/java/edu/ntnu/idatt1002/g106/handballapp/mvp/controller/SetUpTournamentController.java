@@ -1,9 +1,18 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
+
+import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -53,7 +62,7 @@ public class SetUpTournamentController implements Initializable {
     }
 
     @FXML
-    public void confirmTournament() {
+    public void confirmTournament(ActionEvent actionEvent) throws IOException {
         String tournamentLayout = tournamentLayoutInput.getValue();
         String tournamentName = tournamentNameTextFieldInput.getText();
         String tournamentPlace = tournamentPlaceTextFieldInput.getText();
@@ -65,5 +74,11 @@ public class SetUpTournamentController implements Initializable {
                 "tournamentPlace " + tournamentPlace + "\n" + "tournamentNumFields " + tournamentNumFields + "\n" +
                 "tournamentNumTeams " + tournamentNumTeams + "\n" + "tournamentStartDate " + tournamentStartDate +
                 "tournamentEndDate " + tournamentEndDate + "\n" + "SLUTT");
+        Parent viewMainPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
+        Scene mainPage = new Scene(viewMainPage);
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(mainPage);
+        window.show();
     }
+
 }
