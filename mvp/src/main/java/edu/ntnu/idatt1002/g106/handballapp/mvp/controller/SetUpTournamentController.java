@@ -65,8 +65,5 @@ public class SetUpTournamentController implements Initializable {
                 "tournamentPlace " + tournamentPlace + "\n" + "tournamentNumFields " + tournamentNumFields + "\n" +
                 "tournamentNumTeams " + tournamentNumTeams + "\n" + "tournamentStartDate " + tournamentStartDate +
                 "tournamentEndDate " + tournamentEndDate + "\n" + "SLUTT");
-
-
-
     }
 }
