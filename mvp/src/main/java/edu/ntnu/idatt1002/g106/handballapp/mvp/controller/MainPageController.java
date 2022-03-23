@@ -1,34 +1,41 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.Initializable;;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
 
-    // create a alert
-    Alert a = new Alert(Alert.AlertType.NONE);
+    @FXML
+    private Button logoutButton;
+
+    @FXML
+    private AnchorPane scenePane;
+    Stage stage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    @FXML
-    public void logout() {
-        // set alert type
-        a.setAlertType(Alert.AlertType.CONFIRMATION);
+    public void logout(){
 
-        // set content text
-        a.setContentText("ConfirmationDialog");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to logout");
+        alert.setContentText("Do you want to save before exiting");
 
-        //show the dialog
-        a.show();
+        if (alert.showAndWait().get() == ButtonType.OK){
+            stage = (Stage) scenePane.getScene().getWindow();
+            System.out.println("You successfully logged out!");
+            stage.close();
+        }
     }
 }
