@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<Pane accessibleText="Upcoming Tournaments" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.UpcomingTournamentController">
+
+    <children>
+        <Text layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcoming Tournaments" wrappingWidth="136.17203521728516" />
+        <ImageView accessibleRole="BUTTON" accessibleText="Oslo open" fitHeight="101.0" fitWidth="87.0" layoutX="43.5" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Bilder/oslobyvapen.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="21.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
+        <Text accessibleText="Oslo Open" layoutX="23.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oslo Open" textAlignment="CENTER" wrappingWidth="124.81420516967773" />
+        <ImageView accessibleRole="BUTTON" accessibleText="Oslo open" fitHeight="101.0" fitWidth="87.0" layoutX="259.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Bilder/standard_trondheim.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="236.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
+        <Text accessibleText="Oslo Open" layoutX="238.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trondheim Open" textAlignment="CENTER" wrappingWidth="124.81420516967773" />
+        <ImageView accessibleRole="BUTTON" accessibleText="Oslo open" fitHeight="97.0" fitWidth="103.0" layoutX="459.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Bilder/Asker_komm_nytt_våpen.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="442.0" layoutY="154.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
+        <Text accessibleText="Oslo Open" layoutX="444.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asker Open" textAlignment="CENTER" wrappingWidth="124.81420516967773" />
+        <Text layoutX="27.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+" textAlignment="CENTER" wrappingWidth="119.56512269022687">
+            <font>
+                <Font size="96.0" />
+            </font>
+        </Text>
+        <Text layoutX="47.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New  Tournament">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Text>
+        <Button accessibleText="Add new tournament" layoutX="22.0" layoutY="235.0" mnemonicParsing="false" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button accessibleText="Trondheim open" layoutX="235.0" layoutY="39.0" mnemonicParsing="false" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button accessibleText="Asker open" layoutX="441.0" layoutY="36.0" mnemonicParsing="false" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button accessibleText="Oslo open " layoutX="20.0" layoutY="38.0" mnemonicParsing="false" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+    </children>
+</Pane>

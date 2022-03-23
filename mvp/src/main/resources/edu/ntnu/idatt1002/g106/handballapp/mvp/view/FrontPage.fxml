@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.FrontPageController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <MenuBar id="menuBar" layoutY="7.0" prefHeight="27.0" prefWidth="600.0">
+            <menus>
+                <Menu id="frontPage" mnemonicParsing="false" text="Front Page" />
+                <Menu id="matches" mnemonicParsing="false" text="Matches">
+                    <items>
+                        <MenuItem id="viewMatches" mnemonicParsing="false" text="View matches" />
+                        <MenuItem id="setUpMatches" mnemonicParsing="false" text="Set Up Matches" />
+                    </items>
+                </Menu>
+                <Menu id="addTeamToCup" mnemonicParsing="false" text="Add team to cup" />
+                <Menu id="results" mnemonicParsing="false" text="Results">
+                    <items>
+                        <MenuItem id="viewResults" mnemonicParsing="false" text="View results" />
+                        <MenuItem id="registerResults" mnemonicParsing="false" text="Register results" />
+                    </items>
+                </Menu>
+                <Menu id="tournament" mnemonicParsing="false" text="Tournament">
+                    <items>
+                        <MenuItem id="viewTournament" mnemonicParsing="false" text="View Tournament" />
+                        <MenuItem id="setUpTournament" mnemonicParsing="false" text="Set Up Tournament" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <DatePicker id="date" layoutX="412.0" layoutY="48.0" promptText="Date" />
+        <Label id="dateLabel" layoutX="412.0" layoutY="73.0" prefHeight="30.0" prefWidth="105.0" text="-----" />
+        <Button id="selectDateBtn" layoutX="517.0" layoutY="73.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="Select date" />
+        <!--Comment-->
+        <TableView id="table" layoutX="6.0" layoutY="48.0" prefHeight="314.0" prefWidth="402.0">
+            <columns>
+                <TableColumn id="time" prefWidth="92.0" text="Time" />
+                <TableColumn id="match" prefWidth="214.0" text="Match" />
+                <TableColumn id="field" minWidth="0.0" prefWidth="95.0" text="Field" />
+            </columns>
+        </TableView>
+        <Button id="nextDateBtn" layoutX="337.0" layoutY="374.0" mnemonicParsing="false" text="Next date" />
+    </children>
+</AnchorPane>
