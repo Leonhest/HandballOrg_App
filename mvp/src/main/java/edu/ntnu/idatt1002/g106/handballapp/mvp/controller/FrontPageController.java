@@ -15,7 +15,7 @@ public class FrontPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //hahaha you found the ester egg, this method is useless in this class in the MVP
     }
 
     public void newTournament(ActionEvent actionEvent) throws IOException {
