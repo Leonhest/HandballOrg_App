@@ -12,11 +12,11 @@
     <children>
         <ButtonBar layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="520.0">
             <buttons>
-                <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
-                <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Set Up Match" />
-                <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Register Team" />
+                <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Front Page" />
+                <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
+                <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
                 <Button fx:id="RegisterResult" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
-            <Button minWidth="52.0" mnemonicParsing="false" prefHeight="25.0" text="out of order" />
+            <Button minWidth="52.0" mnemonicParsing="false" prefHeight="25.0" text="Tournament" />
             </buttons>
         </ButtonBar>
         <DatePicker id="date" layoutX="480.0" layoutY="48.0" promptText="Date" />
