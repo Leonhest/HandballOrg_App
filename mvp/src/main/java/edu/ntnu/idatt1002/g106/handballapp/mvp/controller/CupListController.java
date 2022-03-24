@@ -12,7 +12,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,42 +22,30 @@ import java.util.ResourceBundle;
 
 public class CupListController implements Initializable {
 
-    //Text field for team name
-    @FXML private TextField teamNameTextFieldInput;
-
-    //Text field for team leader
-    @FXML private TextField teamLeaderTextFieldInput;
-
-    //Text field for region
-    @FXML private TextField regionTextFieldInput;
-
-    //Text field for phone number
-    @FXML private TextField phoneNumTextFieldInput;
-
-    //ChoiceBox for number of players
-    @FXML private ChoiceBox<String> numPlayerInput;
-
+    @FXML
+    private Text feedbackText;
+    @FXML
+    private TextField teamNameTextFieldInput;
+    @FXML
+    private TextField teamLeaderTextFieldInput;
+    @FXML
+    private TextField regionTextFieldInput;
+    @FXML
+    private TextField phoneNumTextFieldInput;
+    @FXML
+    private ChoiceBox<String> numPlayerInput;
     @FXML
     private TableView<Team> teamTableView;
-
     @FXML
     private TableColumn<Team, String> teamNameColumn;
-
     @FXML
     private TableColumn<Team, Integer> numPlayerColumn;
-
     @FXML
     private TableColumn<Team, String> teamLeaderColumn;
-
     @FXML
     private TableColumn<Team, String> regionColumn;
-
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
-
-
-
-    //Button for newTeamConfirm to confirm the adding of a new team
     @FXML
     private Button newTeamConfirm;
 
@@ -120,19 +110,47 @@ public class CupListController implements Initializable {
         window.show();
     }
 
-
+    //TODO: Make one FXMLLoader class to take in the pathing!
 
     @FXML
     public void confirmAddNewTeam(){
-        Team team = new Team(teamNameTextFieldInput.getText(), teamLeaderTextFieldInput.getText(),
-                regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
-                Integer.valueOf(phoneNumTextFieldInput.getText()));
+        try{
+            teamInfoExceptions();
+            if(phoneNumTextFieldInput.getText().length() != 8) throw new IllegalArgumentException("*A phone number needs 8 digits!*");
+            Team team = new Team(teamNameTextFieldInput.getText(), teamLeaderTextFieldInput.getText(),
+                    regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
+                    Integer.valueOf(phoneNumTextFieldInput.getText()));
 
-        listTeams.add(team);
+            listTeams.add(team);
+        }
+        catch (IllegalArgumentException e){
+            if(e.getMessage().contains("For input string")){
+                feedbackText.setFill(Color.RED);
+                feedbackText.setText("*Phone number is invalid*");
+            }
+            else{
+                feedbackText.setFill(Color.RED);
+                feedbackText.setText(e.getMessage());
+            }
+        }
     }
+
+    @FXML
+    public void resetInfo(){
+        teamNameTextFieldInput.setText("");
+        teamLeaderColumn.setText("");
+        regionTextFieldInput.setText("");
+        phoneNumTextFieldInput.setText("");
+        numPlayerInput.setValue("7");
+    }
+
+    private void teamInfoExceptions() throws IllegalArgumentException{
+        if(teamNameTextFieldInput.getText().isEmpty() || teamNameTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Name is invalid!*");
+        if(teamLeaderTextFieldInput.getText().isEmpty() || teamLeaderTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Leader is invalid!*");
+        if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
+    }
+
 }
 
 
-//TODO: Connect reset button to removing data stuff
-//TODO: Make sure the data for team is valid.
-//TODO: Don't allow duplicate teams
+//TODO: Don't allow duplicate teams (Maybe connect to teamRegister and use the guarantee there)!
