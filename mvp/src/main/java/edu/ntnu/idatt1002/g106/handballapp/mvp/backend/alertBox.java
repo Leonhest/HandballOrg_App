@@ -1,4 +1,4 @@
-package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
+package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +22,7 @@ public class alertBox implements Initializable{
         a.setAlertType(Alert.AlertType.CONFIRMATION);
 
         // set content text
-        a.setContentText("Press button to Log Out");
+        a.setContentText("Press button to ....");
 
         //show the dialog
         a.show();
