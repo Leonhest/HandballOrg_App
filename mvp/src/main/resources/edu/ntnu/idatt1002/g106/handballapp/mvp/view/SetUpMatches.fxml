@@ -20,11 +20,11 @@
          <buttons>
             <AnchorPane prefHeight="34.0" prefWidth="604.0">
                <children>
-                  <Button layoutY="4.0" mnemonicParsing="false" text="Front Page" />
-                  <Button layoutX="81.0" layoutY="4.0" mnemonicParsing="false" text="Matches" />
-                  <Button layoutX="150.0" layoutY="4.0" mnemonicParsing="false" text="Team" />
-                  <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" text="Result" />
-                  <Button layoutX="259.0" layoutY="4.0" mnemonicParsing="false" text="Tournament" />
+                  <Button layoutY="4.0" mnemonicParsing="false" onAction="#goToFrontPage" text="Front Page" />
+                  <Button layoutX="81.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToSetUpMatchesPage" text="Matches" />
+                  <Button layoutX="150.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToCupListPage" text="Team" />
+                  <Button layoutX="203.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToRegisterResult" text="Result" />
+                  <Button layoutX="259.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToTournamentPage" text="Tournament" />
                   <Button layoutX="530.0" layoutY="4.0" mnemonicParsing="false" text="logOut" />
                </children>
             </AnchorPane>
@@ -51,7 +51,7 @@
                 </Text>
 
                 <Button id="selectField" layoutX="123.0" layoutY="93.0" mnemonicParsing="false" text="Select field" AnchorPane.bottomAnchor="106.0" AnchorPane.rightAnchor="400.0" />
-                <Button id="selectField" layoutX="260.0" layoutY="160.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" text="Submit" />
+                <Button id="selectField" layoutX="260.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#submitMatch" prefHeight="40.0" prefWidth="101.0" text="Submit" />
                 
                 <DatePicker layoutX="22.0" layoutY="159.0" opacity="0.67" promptText="Wednesday 12:00" AnchorPane.bottomAnchor="40.0" />
                 <Label layoutX="21.0" layoutY="185.0" prefHeight="30.0" prefWidth="101.0" text="-----" />
