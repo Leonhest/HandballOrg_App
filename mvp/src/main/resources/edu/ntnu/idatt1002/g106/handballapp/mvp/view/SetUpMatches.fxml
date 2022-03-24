@@ -33,9 +33,6 @@
                         <MenuItem id="viewResults" mnemonicParsing="false" text="View results" />
                         <MenuItem id="registerResults" mnemonicParsing="false" onAction="#goToRegisterResult" text="Register results" />
                     </items>
-               <graphic>
-                  <Button mnemonicParsing="false" text="Button" />
-               </graphic>
                 </Menu>
                 <Menu id="tournament" mnemonicParsing="false" text="Tournament">
                     <items>
