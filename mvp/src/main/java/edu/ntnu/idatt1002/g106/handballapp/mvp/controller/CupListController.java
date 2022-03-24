@@ -49,8 +49,6 @@ public class CupListController implements Initializable {
     private TableColumn<Team, String> regionColumn;
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
-    @FXML
-    private Button newTeamConfirm;
 
     ObservableList<Team> listTeams = FXCollections.observableArrayList(
             new Team("Asker FC", "Leon", "Asker", 7, 98059037),
