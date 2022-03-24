@@ -1,20 +1,15 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
-
-    @FXML
-     private AnchorPane scenePane;
-    Stage stage;
 
     //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
     @Override
@@ -24,16 +19,31 @@ public class MainPageController implements Initializable {
 
     //TODO: make button log close program
     public void logout(){
+        AlertBox.logOut();
+    }
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are about to logout");
-        alert.setContentText("Do you want to save before exiting");
+    @FXML
+    public void sendToFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("FrontPage", event);
+    }
 
-        if (alert.showAndWait().get() == ButtonType.OK){
-            stage = (Stage) scenePane.getScene().getWindow();
-            System.out.println("You successfully logged out!");
-            stage.close();
-        }
+    @FXML
+    public void sendToSetUpMatches(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    @FXML
+    public void sendToRegisterTeam(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("CupList", event);
+    }
+
+    @FXML
+    public void sendToRegisterResult(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("RegisterResult", event);
+    }
+
+    @FXML
+    public void SelectDate(ActionEvent event) {
+
     }
 }

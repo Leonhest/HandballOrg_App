@@ -8,29 +8,29 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.MainPageController">
+<AnchorPane prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.MainPageController">
     <children>
-        <ButtonBar layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="402.0">
+        <ButtonBar layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="520.0">
             <buttons>
-                <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Button" />
-                <Button minWidth="24.0" mnemonicParsing="false" prefHeight="25.0" text="Button" />
+                <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
+                <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Set Up Match" />
+                <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Register Team" />
+                <Button fx:id="RegisterResult" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
+            <Button minWidth="52.0" mnemonicParsing="false" prefHeight="25.0" text="out of order" />
             </buttons>
         </ButtonBar>
-        <DatePicker id="date" layoutX="412.0" layoutY="48.0" promptText="Date" />
+        <DatePicker id="date" layoutX="480.0" layoutY="48.0" promptText="Date" />
         <Label id="dateLabel" layoutX="412.0" layoutY="73.0" prefHeight="30.0" prefWidth="105.0" text="-----" />
-        <Button id="selectDateBtn" layoutX="517.0" layoutY="73.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="Select date" />
+        <Button id="selectDateBtn" layoutX="567.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" />
         <!--Comment-->
-        <TableView id="table" layoutX="6.0" layoutY="48.0" prefHeight="314.0" prefWidth="402.0">
+        <TableView id="table" layoutX="6.0" layoutY="48.0" prefHeight="349.0" prefWidth="474.0">
             <columns>
                 <TableColumn id="time" prefWidth="92.0" text="Time" />
                 <TableColumn id="match" prefWidth="214.0" text="Match" />
                 <TableColumn id="field" minWidth="0.0" prefWidth="95.0" text="Field" />
             </columns>
         </TableView>
-        <Button id="nextDateBtn" layoutX="337.0" layoutY="374.0" mnemonicParsing="false" text="Next date" />
-        <Button id="logOutButton" layoutX="530.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
+        <Button id="nextDateBtn" layoutX="412.0" layoutY="397.0" mnemonicParsing="false" text="Next date" />
+        <Button id="logOutButton" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
     </children>
 </AnchorPane>

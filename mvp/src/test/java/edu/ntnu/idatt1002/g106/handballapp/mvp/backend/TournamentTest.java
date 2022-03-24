@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +42,7 @@ public class TournamentTest {
             Tournament tournament = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.of(2022,12, 1), "layout1", "Oslo", 3, 8);
             Team team1 = new Team("Sandefjord", "Ola Nordmann", "Oslo", 16, 98765432);
             Team team2 = new Team("Oslo", "Eirik Nordmann", "Oslo", 16, 98765431);
-            Match match = new Match(LocalTime.now(), 1, team1, team2, 1, 1);
+            Match match = new Match(LocalDateTime.now(), 1, team1, team2, 1, 1);
 
             assertTrue(tournament.addMatch(match));
         }
@@ -52,7 +52,7 @@ public class TournamentTest {
             Tournament tournament = new Tournament(1, "Oslo open", LocalDate.now(), LocalDate.of(2022,12, 1), "layout1", "Oslo", 3, 8);
             Team team1 = new Team("Sandefjord", "Ola Nordmann", "Oslo", 16, 98765432);
             Team team2 = new Team("Oslo", "Eirik Nordmann", "Oslo", 16, 98765431);
-            Match match = new Match(LocalTime.now(), 1, team1, team2, 1, 1);
+            Match match = new Match(LocalDateTime.now(), 1, team1, team2, 1, 1);
 
             tournament.addMatch(match);
             assertFalse(tournament.addMatch(match));
@@ -74,7 +74,7 @@ public class TournamentTest {
             Tournament tournament = new Tournament(1, "Oslo open", LocalDate.now(), LocalDate.of(2022,12, 1),"layout1", "Oslo", 3, 8);
             Team team1 = new Team("Sandefjord", "Ola Nordmann", "Oslo", 16, 98765432);
             Team team2 = new Team("Oslo", "Eirik Nordmann", "Oslo", 16, 98765431);
-            Match match = new Match(LocalTime.now(), 1, team1, team2, 1, 1);
+            Match match = new Match(LocalDateTime.now(), 1, team1, team2, 1, 1);
             
             tournament.addMatch(match);
 

@@ -1,6 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -54,12 +56,7 @@ public class RegisterResultController implements Initializable {
     }
      */
 
-    private void addDataMVP() {
-        this.tournament = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.of(2022, 04, 22), "Layout1", "Asker", 3, 10);
-        Team team1 = new Team("Oslo", "Eirik", "Oslo", 13, 95876522);
-        Team team2 = new Team("Sandefjord", "Tomas", "Oslo", 11, 95876521);
-        tournament.addMatch(new Match(LocalTime.of(12, 0), 1, team1, team2, 1, 1));
-    }
+
 
     private void fillInnTeams(ChoiceBox box) {
         for (Match matchResult:tournament.getResults().getMatchResults().values()) {
@@ -81,15 +78,7 @@ public class RegisterResultController implements Initializable {
     }
 
     public void toFrontPage(ActionEvent event) throws IOException {
-        //get the new scene
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene viewScene = new Scene(viewParent);
-
-        //information of stage
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewScene);
-        window.show();
+        SwitchScene.switchScene("FrontPage", event);
     }
 
     @Override
@@ -108,7 +97,6 @@ public class RegisterResultController implements Initializable {
          */
 
         //Configuring the table
-        addDataMVP();//todo: remove later
         //fillInnDataToTable();
 
         winnerTeamChoiceBox.setValue("Winner");

@@ -1,4 +1,5 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,26 +24,13 @@ public class FrontPageController implements Initializable {
     }
 
     public void newTournament(ActionEvent actionEvent) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/SetUpTournament.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        //this line gets the stage information
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
-        window.show();
+        SwitchScene.switchScene("SetUpTournament", actionEvent);
     }
 
     //TODO: Fix the linking between tournaments and the graphic front page. Link icon to a specific tournament!!!
     public void toMainPage(ActionEvent actionEvent) throws IOException {
         HandballApplication.setChosenTournament(1);
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
 
-        //this line gets the stage information
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
-        window.show();
+        SwitchScene.switchScene("MainPage", actionEvent);
     }
 }

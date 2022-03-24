@@ -1,12 +1,10 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -34,7 +32,6 @@ public class SetUpTournamentController implements Initializable {
     private DatePicker tournamentStartDateInput;
     @FXML
     private DatePicker tournamentEndDateInput;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,13 +70,18 @@ public class SetUpTournamentController implements Initializable {
 
             HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
 
-            Parent viewMainPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-            Scene mainPage = new Scene(viewMainPage);
-            Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(mainPage);
-            window.show();
+            SwitchScene.switchScene("MainPage", actionEvent);
+
 
         }
+
+
+
+
+    @FXML
+    private void logOutButton(){
+        AlertBox.logOut();
+    }
 
     }
 
