@@ -143,6 +143,10 @@ public class Match {
     }
 
 
+    public LocalTime getTime() {
+        return startTime.toLocalTime();
+    }
+
 //    public Team getTeamBasedOnScore(int score){
 //
 //    }
