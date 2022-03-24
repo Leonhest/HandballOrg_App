@@ -77,12 +77,12 @@ public class CupListController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("FrontPage", actionEvent);
+        SwitchScene.switchScene("MainPage", actionEvent);
     }
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpPage", actionEvent);
+        SwitchScene.switchScene("SetUpMatches", actionEvent);
     }
 
     @FXML

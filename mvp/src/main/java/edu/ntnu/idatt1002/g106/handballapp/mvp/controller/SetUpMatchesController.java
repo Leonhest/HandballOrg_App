@@ -88,7 +88,7 @@ public class SetUpMatchesController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("FrontPage", actionEvent);
+        SwitchScene.switchScene("MainPage", actionEvent);
     }
 
     @FXML
@@ -98,7 +98,7 @@ public class SetUpMatchesController implements Initializable {
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpPage", actionEvent);
+        SwitchScene.switchScene("SetUpPageMatches", actionEvent);
     }
 
     @FXML

@@ -77,15 +77,7 @@ public class RegisterResultController implements Initializable {
     }
 
     public void toFrontPage(ActionEvent event) throws IOException {
-        //get the new scene
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene viewScene = new Scene(viewParent);
-
-        //information of stage
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewScene);
-        window.show();
+        SwitchScene.switchScene("MainPage", event);
     }
 
     @Override
