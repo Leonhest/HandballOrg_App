@@ -78,7 +78,7 @@ public class RegisterResultController implements Initializable {
     }
 
     public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
+        SwitchScene.switchScene("MainPage", event);
     }
 
     @Override

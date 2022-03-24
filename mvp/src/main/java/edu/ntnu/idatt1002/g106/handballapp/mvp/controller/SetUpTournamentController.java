@@ -75,15 +75,11 @@ public class SetUpTournamentController implements Initializable {
 
         }
 
-
-
-
     @FXML
     private void logOutButton(){
         AlertBox.logOut();
     }
-
-    }
+}
 
 
 //TODO: Exception handling for invalid tournament set up

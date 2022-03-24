@@ -56,7 +56,10 @@ public class HandballApplication extends Application{
         admin.getTournamentRegister().getTournaments().get(chosenTournament).getTeamRegister().addTeam(new Team("Drammen Rats", "Trym", "Drammen", 9, 94506734));
         admin.getTournamentRegister().getTournaments().get(chosenTournament).getTeamRegister().addTeam(new Team("Bergen Bulls", "Eirik", "Bergen", 10, 94505649));
 
-        admin.getTournamentRegister().getTournaments().get(chosenTournament).addMatch(new Match(LocalDateTime.of(2022, 4, 14, 9, 0), 1, admin.getTournamentRegister().getTournaments().get(chosenTournament).getTeamRegister().findTeamBasedOnTeamName("Asker Lions"), admin.getTournamentRegister().getTournaments().get(chosenTournament).getTeamRegister().findTeamBasedOnTeamName("Bergen Bulls"), 1, 3));
+        admin.getTournamentRegister().getTournaments().get(chosenTournament).addMatch(new Match(LocalDateTime.of(2022,
+                4, 14, 9, 0), 1, admin.getTournamentRegister().getTournaments().get(chosenTournament).getTeamRegister()
+                .findTeamBasedOnTeamName("Asker Lions"), admin.getTournamentRegister().getTournaments().get(chosenTournament)
+                .getTeamRegister().findTeamBasedOnTeamName("Bergen Bulls"), 1, 3));
 
 
     }
