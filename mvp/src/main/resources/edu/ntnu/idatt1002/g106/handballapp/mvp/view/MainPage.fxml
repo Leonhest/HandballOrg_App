@@ -23,11 +23,11 @@
         <Label id="dateLabel" layoutX="412.0" layoutY="73.0" prefHeight="30.0" prefWidth="105.0" text="-----" />
         <Button id="selectDateBtn" layoutX="567.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" />
         <!--Comment-->
-        <TableView id="table" layoutX="6.0" layoutY="48.0" prefHeight="349.0" prefWidth="474.0">
+        <TableView fx:id="table" layoutX="6.0" layoutY="48.0" prefHeight="349.0" prefWidth="474.0">
             <columns>
-                <TableColumn id="time" prefWidth="92.0" text="Time" />
-                <TableColumn id="match" prefWidth="214.0" text="Match" />
-                <TableColumn id="field" minWidth="0.0" prefWidth="95.0" text="Field" />
+                <TableColumn fx:id="time" prefWidth="153.0" text="Time" />
+                <TableColumn fx:id="match" prefWidth="203.0" text="Match" />
+                <TableColumn fx:id="field" minWidth="0.0" prefWidth="117.0" text="Field" />
             </columns>
         </TableView>
         <Button id="nextDateBtn" layoutX="412.0" layoutY="397.0" mnemonicParsing="false" text="Next date" />
