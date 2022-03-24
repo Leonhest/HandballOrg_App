@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class CupListController implements Initializable {
 
+    //todo: change menu to button menu
     @FXML
     private Text feedbackText;
     @FXML
@@ -50,18 +51,17 @@ public class CupListController implements Initializable {
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
 
-    ObservableList<Team> listTeams = FXCollections.observableArrayList(
-            new Team("Asker FC", "Leon", "Asker", 7, 98059037),
-            new Team("Sandefjord Gutta", "Trym", "Vestfold", 10, 98059038)
-            );
-
     private void updateTableView(){
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
         numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
         teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
         phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
-        teamTableView.setItems(listTeams);
+        //System.out.println("Size " + listTeams.size());
+        teamTableView.setItems(FXCollections.observableArrayList(
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                        .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
+        teamTableView.refresh();
     }
 
     @Override
@@ -108,6 +108,9 @@ public class CupListController implements Initializable {
 
             HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                     .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
+
+            System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){
@@ -119,12 +122,13 @@ public class CupListController implements Initializable {
                 feedbackText.setText(e.getMessage());
             }
         }
+        updateTableView();
     }
 
     @FXML
     public void resetInfo(){
         teamNameTextFieldInput.setText("");
-        teamLeaderColumn.setText("");
+        teamLeaderTextFieldInput.setText("");
         regionTextFieldInput.setText("");
         phoneNumTextFieldInput.setText("");
         numPlayerInput.setValue("7");
@@ -137,6 +141,3 @@ public class CupListController implements Initializable {
     }
 
 }
-
-
-//TODO: Don't allow duplicate teams (Maybe connect to teamRegister and use the guarantee there)!
