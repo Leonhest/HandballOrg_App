@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.TournamentRegister;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
@@ -17,6 +18,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
+
+    private Tournament tournament;
 
     @FXML
     private TextField tournamentNameTextFieldInput;
@@ -65,10 +68,13 @@ public class SetUpTournamentController implements Initializable {
             LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
 
             //TODO Add tournamentID check
-            Tournament tournament = new Tournament(0, tournamentName, tournamentStartDate,
+            tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
                     tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
 
             HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+            HandballApplication.setChosenTournament(tournament.getTournamentID());
+
+            //todo: add on front page
 
             SwitchScene.switchScene("MainPage", actionEvent);
 
