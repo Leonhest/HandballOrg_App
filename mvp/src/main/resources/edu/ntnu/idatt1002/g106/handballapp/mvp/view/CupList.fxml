@@ -55,8 +55,8 @@
       <Text layoutX="400.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
       <TextField fx:id="phoneNumTextFieldInput" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" />
       <ChoiceBox fx:id="numPlayerInput" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
-      <Button fx:id="newTeamConfirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
-      <Button fx:id="resetButton" layoutX="626.0" layoutY="504.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
+      <Button id="newTeamConfirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
+      <Button id="resetButton" layoutX="626.0" layoutY="504.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
       <Text layoutX="489.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+47">
          <font>
             <Font size="12.0" />

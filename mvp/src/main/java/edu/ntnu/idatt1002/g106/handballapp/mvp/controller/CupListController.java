@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class CupListController implements Initializable {
 
+    //todo: change menu to button menu
     @FXML
     private Text feedbackText;
     @FXML
@@ -48,13 +50,6 @@ public class CupListController implements Initializable {
     private TableColumn<Team, String> regionColumn;
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
-    @FXML
-    private Button newTeamConfirm;
-
-    ObservableList<Team> listTeams = FXCollections.observableArrayList(
-            new Team("Asker FC", "Leon", "Asker", 7, 98059037),
-            new Team("Sandefjord Gutta", "Trym", "Vestfold", 10, 98059038)
-            );
 
     private void updateTableView(){
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
@@ -62,7 +57,11 @@ public class CupListController implements Initializable {
         teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
         phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
-        teamTableView.setItems(listTeams);
+        //System.out.println("Size " + listTeams.size());
+        teamTableView.setItems(FXCollections.observableArrayList(
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                        .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
+        teamTableView.refresh();
     }
 
     @Override
@@ -78,31 +77,24 @@ public class CupListController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        switchScene("FrontPage", actionEvent);
+        SwitchScene.switchScene("MainPage", actionEvent);
     }
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpPage", actionEvent);
+        SwitchScene.switchScene("SetUpMatches", actionEvent);
     }
 
     @FXML
     public void goToResultsPage(ActionEvent actionEvent) throws IOException {
-        switchScene("RegisterResultPage", actionEvent);
+        SwitchScene.switchScene("RegisterResultPage", actionEvent);
     }
 
     @FXML
     public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpTournamentPage", actionEvent);
+        SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
     }
 
-    public void switchScene(String location, ActionEvent actionEvent) throws IOException {
-        Parent viewPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml"));
-        Scene page = new Scene(viewPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(page);
-        window.show();
-    }
     //TODO: Make one FXMLLoader class to take in the pathing!
 
     @FXML
@@ -114,7 +106,11 @@ public class CupListController implements Initializable {
                     regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
                     Integer.valueOf(phoneNumTextFieldInput.getText()));
 
-            listTeams.add(team);
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
+
+            System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){
@@ -126,6 +122,7 @@ public class CupListController implements Initializable {
                 feedbackText.setText(e.getMessage());
             }
         }
+        updateTableView();
     }
 
     @FXML
@@ -144,6 +141,3 @@ public class CupListController implements Initializable {
     }
 
 }
-
-
-//TODO: Don't allow duplicate teams (Maybe connect to teamRegister and use the guarantee there)!

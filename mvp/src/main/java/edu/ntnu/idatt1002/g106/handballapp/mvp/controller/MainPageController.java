@@ -1,77 +1,69 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
-import javax.xml.stream.Location;
-import java.awt.event.MouseEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 public class MainPageController implements Initializable {
+    @FXML private TableView<Match> table;
+    @FXML private TableColumn<Match, LocalDateTime> time;
+    @FXML private TableColumn<Match, String> match;
+    @FXML private TableColumn<Match, Integer> field;
 
+    //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
 
-    @FXML private Button SetUpMatches;
-    @FXML private Button FrontPage;
-    @FXML private Button CupList;
-    @FXML private Button RegisterResult;
-
-
-    @FXML private AnchorPane scenePane;
-    Stage stage;
+    private void updateTableView() {
+        time.setCellValueFactory(new PropertyValueFactory<Match, LocalDateTime>("time"));
+        match.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
+        field.setCellValueFactory(new PropertyValueFactory<Match, Integer>("numField"));
+        table.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
+        table.refresh();
+    }
 
     //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        updateTableView();
     }
 
     //TODO: make button log close program
     public void logout(){
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are about to logout");
-        alert.setContentText("Do you want to save before exiting");
-
-        if (alert.showAndWait().get() == ButtonType.OK){
-            stage = (Stage) scenePane.getScene().getWindow();
-            System.out.println("You successfully logged out!");
-            stage.close();
-        }
+        AlertBox.logOut();
     }
 
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(FrontPage.toString(), event);
+        SwitchScene.switchScene("FrontPage", event);
     }
 
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SetUpMatches.toString(), event);
+        SwitchScene.switchScene("SetUpMatches", event);
     }
 
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(CupList.toString(), event);
+        SwitchScene.switchScene("CupList", event);
     }
 
     @FXML
     public void sendToRegisterResult(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(RegisterResult.toString(), event);
+        SwitchScene.switchScene("RegisterResult", event);
     }
 
     @FXML

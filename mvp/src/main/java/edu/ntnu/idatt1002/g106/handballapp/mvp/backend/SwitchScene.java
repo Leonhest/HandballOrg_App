@@ -6,16 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Objects;
 
 public class SwitchScene {
 
-    private static String location;
-
-    public SwitchScene(String location) {
-        SwitchScene.location = location;
+    public SwitchScene() {
     }
 
     public static void switchScene(String location, ActionEvent actionEvent) throws IOException {
@@ -24,9 +20,5 @@ public class SwitchScene {
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(page);
         window.show();
-    }
-
-    public static String getLocation() {
-        return location;
     }
 }
