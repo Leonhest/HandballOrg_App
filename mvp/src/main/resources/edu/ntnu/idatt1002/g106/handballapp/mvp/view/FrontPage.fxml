@@ -42,8 +42,8 @@
             </font>
         </Text>
         <Button fx:id="newTournamentButton" accessibleText="Add new tournament" layoutX="22.0" layoutY="235.0" mnemonicParsing="false" onAction="#newTournament" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
-        <Button fx:id="trondheimTournamentButton" accessibleText="Trondheim open" layoutX="235.0" layoutY="39.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
-        <Button fx:id="askerTournamentButton" accessibleText="Asker open" layoutX="441.0" layoutY="36.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
-        <Button fx:id="osloTournamentButton" accessibleText="Oslo open " layoutX="20.0" layoutY="38.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button fx:id="trondheimTournament" accessibleText="Trondheim open" layoutX="235.0" layoutY="39.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button fx:id="askerTournament" accessibleText="Asker open" layoutX="441.0" layoutY="36.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
+        <Button fx:id="osloTournament" accessibleText="Oslo open " layoutX="20.0" layoutY="38.0" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0" />
     </children>
 </Pane>
