@@ -34,6 +34,8 @@ public class CupListController implements Initializable {
     private TextField phoneNumTextFieldInput;
     @FXML
     private ChoiceBox<String> numPlayerInput;
+    //TODO: could change this choicebox to int and make the code a bit better, but functional right now
+
     @FXML
     private TableView<Team> teamTableView;
     @FXML
@@ -76,40 +78,31 @@ public class CupListController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        Parent viewFrontPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/FrontPage.fxml"));
-        Scene frontPage = new Scene(viewFrontPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(frontPage);
-        window.show();
+        switchScene("FrontPage", actionEvent);
     }
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        Parent viewMatchesPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/SetUpPage.fxml"));
-        Scene matchesPage = new Scene(viewMatchesPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(matchesPage);
-        window.show();
+        switchScene("SetUpPage", actionEvent);
     }
 
     @FXML
     public void goToResultsPage(ActionEvent actionEvent) throws IOException {
-        Parent viewResultsPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/RegisterResultPage.fxml"));
-        Scene resultsPage = new Scene(viewResultsPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(resultsPage);
-        window.show();
+        switchScene("RegisterResultPage", actionEvent);
     }
 
     @FXML
     public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        Parent viewTournamentPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/SetUpTournamentPage.fxml"));
-        Scene tournamentPage = new Scene(viewTournamentPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(tournamentPage);
-        window.show();
+        switchScene("SetUpTournamentPage", actionEvent);
     }
 
+    public void switchScene(String location, ActionEvent actionEvent) throws IOException {
+        Parent viewPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml"));
+        Scene page = new Scene(viewPage);
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(page);
+        window.show();
+    }
     //TODO: Make one FXMLLoader class to take in the pathing!
 
     @FXML
