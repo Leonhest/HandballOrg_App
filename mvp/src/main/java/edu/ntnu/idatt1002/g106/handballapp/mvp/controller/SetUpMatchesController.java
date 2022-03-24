@@ -1,16 +1,50 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SetUpMatchesController implements Initializable {
+
+    List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
+
+
+    @FXML
+    private TableColumn<?, ?> friColumn;
+
+    @FXML
+    private TableColumn<?, ?> mondayColumn;
+
+    @FXML
+    private TableColumn<?, ?> satColumn;
+
+    @FXML
+    private TableColumn<?, ?> sunColumn;
+
+    @FXML
+    private TableColumn<?, ?> thuColumn;
+
+    @FXML
+    private TableColumn<LocalTime, String> timeColumn;
+
+    @FXML
+    private TableColumn<?, ?> tuesdayColumn;
+
+    @FXML
+    private TableColumn<?, ?> wedColumn;
 
     @FXML
     private ChoiceBox<Integer> fieldChoice;
@@ -77,6 +111,26 @@ public class SetUpMatchesController implements Initializable {
         SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
     }
 
+
+    public void submitMatch(){
+        String nameOfTeam1 = teamChoice1.getValue();
+        Team team1 = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                .get(HandballApplication.chosenTournament).getTeamRegister().getTeams().get(nameOfTeam1);
+
+        String nameOfTeam2 = teamChoice2.getValue();
+        Team team2 = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                .get(HandballApplication.chosenTournament).getTeamRegister().getTeams().get(nameOfTeam2);
+
+        int fieldNum = fieldChoice.getValue();
+        LocalDateTime startDate = null;
+        String refereeName = refereeChoice.getValue();
+
+        Match match = new Match(startDate, 1,team1, team2, 0, fieldNum);
+
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                .get(HandballApplication.chosenTournament).addMatch(match);
+    }
+    //TODO: CONNECT TO TEAM REGISTER DATABASE
 
 }
 

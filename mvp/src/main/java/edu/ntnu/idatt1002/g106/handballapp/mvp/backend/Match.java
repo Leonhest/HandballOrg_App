@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.function.Supplier;
 public class Match {
 
     private Map<String, Integer> teamScore;
-    private LocalTime startTime;
+    private LocalDateTime startTime;
     //Fields?
     private int numField;
     private int matchID;
@@ -31,7 +32,7 @@ public class Match {
      * @param matchID       Identifier of the match
      * @param numField      Number of the field to be played on
      */
-    public Match(LocalTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) throws IllegalArgumentException, NullPointerException{
+    public Match(LocalDateTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) throws IllegalArgumentException, NullPointerException{
         Objects.requireNonNull(team1);
         Objects.requireNonNull(team2);
         if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
@@ -83,7 +84,7 @@ public class Match {
      *
      * @return  match start time
      */
-    public LocalTime getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 

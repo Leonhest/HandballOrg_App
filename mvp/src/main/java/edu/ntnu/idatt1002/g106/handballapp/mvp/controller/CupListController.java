@@ -106,7 +106,8 @@ public class CupListController implements Initializable {
                     regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
                     Integer.valueOf(phoneNumTextFieldInput.getText()));
 
-            listTeams.add(team);
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){
