@@ -1,22 +1,14 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
@@ -35,7 +27,6 @@ public class SetUpTournamentController implements Initializable {
     @FXML private DatePicker tournamentStartDateInput;
     //DatePicker for tournamentEndDateInput where user picks end date for the tournament
     @FXML private DatePicker tournamentEndDateInput;
-
 
 
     @Override
@@ -78,7 +69,14 @@ public class SetUpTournamentController implements Initializable {
 
         //on confirmation sends to MainPage
         SwitchScene.switchScene("MainPage", actionEvent);
+
     }
+
+    @FXML
+    private void logOutButton(){
+        AlertBox.logOut();
+    }
+
 }
 
 //TODO: Exception handling for invalid tournament set up
