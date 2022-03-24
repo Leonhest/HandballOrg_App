@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.RegisterResultController">
+<AnchorPane prefHeight="402.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.RegisterResultController">
     <children>
         <MenuBar id="menuBar" prefHeight="27.0" prefWidth="600.0">
             <menus>
@@ -51,19 +51,20 @@
                     <VBox.margin>
                         <Insets left="4.0" top="2.0" />
                     </VBox.margin></Text>
-                <TableView fx:id="matchTable" prefHeight="160.0" prefWidth="600.0">
+                <TableView fx:id="matchTable" prefHeight="158.0" prefWidth="669.0">
                     <columns>
                         <TableColumn fx:id="matchTime" editable="false" prefWidth="123.0" resizable="false" text="Time" />
-                        <TableColumn fx:id="matchPlayers" editable="false" prefWidth="365.0" resizable="false" text="Match" />
-                        <TableColumn fx:id="matchID" editable="false" prefWidth="111.0" resizable="false" text="MatchID" />
+                        <TableColumn fx:id="matchPlayers" editable="false" prefWidth="202.0" resizable="false" text="Match" />
+                        <TableColumn fx:id="matchID" editable="false" prefWidth="173.0" resizable="false" text="MatchID" />
+                  <TableColumn fx:id="scoreID" prefWidth="101.0" text="Score" />
                     </columns>
                 </TableView>
                 <AnchorPane prefHeight="33.0" prefWidth="600.0">
                     <children>
                         <Button fx:id="nextDateButton" mnemonicParsing="false" text="Next date" AnchorPane.rightAnchor="0.0" />
                         <Button fx:id="backToResultsButton" mnemonicParsing="false" onAction="#toFrontPage" text="&lt; Back to results" />
-                        <Label layoutX="245.0" layoutY="8.0" text="MatchId:" />
-                        <TextField fx:id="matchIDInput" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" />
+                  <Label layoutX="245.0" layoutY="8.0" text="MatchId:" />
+                            <TextField fx:id="matchIDInput" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="142.0" prefWidth="600.0">
@@ -75,7 +76,7 @@
                                 <HBox prefHeight="33.0" prefWidth="208.0">
                                     <children>
                                         <Label text="Goals:" />
-                                        <TextField fx:id="winnerGoalsInput" prefHeight="25.0" prefWidth="114.0" />
+                              <TextField fx:id="winnerGoalsInput" prefHeight="25.0" prefWidth="114.0" />
                                     </children>
                                 </HBox>
                             </children>
@@ -93,7 +94,7 @@
                             </children>
                         </VBox>
                         <Button fx:id="submitButton" layoutX="243.0" layoutY="107.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
-                        <Text fx:id="feedBackText" layoutX="37.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="48.0" />
+                    <Text fx:id="feedBackText" layoutX="37.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="48.0" />
                     </children>
                 </AnchorPane>
             </children>

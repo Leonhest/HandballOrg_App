@@ -1,6 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import javafx.collections.FXCollections;
@@ -22,7 +23,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class RegisterResultController implements Initializable {
     private Tournament tournament;//todo must be choosen
@@ -31,30 +34,26 @@ public class RegisterResultController implements Initializable {
     @FXML private TableColumn<Match, LocalTime> matchTime;
     @FXML private TableColumn<Match, String> matchPlayers;
     @FXML private TableColumn<Match, Integer> matchID;
+    @FXML private TableColumn<Match, String> scoreID;
     @FXML private ChoiceBox<String> winnerTeamChoiceBox;
     @FXML private TextField winnerGoalsInput;
     @FXML private ChoiceBox<String> loserTeamChoiceBox;
     @FXML private TextField loserGoalsInput;
+    @FXML private TextField matchIDInput;
     @FXML private Button nextDateButton;
     @FXML private Button backToResultsButton;
     @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
-
-    ObservableList<Match> listTeams = FXCollections.observableArrayList(new Match(LocalDateTime.of(2022, 04, 22, 12, 0), 1,
-            new Team("Asker FC", "Leon", "Asker", 7, 98059037),
-            new Team("Sandefjord Gutta", "Trym", "Vestfold", 10, 98059038),
-            1, 2), new Match(LocalDateTime.of(2022, 04, 22, 13, 0), 2,
-            new Team("Singsaker FC", "Tomas", "Trøndelag", 8, 98059022),
-            new Team("Sandnes", "Eirik", "Rogaland", 9, 9805901),
-            2, 1));
-
+    @FXML
     private void updateTableView(){
-        matchTime.setCellValueFactory(new PropertyValueFactory<Match, LocalTime>("startTime"));
+        matchTime.setCellValueFactory(new PropertyValueFactory<Match, LocalTime>("time"));
         matchPlayers.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
         matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("matchID"));
-
-       /*
+        scoreID.setCellValueFactory(new PropertyValueFactory<Match, String>("finalResult"));
+        matchTable.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
+        matchTable.refresh();
+        /*
        String matchScoreTxt = String.valueOf(new PropertyValueFactory<Match, String>("matchScore"));
 
        feedBackText.setText(matchScoreTxt);
@@ -64,18 +63,22 @@ public class RegisterResultController implements Initializable {
            matchScore.setCellValueFactory(new PropertyValueFactory<Match, String>("matchScore"));
        }
         */
-        matchTable.setItems(listTeams);
     }
 
-    public void registerResult() {
+    @FXML
+    public void registerResult() {//todo: add check for the input - is the input integer?
         if(Integer.parseInt(winnerGoalsInput.getText()) >= Integer.parseInt(loserGoalsInput.getText())) {
-            feedBackText.setText("Result " + winnerTeamChoiceBox.getValue() + " vs. " + loserTeamChoiceBox.getValue() + " Score " + winnerGoalsInput.getText() + "-" + loserGoalsInput.getText());
+            Match match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
+            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
         } else {
             feedBackText.setFill(Color.RED);
             feedBackText.setText("*The winner result must be greater than the loser score*");
         }
+        updateTableView();
     }
 
+    @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("MainPage", event);
     }
@@ -88,10 +91,11 @@ public class RegisterResultController implements Initializable {
         winnerTeamChoiceBox.setValue("Winner");
         loserTeamChoiceBox.setValue("Loser");
 
-        //todo: remove this values when expanding the system
-        winnerTeamChoiceBox.getItems().add("Oslo");
-        winnerTeamChoiceBox.getItems().add("Sandefjord");
-        loserTeamChoiceBox.getItems().add("Tjøme");
-        loserTeamChoiceBox.getItems().add("Singsaker");
+        //todo: show just teams of interest when matchID is chosen
+        List<Team> teams = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister().getListTeams();
+        for (Team team:teams) {
+            winnerTeamChoiceBox.getItems().add(team.getTeamName());
+            loserTeamChoiceBox.getItems().add(team.getTeamName());
+        }
     }
 }
