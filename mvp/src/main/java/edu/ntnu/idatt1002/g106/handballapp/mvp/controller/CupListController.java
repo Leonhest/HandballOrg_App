@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -78,31 +79,24 @@ public class CupListController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        switchScene("FrontPage", actionEvent);
+        SwitchScene.switchScene("FrontPage", actionEvent);
     }
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpPage", actionEvent);
+        SwitchScene.switchScene("SetUpPage", actionEvent);
     }
 
     @FXML
     public void goToResultsPage(ActionEvent actionEvent) throws IOException {
-        switchScene("RegisterResultPage", actionEvent);
+        SwitchScene.switchScene("RegisterResultPage", actionEvent);
     }
 
     @FXML
     public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpTournamentPage", actionEvent);
+        SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
     }
 
-    public void switchScene(String location, ActionEvent actionEvent) throws IOException {
-        Parent viewPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml"));
-        Scene page = new Scene(viewPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(page);
-        window.show();
-    }
     //TODO: Make one FXMLLoader class to take in the pathing!
 
     @FXML

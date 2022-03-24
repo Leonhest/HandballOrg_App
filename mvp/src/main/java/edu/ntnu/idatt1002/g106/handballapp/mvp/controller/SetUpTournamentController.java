@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,11 +77,7 @@ public class SetUpTournamentController implements Initializable {
                 "tournamentEndDate " + tournamentEndDate + "\n" + "SLUTT");
 
         //on confirmation sends to MainPage
-        Parent viewMainPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene mainPage = new Scene(viewMainPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(mainPage);
-        window.show();
+        SwitchScene.switchScene("MainPage", actionEvent);
     }
 }
 
