@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.SetUpMatchesController">
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.SetUpMatchesController">
 
 
 <children>
         <MenuBar id="menuBar" layoutY="7.0" prefHeight="27.0" prefWidth="600.0">
             <menus>
-                <Menu id="frontPage" mnemonicParsing="false" text="Front Page" />
+                <Menu id="frontPage" mnemonicParsing="false" onMenuValidation="#goToFrontPage" text="Front Page" />
                 <Menu id="matches" mnemonicParsing="false" text="Matches">
                     <items>
                         <MenuItem id="viewMatches" mnemonicParsing="false" text="View matches" />
@@ -28,8 +31,11 @@
                 <Menu id="results" mnemonicParsing="false" text="Results">
                     <items>
                         <MenuItem id="viewResults" mnemonicParsing="false" text="View results" />
-                        <MenuItem id="registerResults" mnemonicParsing="false" text="Register results" />
+                        <MenuItem id="registerResults" mnemonicParsing="false" onAction="#goToRegisterResult" text="Register results" />
                     </items>
+               <graphic>
+                  <Button mnemonicParsing="false" text="Button" />
+               </graphic>
                 </Menu>
                 <Menu id="tournament" mnemonicParsing="false" text="Tournament">
                     <items>
@@ -58,33 +64,18 @@
                         <Font size="34.0" />
                     </font>
                 </Text>
-                <DropdownButton layoutX="82.0" layoutY="21.0" AnchorPane.leftAnchor="82.0">
-                    <items>
-                        <MenuItem text="Team 1" />
-                    </items>
-                </DropdownButton>
+
                 <Button id="selectField" layoutX="300.0" layoutY="85.0" mnemonicParsing="false" text="Select field" AnchorPane.bottomAnchor="66.0" AnchorPane.rightAnchor="82.0" />
                 <Button id="selectField" layoutX="260.0" layoutY="155.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Submit" />
-                <DropdownButton layoutX="362.0" layoutY="87.0" AnchorPane.bottomAnchor="66.0" AnchorPane.rightAnchor="162.0">
-                    <items>
-                        <MenuItem text="Field 1" />
-                    </items>
-                </DropdownButton>
-                <DropdownButton layoutX="259.0" layoutY="60.0" AnchorPane.rightAnchor="259.0">
-                    <items>
-                        <MenuItem text="Referee" />
-                    </items>
-                </DropdownButton>
-                <DropdownButton layoutX="411.0" layoutY="21.0" AnchorPane.rightAnchor="82.0">
-                    <items>
-                        <MenuItem text="Team 2" />
-                    </items>
-                </DropdownButton>
+                
                 <DatePicker layoutX="22.0" layoutY="108.0" opacity="0.67" promptText="Wednesday 12:00" AnchorPane.bottomAnchor="66.0" />
                 <Label layoutX="22.0" layoutY="134.0" prefHeight="30.0" prefWidth="101.0" text="-----" />
                 <Button layoutX="123.0" layoutY="134.0" mnemonicParsing="false" text="Select date" />
+            <ChoiceBox fx:id="teamChoice1" layoutX="48.0" layoutY="22.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="teamChoice2" layoutX="388.0" layoutY="23.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="fieldChoice" layoutX="260.0" layoutY="93.0" prefHeight="26.0" prefWidth="80.0" />
+            <ChoiceBox fx:id="refereeChoice" layoutX="412.0" layoutY="148.0" prefWidth="150.0" />
             </children>
         </AnchorPane>
     </children>
 </VBox>
-
