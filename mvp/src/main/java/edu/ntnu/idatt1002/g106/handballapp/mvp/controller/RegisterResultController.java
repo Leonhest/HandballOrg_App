@@ -1,6 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import javafx.collections.FXCollections;
