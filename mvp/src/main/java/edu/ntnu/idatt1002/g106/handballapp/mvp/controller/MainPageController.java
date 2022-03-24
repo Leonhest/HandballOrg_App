@@ -56,22 +56,22 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(FrontPage.toString(), event);
+        SwitchScene.switchScene("FrontPage", event);
     }
 
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SetUpMatches.toString(), event);
+        SwitchScene.switchScene("SetUpMatches", event);
     }
 
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(CupList.toString(), event);
+        SwitchScene.switchScene("CupList", event);
     }
 
     @FXML
     public void sendToRegisterResult(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(RegisterResult.toString(), event);
+        SwitchScene.switchScene("RegisterResult", event);
     }
 
     @FXML

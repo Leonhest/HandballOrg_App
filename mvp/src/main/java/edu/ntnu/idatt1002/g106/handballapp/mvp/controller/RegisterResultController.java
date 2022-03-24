@@ -1,6 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import javafx.event.ActionEvent;
@@ -76,15 +77,7 @@ public class RegisterResultController implements Initializable {
     }
 
     public void toFrontPage(ActionEvent event) throws IOException {
-        //get the new scene
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene viewScene = new Scene(viewParent);
-
-        //information of stage
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewScene);
-        window.show();
+        SwitchScene.switchScene("FrontPage", event);
     }
 
     @Override

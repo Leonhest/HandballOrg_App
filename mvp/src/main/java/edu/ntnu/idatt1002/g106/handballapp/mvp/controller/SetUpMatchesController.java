@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,36 +59,29 @@ public class SetUpMatchesController implements Initializable {
 
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        switchScene("FrontPage", actionEvent);
+        SwitchScene.switchScene("FrontPage", actionEvent);
     }
 
     @FXML
     public void goToCupListPage(ActionEvent actionEvent) throws IOException {
-        switchScene("CupList", actionEvent);
+        SwitchScene.switchScene("CupList", actionEvent);
     }
 
     @FXML
     public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpPage", actionEvent);
+        SwitchScene.switchScene("SetUpPage", actionEvent);
     }
 
     @FXML
     public void goToRegisterResult(ActionEvent actionEvent) throws IOException {
-        switchScene("RegisterResult", actionEvent);
+        SwitchScene.switchScene("RegisterResult", actionEvent);
     }
 
     @FXML
     public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpTournamentPage", actionEvent);
+        SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
     }
 
-    public void switchScene(String location, ActionEvent actionEvent) throws IOException {
-        Parent viewPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml"));
-        Scene page = new Scene(viewPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(page);
-        window.show();
-    }
 
 }
 
