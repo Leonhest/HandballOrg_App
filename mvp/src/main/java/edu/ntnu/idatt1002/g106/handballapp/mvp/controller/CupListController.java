@@ -131,7 +131,7 @@ public class CupListController implements Initializable {
     @FXML
     public void resetInfo(){
         teamNameTextFieldInput.setText("");
-        teamLeaderColumn.setText("");
+        teamLeaderTextFieldInput.setText("");
         regionTextFieldInput.setText("");
         phoneNumTextFieldInput.setText("");
         numPlayerInput.setValue("7");
