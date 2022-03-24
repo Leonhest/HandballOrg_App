@@ -44,6 +44,11 @@ public class Tournament {
         this.numTeams = numTeams;
         this.tournamentName = tournamentName;
     }
+
+    public String getTournamentName() {
+        return tournamentName;
+    }
+
     /**
      * This method adds a match to the list of matches
      * @param match Match to be added
