@@ -15,9 +15,11 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
+
     //Textfield for TournamentName where user sets the name of the tournament
     @FXML private TextField tournamentNameTextFieldInput;
     //Textfield for TournamentPlace where user sets the place of the tournament
@@ -72,13 +74,14 @@ public class SetUpTournamentController implements Initializable {
                 "tournamentPlace " + tournamentPlace + "\n" + "tournamentNumFields " + tournamentNumFields + "\n" +
                 "tournamentNumTeams " + tournamentNumTeams + "\n" + "tournamentStartDate " + tournamentStartDate +
                 "tournamentEndDate " + tournamentEndDate + "\n" + "SLUTT");
+
+        //on confirmation sends to MainPage
         Parent viewMainPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
         Scene mainPage = new Scene(viewMainPage);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(mainPage);
         window.show();
     }
-
 }
 
 //TODO: Exception handling for invalid tournament set up
