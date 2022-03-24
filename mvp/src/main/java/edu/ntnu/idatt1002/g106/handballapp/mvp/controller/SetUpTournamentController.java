@@ -80,3 +80,5 @@ public class SetUpTournamentController implements Initializable {
     }
 
 }
+
+//TODO: Exception handling for invalid tournament set up
