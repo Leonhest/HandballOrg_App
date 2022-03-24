@@ -5,10 +5,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 public class AlertBox {
 
 
-    public static void logOut() {
+
+    public static boolean logOut() {
+        boolean logoutConfirm = false;
         AnchorPane scenePane = new AnchorPane();
         Stage stage;
 
@@ -20,8 +23,12 @@ public class AlertBox {
         if (alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) scenePane.getScene().getWindow();
             System.out.println("You successfully logged out!");
+            logoutConfirm = true;
             stage.close();
         }
+        return logoutConfirm;
     }
+
+    //TODO: More methods to come
 }
 
