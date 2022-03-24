@@ -19,11 +19,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RegisterResultController implements Initializable {
     private Tournament tournament;//todo must be choosen
 
+    private List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
     @FXML private TableView<Match> matchTable;
     @FXML private TableColumn<Match, LocalTime> matchTime;
     @FXML private TableColumn<Match, String> matchPlayers;
@@ -53,7 +55,7 @@ public class RegisterResultController implements Initializable {
      */
 
     private void addDataMVP() {
-        this.tournament = new Tournament(1, LocalDate.now(), LocalDate.of(2022, 04, 22), "Layout1", "Asker", 3, 10);
+        this.tournament = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.of(2022, 04, 22), "Layout1", "Asker", 3, 10);
         Team team1 = new Team("Oslo", "Eirik", "Oslo", 13, 95876522);
         Team team2 = new Team("Sandefjord", "Tomas", "Oslo", 11, 95876521);
         tournament.addMatch(new Match(LocalTime.of(12, 0), 1, team1, team2, 1, 1));
@@ -73,6 +75,9 @@ public class RegisterResultController implements Initializable {
             feedBackText.setFill(Color.RED);
             feedBackText.setText("*The winner result must be greater than the loser score*");
         }
+
+        //Match match = new Match()
+        //HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getResults().addMatchToResults();
     }
 
     public void toFrontPage(ActionEvent event) throws IOException {

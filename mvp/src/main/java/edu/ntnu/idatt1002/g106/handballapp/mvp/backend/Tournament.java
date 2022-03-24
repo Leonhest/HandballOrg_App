@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class Tournament {
     private int tournamentID;
-    private List<Match> tournament;
+    private List<Match> matchList;
     private LocalDate startDate;
     private LocalDate endDate;
     private TeamRegister teamRegister;
@@ -20,6 +20,7 @@ public class Tournament {
     private String tournamentPlace;
     private int numFields;
     private int numTeams;
+    private String tournamentName;
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital
@@ -28,10 +29,11 @@ public class Tournament {
      * @param startDate    The date for which the tournament starts, represented as a LocalDate
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
-    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate, String layout, String tournamentPlace, int numFields, int numTeams) throws IllegalArgumentException{
+    public Tournament(int tournamentID, String tournamentName, LocalDate startDate, LocalDate endDate, String layout,
+                      String tournamentPlace, int numFields, int numTeams) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
-        this.tournament = new ArrayList<>();
+        this.matchList = new ArrayList<>();
         this.teamRegister = new TeamRegister();
         this.startDate = startDate;
         this.endDate = endDate;
@@ -40,6 +42,7 @@ public class Tournament {
         this.tournamentPlace = tournamentPlace;
         this.numFields = numFields;
         this.numTeams = numTeams;
+        this.tournamentName = tournamentName;
     }
     /**
      * This method adds a match to the list of matches
@@ -47,10 +50,10 @@ public class Tournament {
      * @return      Status whether the match was added, if it's already in the list it returns false, if it's added true
      */
     public boolean addMatch(Match match){
-        if(tournament.contains(match) || match == null){
+        if(matchList.contains(match) || match == null){
             return false;
         }
-        return tournament.add(match);
+        return matchList.add(match);
     }
     /**
      * This method removes a match from the list based on a given matchID
@@ -58,14 +61,14 @@ public class Tournament {
      * @return        Status on whether it was successfully removed, true if it was, false if it wasn't
      */
     public boolean removeMatchByMatchID(int matchID){
-        return tournament.removeIf(m -> m.getMatchID() == matchID);
+        return matchList.removeIf(m -> m.getMatchID() == matchID);
     }
     /**
      * This method retrieves the tournament list of matches.
      * @return List of matches registered in the tournament
      */
-    public List<Match> getTournament() {
-        return tournament;
+    public List<Match> getMatchList() {
+        return matchList;
     }
 
     /**
@@ -111,7 +114,7 @@ public class Tournament {
     @Override
     public String toString() {
         return "Tournament{" +
-                "tournament=" + tournament +
+                "tournament=" + matchList +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", participatingTeams=" +
