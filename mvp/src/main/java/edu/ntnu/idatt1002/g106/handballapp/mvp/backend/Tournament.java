@@ -60,6 +60,18 @@ public class Tournament {
         return tournament;
     }
 
+    public Match getMatchByID(int matchID) {
+        boolean found = false;
+        int index = 0;
+        while (found && index < tournament.size()) {
+            if (tournament.get(index).getMatchID() == matchID) {
+                return tournament.get(index);
+            }
+            index++;
+        }
+        return null;
+    }
+
     /**
      * This method retrieves the tournament's identification number
      * @return Tournament's identification number, represented as an int
