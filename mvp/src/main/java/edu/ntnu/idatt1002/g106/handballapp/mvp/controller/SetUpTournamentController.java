@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -68,6 +69,11 @@ public class SetUpTournamentController implements Initializable {
         int tournamentNumTeams = tournamentNumTeamsInput.getValue();
         LocalDate tournamentStartDate = tournamentStartDateInput.getValue();
         LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
+
+        //TODO Add tournamentID check
+        Tournament tournament = new Tournament(0, tournamentStartDate, tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+        HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+
         System.out.println("tournamentLayout " + tournamentLayout + "\n" + "tournamentName " + tournamentName + "\n" +
                 "tournamentPlace " + tournamentPlace + "\n" + "tournamentNumFields " + tournamentNumFields + "\n" +
                 "tournamentNumTeams " + tournamentNumTeams + "\n" + "tournamentStartDate " + tournamentStartDate +
@@ -77,6 +83,7 @@ public class SetUpTournamentController implements Initializable {
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(mainPage);
         window.show();
+
     }
 
 }

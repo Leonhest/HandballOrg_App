@@ -16,6 +16,10 @@ public class Tournament {
     private LocalDate endDate;
     private TeamRegister teamRegister;
     private Results results;
+    private String layout;
+    private String tournamentPlace;
+    private int numFields;
+    private int numTeams;
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital
@@ -24,7 +28,7 @@ public class Tournament {
      * @param startDate    The date for which the tournament starts, represented as a LocalDate
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
-    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
+    public Tournament(int tournamentID, LocalDate startDate, LocalDate endDate, String layout, String tournamentPlace, int numFields, int numTeams) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
         this.tournament = new ArrayList<>();
@@ -32,6 +36,10 @@ public class Tournament {
         this.startDate = startDate;
         this.endDate = endDate;
         this.results = new Results();
+        this.layout = layout;
+        this.tournamentPlace = tournamentPlace;
+        this.numFields = numFields;
+        this.numTeams = numTeams;
     }
     /**
      * This method adds a match to the list of matches

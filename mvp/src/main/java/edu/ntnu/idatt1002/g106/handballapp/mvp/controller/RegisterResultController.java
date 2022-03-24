@@ -53,7 +53,7 @@ public class RegisterResultController implements Initializable {
      */
 
     private void addDataMVP() {
-        this.tournament = new Tournament(1, LocalDate.now(), LocalDate.of(2022, 04, 22));
+        this.tournament = new Tournament(1, LocalDate.now(), LocalDate.of(2022, 04, 22), "Layout1", "Asker", 3, 10);
         Team team1 = new Team("Oslo", "Eirik", "Oslo", 13, 95876522);
         Team team2 = new Team("Sandefjord", "Tomas", "Oslo", 11, 95876521);
         tournament.addMatch(new Match(LocalTime.of(12, 0), 1, team1, team2, 1, 1));
