@@ -4,14 +4,11 @@ import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.TournamentRegister;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -38,7 +35,6 @@ public class SetUpTournamentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
         tournamentLayoutInput.getItems().add(0, "Layout 1");
         tournamentLayoutInput.getItems().add(1, "Layout 2");
@@ -77,13 +73,13 @@ public class SetUpTournamentController implements Initializable {
             //todo: add on front page
 
             SwitchScene.switchScene("MainPage", actionEvent);
-
-
         }
 
     @FXML
     private void logOutButton(){
-        AlertBox.logOut();
+        if (AlertBox.logOut()){
+            Platform.exit();
+        }
     }
 }
 

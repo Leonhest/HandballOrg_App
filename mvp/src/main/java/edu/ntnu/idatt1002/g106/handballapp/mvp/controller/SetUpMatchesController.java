@@ -97,7 +97,7 @@ public class SetUpMatchesController implements Initializable {
     }
 
     @FXML
-    public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
+    public void goToSetUpMatchesPage(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("SetUpPageMatches", actionEvent);
     }
 
