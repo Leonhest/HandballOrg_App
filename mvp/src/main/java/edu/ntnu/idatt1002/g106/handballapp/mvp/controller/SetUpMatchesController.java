@@ -1,28 +1,33 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SetUpMatchesController implements Initializable {
 
     List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
+    TeamRegister tournamentTeamRegister = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister();
 
+    Pattern hourMinPat = Pattern.compile("^[0-1]\\d:[0-5]\\d${5}");
+    //TODO: Fix regex so there can't be 69 minutes
 
     @FXML
     private TableColumn<?, ?> friColumn;
@@ -60,6 +65,15 @@ public class SetUpMatchesController implements Initializable {
     @FXML
     private ChoiceBox<String> teamChoice2;
 
+    @FXML
+    private DatePicker dateField;
+
+    @FXML
+    private TextField startTime;
+
+    @FXML
+    private Text errorMessage;
+
     /**
      * {@inheritDoc}
      * @param url
@@ -71,24 +85,23 @@ public class SetUpMatchesController implements Initializable {
         for(int i = 0; i < 5; i++){
             fieldChoice.getItems().add(i,i+1);
         }
+        fieldChoice.setValue(1);
 
         //Connecting a database to here wouldn't be too bad
-        teamChoice1.getItems().add("Sandefjord");
-        teamChoice1.getItems().add("Asker");
-        teamChoice1.getItems().add("Tjøme");
-        teamChoice1.getItems().add("Trondheim");
-        teamChoice1.setValue("Team 1");
+        for(Team team : tournamentTeamRegister.getListTeams()){
+            teamChoice1.getItems().add(team.getTeamName());
+            teamChoice2.getItems().add(team.getTeamName());
+        }
 
-        teamChoice2.getItems().add("Sandefjord");
-        teamChoice2.getItems().add("Asker");
-        teamChoice2.getItems().add("Tjøme");
-        teamChoice2.getItems().add("Trondheim");
+        teamChoice1.setValue("Team 1");
         teamChoice2.setValue("Team 2");
 
         refereeChoice.getItems().add("Eirik Dommerstad");
         refereeChoice.getItems().add("Hans Magne Asheim");
         refereeChoice.getItems().add("Leon Hesthaug");
         refereeChoice.setValue("Referee");
+
+
 
     }
 
@@ -105,10 +118,27 @@ public class SetUpMatchesController implements Initializable {
                 .get(HandballApplication.chosenTournament).getTeamRegister().getTeams().get(nameOfTeam2);
 
         int fieldNum = fieldChoice.getValue();
-        LocalDateTime startDate = null;
+
+        try{
+            Matcher m = hourMinPat.matcher(startTime.getCharacters());
+            if(!m.matches()) throw new IllegalArgumentException("**Hour and minutes format is invalid**");
+            if(dateField.getValue() == null) throw new IllegalArgumentException("Please enter a correct date!");
+        }
+        catch (IllegalArgumentException e){
+            errorMessage.setText(e.getMessage());
+            return;
+        }
+        errorMessage.setText("");
+
+        System.out.println(dateField.getValue().getMonth());
+
+        LocalDateTime startDate = LocalDateTime.of(dateField.getValue().getYear(), dateField.getValue().getMonth(),
+                dateField.getValue().getDayOfMonth(), createHourMinList(startTime.getCharacters()).get(0),
+                createHourMinList(startTime.getCharacters()).get(1));
+
         String refereeName = refereeChoice.getValue();
 
-        Match match = new Match(startDate, 1,team1, team2, 0, fieldNum);
+        Match match = new Match(startDate, 1,team1, team2, matchList.size() + 1, fieldNum);
 
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                 .get(HandballApplication.chosenTournament).addMatch(match);
@@ -172,6 +202,18 @@ public class SetUpMatchesController implements Initializable {
     }
     //TODO: CONNECT TO TEAM REGISTER DATABASE
 
+    /**
+     * This method takes in a string of format HH:MM and converts it to a list (index 2) of hours and minutes as ints.
+     * @return                    List of hours and minutes, represented as Integers
+     * @param stringToBeConverted Character sequence of HH:MM.
+     */
+    private List<Integer> createHourMinList(CharSequence stringToBeConverted){
+        return Arrays.stream(stringToBeConverted.toString().split(":"))
+                .map(timeUnit -> Integer.valueOf(timeUnit)).toList();
+    }
+
 }
 
 //TODO: Link better. Currently the menu bar, makes the linking difficult. We could always replace with buttons
+//TODO: link back to matches is broken.
+//TODO: catching exceptions when submitting immediately is also broken
