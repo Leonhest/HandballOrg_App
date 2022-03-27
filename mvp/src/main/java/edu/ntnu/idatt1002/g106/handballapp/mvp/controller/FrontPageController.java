@@ -33,7 +33,6 @@ public class FrontPageController implements Initializable {
 
     @FXML
     public void newTournament(ActionEvent actionEvent) throws IOException {
-
         SwitchScene.switchScene("SetUpTournament", actionEvent);
     }
 

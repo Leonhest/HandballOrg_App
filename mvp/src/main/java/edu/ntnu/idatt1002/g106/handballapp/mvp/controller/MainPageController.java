@@ -52,6 +52,11 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
+    public void toMainPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpMatches", event);
     }

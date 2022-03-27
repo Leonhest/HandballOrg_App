@@ -1,9 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -78,11 +76,6 @@ public class RegisterResultController implements Initializable {
         updateTableView();
     }
 
-    @FXML
-    public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("MainPage", event);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Configuring the table
@@ -97,5 +90,32 @@ public class RegisterResultController implements Initializable {
             winnerTeamChoiceBox.getItems().add(team.getTeamName());
             loserTeamChoiceBox.getItems().add(team.getTeamName());
         }
+    }
+
+    @FXML
+    public void toFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("FrontPage", event);
+    }
+
+
+    public void toMainPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    public void toResults(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("RegisterResults", event);
+    }
+
+    public void toCupList(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("CupList", event);
+    }
+
+    public void toSetUpMatches(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    public void logOutButton() {
+        AlertBox.logOut();
+        Platform.exit();
     }
 }

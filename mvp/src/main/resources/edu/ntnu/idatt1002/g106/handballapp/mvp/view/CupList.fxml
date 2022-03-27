@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.CupListController">
+<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.CupListController">
     <children>
-      <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="398.0">
+      <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="315.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#goToFrontPage" text="Front Page" />
-            <Button mnemonicParsing="false" onAction="#goToMatchesPage" text="Matches" />
-            <Button mnemonicParsing="false" onAction="#goToResultsPage" text="Results" />
-            <Button minWidth="0.0" mnemonicParsing="false" onAction="#goToTournamentPage" prefHeight="26.0" text="Tournament" />
+            <Button minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button mnemonicParsing="false" onAction="#toResults" text="Results" />
+            <Button mnemonicParsing="false" onAction="#toCupList" text="Teams" />
+            <Button mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
         </buttons>
       </ButtonBar>
         <TableView fx:id="teamTableView" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
@@ -35,7 +29,7 @@
          </columnResizePolicy>
         </TableView>
         <ScrollBar layoutX="593.0" layoutY="35.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
-        <TextField layoutX="434.0" layoutY="8.0" opacity="0.5" prefHeight="26.0" prefWidth="286.0" text="Search" AnchorPane.rightAnchor="7.0">
+        <TextField layoutX="434.0" layoutY="8.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>

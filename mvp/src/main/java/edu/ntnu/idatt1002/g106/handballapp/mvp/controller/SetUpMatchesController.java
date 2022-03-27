@@ -1,8 +1,10 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -86,32 +88,6 @@ public class SetUpMatchesController implements Initializable {
     }
 
 
-    @FXML
-    public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("MainPage", actionEvent);
-    }
-
-    @FXML
-    public void goToCupListPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("CupList", actionEvent);
-    }
-
-    @FXML
-    public void goToSetUpMatchesPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpPageMatches", actionEvent);
-    }
-
-    @FXML
-    public void goToRegisterResult(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("RegisterResult", actionEvent);
-    }
-
-    @FXML
-    public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
-    }
-
-
     public void submitMatch(){
         String nameOfTeam1 = teamChoice1.getValue();
         Team team1 = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
@@ -129,6 +105,35 @@ public class SetUpMatchesController implements Initializable {
 
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                 .get(HandballApplication.chosenTournament).addMatch(match);
+    }
+
+    @FXML
+    public void goToFrontPage(ActionEvent actionEvent) throws IOException {
+        SwitchScene.switchScene("FrontPage", actionEvent);
+    }
+
+    @FXML
+    public void goToCupListPage(ActionEvent actionEvent) throws IOException {
+        SwitchScene.switchScene("CupList", actionEvent);
+    }
+
+    @FXML
+    public void goToSetUpMatchesPage(ActionEvent actionEvent) throws IOException {
+        SwitchScene.switchScene("SetUpPageMatches", actionEvent);
+    }
+
+    @FXML
+    public void goToRegisterResult(ActionEvent actionEvent) throws IOException {
+        SwitchScene.switchScene("RegisterResult", actionEvent);
+    }
+
+    public void goMainPage(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    public void LogOutButton(){
+        AlertBox.logOut();
+        Platform.exit();
     }
     //TODO: CONNECT TO TEAM REGISTER DATABASE
 
