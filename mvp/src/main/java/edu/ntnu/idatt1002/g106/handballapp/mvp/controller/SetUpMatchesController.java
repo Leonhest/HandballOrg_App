@@ -60,6 +60,11 @@ public class SetUpMatchesController implements Initializable {
     @FXML
     private ChoiceBox<String> teamChoice2;
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Choice box for the fields
@@ -87,7 +92,9 @@ public class SetUpMatchesController implements Initializable {
 
     }
 
-
+    /**
+     * method for when a new match is to be created
+     */
     public void submitMatch(){
         String nameOfTeam1 = teamChoice1.getValue();
         Team team1 = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
@@ -107,30 +114,58 @@ public class SetUpMatchesController implements Initializable {
                 .get(HandballApplication.chosenTournament).addMatch(match);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void goToFrontPage(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("FrontPage", actionEvent);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void goToCupListPage(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("CupList", actionEvent);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void goToSetUpMatchesPage(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("SetUpPageMatches", actionEvent);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void goToRegisterResult(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("RegisterResult", actionEvent);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void goMainPage(ActionEvent event) throws IOException{
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * method for log out
+     */
     public void LogOutButton(){
         AlertBox.logOut();
         Platform.exit();

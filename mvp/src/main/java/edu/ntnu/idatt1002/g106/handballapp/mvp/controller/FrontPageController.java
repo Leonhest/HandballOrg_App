@@ -29,6 +29,11 @@ public class FrontPageController implements Initializable {
 
     @FXML HBox HBoxContainer;
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //hahaha you found the ester egg, this method is useless in this class in the MVP
@@ -41,11 +46,20 @@ public class FrontPageController implements Initializable {
         }
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void newTournament(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("SetUpTournament", actionEvent);
     }
 
+    /**
+     * method that created a new button when a new tournament is created
+     * @param tournamentName name of the tournament
+     */
     @FXML
     public void createButtonForTournament(String tournamentName) {
         Button button = new Button(tournamentName);
@@ -63,6 +77,11 @@ public class FrontPageController implements Initializable {
     }
 
     //TODO: Fix the linking between tournaments and the graphic front page. Link icon to a specific tournament!!!
+    /**
+     * method that sends program to specific screen
+     * @param actionEvent button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toMainPage(ActionEvent actionEvent) throws IOException {
         Button selectedButton = (Button) actionEvent.getSource();
