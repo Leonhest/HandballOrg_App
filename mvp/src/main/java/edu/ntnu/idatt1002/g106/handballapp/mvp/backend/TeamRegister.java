@@ -110,7 +110,10 @@ public class TeamRegister {
          return teams;
     }
 
-
+    /**
+     * method that gets a list of all teams
+     * @return list with all teams
+     */
     public List<Team> getListTeams() {
         System.out.println("Size team " + teams.size());
         Iterator<Team> teamIterator = teams.values().iterator();
@@ -121,6 +124,10 @@ public class TeamRegister {
         return teams;
     }
 
+    /**
+     * toString method for returning all TeamRegister information
+     * @return all TeamRegister information as a String
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

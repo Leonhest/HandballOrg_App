@@ -35,16 +35,24 @@ public class Tournament {
         this.tournamentID = tournamentID;
         this.matchList = new ArrayList<>();
         this.teamRegister = new TeamRegister();
+        if(endDate == null || startDate == null || tournamentName == null || tournamentPlace == null) throw new NullPointerException("Fill in all fields");
         this.startDate = startDate;
+        if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be before start date");
         this.endDate = endDate;
         this.results = new Results();
         this.layout = layout;
+        if(tournamentPlace.isBlank() || tournamentPlace.isEmpty()) throw new IllegalArgumentException("Tournament place is invalid!");
         this.tournamentPlace = tournamentPlace;
         this.numFields = numFields;
         this.numTeams = numTeams;
+        if(tournamentName.isBlank() || tournamentName.isEmpty()) throw new IllegalArgumentException("Tournament name is invalid!");
         this.tournamentName = tournamentName;
     }
 
+    /**
+     * getMethod that gets Tournament Name
+     * @return tournament name as a String
+     */
     public String getTournamentName() {
         return tournamentName;
     }
@@ -116,6 +124,10 @@ public class Tournament {
         return results;
     }
 
+    /**
+     * toString method for returning all Tournament information
+     * @return all Tournament information as a String
+     */
     @Override
     public String toString() {
         return "Tournament{" +
