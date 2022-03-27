@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,6 +70,7 @@ public class HandballApplication extends Application{
                     4, 14, 9, 0), 1, admin.getTournamentRegister().getTournaments().get(i).getTeamRegister()
                     .findTeamBasedOnTeamName("Asker Lions"), admin.getTournamentRegister().getTournaments().get(i)
                     .getTeamRegister().findTeamBasedOnTeamName("Bergen Bulls"), 1, 3));
+
         }
     }
 
