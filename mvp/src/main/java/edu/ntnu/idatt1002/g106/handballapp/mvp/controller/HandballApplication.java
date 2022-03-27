@@ -20,11 +20,20 @@ public class HandballApplication extends Application{
     //static Tournament tournament= HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament);//todo: taken in use - can simplify much code
 
 
+    /**
+     * main method that starts the application
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
 
+    /**
+     * stating method with starting screen
+     * @param stage starting stage
+     * @throws Exception when path not found
+     */
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/FrontPage.fxml"));
@@ -34,17 +43,28 @@ public class HandballApplication extends Application{
         stage.show();
     }
 
+    /**
+     * {@inheritDoc}
+     * @throws Exception
+     */
     @Override
     public void init() throws Exception{
         super.init();
         startData();
     }
 
+    /**
+     * {@inheritDoc}
+     * @throws Exception
+     */
     @Override
     public void stop() throws Exception{
         super.stop();
     }
 
+    /**
+     * method for all stating hardcoded data
+     */
     private static void startData(){
         Administrator admin = new Administrator(new User("Leon", "Hest", "123", "Leon.hesthaug@gmail.com"));
         adminList.add(admin);
@@ -74,10 +94,19 @@ public class HandballApplication extends Application{
         }
     }
 
+    /**
+     * method that sets tournament to a specific tournament ID
+     * @param tournamentID id of the wanted tournament
+     */
     public static void setChosenTournament(int tournamentID){
         chosenTournament = tournamentID;
     }
 
+    /**
+     * method that removes spaces when needed, used for creating an id for tournaments
+     * @param text the text that id is going to bee created for
+     * @return resultWord
+     */
     public static String removeSpaces(String text) {
         String[] splitWord = text.split(" ");
         String resultWord = "";
@@ -87,12 +116,17 @@ public class HandballApplication extends Application{
         return resultWord;
     }
 
-    public static int findID(String tornamentName) {
+    /**
+     * method that finds the id of a tournament
+     * @param tournamentName tournament that we want to find ID for
+     * @return ID as an int
+     */
+    public static int findID(String tournamentName) {
         //todo: remove comments when sure of code
-        //System.out.println("Selected button (EqulasIgnoreCase) " + tornamentName);
+        //System.out.println("Selected button (EqulasIgnoreCase) " + tournamentName);
         //System.out.println("List (EqulasIgnoreCase) " + removeSpaces(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(0).getTournamentName()));
-        //System.out.println("Size " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tornamentName)).collect(Collectors.toList()).size());
-        return HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tornamentName)).collect(Collectors.toList()).get(0).getTournamentID();
+        //System.out.println("Size " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tournamentName)).collect(Collectors.toList()).size());
+        return HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tournamentName)).collect(Collectors.toList()).get(0).getTournamentID();
 
     }
 }
