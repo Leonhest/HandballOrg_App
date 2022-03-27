@@ -15,6 +15,7 @@ public class SwitchScene {
     }
 
     public static void switchScene(String location, ActionEvent actionEvent) throws IOException {
+        System.out.println("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml");
         Parent viewPage = FXMLLoader.load(Objects.requireNonNull(SwitchScene.class.getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml")));
         Scene page = new Scene(viewPage);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
