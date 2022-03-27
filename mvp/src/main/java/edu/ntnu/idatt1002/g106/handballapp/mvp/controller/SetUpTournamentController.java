@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
 
-    private Tournament tournament;
+    private Tournament tournament = null;
 
     @FXML
     private TextField tournamentNameTextFieldInput;
@@ -65,20 +65,22 @@ public class SetUpTournamentController implements Initializable {
             LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
 
             //TODO Add tournamentID check
-            tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+            try{
+                tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
+                        tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+            }
+            catch (Exception e){
+                SwitchScene.switchScene("FrontPage", actionEvent);
+            }
 
-            HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
-            HandballApplication.setChosenTournament(tournament.getTournamentID());
-
-            //todo: add on front page
-
-            SwitchScene.switchScene("MainPage", actionEvent);
+                HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+                HandballApplication.setChosenTournament(tournament.getTournamentID());
+                SwitchScene.switchScene("MainPage", actionEvent);
         }
 
     @FXML
-    private  void toMainPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("MainPage", event);
+    private  void toFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("FrontPage", event);
     }
 
     @FXML
