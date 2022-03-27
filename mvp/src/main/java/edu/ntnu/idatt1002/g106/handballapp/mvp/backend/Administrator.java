@@ -1,8 +1,4 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
-
-
-import java.util.Objects;
-
 /**
  * This is a class that creates an administrator
  */

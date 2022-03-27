@@ -1,8 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
-import javafx.scene.control.Button;
-
-import java.awt.event.ActionEvent;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +13,7 @@ import java.util.function.Supplier;
 public class Match {
 
     private Map<String, Integer> teamScore;
-    private LocalTime startTime;
+    private LocalDateTime startTime;
     //Fields?
     private int numField;
     private int matchID;
@@ -36,7 +34,7 @@ public class Match {
      * @param matchID       Identifier of the match
      * @param numField      Number of the field to be played on
      */
-    public Match(LocalTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) throws IllegalArgumentException, NullPointerException{
+    public Match(LocalDateTime startTime, int roundNum, Team team1, Team team2, int matchID, int numField) throws IllegalArgumentException, NullPointerException{
         Objects.requireNonNull(team1);
         Objects.requireNonNull(team2);
         if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
@@ -54,10 +52,18 @@ public class Match {
         this.players = getPlayers();
     }
 
+    /**
+     * a getMethod for getting the first team registered
+     * @return team1 as a team object
+     */
     public Team getTeam1() {
         return team1;
     }
 
+    /**
+     * a getMethod for getting the second team registered
+     * @return team2 as a team object
+     */
     public Team getTeam2() {
         return team2;
     }
@@ -91,7 +97,7 @@ public class Match {
      *
      * @return  match start time
      */
-    public LocalTime getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
@@ -148,15 +154,31 @@ public class Match {
         return null;
     }
 
+    /**
+     * a getMethod for getting teams names
+     * @return teams names as a vs String format
+     */
     public String getPlayers() {
         return team1.getTeamName() + " vs. " + team2.getTeamName();
     }
 
 
+    /**
+     * method for getting start time
+     * @return getting start time
+     */
+    public LocalTime getTime() {
+        return startTime.toLocalTime();
+    }
+
 //    public Team getTeamBasedOnScore(int score){
 //
 //    }
 
+    /**
+     * toString method for returning all match information
+     * @return all match information as a String
+     */
     @Override
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +

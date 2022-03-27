@@ -1,7 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This is a class forming the structure of a team register. It, therefore, has a map which allows teams
@@ -9,7 +8,11 @@ import java.util.Map;
  * and the list.
  */
 public class TeamRegister {
-    private Map<String, Team> teams = new HashMap<>();
+    private Map<String, Team> teams;
+
+    public TeamRegister() {
+        this.teams = new HashMap<>();
+    }
 
     /**
      * This method adds a team to the map, as long as it doesn't already exist
@@ -18,7 +21,7 @@ public class TeamRegister {
      */
     public boolean addTeam(Team team){
         if(team == null) return false;
-        if(!teams.containsKey(team.getTeamName())){
+        if(!teams.containsKey(team.getTeamName())){//todo: can be added to if statement above
             teams.put(team.getTeamName(), team);
             return true;
         }
@@ -98,14 +101,33 @@ public class TeamRegister {
         }
     }
 
+    //todo: should be List?
     /**
      * This method retrieves the map of teams.
      * @return Map of teams
      */
     public Map<String, Team> getTeams() {
+         return teams;
+    }
+
+    /**
+     * method that gets a list of all teams
+     * @return list with all teams
+     */
+    public List<Team> getListTeams() {
+        System.out.println("Size team " + teams.size());
+        Iterator<Team> teamIterator = teams.values().iterator();
+        List<Team> teams = new ArrayList<>();
+        while (teamIterator.hasNext()) {
+            teams.add(teamIterator.next());
+        }
         return teams;
     }
 
+    /**
+     * toString method for returning all TeamRegister information
+     * @return all TeamRegister information as a String
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

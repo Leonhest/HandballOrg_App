@@ -1,39 +1,121 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.AlertBox;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
+    @FXML private TableView<Match> table;
+    @FXML private TableColumn<Match, LocalDateTime> time;
+    @FXML private TableColumn<Match, String> match;
+    @FXML private TableColumn<Match, Integer> field;
 
-    @FXML
-     private AnchorPane scenePane;
-    Stage stage;
+    //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
+
+    /**
+     * method that updates MainPages tableView
+     */
+    private void updateTableView() {
+        time.setCellValueFactory(new PropertyValueFactory<Match, LocalDateTime>("time"));
+        match.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
+        field.setCellValueFactory(new PropertyValueFactory<Match, Integer>("numField"));
+        table.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
+        table.refresh();
+    }
 
     //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
+
+    /**
+     * {@inheritDoc}
+      * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        updateTableView();
     }
 
     //TODO: make button log close program
+
+    /**
+     * method for log out
+     */
     public void logout(){
+        AlertBox.logOut();
+    }
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are about to logout");
-        alert.setContentText("Do you want to save before exiting");
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void sendToFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("FrontPage", event);
+    }
 
-        if (alert.showAndWait().get() == ButtonType.OK){
-            stage = (Stage) scenePane.getScene().getWindow();
-            System.out.println("You successfully logged out!");
-            stage.close();
-        }
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void toMainPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void sendToSetUpMatches(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void sendToRegisterTeam(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("CupList", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void sendToRegisterResult(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("RegisterResult", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void SelectDate(ActionEvent event) {
+
     }
 }

@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class CupListController implements Initializable {
 
+    //todo: change menu to button menu
     @FXML
     private Text feedbackText;
     @FXML
@@ -48,23 +50,28 @@ public class CupListController implements Initializable {
     private TableColumn<Team, String> regionColumn;
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
-    @FXML
-    private Button newTeamConfirm;
 
-    ObservableList<Team> listTeams = FXCollections.observableArrayList(
-            new Team("Asker FC", "Leon", "Asker", 7, 98059037),
-            new Team("Sandefjord Gutta", "Trym", "Vestfold", 10, 98059038)
-            );
-
+    /**
+     * method for updating the table view for new teams registries
+     */
     private void updateTableView(){
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
         numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
         teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
         phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
-        teamTableView.setItems(listTeams);
+        //System.out.println("Size " + listTeams.size());
+        teamTableView.setItems(FXCollections.observableArrayList(
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                        .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
+        teamTableView.refresh();
     }
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -76,35 +83,11 @@ public class CupListController implements Initializable {
         updateTableView();
     }
 
-    @FXML
-    public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        switchScene("FrontPage", actionEvent);
-    }
-
-    @FXML
-    public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpPage", actionEvent);
-    }
-
-    @FXML
-    public void goToResultsPage(ActionEvent actionEvent) throws IOException {
-        switchScene("RegisterResultPage", actionEvent);
-    }
-
-    @FXML
-    public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        switchScene("SetUpTournamentPage", actionEvent);
-    }
-
-    public void switchScene(String location, ActionEvent actionEvent) throws IOException {
-        Parent viewPage = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/" + location + ".fxml"));
-        Scene page = new Scene(viewPage);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(page);
-        window.show();
-    }
     //TODO: Make one FXMLLoader class to take in the pathing!
 
+    /**
+     * method that confirms when new teams is to bee registered
+     */
     @FXML
     public void confirmAddNewTeam(){
         try{
@@ -114,7 +97,11 @@ public class CupListController implements Initializable {
                     regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
                     Integer.valueOf(phoneNumTextFieldInput.getText()));
 
-            listTeams.add(team);
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
+
+            System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){
@@ -126,24 +113,73 @@ public class CupListController implements Initializable {
                 feedbackText.setText(e.getMessage());
             }
         }
+        updateTableView();
     }
 
+    /**
+     * method that resets information written in text boxes
+     */
     @FXML
     public void resetInfo(){
         teamNameTextFieldInput.setText("");
-        teamLeaderColumn.setText("");
+        teamLeaderTextFieldInput.setText("");
         regionTextFieldInput.setText("");
         phoneNumTextFieldInput.setText("");
         numPlayerInput.setValue("7");
     }
 
+    /**
+     * methods that throws exceptions when needed
+     * @throws IllegalArgumentException in different scenarios
+     */
     private void teamInfoExceptions() throws IllegalArgumentException{
         if(teamNameTextFieldInput.getText().isEmpty() || teamNameTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Name is invalid!*");
         if(teamLeaderTextFieldInput.getText().isEmpty() || teamLeaderTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Leader is invalid!*");
         if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toFrontPage(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("FrontPage", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toMainPage(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toResults(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("RegisterResult", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toMatches(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toCupList(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("CupList", event);
+    }
 }
-
-
-//TODO: Don't allow duplicate teams (Maybe connect to teamRegister and use the guarantee there)!

@@ -1,14 +1,16 @@
 package edu.ntnu.idatt1002.g106.handballapp.mvp.controller;
 
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Match;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Team;
-import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.Tournament;
+import edu.ntnu.idatt1002.g106.handballapp.mvp.backend.*;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -17,9 +19,11 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class RegisterResultController implements Initializable {
     private Tournament tournament;//todo must be choosen
@@ -27,92 +31,129 @@ public class RegisterResultController implements Initializable {
     @FXML private TableView<Match> matchTable;
     @FXML private TableColumn<Match, LocalTime> matchTime;
     @FXML private TableColumn<Match, String> matchPlayers;
-    @FXML private TableColumn<Match, String> matchScore;
+    @FXML private TableColumn<Match, Integer> matchID;
+    @FXML private TableColumn<Match, String> scoreID;
     @FXML private ChoiceBox<String> winnerTeamChoiceBox;
     @FXML private TextField winnerGoalsInput;
     @FXML private ChoiceBox<String> loserTeamChoiceBox;
     @FXML private TextField loserGoalsInput;
+    @FXML private TextField matchIDInput;
     @FXML private Button nextDateButton;
     @FXML private Button backToResultsButton;
     @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
-    /*
-    private void fillInnDataToTable() {
-        for (Match matchResult:tournament.getResults().getMatchResults().values()) {
-            matchTime.getColumns().add(matchResult.getStartTime());
-            matchPlayers.getColumns().add(matchResult.getPlayers());
-            String result = matchResult.getFinalResult();
-            if (result == null) {
-                matchScore.getColumns().add("No results");//todo: add a button for register results
-            } else {
-                matchScore.getColumns().add(result);
-            }
-        }
-    }
+    /**
+     * method for updating table view
      */
+    @FXML
+    private void updateTableView(){
+        matchTime.setCellValueFactory(new PropertyValueFactory<Match, LocalTime>("time"));
+        matchPlayers.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
+        matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("matchID"));
+        scoreID.setCellValueFactory(new PropertyValueFactory<Match, String>("finalResult"));
+        matchTable.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
+        matchTable.refresh();
+        /*
+       String matchScoreTxt = String.valueOf(new PropertyValueFactory<Match, String>("matchScore"));
 
-    private void addDataMVP() {
-        this.tournament = new Tournament(1, LocalDate.now(), LocalDate.of(2022, 04, 22));
-        Team team1 = new Team("Oslo", "Eirik", "Oslo", 13, 95876522);
-        Team team2 = new Team("Sandefjord", "Tomas", "Oslo", 11, 95876521);
-        tournament.addMatch(new Match(LocalTime.of(12, 0), 1, team1, team2, 1, 1));
+       feedBackText.setText(matchScoreTxt);
+       System.out.println(matchScoreTxt);
+       if (matchScoreTxt == null || matchScoreTxt.isBlank()) {
+       } else {
+           matchScore.setCellValueFactory(new PropertyValueFactory<Match, String>("matchScore"));
+       }
+        */
     }
 
-    private void fillInnTeams(ChoiceBox box) {
-        for (Match matchResult:tournament.getResults().getMatchResults().values()) {
-            box.getItems().add(matchResult.getTeam1());
-            box.getItems().add(matchResult.getTeam2());
-        }
-    }
-
-    public void registerResult() {
+    /**
+     * method for registering new results when a match is done
+     */
+    @FXML
+    public void registerResult() {//todo: add check for the input - is the input integer?
         if(Integer.parseInt(winnerGoalsInput.getText()) >= Integer.parseInt(loserGoalsInput.getText())) {
-            feedBackText.setText("Result " + winnerTeamChoiceBox.getValue() + " vs. " + loserTeamChoiceBox.getValue() + " Score " + winnerGoalsInput.getText() + "-" + loserGoalsInput.getText());
+            Match match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
+            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
         } else {
             feedBackText.setFill(Color.RED);
             feedBackText.setText("*The winner result must be greater than the loser score*");
         }
+        updateTableView();
     }
 
-    public void toFrontPage(ActionEvent event) throws IOException {
-        //get the new scene
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/mvp/view/MainPage.fxml"));
-        Scene viewScene = new Scene(viewParent);
-
-        //information of stage
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewScene);
-        window.show();
-    }
-
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /* //todo: can be added when code for choosing tournament is choose
-
-        //Configuring the choiceBox
-        fillInnTeams(winnerTeamChoiceBox);
-        fillInnTeams(loserTeamChoiceBox);
-        fillInnGoalsOptions(winnerGoalsChoiceBox);
-        fillInnGoalsOptions(loserGoalsChoiceBox);
-        //Sets default values
-
-
-
-         */
-
         //Configuring the table
-        addDataMVP();//todo: remove later
-        //fillInnDataToTable();
+        updateTableView();
 
         winnerTeamChoiceBox.setValue("Winner");
         loserTeamChoiceBox.setValue("Loser");
 
-        //todo: remove this values when expanding the system
-        winnerTeamChoiceBox.getItems().add("Oslo");
-        winnerTeamChoiceBox.getItems().add("Sandefjord");
-        loserTeamChoiceBox.getItems().add("Tjøme");
-        loserTeamChoiceBox.getItems().add("Singsaker");
+        //todo: show just teams of interest when matchID is chosen
+        List<Team> teams = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister().getListTeams();
+        for (Team team:teams) {
+            winnerTeamChoiceBox.getItems().add(team.getTeamName());
+            loserTeamChoiceBox.getItems().add(team.getTeamName());
+        }
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void toFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("FrontPage", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toMainPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toResults(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("RegisterResults", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toCupList(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("CupList", event);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toSetUpMatches(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    /**
+     * method for log out
+     */
+    public void logOutButton() {
+        AlertBox.logOut();
+        Platform.exit();
     }
 }
