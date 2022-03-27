@@ -27,6 +27,9 @@ public class MainPageController implements Initializable {
 
     //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
 
+    /**
+     * method that updates MainPages tableView
+     */
     private void updateTableView() {
         time.setCellValueFactory(new PropertyValueFactory<Match, LocalDateTime>("time"));
         match.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
@@ -36,41 +39,81 @@ public class MainPageController implements Initializable {
     }
 
     //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
+
+    /**
+     * {@inheritDoc}
+      * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateTableView();
     }
 
     //TODO: make button log close program
+
+    /**
+     * method for log out
+     */
     public void logout(){
         AlertBox.logOut();
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("FrontPage", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toMainPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpMatches", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
         SwitchScene.switchScene("CupList", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void sendToRegisterResult(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegisterResult", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void SelectDate(ActionEvent event) {
 

@@ -33,7 +33,11 @@ public class SetUpTournamentController implements Initializable {
     @FXML
     private DatePicker tournamentEndDateInput;
 
-
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -54,35 +58,48 @@ public class SetUpTournamentController implements Initializable {
 
     }
 
-        @FXML
-        public void confirmTournament (ActionEvent actionEvent) throws IOException {
-            String tournamentLayout = tournamentLayoutInput.getValue();
-            String tournamentName = tournamentNameTextFieldInput.getText();
-            String tournamentPlace = tournamentPlaceTextFieldInput.getText();
-            int tournamentNumFields = tournamentNumFieldsInput.getValue();
-            int tournamentNumTeams = tournamentNumTeamsInput.getValue();
-            LocalDate tournamentStartDate = tournamentStartDateInput.getValue();
-            LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
+    /**
+     * method for confirming when a new tournament i to be created
+     * @param actionEvent button event
+     * @throws IOException
+     */
+    @FXML
+    public void confirmTournament (ActionEvent actionEvent) throws IOException {
+        String tournamentLayout = tournamentLayoutInput.getValue();
+        String tournamentName = tournamentNameTextFieldInput.getText();
+        String tournamentPlace = tournamentPlaceTextFieldInput.getText();
+        int tournamentNumFields = tournamentNumFieldsInput.getValue();
+        int tournamentNumTeams = tournamentNumTeamsInput.getValue();
+        LocalDate tournamentStartDate = tournamentStartDateInput.getValue();
+        LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
 
-            //TODO Add tournamentID check
-            try{
-                tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                        tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
-            }
-            catch (Exception e){
-                SwitchScene.switchScene("FrontPage", actionEvent);
-            }
-
-                HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
-                HandballApplication.setChosenTournament(tournament.getTournamentID());
-                SwitchScene.switchScene("MainPage", actionEvent);
+        //TODO Add tournamentID check
+        try{
+            tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
+                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+        }
+        catch (Exception e){
+            SwitchScene.switchScene("FrontPage", actionEvent);
         }
 
+        HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+        HandballApplication.setChosenTournament(tournament.getTournamentID());
+        SwitchScene.switchScene("MainPage", actionEvent);
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     private  void toFrontPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("FrontPage", event);
     }
 
+    /**
+     * log out method
+     */
     @FXML
     private void logOutButton(){
         if (AlertBox.logOut()){
