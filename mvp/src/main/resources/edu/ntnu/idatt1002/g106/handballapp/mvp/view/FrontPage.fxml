@@ -23,7 +23,7 @@
          <children>
             <VBox maxHeight="-Infinity" prefHeight="146.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="osloTournament" accessibleText="Oslo open " mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0">
+                  <Button fx:id="osloTournament" accessibleText="Oslo open " mnemonicParsing="false" onAction="#toMainPage" prefHeight="117.0" prefWidth="131.0">
                      <graphic>
                         <ImageView fitHeight="117.0" fitWidth="109.0">
                            <image>
@@ -37,7 +37,7 @@
             </VBox>
             <VBox maxHeight="-Infinity" prefHeight="148.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="trondheimTournament" accessibleText="Trondheim open" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0">
+                  <Button fx:id="trondheimTournament" accessibleText="Trondheim open" mnemonicParsing="false" onAction="#toMainPage" prefHeight="117.0" prefWidth="131.0">
                      <graphic>
                         <ImageView fitHeight="117.0" fitWidth="109.0">
                            <image>
@@ -51,7 +51,7 @@
             </VBox>
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                <children>
-                  <Button fx:id="askerTournament" accessibleText="Asker open" mnemonicParsing="false" onAction="#toMainPage" opacity="0.25" prefHeight="117.0" prefWidth="131.0">
+                  <Button fx:id="askerTournament" accessibleText="Asker open" mnemonicParsing="false" onAction="#toMainPage" prefHeight="117.0" prefWidth="131.0">
                      <graphic>
                         <ImageView fitHeight="117.0" fitWidth="109.0">
                            <image>
@@ -72,7 +72,7 @@
          <children>
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="newTournamentButton" accessibleText="Add new tournament" mnemonicParsing="false" onAction="#newTournament" opacity="0.25" prefHeight="117.0" prefWidth="131.0">
+                  <Button fx:id="newTournamentButton" accessibleText="Add new tournament" mnemonicParsing="false" onAction="#newTournament" prefHeight="117.0" prefWidth="131.0">
                      <graphic>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="+" textAlignment="CENTER" wrappingWidth="119.56512269022687">
                            <font>
