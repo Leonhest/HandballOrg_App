@@ -80,8 +80,8 @@ public class SetUpTournamentController implements Initializable {
         }
         catch (Exception e){
             SwitchScene.switchScene("FrontPage", actionEvent);
+            return;
         }
-
         HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
         HandballApplication.setChosenTournament(tournament.getTournamentID());
         SwitchScene.switchScene("MainPage", actionEvent);
