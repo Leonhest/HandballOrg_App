@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.MainPageController">
     <children>
-        <ButtonBar layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="520.0">
+        <ButtonBar layoutX="9.0" layoutY="8.0" prefHeight="25.0" prefWidth="391.0">
             <buttons>
                 <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
             <Button minWidth="52.0" mnemonicParsing="false" onAction="#toMainPage" prefHeight="25.0" text="MainPage" />
@@ -18,7 +18,7 @@
         <Label id="dateLabel" layoutX="412.0" layoutY="73.0" prefHeight="30.0" prefWidth="105.0" text="-----" />
         <Button id="selectDateBtn" layoutX="567.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" />
         <!--Comment-->
-        <TableView fx:id="table" layoutX="6.0" layoutY="48.0" prefHeight="349.0" prefWidth="474.0">
+        <TableView fx:id="table" layoutX="6.0" layoutY="35.0" prefHeight="362.0" prefWidth="474.0">
             <columns>
                 <TableColumn fx:id="time" prefWidth="153.0" text="Time" />
                 <TableColumn fx:id="match" prefWidth="203.0" text="Match" />

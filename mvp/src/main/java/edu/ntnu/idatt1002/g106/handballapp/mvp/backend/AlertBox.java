@@ -8,8 +8,10 @@ import javafx.stage.Stage;
 
 public class AlertBox {
 
-
-
+    /**
+     * method used when logOut button pressed
+     * @return an alertbox with some information
+     */
     public static boolean logOut() {
         boolean logoutConfirm = false;
         AnchorPane scenePane = new AnchorPane();

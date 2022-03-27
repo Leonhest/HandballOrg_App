@@ -36,6 +36,10 @@ public class Results {
         return matchResults;
     }
 
+    /**
+     * toString method for returning all Result information
+     * @return all result information as a String
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

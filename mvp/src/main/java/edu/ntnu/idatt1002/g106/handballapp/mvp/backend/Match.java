@@ -47,10 +47,18 @@ public class Match {
         this.numField = numField;
     }
 
+    /**
+     * a getMethod for getting the first team registered
+     * @return team1 as a team object
+     */
     public Team getTeam1() {
         return team1;
     }
 
+    /**
+     * a getMethod for getting the second team registered
+     * @return team2 as a team object
+     */
     public Team getTeam2() {
         return team2;
     }
@@ -138,11 +146,19 @@ public class Match {
         return null;
     }
 
+    /**
+     * a getMethod for getting teams names
+     * @return teams names as a vs String format
+     */
     public String getPlayers() {
         return team1.getTeamName() + " vs. " + team2.getTeamName();
     }
 
 
+    /**
+     * method for getting start time
+     * @return getting start time
+     */
     public LocalTime getTime() {
         return startTime.toLocalTime();
     }
@@ -151,6 +167,10 @@ public class Match {
 //
 //    }
 
+    /**
+     * toString method for returning all match information
+     * @return all match information as a String
+     */
     @Override
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +
