@@ -27,7 +27,6 @@
                 <AnchorPane prefHeight="33.0" prefWidth="600.0">
                     <children>
                         <Button fx:id="nextDateButton" mnemonicParsing="false" text="Next date" AnchorPane.rightAnchor="0.0" />
-                        <Button fx:id="backToResultsButton" mnemonicParsing="false" onAction="#toFrontPage" text="&lt; Back to results" />
                   <Label layoutX="245.0" layoutY="8.0" text="MatchId:" />
                             <TextField fx:id="matchIDInput" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" />
                     </children>

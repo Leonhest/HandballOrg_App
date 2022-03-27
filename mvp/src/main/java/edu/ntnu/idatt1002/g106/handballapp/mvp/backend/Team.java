@@ -156,6 +156,10 @@ public class Team {
         this.totLosses = totLosses;
     }
 
+    /**
+     * toString method for returning all team information
+     * @return all team information as a String
+     */
     @Override
     public String toString() {
         return "*******" + teamName + "*******\n" +
@@ -168,6 +172,11 @@ public class Team {
                 "Total losses: " + totLosses;
     }
 
+    /**
+     * method for checking if a team object equals another
+     * @param o the checking object
+     * @return true or false based on the result
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -183,6 +192,10 @@ public class Team {
         return Objects.equals(region, team.region);
     }
 
+    /**
+     * hashMethod that hashes all teams
+     * @return hashcode for team
+     */
     @Override
     public int hashCode() {
         int result = teamName != null ? teamName.hashCode() : 0;

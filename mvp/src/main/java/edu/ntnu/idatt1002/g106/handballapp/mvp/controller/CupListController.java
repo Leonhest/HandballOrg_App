@@ -51,6 +51,9 @@ public class CupListController implements Initializable {
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
 
+    /**
+     * method for updating the table view for new teams registries
+     */
     private void updateTableView(){
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
         numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
@@ -64,6 +67,11 @@ public class CupListController implements Initializable {
         teamTableView.refresh();
     }
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -77,6 +85,9 @@ public class CupListController implements Initializable {
 
     //TODO: Make one FXMLLoader class to take in the pathing!
 
+    /**
+     * method that confirms when new teams is to bee registered
+     */
     @FXML
     public void confirmAddNewTeam(){
         try{
@@ -105,6 +116,9 @@ public class CupListController implements Initializable {
         updateTableView();
     }
 
+    /**
+     * method that resets information written in text boxes
+     */
     @FXML
     public void resetInfo(){
         teamNameTextFieldInput.setText("");
@@ -114,28 +128,57 @@ public class CupListController implements Initializable {
         numPlayerInput.setValue("7");
     }
 
+    /**
+     * methods that throws exceptions when needed
+     * @throws IllegalArgumentException in different scenarios
+     */
     private void teamInfoExceptions() throws IllegalArgumentException{
         if(teamNameTextFieldInput.getText().isEmpty() || teamNameTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Name is invalid!*");
         if(teamLeaderTextFieldInput.getText().isEmpty() || teamLeaderTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Leader is invalid!*");
         if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toFrontPage(ActionEvent event) throws IOException{
         SwitchScene.switchScene("FrontPage", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toMainPage(ActionEvent event) throws IOException{
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toResults(ActionEvent event) throws IOException{
         SwitchScene.switchScene("RegisterResult", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toMatches(ActionEvent event) throws IOException{
         SwitchScene.switchScene("SetUpMatches", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toCupList(ActionEvent event) throws IOException{
         SwitchScene.switchScene("CupList", event);
     }

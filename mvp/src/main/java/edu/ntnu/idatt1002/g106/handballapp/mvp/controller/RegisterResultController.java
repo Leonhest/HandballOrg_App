@@ -43,6 +43,9 @@ public class RegisterResultController implements Initializable {
     @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
+    /**
+     * method for updating table view
+     */
     @FXML
     private void updateTableView(){
         matchTime.setCellValueFactory(new PropertyValueFactory<Match, LocalTime>("time"));
@@ -63,6 +66,9 @@ public class RegisterResultController implements Initializable {
         */
     }
 
+    /**
+     * method for registering new results when a match is done
+     */
     @FXML
     public void registerResult() {//todo: add check for the input - is the input integer?
         if(Integer.parseInt(winnerGoalsInput.getText()) >= Integer.parseInt(loserGoalsInput.getText())) {
@@ -76,6 +82,11 @@ public class RegisterResultController implements Initializable {
         updateTableView();
     }
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Configuring the table
@@ -92,28 +103,55 @@ public class RegisterResultController implements Initializable {
         }
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("FrontPage", event);
     }
 
-
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toMainPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toResults(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegisterResults", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toCupList(ActionEvent event) throws IOException {
         SwitchScene.switchScene("CupList", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     public void toSetUpMatches(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpMatches", event);
     }
 
+    /**
+     * method for log out
+     */
     public void logOutButton() {
         AlertBox.logOut();
         Platform.exit();
