@@ -33,6 +33,7 @@ public class SetUpTournamentController implements Initializable {
     @FXML
     private DatePicker tournamentEndDateInput;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -74,6 +75,11 @@ public class SetUpTournamentController implements Initializable {
 
             SwitchScene.switchScene("MainPage", actionEvent);
         }
+
+    @FXML
+    private  void toMainPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("MainPage", event);
+    }
 
     @FXML
     private void logOutButton(){

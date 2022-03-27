@@ -75,26 +75,6 @@ public class CupListController implements Initializable {
         updateTableView();
     }
 
-    @FXML
-    public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("MainPage", actionEvent);
-    }
-
-    @FXML
-    public void goToMatchesPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", actionEvent);
-    }
-
-    @FXML
-    public void goToResultsPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("RegisterResultPage", actionEvent);
-    }
-
-    @FXML
-    public void goToTournamentPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpTournamentPage", actionEvent);
-    }
-
     //TODO: Make one FXMLLoader class to take in the pathing!
 
     @FXML
@@ -140,4 +120,23 @@ public class CupListController implements Initializable {
         if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
     }
 
+    public void toFrontPage(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("FrontPage", event);
+    }
+
+    public void toMainPage(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    public void toResults(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("RegisterResult", event);
+    }
+
+    public void toMatches(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("SetUpMatches", event);
+    }
+
+    public void toCupList(ActionEvent event) throws IOException{
+        SwitchScene.switchScene("CupList", event);
+    }
 }
