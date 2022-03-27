@@ -21,9 +21,6 @@ public class Match {
     private Team team1;
     private Team team2;
 
-    //todo: remove after MVP?
-    private String players;
-
     /**
      * Initializes a new Match object with necessary variables.
      *
@@ -47,9 +44,6 @@ public class Match {
         this.teamScore.put(team2.getTeamName(), 0);
         this.matchID = matchID;
         this.numField = numField;
-
-        //todo: remove after MVP?
-        this.players = getPlayers();
     }
 
     /**
@@ -133,10 +127,7 @@ public class Match {
      * @return  final results as String
      */
     public String getFinalResult(){
-        if (teamScore.containsKey(team1.getTeamName()) && teamScore.containsKey(team2.getTeamName())) {
-            return teamScore.get(team1.getTeamName()) + " - " + teamScore.get(team2.getTeamName());
-        }
-        return null;
+        return teamScore.get(team1.getTeamName()) + " - " + teamScore.get(team2.getTeamName());
     }
 
     /**
