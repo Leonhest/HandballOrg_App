@@ -123,9 +123,6 @@ public class HandballApplication extends Application{
      */
     public static int findID(String tournamentName) {
         //todo: remove comments when sure of code
-        //System.out.println("Selected button (EqulasIgnoreCase) " + tournamentName);
-        //System.out.println("List (EqulasIgnoreCase) " + removeSpaces(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(0).getTournamentName()));
-        //System.out.println("Size " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tournamentName)).collect(Collectors.toList()).size());
         return HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tournamentName)).collect(Collectors.toList()).get(0).getTournamentID();
 
     }

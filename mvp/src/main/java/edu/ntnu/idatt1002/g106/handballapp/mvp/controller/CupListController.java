@@ -68,7 +68,7 @@ public class CupListController implements Initializable {
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritDocq}
      * @param url
      * @param resourceBundle
      */
@@ -100,8 +100,8 @@ public class CupListController implements Initializable {
             HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                     .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
 
-            System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                    .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
+            //System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    //.get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){

@@ -36,12 +36,10 @@ public class FrontPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //hahaha you found the ester egg, this method is useless in this class in the MVP
         List<Tournament> tournaments = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments();
         if (tournaments.size() > 3) {
             for (int i = 3; i < tournaments.size(); i++) {
                 createButtonForTournament(tournaments.get(i).getTournamentName());
-                //System.out.println("New tournament name " + tournaments.get(i).getTournamentName());
             }
         }
     }
