@@ -60,9 +60,11 @@ public class FrontPageController implements Initializable {
      */
     @FXML
     public void createButtonForTournament(String tournamentName) {
-        Button button = new Button(tournamentName);
-        button.setId(tournamentName);
-        button.setOnAction(event -> {
+        Button newButton = new Button(tournamentName);
+        newButton.setId(tournamentName);
+        newButton.setStyle("-fx-pref-height: 117px;-fx-pref-width: 131px");
+
+        newButton.setOnAction(event -> {
             try {
                 toMainPage(event);
             } catch (IOException e) {//todo: Handle properly
@@ -70,7 +72,7 @@ public class FrontPageController implements Initializable {
             }
         });
         VBox vBox = new VBox();
-        vBox.getChildren().add(button);
+        vBox.getChildren().add(newButton);
         HBoxContainer.getChildren().add(vBox);
     }
 
