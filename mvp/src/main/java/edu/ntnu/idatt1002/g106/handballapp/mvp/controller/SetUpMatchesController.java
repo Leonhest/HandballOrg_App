@@ -130,8 +130,6 @@ public class SetUpMatchesController implements Initializable {
         }
         errorMessage.setText("");
 
-        System.out.println(dateField.getValue().getMonth());
-
         LocalDateTime startDate = LocalDateTime.of(dateField.getValue().getYear(), dateField.getValue().getMonth(),
                 dateField.getValue().getDayOfMonth(), createHourMinList(startTime.getCharacters()).get(0),
                 createHourMinList(startTime.getCharacters()).get(1));

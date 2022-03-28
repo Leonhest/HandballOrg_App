@@ -36,12 +36,10 @@ public class FrontPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //hahaha you found the ester egg, this method is useless in this class in the MVP
         List<Tournament> tournaments = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments();
         if (tournaments.size() > 3) {
             for (int i = 3; i < tournaments.size(); i++) {
                 createButtonForTournament(tournaments.get(i).getTournamentName());
-                //System.out.println("New tournament name " + tournaments.get(i).getTournamentName());
             }
         }
     }
@@ -62,9 +60,11 @@ public class FrontPageController implements Initializable {
      */
     @FXML
     public void createButtonForTournament(String tournamentName) {
-        Button button = new Button(tournamentName);
-        button.setId(tournamentName);
-        button.setOnAction(event -> {
+        Button newButton = new Button(tournamentName);
+        newButton.setId(tournamentName);
+        newButton.setStyle("-fx-pref-height: 117px;-fx-pref-width: 131px");
+
+        newButton.setOnAction(event -> {
             try {
                 toMainPage(event);
             } catch (IOException e) {//todo: Handle properly
@@ -72,7 +72,7 @@ public class FrontPageController implements Initializable {
             }
         });
         VBox vBox = new VBox();
-        vBox.getChildren().add(button);
+        vBox.getChildren().add(newButton);
         HBoxContainer.getChildren().add(vBox);
     }
 

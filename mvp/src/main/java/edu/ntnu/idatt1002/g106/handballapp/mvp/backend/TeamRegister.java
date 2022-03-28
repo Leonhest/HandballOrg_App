@@ -115,7 +115,6 @@ public class TeamRegister {
      * @return list with all teams
      */
     public List<Team> getListTeams() {
-        System.out.println("Size team " + teams.size());
         Iterator<Team> teamIterator = teams.values().iterator();
         List<Team> teams = new ArrayList<>();
         while (teamIterator.hasNext()) {

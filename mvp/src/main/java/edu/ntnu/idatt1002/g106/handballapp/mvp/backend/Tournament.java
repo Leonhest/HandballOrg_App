@@ -3,7 +3,6 @@ package edu.ntnu.idatt1002.g106.handballapp.mvp.backend;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * This is a class which creates the structure of tournament. Therefore, it contains all the relevant fields and methods

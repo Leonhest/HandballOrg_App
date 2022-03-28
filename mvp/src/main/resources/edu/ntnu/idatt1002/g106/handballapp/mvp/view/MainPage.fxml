@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.MainPageController">
+<AnchorPane prefHeight="450.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.mvp.controller.MainPageController">
     <children>
         <ButtonBar layoutX="9.0" layoutY="8.0" prefHeight="25.0" prefWidth="391.0">
             <buttons>
                 <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
-            <Button minWidth="52.0" mnemonicParsing="false" onAction="#toMainPage" prefHeight="25.0" text="MainPage" />
+            <Button minWidth="52.0" mnemonicParsing="false" prefHeight="25.0" text="MainPage" />
                 <Button fx:id="RegisterResult" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
                 <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
                 <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
