@@ -60,7 +60,7 @@ public class CupListController implements Initializable {
         teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
         phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
-        //System.out.println("Size " + listTeams.size());
+
         teamTableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
@@ -100,8 +100,6 @@ public class CupListController implements Initializable {
             HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                     .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
 
-            //System.out.println("List inside method " + HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                    //.get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size());
         }
         catch (IllegalArgumentException e){
             if(e.getMessage().contains("For input string")){
