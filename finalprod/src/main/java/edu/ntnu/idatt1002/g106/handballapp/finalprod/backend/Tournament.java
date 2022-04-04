@@ -20,6 +20,7 @@ public class Tournament {
     private int numFields;
     private int numTeams;
     private String tournamentName;
+    private String region;
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital
@@ -29,7 +30,7 @@ public class Tournament {
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
     public Tournament(int tournamentID, String tournamentName, LocalDate startDate, LocalDate endDate, String layout,
-                      String tournamentPlace, int numFields, int numTeams) throws IllegalArgumentException{
+                      String tournamentPlace, int numFields, int numTeams, String region) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
         this.matchList = new ArrayList<>();
@@ -46,6 +47,7 @@ public class Tournament {
         this.numTeams = numTeams;
         if(tournamentName.isBlank() || tournamentName.isEmpty()) throw new IllegalArgumentException("Tournament name is invalid!");
         this.tournamentName = tournamentName;
+        this.region = region;
     }
 
     /**
@@ -121,6 +123,10 @@ public class Tournament {
      */
     public Results getResults() {
         return results;
+    }
+
+    public String getRegion() {
+        return region;
     }
 
     /**

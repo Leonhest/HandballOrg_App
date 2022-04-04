@@ -136,7 +136,7 @@ public class CupListController implements Initializable {
      * @throws IOException when path not found
      */
     public void toFrontPage(ActionEvent event) throws IOException{
-        SwitchScene.switchScene("FrontPage", event);
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**

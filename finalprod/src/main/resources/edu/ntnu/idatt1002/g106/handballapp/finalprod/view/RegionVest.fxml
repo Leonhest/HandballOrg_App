@@ -8,13 +8,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.vestRegionController">
    <children>
-      <ListView layoutX="14.0" layoutY="74.0" prefHeight="316.0" prefWidth="565.0" />
-      <Label layoutX="219.0" layoutY="15.0" text="Vestern Region">
+      <ListView layoutX="14.0" layoutY="116.0" prefHeight="274.0" prefWidth="581.0" />
+      <Label layoutX="227.0" layoutY="15.0" text="Western Region">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#backToRegionChoice" text="Back" />
       <Button layoutX="534.0" layoutY="18.0" mnemonicParsing="false" onAction="#logOutMethod" text="Logout" />
+      <Button layoutX="480.0" layoutY="91.0" mnemonicParsing="false" onAction="#toSetUpNewTournament" text="New Tournament" />
    </children>
 </AnchorPane>

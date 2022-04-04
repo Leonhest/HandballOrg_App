@@ -103,7 +103,7 @@ public class RegisterResultController implements Initializable {
      */
     @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -113,15 +113,6 @@ public class RegisterResultController implements Initializable {
      */
     public void toMainPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("MainPage", event);
-    }
-
-    /**
-     * method that sends program to specific screen
-     * @param event button event
-     * @throws IOException when path not found
-     */
-    public void toResults(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("RegisterResults", event);
     }
 
     /**

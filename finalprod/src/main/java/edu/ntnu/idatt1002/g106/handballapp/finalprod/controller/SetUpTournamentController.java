@@ -75,7 +75,7 @@ public class SetUpTournamentController implements Initializable {
         //TODO Add tournamentID check
         try{
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, SwitchScene.getCurrentRegion());
         }
         catch (Exception e){
             SwitchScene.switchScene("FrontPage", actionEvent);
@@ -91,9 +91,8 @@ public class SetUpTournamentController implements Initializable {
      * @param event button event
      * @throws IOException when path not found
      */
-    @FXML
-    private  void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
+    public void toRegionChoice(ActionEvent event) throws IOException {
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -105,6 +104,8 @@ public class SetUpTournamentController implements Initializable {
             System.exit(-1);
         }
     }
+
+
 }
 
 

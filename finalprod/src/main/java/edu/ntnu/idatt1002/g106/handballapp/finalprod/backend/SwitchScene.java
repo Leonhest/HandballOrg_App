@@ -11,6 +11,8 @@ import java.util.Objects;
 
 public class SwitchScene {
 
+    static String currentRegion = "";
+
     /**
      * a method that switches between screens/scenes in the application
      * @param location the scene you want to switch to
@@ -23,5 +25,13 @@ public class SwitchScene {
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(page);
         window.show();
+    }
+
+    public static void setCurrentRegion(String region) throws IOException{
+        currentRegion = region;
+    }
+
+    public static String getCurrentRegion() {
+        return currentRegion;
     }
 }

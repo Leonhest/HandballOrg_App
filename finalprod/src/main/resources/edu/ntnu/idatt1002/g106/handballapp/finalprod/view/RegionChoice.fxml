@@ -69,7 +69,7 @@
                 <VBox prefHeight="150.0" prefWidth="204.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                     <children>
-                        <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toVesternRegion" prefHeight="142.0" prefWidth="347.0">
+                        <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="142.0" prefWidth="347.0">
                             <graphic>
                                 <ImageView fitHeight="112.0" fitWidth="207.0">
                                     <image>
