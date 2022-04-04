@@ -101,8 +101,8 @@ public class SetUpTournamentController implements Initializable {
      */
     @FXML
     private void logOutButton(){
-        if (AlertBox.logOut()){
-            Platform.exit();
+        if (AlertBox.logOut() == 1){
+            System.exit(-1);
         }
     }
 }

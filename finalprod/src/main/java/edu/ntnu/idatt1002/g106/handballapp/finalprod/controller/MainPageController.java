@@ -52,7 +52,9 @@ public class MainPageController implements Initializable {
      * method for log out
      */
     public void logout(){
-        AlertBox.logOut();
+        if(AlertBox.logOut()==1){
+            System.exit(-1);
+        }
     }
 
     /**

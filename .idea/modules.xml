@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mvp/handball-application.iml" filepath="$PROJECT_DIR$/mvp/handball-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/finalprod/handball-application.iml" filepath="$PROJECT_DIR$/finalprod/handball-application.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/idatt-1002-2022-1-06.iml" filepath="$PROJECT_DIR$/.idea/idatt-1002-2022-1-06.iml" />
     </modules>
   </component>

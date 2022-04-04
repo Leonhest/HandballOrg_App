@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.LoginController">
+    <children>
+        <Text layoutX="170.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HandBall Application" wrappingWidth="259.87369537353516">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <ImageView blendMode="MULTIPLY" fitHeight="288.0" fitWidth="307.0" layoutX="156.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="9.9" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="56.0">
+            <image>
+                <Image url="@../../../../../../../TournamentPictures/Handball-Player-PNG-Photo.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <effect>
+                <Lighting diffuseConstant="2.0" specularConstant="0.64" specularExponent="20.92" surfaceScale="0.0">
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                </Lighting>
+            </effect>
+        </ImageView>
+        <TextField layoutX="224.0" layoutY="150.0" style="-fx-background-color: #FFFFFF; -fx-opacity: 0.80;" />
+        <Text layoutX="160.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+        <Text layoutX="139.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+        <TextField layoutX="224.0" layoutY="213.0" style="-fx-background-color: #FFFFFF; -fx-opacity: 0.8;" />
+        <Button layoutX="224.0" layoutY="334.0" mnemonicParsing="false" text="LogIn" />
+        <Button layoutX="300.0" layoutY="334.0" mnemonicParsing="false" text="Sign In" />
+        <Button layoutX="465.0" layoutY="285.0" mnemonicParsing="false" onAction="#RegisterLicence" text="Register Licence" />
+        <Button layoutX="466.0" layoutY="334.0" mnemonicParsing="false" onAction="#ResetPassword" text="Reset Password" />
+    </children>
+</AnchorPane>
