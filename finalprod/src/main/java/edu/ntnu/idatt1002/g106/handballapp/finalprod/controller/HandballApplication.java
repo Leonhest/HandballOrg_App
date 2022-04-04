@@ -36,7 +36,7 @@ public class HandballApplication extends Application{
      */
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/finalprod/view/FrontPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/finalprod/view/RegionChoice.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Tournament");
         stage.setScene(scene);

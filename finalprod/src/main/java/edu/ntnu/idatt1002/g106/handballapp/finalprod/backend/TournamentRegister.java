@@ -33,4 +33,7 @@ public class TournamentRegister {
         return tournaments;
     }
 
+    public String tournamentStringToList(Tournament tournament){
+        return tournament.getTournamentName() +" "+tournament.getStartDate()+" "+tournament.getEndDate();
+    }
 }
