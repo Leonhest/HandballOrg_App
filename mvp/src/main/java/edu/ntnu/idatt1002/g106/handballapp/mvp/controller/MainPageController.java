@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -56,7 +57,9 @@ public class MainPageController implements Initializable {
      * method for log out
      */
     public void logout(){
-        AlertBox.logOut();
+        if(AlertBox.logOut() == 1){
+            System.exit(-1);
+        }
     }
 
     /**
