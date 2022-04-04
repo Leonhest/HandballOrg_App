@@ -30,7 +30,6 @@
                 <TableColumn fx:id="field" minWidth="0.0" prefWidth="117.0" text="Field" />
             </columns>
         </TableView>
-        <Button id="nextDateBtn" layoutX="412.0" layoutY="397.0" mnemonicParsing="false" text="Next date" />
         <Button id="logOutButton" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
     </children>
 </AnchorPane>
