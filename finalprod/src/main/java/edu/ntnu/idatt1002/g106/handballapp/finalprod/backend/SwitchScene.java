@@ -27,7 +27,7 @@ public class SwitchScene {
         window.show();
     }
 
-    public static void setCurrentRegion(String region) throws IOException{
+    public static void setCurrentRegion(String region) {
         currentRegion = region;
     }
 

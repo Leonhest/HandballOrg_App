@@ -13,6 +13,7 @@
           <Button mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
             <Button mnemonicParsing="false" onAction="#toResults" text="Results" />
             <Button mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
+            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
         <TableView fx:id="teamTableView" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">

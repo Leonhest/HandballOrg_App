@@ -68,6 +68,7 @@
           <Button mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
             <Button mnemonicParsing="false" onAction="#toCupList" text="Team" />
             <Button mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
+            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
       <Button layoutX="532.0" layoutY="1.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" />

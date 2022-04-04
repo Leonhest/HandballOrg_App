@@ -106,4 +106,13 @@ public class MainPageController implements Initializable {
     public void SelectDate(ActionEvent event) {
 
     }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
+    }
 }

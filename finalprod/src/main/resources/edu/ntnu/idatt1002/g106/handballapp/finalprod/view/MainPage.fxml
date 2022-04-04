@@ -11,6 +11,7 @@
                 <Button fx:id="RegisterResult" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
                 <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
                 <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
+            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
             </buttons>
         </ButtonBar>
         <DatePicker id="date" layoutX="480.0" layoutY="48.0" promptText="Date" />
