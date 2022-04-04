@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.SetUpTournamentController">
+   <children>
+      <TextField id="tournamentName" fx:id="tournamentNameTextFieldInput" layoutX="159.0" layoutY="14.0" prefHeight="26.0" prefWidth="427.0" AnchorPane.bottomAnchor="360.0" AnchorPane.topAnchor="66.0" />
+      <TextField fx:id="tournamentPlaceTextFieldInput" layoutX="158.0" layoutY="48.0" prefHeight="26.0" prefWidth="427.0" AnchorPane.bottomAnchor="326.0" AnchorPane.topAnchor="100.0" />
+      <Text layoutX="9.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tournament name:" wrappingWidth="118.0" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="9.0" />
+      <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place:" wrappingWidth="108.21630859375" AnchorPane.bottomAnchor="335.0" />
+      <DatePicker fx:id="tournamentStartDateInput" layoutX="158.0" layoutY="82.0" prefHeight="26.0" prefWidth="118.0" promptText="Start date" AnchorPane.bottomAnchor="292.0" />
+      <DatePicker fx:id="tournamentEndDateInput" layoutX="372.0" layoutY="82.0" prefHeight="26.0" prefWidth="118.0" promptText="End date" AnchorPane.bottomAnchor="292.0" />
+      <Text layoutX="314.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="20.45361328125" AnchorPane.bottomAnchor="298.0" />
+      <Text layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" AnchorPane.bottomAnchor="297.0" />
+      <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Layout:" wrappingWidth="52.12353515625" AnchorPane.bottomAnchor="252.0" />
+
+      <Polyline fill="#84ff0000" layoutX="479.0" layoutY="301.0" points="15.5, 18.0, 42.0, 18.0, 42.0, -89.0, 8.5, -89.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="81.0" />
+      <Polyline fill="#84ff0000" layoutX="489.0" layoutY="311.0" points="-80.0, -73.0, -41.5, -73.0, -41.5, -131.0, -75.5, -131.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="162.0" />
+      <Polyline fill="#84ff0000" layoutX="499.0" layoutY="321.0" points="-90.0, 30.0, -50.5, 30.0, -50.5, -31.0, -90.0, -31.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="49.0" />
+      <Polyline fill="#84ff0000" layoutX="519.0" layoutY="341.0" points="-177.0, 22.0, -140.5, 22.0, -140.5, -5.0, -177.0, -5.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="37.0" />
+      <Polyline fill="#84ff0000" layoutX="529.0" layoutY="351.0" points="-187.5, -47.0, -149.5, -47.0, -149.5, -77.0, -187.5, -77.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="96.0" />
+      <Polyline fill="#84ff0000" layoutX="529.0" layoutY="351.0" points="-185.5, -99.0, -148.5, -99.0, -148.5, -127.0, -185.5, -127.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="148.0" />
+      <Polyline fill="#84ff0000" layoutX="539.0" layoutY="361.0" points="-196.5, -165.0, -159.5, -165.0, -159.5, -196.0, -196.5, -196.0" stroke="#050505" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.bottomAnchor="204.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="521.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="127.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="447.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="447.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="180.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="377.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="211.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="377.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="154.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="377.0" layoutY="343.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="41.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="377.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="102.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="198.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="141.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="28.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="89.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="158.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="226.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="169.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="56.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d88f8" height="16.0" layoutX="292.0" layoutY="267.0" stroke="BLACK" strokeType="INSIDE" width="64.0" AnchorPane.bottomAnchor="117.0" />
+
+
+      <Text layoutX="12.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of fields" wrappingWidth="100.98307228088379" AnchorPane.bottomAnchor="111.0" />
+      <Text layoutX="12.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of teams" wrappingWidth="108.21630859375" AnchorPane.bottomAnchor="73.0" />
+      <Button fx:id="tournamentConfirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="12.0">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <ChoiceBox fx:id="tournamentLayoutInput" layoutX="139.0" layoutY="128.0" prefHeight="26.0" prefWidth="138.0" AnchorPane.bottomAnchor="246.0" />
+      <ChoiceBox fx:id="tournamentNumFieldsInput" layoutX="127.0" layoutY="268.0" prefHeight="26.0" prefWidth="64.0" AnchorPane.bottomAnchor="106.0" />
+      <ChoiceBox fx:id="tournamentNumTeamsInput" layoutX="127.0" layoutY="306.0" prefHeight="26.0" prefWidth="63.0" AnchorPane.bottomAnchor="68.0" />
+      <Text layoutX="9.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set up tournament" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font name="Al Bayan Plain" size="23.0" />
+         </font>
+      </Text>
+      <Button layoutX="536.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" AnchorPane.topAnchor="7.0" />
+      <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#toFrontPage" text="FrontPage" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="2.0" />
+   </children>
+</AnchorPane>
