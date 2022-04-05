@@ -50,8 +50,8 @@ public class SetUpTournamentController implements Initializable {
 
         tournamentNumFieldsInput.setValue(1);
 
-        for (int i = 0; i < 7; i++) {
-            tournamentNumTeamsInput.getItems().add(i, i + 4);
+        for (int i = 2; i < 6; i++) {
+            tournamentNumTeamsInput.getItems().add(i-2, (int) Math.pow(2,i));
         }
         tournamentNumTeamsInput.setValue(4);
 
