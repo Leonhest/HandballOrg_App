@@ -19,43 +19,48 @@
                 <Font name="System Bold" size="16.0" />
             </font>
         </Text>
-        <HBox fx:id="HBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="608.0" spacing="50.0">
-            <children>
-                <VBox prefHeight="160.0" prefWidth="0.0" />
-                <VBox maxHeight="-Infinity" prefHeight="146.0" prefWidth="127.0">
-                    <children>
-                        <Button accessibleText="Oslo open " mnemonicParsing="false" onAction="#toSouthernRegion" prefHeight="129.0" prefWidth="190.0">
-                            <graphic>
+      <HBox prefHeight="138.0" prefWidth="349.0">
+         <children>
+            <VBox prefHeight="138.0" prefWidth="155.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
+               <children>
+                  <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNordernRegion" prefHeight="128.0" prefWidth="218.0">
+                     <graphic>
                                 <ImageView fitHeight="117.0" fitWidth="200.0">
                                     <image>
                                         <Image url="@../../../../../../../TournamentPictures/nhf-logo_regionsor.jpg" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
-                    </children>
-                </VBox>
-                <VBox prefHeight="160.0" prefWidth="0.0" />
-                <Button accessibleText="Trondheim open" mnemonicParsing="false" onAction="#toEasternRegion" prefHeight="141.0" prefWidth="135.0">
-                    <graphic>
-                        <ImageView fitHeight="112.0" fitWidth="200.0">
-                            <image>
-                                <Image url="@../../../../../../../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </children>
-            <padding>
-                <Insets left="10.0" top="10.0" />
-            </padding>
-        </HBox>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="150.0" prefWidth="204.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
+               <children>
+                  <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="128.0" prefWidth="218.0">
+                     <graphic>
+                              <ImageView fitHeight="112.0" fitWidth="200.0">
+                                  <image>
+                                      <Image url="@../../../../../../../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
+                                  </image>
+                              </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="138.0" prefWidth="123.0" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
         <HBox prefHeight="138.0" prefWidth="349.0">
             <children>
                 <VBox prefHeight="138.0" prefWidth="155.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                     <children>
-                        <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNordernRegion" prefHeight="151.0" prefWidth="130.0">
+                        <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNordernRegion" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
                                 <ImageView fitHeight="112.0" fitWidth="207.0">
                                     <image>
@@ -69,7 +74,7 @@
                 <VBox prefHeight="150.0" prefWidth="204.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                     <children>
-                        <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="142.0" prefWidth="347.0">
+                        <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
                                 <ImageView fitHeight="112.0" fitWidth="207.0">
                                     <image>
