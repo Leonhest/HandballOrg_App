@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0">
          <children>
             <ImageView fitHeight="678.0" fitWidth="799.0" layoutX="2.0" layoutY="72.0">
                <image>
-                  <Image url="@110023739-tournament-bracket-4-team-icon-template.png" />
+                  <Image url="@../../../../../../../TournamentPictures/8TeamBracket.png" />
                </image>
             </ImageView>
             <ButtonBar layoutX="-15.0" layoutY="6.0" prefHeight="56.0" prefWidth="642.0">
