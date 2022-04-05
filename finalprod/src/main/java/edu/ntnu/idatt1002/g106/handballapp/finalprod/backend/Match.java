@@ -45,6 +45,25 @@ public class Match {
         this.numField = numField;
     }
 
+    public Match(LocalDateTime startTime, int numField, int matchID, int roundNum) {
+        teamScore = new HashMap<>();
+        this.startTime = startTime;
+        this.numField = numField;
+        if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
+        this.matchID = matchID;
+        this.roundNum = roundNum;
+    }
+
+    /**
+     * This method adds two teams to the match
+     * @param team1
+     * @param team2
+     */
+    public void addTeam(Team team1, Team team2){
+        this.team1 = team1;
+        this.team2 = team2;
+    }
+
     /**
      * a getMethod for getting the first team registered
      * @return team1 as a team object

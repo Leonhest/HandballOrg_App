@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
@@ -53,8 +54,8 @@ public class SetUpTournamentController implements Initializable {
 
         tournamentNumFieldsInput.setValue(1);
 
-        for (int i = 0; i < 7; i++) {
-            tournamentNumTeamsInput.getItems().add(i, i + 4);
+        for (int i = 2; i < 6; i++) {
+            tournamentNumTeamsInput.getItems().add(i-2, (int) Math.pow(2,i));
         }
         tournamentNumTeamsInput.setValue(4);
 
@@ -67,6 +68,8 @@ public class SetUpTournamentController implements Initializable {
      */
     @FXML
     public void confirmTournament (ActionEvent actionEvent) throws IOException {
+        //TODO Add tournamentID check
+        boolean correctInformation = false;
         String tournamentLayout = tournamentLayoutInput.getValue();
         String tournamentName = tournamentNameTextFieldInput.getText();
         String tournamentPlace = tournamentPlaceTextFieldInput.getText();
@@ -74,21 +77,23 @@ public class SetUpTournamentController implements Initializable {
         int tournamentNumTeams = tournamentNumTeamsInput.getValue();
         LocalDate tournamentStartDate = tournamentStartDateInput.getValue();
         LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
-
-        //TODO Add tournamentID check
-        try{
+        try {
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
                     tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, SwitchScene.getCurrentRegion());
-        }
-        catch (Exception e){
-            SwitchScene.switchScene("FrontPage", actionEvent);
+            correctInformation = true;
+        } catch (NullPointerException e) {
+            AlertBox.alertError("Remember to fill inn all information");
+        } catch (IllegalArgumentException e) {
+            AlertBox.alertError(e.getMessage());
+        } catch (Exception e){
+            AlertBox.alertError("System fail");
             return;
         }
-
-
-        HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
-        HandballApplication.setChosenTournament(tournament.getTournamentID());
-        SwitchScene.switchScene("MainPage", actionEvent);
+        if (correctInformation) {
+            HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+            HandballApplication.setChosenTournament(tournament.getTournamentID());
+            SwitchScene.switchScene("MainPage", actionEvent);
+        }
     }
 
     /**

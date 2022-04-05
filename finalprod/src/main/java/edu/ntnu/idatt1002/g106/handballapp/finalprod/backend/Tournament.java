@@ -1,6 +1,9 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,8 @@ public class Tournament {
     private int numFields;
     private int numTeams;
     private String tournamentName;
+    private List<List<Team>> roundTeamList;
+    private List<List<Match>> roundMatchList;
     private String region;
 
     /**
@@ -36,8 +41,9 @@ public class Tournament {
         this.matchList = new ArrayList<>();
         this.teamRegister = new TeamRegister();
         if(endDate == null || startDate == null || tournamentName == null || tournamentPlace == null) throw new NullPointerException("Fill in all fields");
+        if (startDate.isBefore(LocalDate.now())) throw new IllegalArgumentException("Start date must be before current start date");
         this.startDate = startDate;
-        if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be before start date");
+        if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be after start date");
         this.endDate = endDate;
         this.results = new Results();
         this.layout = layout;
@@ -48,6 +54,144 @@ public class Tournament {
         if(tournamentName.isBlank() || tournamentName.isEmpty()) throw new IllegalArgumentException("Tournament name is invalid!");
         this.tournamentName = tournamentName;
         this.region = region;
+        this.roundMatchList = new ArrayList<>();
+        this.roundTeamList = new ArrayList<>();
+
+        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
+        if(getTimeBetweenMatches() < 1.5) throw new IllegalArgumentException("Not possible to arrange");
+    }
+
+
+    /**
+     * This method fills out the MatchList for each round by assigning times for the whole tournament. No two
+     * consecutive rounds will overlap.
+     */
+    public void generateTournament(){
+        int matchID = 1;
+        List<LocalDateTime> tempTime = makeSchedule();
+        for(int i = 1; i <= checkAmountRounds(); i++){
+            this.roundTeamList.add(new ArrayList<>());
+            this.roundMatchList.add(new ArrayList<>());
+
+            for(int j = 0; j < checkNumMatchesByRound(i); j++){
+                    this.roundMatchList.get(i-1).add(new Match(tempTime.get(0), (j % numFields)+1, matchID, i));
+                    matchID++;
+                    tempTime.remove(0);
+            }
+            int numMatchesTemp = checkNumMatchesByRound(i);
+            while((intervalTakenByRound(i) - numMatchesTemp) > 0){
+                tempTime.remove(0);
+                numMatchesTemp++;
+            }
+        }
+    }
+
+
+    /**
+     * This method creates a list of equally spaced out times for the given start and end date based on the
+     * number of fields and the restricted start time: 9:00-21:00.
+     * @return A list of all the times for all the matches
+     */
+    public List<LocalDateTime> makeSchedule(){
+        List<LocalDateTime> matchSchedule = new ArrayList<>();
+
+        double timePerInterval = getTimeBetweenMatches();
+        double hours = 9 - timePerInterval;
+        double minutes = 0;
+        int days = 0;
+
+        for(int i = 0; i < totalIntervalsNeeded(); i++){
+
+            if((hours + timePerInterval) < 21 ||((hours + timePerInterval) == 21 && minutes == 0)){
+                hours += timePerInterval;
+                minutes = ((hours % 1) * 60);
+            }
+            else{
+                hours = (hours + timePerInterval) - 12;
+                minutes = ((hours % 1) * 60);
+                days++;
+            }
+            for(int j = 0; j < numFields; j++){
+                matchSchedule.add(LocalDateTime.of(startDate.plusDays(days), LocalTime.of((int) Math.floor(hours), (int) Math.round(minutes))));
+            }
+        }
+        return matchSchedule;
+    }
+
+    /**
+     * This method gets the amount of time needed between matches
+     * @return Time between matches in tournament, represented by double
+     */
+    public double getTimeBetweenMatches(){
+        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
+        double totalTime = totalDays * 12;
+        System.out.println(totalTime/totalIntervalsNeeded());
+        return totalTime / totalIntervalsNeeded();
+    }
+
+    /**
+     * If we want times for matches that start at exactly hh:00, then this method is used in make schedule instead of
+     * the one above.
+     * @return A rounded time interval between matches, represented as an int
+     */
+    public int getTimeBetweenMatchesRounded(){
+        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
+        int totalTime = totalDays * 12;
+        return totalTime / totalIntervalsNeeded();
+    }
+
+    /**
+     * This method finds the total number of intervals of games needed in order to ensure that no two rounds overlap
+     * while considering all fields.
+     * @return The total amount of intervals needed to split the total tournament time, represented as an int
+     */
+    public int totalIntervalsNeeded(){
+        int totalIntervalNeeded = 0;
+        for(int i = 1; i <= checkAmountRounds(); i++){
+            totalIntervalNeeded += intervalTakenByRound(i);
+        }
+        return totalIntervalNeeded / numFields;
+    }
+
+    /**
+     * This method checks the intervals taken by a given round
+     * @param round The given round, represented as an int
+     * @return      The interval take by a given round
+     */
+    public int intervalTakenByRound(int round){
+        return checkNumMatchesByRound(round) + (numFields - (checkNumMatchesByRound(round) % numFields));
+    }
+
+    /**
+     * This method returns the amount of matches in the given round
+     * @param round The current round, represented as an int
+     * @return      Number of matches in the round, represented as an int
+     */
+    public int checkNumMatchesByRound(int round){
+        return (int) (numTeams/(Math.pow(2, round)));
+    }
+
+    /**
+     * This method checks how many rounds will exist in the given tournament.
+     * @return Number of rounds, represented as an int
+     */
+    public int checkAmountRounds(){
+        return (int) (Math.log(numTeams)/Math.log(2));
+    }
+
+
+    /**
+     * This method adds all the winning teams to matches for the next round.
+     * @param round The current round of the tournament, represented as an int
+     */
+    public void generateRoundWithTeams(int round){
+        if(round == 1 && teamRegister.getListTeams().size() == numTeams){
+            this.roundTeamList.get(0).addAll(teamRegister.getListTeams());
+        }
+        if(this.roundTeamList.get(round-1).size() != checkNumMatchesByRound(round-1)) return;
+        for(int i = 0; i < this.roundMatchList.get(round - 1).size(); i++){
+                this.roundMatchList.get(round - 1).get(i).addTeam(this.roundTeamList.get(round-1).get(i), this.roundTeamList.get(round-1).get(this.roundMatchList.get(round - 1).size() - i));
+        }
     }
 
     /**
@@ -123,6 +267,14 @@ public class Tournament {
      */
     public Results getResults() {
         return results;
+    }
+
+    public List<List<Team>> getRoundTeamList() {
+        return roundTeamList;
+    }
+
+    public List<List<Match>> getRoundMatchList() {
+        return roundMatchList;
     }
 
     public String getRegion() {

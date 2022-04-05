@@ -1,13 +1,17 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -45,6 +49,17 @@ public class AlertBox {
         window.setScene(scene);
         window.showAndWait();
         return answer.get();
+    }
+
+    /**
+     * The method provides a general error alert box which can be specified with the display message
+     * @param message the display message to the alert box
+     */
+    public static void alertError(String message) {
+        Alert dateAlert = new Alert(Alert.AlertType.ERROR);
+        dateAlert.setTitle("Error");
+        dateAlert.setContentText(message);
+        dateAlert.showAndWait();
     }
 
     //TODO: More methods to come
