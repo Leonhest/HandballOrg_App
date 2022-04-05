@@ -56,22 +56,19 @@ public class sorRegionController implements Initializable {
         updateList();
     }
 
-    public void goToCurrentPage(Event event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        SwitchScene.switchScene("MainPage", event);
-    }
-
-    @FXML
     public void backToRegionChoice(ActionEvent event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
         SwitchScene.switchScene("RegionChoice", event);
     }
 
-    @FXML
     public void logOutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
+    }
+
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
     }
 
     @FXML

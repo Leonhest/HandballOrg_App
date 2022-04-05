@@ -9,7 +9,6 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import java.io.IOException;
@@ -28,8 +27,6 @@ public class nordRegionController implements Initializable {
     public TableColumn<Tournament, String> tournamentNameColumn;
     @FXML
     public javafx.scene.control.TableView<Tournament> tableView;
-
-
 
     AtomicInteger currentTournamentId = new AtomicInteger();
 
@@ -60,11 +57,6 @@ public class nordRegionController implements Initializable {
         updateList();
     }
 
-    public void goToCurrentPage(Event event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        SwitchScene.switchScene("MainPage", event);
-    }
-
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
@@ -73,6 +65,11 @@ public class nordRegionController implements Initializable {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
+    }
+
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
     }
 
     @FXML
