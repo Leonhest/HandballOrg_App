@@ -10,6 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * Represents a user of the application
  */
 public class User {
+    private TournamentRegister tournamentRegister;
     private final Pattern emailPattern = Pattern.compile("^[\\w._%+-]+@[\\w.-]+\\.[A-Z]{2,5}$", Pattern.CASE_INSENSITIVE);
     private String firstName;
     private String lastName;
@@ -35,6 +36,7 @@ public class User {
         this.email = email;
         this.salt = generateSalt();
         this.password = hashPassword(password, this.salt);
+        this.tournamentRegister = new TournamentRegister();
     }
 
     /**
@@ -117,6 +119,15 @@ public class User {
      */
     public byte[] getSalt(){
         return this.salt;
+    }
+
+
+    /**
+     * This method retrieves the tournament register.
+     * @return The tournament register
+     */
+    public TournamentRegister getTournamentRegister() {
+        return tournamentRegister;
     }
 
     /**
