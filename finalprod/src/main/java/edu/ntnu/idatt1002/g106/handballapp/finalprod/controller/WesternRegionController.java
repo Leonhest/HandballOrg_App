@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class vestRegionController implements Initializable {
+public class WesternRegionController implements Initializable {
 
 
     @FXML
@@ -80,7 +80,7 @@ public class vestRegionController implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals("RegionVest")).toList()));
+                        .filter(t -> t.getRegion().equals("WesternRegion")).toList()));
 
         tableView.refresh();
     }

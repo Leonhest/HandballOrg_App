@@ -16,22 +16,22 @@ public class RegionChoiceController implements Initializable {
 
 
     public void toSouthernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("RegionSor");
-        SwitchScene.switchScene("RegionSor", event);
+        SwitchScene.setCurrentRegion("SouthernRegion");
+        SwitchScene.switchScene("SouthernRegion", event);
     }
 
     public void toEasternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("RegionOst");
-        SwitchScene.switchScene("RegionOst", event);
+        SwitchScene.setCurrentRegion("EasternRegion");
+        SwitchScene.switchScene("EasternRegion", event);
     }
 
-    public void toNordernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("RegionNord");
-        SwitchScene.switchScene("RegionNord", event);
+    public void toNorthernRegion(ActionEvent event) throws IOException {
+        SwitchScene.setCurrentRegion("NorthernRegion");
+        SwitchScene.switchScene("NorthernRegion", event);
     }
 
     public void toWesternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("RegionVest");
-        SwitchScene.switchScene("RegionVest", event);
+        SwitchScene.setCurrentRegion("WesternRegion");
+        SwitchScene.switchScene("WesternRegion", event);
     }
 }

@@ -1,7 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
-import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Tournament;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -16,8 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class nordRegionController implements Initializable {
-
+public class SouthernRegionController implements Initializable {
 
     @FXML
     public TableColumn<Tournament, Integer> startDateColumn;
@@ -80,12 +79,13 @@ public class nordRegionController implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals("RegionNord")).toList()));
+                        .filter(t -> t.getRegion().equals("SouthernRegion")).toList()));
 
         tableView.refresh();
     }
 
-    public void toSetUpNewTournament(ActionEvent event) throws IOException {
+    @FXML
+    public void toSetUpTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
     }
 }

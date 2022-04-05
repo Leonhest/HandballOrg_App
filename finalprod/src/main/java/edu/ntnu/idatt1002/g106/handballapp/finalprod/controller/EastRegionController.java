@@ -13,12 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ostRegionController implements Initializable {
+public class EastRegionController implements Initializable {
 
 
     @FXML
@@ -83,7 +81,7 @@ public class ostRegionController implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals("RegionOst")).toList()));
+                        .filter(t -> t.getRegion().equals("EasternRegion")).toList()));
 
         tableView.refresh();
     }

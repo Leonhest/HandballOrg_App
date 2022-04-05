@@ -60,7 +60,7 @@
                 <VBox prefHeight="138.0" prefWidth="155.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                     <children>
-                        <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNordernRegion" prefHeight="128.0" prefWidth="218.0">
+                        <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNorthernRegion" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
                                 <ImageView fitHeight="112.0" fitWidth="207.0">
                                     <image>
