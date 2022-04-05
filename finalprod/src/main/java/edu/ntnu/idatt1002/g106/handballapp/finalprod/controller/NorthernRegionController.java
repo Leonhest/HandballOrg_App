@@ -35,7 +35,7 @@ public class NorthernRegionController implements Initializable {
         currentTournamentId = new AtomicInteger();
 
         tableView.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2 ){
                 Tournament selectedTournament = tableView.getSelectionModel().getSelectedItem();
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .forEach(t -> {

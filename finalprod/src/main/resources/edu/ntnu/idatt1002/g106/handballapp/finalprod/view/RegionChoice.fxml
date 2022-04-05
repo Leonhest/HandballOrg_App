@@ -24,9 +24,9 @@
             <VBox prefHeight="138.0" prefWidth="155.0" />
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                <children>
-                  <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toSouthernRegion" prefHeight="128.0" prefWidth="218.0">
+                  <Button  accessibleHelp="This button will take you to Southern region tournament list" accessibleText="Southern Region" mnemonicParsing="false" onAction="#toSouthernRegion" prefHeight="128.0" prefWidth="218.0">
                      <graphic>
-                                <ImageView fitHeight="117.0" fitWidth="200.0">
+                                <ImageView accessibleHelp="This button will take you to souther region tournament list" accessibleText="Southern Region" fitHeight="117.0" fitWidth="200.0">
                                     <image>
                                         <Image url="@../../../../../../../TournamentPictures/nhf-logo_regionsor.jpg" />
                                     </image>
@@ -38,9 +38,9 @@
             <VBox prefHeight="150.0" prefWidth="204.0" />
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                <children>
-                  <Button accessibleText="WestRegion" mnemonicParsing="false" onAction="#toEasternRegion" prefHeight="128.0" prefWidth="218.0">
+                  <Button accessibleHelp="This button will take you to eastern region tournament list" accessibleText="EasternRegion" mnemonicParsing="false" onAction="#toEasternRegion" prefHeight="128.0" prefWidth="218.0">
                      <graphic>
-                              <ImageView fitHeight="112.0" fitWidth="200.0">
+                              <ImageView accessibleHelp="This button will take you to eastern region tournament list" accessibleText="Eastern Region" fitHeight="112.0" fitWidth="200.0">
                                   <image>
                                       <Image url="@../../../../../../../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
                                   </image>
@@ -60,9 +60,9 @@
                 <VBox prefHeight="138.0" prefWidth="155.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                     <children>
-                        <Button accessibleText="Add new tournament" mnemonicParsing="false" onAction="#toNorthernRegion" prefHeight="128.0" prefWidth="218.0">
+                        <Button accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" mnemonicParsing="false" onAction="#toNorthernRegion" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
-                                <ImageView fitHeight="112.0" fitWidth="207.0">
+                                <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>
                                         <Image url="@../../../../../../../TournamentPictures/2019_nhf-rn_logo_bla.jpg" />
                                     </image>
@@ -74,9 +74,9 @@
                 <VBox prefHeight="150.0" prefWidth="204.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                     <children>
-                        <Button accessibleText="Asker open" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="128.0" prefWidth="218.0">
+                        <Button  accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
-                                <ImageView fitHeight="112.0" fitWidth="207.0">
+                                <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>
                                         <Image url="@../../../../../../../TournamentPictures/region-vest-rod-bakgrunn.png" />
                                     </image>

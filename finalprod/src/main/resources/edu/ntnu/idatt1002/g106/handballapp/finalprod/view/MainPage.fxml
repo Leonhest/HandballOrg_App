@@ -12,11 +12,11 @@
     <children>
         <ButtonBar layoutX="9.0" layoutY="8.0" prefHeight="25.0" prefWidth="391.0">
             <buttons>
-                <Button fx:id="FrontPage" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
-                <Button fx:id="RegisterResult" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
-                <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
-                <Button fx:id="SetUpMatches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
-            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+                <Button id="FrontPage" accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
+                <Button id="RegisterResult" accessibleHelp="this button will take you to the result overview" accessibleText="to Results button" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
+                <Button id="CupList" accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
+                <Button id="SetUpMatches" accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
             </buttons>
         </ButtonBar>
         <DatePicker id="date" fx:id="dateSelect" layoutX="480.0" layoutY="48.0" promptText="DD.MM.YYYY" />
@@ -30,6 +30,6 @@
                 <TableColumn fx:id="field" minWidth="0.0" prefWidth="117.0" text="Field" />
             </columns>
         </TableView>
-        <Button id="logOutButton" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
+        <Button id="logOutButton" accessibleHelp="this button will ask for confirmation on if you want to log out" accessibleText="logout button" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
     </children>
 </AnchorPane>
