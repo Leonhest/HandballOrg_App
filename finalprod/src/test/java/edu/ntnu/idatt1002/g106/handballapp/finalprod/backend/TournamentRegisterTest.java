@@ -12,8 +12,8 @@ class TournamentRegisterTest {
     void addTournament_returns_false_when_tournamentID_is_the_similar(){
         //Arrange
         TournamentRegister tournamentRegister = new TournamentRegister();
-        Tournament tournament1 = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.now(),"layout1", "Oslo", 3, 8);
-        Tournament tournament2 = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.now(), "layout1", "Oslo", 3, 8);
+        Tournament tournament1 = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.now(),"layout1", "Oslo", 3, 8, "RegionSor");
+        Tournament tournament2 = new Tournament(1, "Oslo open",LocalDate.now(), LocalDate.now(), "layout1", "Oslo", 3, 8, "RegionOst");
         boolean expectedStatus = false;
 
         //Act

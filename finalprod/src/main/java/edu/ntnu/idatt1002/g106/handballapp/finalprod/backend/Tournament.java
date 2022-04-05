@@ -142,4 +142,8 @@ public class Tournament {
                 ", participatingTeams=" +
                 '}';
     }
+
+    public String tournamentStringToList(){
+        return getTournamentName() +"\t\tStart date: "+getStartDate()+"\t\tEnd date:"+getEndDate();
+    }
 }
