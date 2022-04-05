@@ -55,8 +55,9 @@ public class Tournament {
         this.roundTeamList = new ArrayList<>();
 
         int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
-        if(totalDays <= 2 && numTeams >= 32) throw new IllegalArgumentException("Not possible to arrange");
+        if(getTimeBetweenMatches() < 1.5) throw new IllegalArgumentException("Not possible to arrange");
     }
+
 
     /**
      * This method fills out the MatchList for each round by assigning times for the whole tournament. No two
@@ -81,20 +82,19 @@ public class Tournament {
             }
         }
         this.roundTeamList.get(0).addAll(teamRegister.getListTeams());
-
     }
 
+
+    //This method can be optimized by allowing matches to start at 9 the next day
     /**
      * This method creates a list of equally spaced out times for the given start and end date based on the
      * number of fields and the restricted start time: 9:00-21:00.
      * @return A list of all the times for all the matches
      */
     public List<LocalDateTime> makeSchedule(){
-
         List<LocalDateTime> matchSchedule = new ArrayList<>();
-        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
-        int totalTime = totalDays * 12;
-        int timePerInterval = totalTime / totalIntervalsNeeded();
+
+        int timePerInterval = getTimeBetweenMatches();
         //TODO: if timePerInterval less than 1.5, throw error.
         int hours = 9 - timePerInterval;
         int minutes = 0;
@@ -117,6 +117,12 @@ public class Tournament {
 
     }
 
+    public int getTimeBetweenMatches(){
+        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
+        int totalTime = totalDays * 12;
+        return totalTime / totalIntervalsNeeded();
+    }
+
     /**
      * This method finds the total number of intervals of games needed in order to ensure that no two rounds overlap
      * while considering all fields.
@@ -130,6 +136,7 @@ public class Tournament {
         return totalIntervalNeeded / numFields;
     }
 
+    //This method could be a helper for the one above
     public int intervalTakenByRound(int round){
         return checkNumMatchesByRound(round) + (numFields - (checkNumMatchesByRound(round) % numFields));
     }
@@ -150,6 +157,7 @@ public class Tournament {
     public int checkAmountRounds(){
         return (int) (Math.log(numTeams)/Math.log(2));
     }
+
 
 //    /**
 //     * This method adds all the winning teams to matches for the next round.
