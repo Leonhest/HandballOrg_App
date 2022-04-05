@@ -20,15 +20,15 @@ public class EastRegionController implements Initializable {
 
 
     @FXML
-    public TableColumn<Tournament, Integer> startDateColumn;
+    private TableColumn<Tournament, Integer> startDateColumn;
     @FXML
-    public TableColumn<Tournament, Integer> endDateColumn;
+    private TableColumn<Tournament, Integer> endDateColumn;
     @FXML
-    public TableColumn<Tournament, String> tournamentNameColumn;
+    private TableColumn<Tournament, String> tournamentNameColumn;
     @FXML
-    public javafx.scene.control.TableView<Tournament> tableView;
+    private javafx.scene.control.TableView<Tournament> tableView;
 
-    AtomicInteger currentTournamentId = new AtomicInteger();
+    private AtomicInteger currentTournamentId = new AtomicInteger();
 
 
     @Override
