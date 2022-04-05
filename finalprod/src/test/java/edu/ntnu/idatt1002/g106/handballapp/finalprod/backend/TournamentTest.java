@@ -19,11 +19,11 @@ public class TournamentTest {
         int tournamentId = 1;
         String tournamentName = "Oslo open";
         LocalDate startDate = LocalDate.now();
-        LocalDate endDate = LocalDate.now().plusDays(2);
+        LocalDate endDate = LocalDate.now().plusDays(1);
         String layout = "layout1";
         String tournamentPlace = "Oslo";
         int numFields = 3;
-        int numTeams = 16;
+        int numTeams = 32;
 
         return new Tournament(tournamentId, tournamentName,startDate, endDate, layout, tournamentPlace, numFields, numTeams);
     }

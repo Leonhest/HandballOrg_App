@@ -81,11 +81,9 @@ public class Tournament {
                 numMatchesTemp++;
             }
         }
-        this.roundTeamList.get(0).addAll(teamRegister.getListTeams());
     }
 
 
-    //This method can be optimized by allowing matches to start at 9 the next day
     /**
      * This method creates a list of equally spaced out times for the given start and end date based on the
      * number of fields and the restricted start time: 9:00-21:00.
@@ -94,30 +92,46 @@ public class Tournament {
     public List<LocalDateTime> makeSchedule(){
         List<LocalDateTime> matchSchedule = new ArrayList<>();
 
-        int timePerInterval = getTimeBetweenMatches();
-        //TODO: if timePerInterval less than 1.5, throw error.
-        int hours = 9 - timePerInterval;
-        int minutes = 0;
+        double timePerInterval = getTimeBetweenMatches();
+        double hours = 9 - timePerInterval;
+        double minutes = 0;
         int days = 0;
 
         for(int i = 0; i < totalIntervalsNeeded(); i++){
 
-            if((hours + timePerInterval) <= 21){
+            if((hours + timePerInterval) < 21 ||((hours + timePerInterval) == 21 && minutes == 0)){
                 hours += timePerInterval;
+                minutes = ((hours % 1) * 60);
             }
             else{
                 hours = (hours + timePerInterval) - 12;
+                minutes = ((hours % 1) * 60);
                 days++;
             }
             for(int j = 0; j < numFields; j++){
-                matchSchedule.add(LocalDateTime.of(startDate.plusDays(days), LocalTime.of(hours, minutes)));
+                matchSchedule.add(LocalDateTime.of(startDate.plusDays(days), LocalTime.of((int) Math.floor(hours), (int) Math.round(minutes))));
             }
         }
         return matchSchedule;
-
     }
 
-    public int getTimeBetweenMatches(){
+    /**
+     * This method gets the amount of time needed between matches
+     * @return Time between matches in tournament, represented by double
+     */
+    public double getTimeBetweenMatches(){
+        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
+        double totalTime = totalDays * 12;
+        System.out.println(totalTime/totalIntervalsNeeded());
+        return totalTime / totalIntervalsNeeded();
+    }
+
+    /**
+     * If we want times for matches that start at exactly hh:00, then this method is used in make schedule instead of
+     * the one above.
+     * @return A rounded time interval between matches, represented as an int
+     */
+    public int getTimeBetweenMatchesRounded(){
         int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
         int totalTime = totalDays * 12;
         return totalTime / totalIntervalsNeeded();
@@ -129,14 +143,18 @@ public class Tournament {
      * @return The total amount of intervals needed to split the total tournament time, represented as an int
      */
     public int totalIntervalsNeeded(){
-        int totalIntervalNeeded = numTeams - 1;
+        int totalIntervalNeeded = 0;
         for(int i = 1; i <= checkAmountRounds(); i++){
-            totalIntervalNeeded += (numFields - (checkNumMatchesByRound(i) % numFields));
+            totalIntervalNeeded += intervalTakenByRound(i);
         }
         return totalIntervalNeeded / numFields;
     }
 
-    //This method could be a helper for the one above
+    /**
+     * This method checks the intervals taken by a given round
+     * @param round The given round, represented as an int
+     * @return      The interval take by a given round
+     */
     public int intervalTakenByRound(int round){
         return checkNumMatchesByRound(round) + (numFields - (checkNumMatchesByRound(round) % numFields));
     }
@@ -159,16 +177,19 @@ public class Tournament {
     }
 
 
-//    /**
-//     * This method adds all the winning teams to matches for the next round.
-//     * @param round The current round of the tournament, represented as an int
-//     */
-//    public void generateRoundWithTeams(int round){
-//        if(this.roundTeamList.get(round-1).size() != checkNumMatchesByRound(round) * 2) return;
-//        for(int i = 0; i < roundTeamList.get(round-1).size(); i+=2 ){
-//            this.roundMatchList.get(round-1).add(new Match())
-//        }
-//    }
+    /**
+     * This method adds all the winning teams to matches for the next round.
+     * @param round The current round of the tournament, represented as an int
+     */
+    public void generateRoundWithTeams(int round){
+        if(round == 1 && teamRegister.getListTeams().size() == numTeams){
+            this.roundTeamList.get(0).addAll(teamRegister.getListTeams());
+        }
+        if(this.roundTeamList.get(round-1).size() != checkNumMatchesByRound(round-1)) return;
+        for(int i = 0; i < this.roundMatchList.get(round - 1).size(); i++){
+                this.roundMatchList.get(round - 1).get(i).addTeam(this.roundTeamList.get(round-1).get(i), this.roundTeamList.get(round-1).get(this.roundMatchList.get(round - 1).size() - i));
+        }
+    }
 
     /**
      * getMethod that gets Tournament Name
