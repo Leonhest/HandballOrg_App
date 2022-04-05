@@ -1,44 +1,57 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 
-import com.sun.jdi.IntegerValue;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Tournament;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class nordRegionController implements Initializable {
 
-    @FXML private javafx.scene.control.ListView<String> ListView;
 
-    public List<String> tournamentString = new ArrayList<>();
+    @FXML
+    public TableColumn<Tournament, Integer> startDateColumn;
+    @FXML
+    public TableColumn<Tournament, Integer> endDateColumn;
+    @FXML
+    public TableColumn<Tournament, String> tournamentNameColumn;
+    @FXML
+    public javafx.scene.control.TableView<Tournament> tableView;
+
+
+
+    AtomicInteger currentTournamentId = new AtomicInteger();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        AtomicInteger currentTournamentId = new AtomicInteger();
+        currentTournamentId = new AtomicInteger();
 
-        ListView.getSelectionModel().selectedItemProperty().addListener((a,b,selected) -> {
-            HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        });
-
-        ListView.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY){
-                String[] selectedTournamentList = ListView.getSelectionModel().getSelectedItem().split("\t\t");
+        tableView.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+                Tournament selectedTournament = tableView.getSelectionModel().getSelectedItem();
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .forEach(t -> {
-                            if (t.getTournamentName().equals(selectedTournamentList[0])){
-                                System.out.println(t.getTournamentID());
+                            if (t.getTournamentName().equals(selectedTournament.getTournamentName())
+                                    && t.getRegion().equals(SwitchScene.getCurrentRegion())){
                                 currentTournamentId.set(t.getTournamentID());
+
+                                try {
+                                    goToCurrentPage(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
                             }
                         });
             }
@@ -47,11 +60,16 @@ public class nordRegionController implements Initializable {
         updateList();
     }
 
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
+    }
+
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
 
-    public void logOutMethod(ActionEvent event) {
+    public void logOutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
@@ -59,13 +77,15 @@ public class nordRegionController implements Initializable {
 
     @FXML
     private void updateList(){
-        tournamentString = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                .stream()
-                .filter(t -> t.getRegion().equals("RegionNord"))
-                .map(Tournament::tournamentStringToList).toList();
+        tournamentNameColumn.setCellValueFactory(new PropertyValueFactory<Tournament, String>("tournamentName"));
+        startDateColumn.setCellValueFactory(new PropertyValueFactory<Tournament, Integer>("startDate"));
+        endDateColumn.setCellValueFactory(new PropertyValueFactory<Tournament, Integer>("endDate"));
 
-        ListView.setItems(FXCollections.observableArrayList(tournamentString));
-        ListView.refresh();
+        tableView.setItems(FXCollections.observableArrayList(
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
+                        .filter(t -> t.getRegion().equals("RegionNord")).toList()));
+
+        tableView.refresh();
     }
 
     public void toSetUpNewTournament(ActionEvent event) throws IOException {

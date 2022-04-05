@@ -207,7 +207,7 @@ public class SetUpMatchesController implements Initializable {
      */
     private List<Integer> createHourMinList(CharSequence stringToBeConverted){
         return Arrays.stream(stringToBeConverted.toString().split(":"))
-                .map(timeUnit -> Integer.valueOf(timeUnit)).toList();
+                .map(Integer::valueOf).toList();
     }
 
     /**
