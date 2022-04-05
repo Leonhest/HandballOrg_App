@@ -25,6 +25,7 @@ public class Tournament {
     private String tournamentName;
     private List<List<Team>> roundTeamList;
     private List<List<Match>> roundMatchList;
+    private String region;
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital
@@ -34,7 +35,7 @@ public class Tournament {
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
     public Tournament(int tournamentID, String tournamentName, LocalDate startDate, LocalDate endDate, String layout,
-                      String tournamentPlace, int numFields, int numTeams) throws IllegalArgumentException{
+                      String tournamentPlace, int numFields, int numTeams, String region) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
         this.matchList = new ArrayList<>();
@@ -51,6 +52,7 @@ public class Tournament {
         this.numTeams = numTeams;
         if(tournamentName.isBlank() || tournamentName.isEmpty()) throw new IllegalArgumentException("Tournament name is invalid!");
         this.tournamentName = tournamentName;
+        this.region = region;
         this.roundMatchList = new ArrayList<>();
         this.roundTeamList = new ArrayList<>();
 
@@ -274,6 +276,10 @@ public class Tournament {
         return roundMatchList;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
     /**
      * toString method for returning all Tournament information
      * @return all Tournament information as a String
@@ -286,5 +292,9 @@ public class Tournament {
                 ", endDate=" + endDate +
                 ", participatingTeams=" +
                 '}';
+    }
+
+    public String tournamentStringToList(){
+        return getTournamentName() +"\t\tStart date: "+getStartDate()+"\t\tEnd date:"+getEndDate();
     }
 }

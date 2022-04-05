@@ -52,7 +52,9 @@ public class MainPageController implements Initializable {
      * method for log out
      */
     public void logout(){
-        AlertBox.logOut();
+        if(AlertBox.logOut()==1){
+            System.exit(-1);
+        }
     }
 
     /**
@@ -62,17 +64,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
-    }
-
-    /**
-     * method that sends program to specific screen
-     * @param event button event
-     * @throws IOException when path not found
-     */
-    @FXML
-    public void toMainPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("MainPage", event);
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -113,5 +105,14 @@ public class MainPageController implements Initializable {
     @FXML
     public void SelectDate(ActionEvent event) {
 
+    }
+
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
     }
 }

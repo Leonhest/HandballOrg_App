@@ -3,7 +3,6 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Tournament;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,11 +10,13 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SetUpTournamentController implements Initializable {
 
     private Tournament tournament = null;
+    ArrayList<Tournament> observerList = new ArrayList<>();
 
     @FXML
     private TextField tournamentNameTextFieldInput;
@@ -39,6 +40,8 @@ public class SetUpTournamentController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //observerList = new ArrayList<>();
 
         tournamentLayoutInput.getItems().add(0, "Layout 1");
         tournamentLayoutInput.getItems().add(1, "Layout 2");
@@ -75,12 +78,14 @@ public class SetUpTournamentController implements Initializable {
         //TODO Add tournamentID check
         try{
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams);
+                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, SwitchScene.getCurrentRegion());
         }
         catch (Exception e){
             SwitchScene.switchScene("FrontPage", actionEvent);
             return;
         }
+
+
         HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
         HandballApplication.setChosenTournament(tournament.getTournamentID());
         SwitchScene.switchScene("MainPage", actionEvent);
@@ -91,9 +96,8 @@ public class SetUpTournamentController implements Initializable {
      * @param event button event
      * @throws IOException when path not found
      */
-    @FXML
-    private  void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
+    public void toRegionChoice(ActionEvent event) throws IOException {
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -101,8 +105,8 @@ public class SetUpTournamentController implements Initializable {
      */
     @FXML
     private void logOutButton(){
-        if (AlertBox.logOut()){
-            Platform.exit();
+        if (AlertBox.logOut() == 1){
+            System.exit(-1);
         }
     }
 }

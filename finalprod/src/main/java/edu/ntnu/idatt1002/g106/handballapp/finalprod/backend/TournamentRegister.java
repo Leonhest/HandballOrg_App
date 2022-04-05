@@ -32,5 +32,4 @@ public class TournamentRegister {
     public List<Tournament> getTournaments() {
         return tournaments;
     }
-
 }

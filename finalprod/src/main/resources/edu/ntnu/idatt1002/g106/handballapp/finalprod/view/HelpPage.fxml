@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.HelpPageController">
+   <children>
+      <Text layoutX="241.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help Page">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="14.0" layoutY="92.0" text="http:blablabl/SetUpTournament" />
+      <Hyperlink layoutX="14.0" layoutY="115.0" prefHeight="23.0" prefWidth="177.0" text="http:blablabl/RegisterTeams" />
+      <Hyperlink layoutX="14.0" layoutY="138.0" prefHeight="23.0" prefWidth="177.0" text="http:blablabl/RegisterMatch" />
+      <Hyperlink layoutX="14.0" layoutY="161.0" prefHeight="23.0" prefWidth="177.0" text="http:blablabl/RegisterResults" />
+      <Hyperlink layoutX="14.0" layoutY="184.0" prefHeight="23.0" prefWidth="177.0" text="http:blablabl/OtherFunctions" />
+      <TextArea layoutX="3.0" layoutY="258.0" prefHeight="138.0" prefWidth="594.0" />
+      <Text layoutX="14.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button layoutX="532.0" layoutY="232.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="67.0" text="Send">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="532.0" layoutY="19.0" mnemonicParsing="false" onAction="#LogoutMethod" text="LogOut" />
+      <Button layoutX="12.0" layoutY="19.0" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+   </children>
+</AnchorPane>

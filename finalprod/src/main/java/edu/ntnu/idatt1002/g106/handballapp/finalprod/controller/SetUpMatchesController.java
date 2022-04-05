@@ -144,12 +144,12 @@ public class SetUpMatchesController implements Initializable {
 
     /**
      * method that sends program to specific screen
-     * @param actionEvent button event
+     * @param event button event
      * @throws IOException when path not found
      */
     @FXML
-    public void goToFrontPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("FrontPage", actionEvent);
+    public void goToFrontPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -210,6 +210,14 @@ public class SetUpMatchesController implements Initializable {
                 .map(timeUnit -> Integer.valueOf(timeUnit)).toList();
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
+    }
 }
 
 //TODO: Link better. Currently the menu bar, makes the linking difficult. We could always replace with buttons

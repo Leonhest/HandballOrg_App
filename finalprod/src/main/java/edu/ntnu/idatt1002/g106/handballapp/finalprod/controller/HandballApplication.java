@@ -36,7 +36,7 @@ public class HandballApplication extends Application{
      */
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/finalprod/view/FrontPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/finalprod/view/RegionChoice.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Tournament");
         stage.setScene(scene);
@@ -69,9 +69,9 @@ public class HandballApplication extends Application{
         Administrator admin = new Administrator(new User("Leon", "Hest", "123", "Leon.hesthaug@gmail.com"));
         adminList.add(admin);
 
-        Tournament oslo = new Tournament(0, "Oslo Tournament",LocalDate.now(), LocalDate.now().plusDays(2), "layout1", "Asker", 3, 16);
-        Tournament trondheim = new Tournament(1, "Trondheim Tournament",LocalDate.now(), LocalDate.now().plusDays(7), "layout1", "Trondheim", 3, 8);
-        Tournament asker = new Tournament(2, "Asker Tournament",LocalDate.now(), LocalDate.now().plusDays(5), "layout2", "Oslo", 2, 8);
+        Tournament oslo = new Tournament(0, "Oslo Tournament",LocalDate.now(), LocalDate.now().plusDays(2), "layout1", "Asker", 3, 16, "RegionSor");
+        Tournament trondheim = new Tournament(1, "Trondheim Tournament",LocalDate.now(), LocalDate.now().plusDays(7), "layout1", "Trondheim", 3, 8, "RegionNord");
+        Tournament asker = new Tournament(2, "Asker Tournament",LocalDate.now(), LocalDate.now().plusDays(5), "layout2", "Oslo", 2, 8, "RegionVest");
 
         Tournament[] tournaments = {oslo, trondheim, asker};
 
@@ -110,8 +110,8 @@ public class HandballApplication extends Application{
     public static String removeSpaces(String text) {
         String[] splitWord = text.split(" ");
         String resultWord = "";
-        for (int i = 0; i < splitWord.length; i++) {
-            resultWord += splitWord[i];
+        for (String s : splitWord) {
+            resultWord += s;
         }
         return resultWord;
     }

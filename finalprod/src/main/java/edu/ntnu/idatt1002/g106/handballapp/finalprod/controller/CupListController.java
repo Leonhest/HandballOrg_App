@@ -136,7 +136,7 @@ public class CupListController implements Initializable {
      * @throws IOException when path not found
      */
     public void toFrontPage(ActionEvent event) throws IOException{
-        SwitchScene.switchScene("FrontPage", event);
+        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
     }
 
     /**
@@ -166,12 +166,7 @@ public class CupListController implements Initializable {
         SwitchScene.switchScene("SetUpMatches", event);
     }
 
-    /**
-     * method that sends program to specific screen
-     * @param event button event
-     * @throws IOException when path not found
-     */
-    public void toCupList(ActionEvent event) throws IOException{
-        SwitchScene.switchScene("CupList", event);
+    public void toHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
     }
 }
