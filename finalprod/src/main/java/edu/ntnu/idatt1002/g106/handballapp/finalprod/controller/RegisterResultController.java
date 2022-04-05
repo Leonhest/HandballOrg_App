@@ -47,16 +47,6 @@ public class RegisterResultController implements Initializable {
         scoreID.setCellValueFactory(new PropertyValueFactory<Match, String>("finalResult"));
         matchTable.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
         matchTable.refresh();
-        /*
-       String matchScoreTxt = String.valueOf(new PropertyValueFactory<Match, String>("matchScore"));
-
-       feedBackText.setText(matchScoreTxt);
-       System.out.println(matchScoreTxt);
-       if (matchScoreTxt == null || matchScoreTxt.isBlank()) {
-       } else {
-           matchScore.setCellValueFactory(new PropertyValueFactory<Match, String>("matchScore"));
-       }
-        */
     }
 
     /**
@@ -65,14 +55,24 @@ public class RegisterResultController implements Initializable {
     @FXML
     public void registerResult() {//todo: add check for the input - is the input integer?
         Match match = null;
-        if(Integer.parseInt(winnerGoalsInput.getText()) >= Integer.parseInt(loserGoalsInput.getText())) {
-            match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
-            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
-            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
-        } else {
-            feedBackText.setFill(Color.RED);
-            feedBackText.setText("*The winner result must be greater than the loser score*");
+        try {
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
+
+            if (Integer.parseInt(winnerGoalsInput.getText()) < 0 || Integer.parseInt(loserGoalsInput.getText()) < 0) {
+                AlertBox.alertError("The goals can not be a negative value");
+            }
+            if (match == null) {
+                AlertBox.alertError("Please check the input for match id");
+            }
+        } catch (NumberFormatException e) {
+            AlertBox.alertError("Please check if the input field require an integer");
+        } catch (IndexOutOfBoundsException e) {
+            AlertBox.alertError("Please select an registered match");
+        } catch (Exception e) {
+            AlertBox.alertError("System fail");
         }
+        match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+        match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
         updateTableView();
         Team winner = match.getWinner();
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
