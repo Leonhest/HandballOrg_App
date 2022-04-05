@@ -41,8 +41,9 @@ public class Tournament {
         this.matchList = new ArrayList<>();
         this.teamRegister = new TeamRegister();
         if(endDate == null || startDate == null || tournamentName == null || tournamentPlace == null) throw new NullPointerException("Fill in all fields");
+        if (startDate.isBefore(LocalDate.now())) throw new IllegalArgumentException("Start date must be before current start date");
         this.startDate = startDate;
-        if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be before start date");
+        if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be after start date");
         this.endDate = endDate;
         this.results = new Results();
         this.layout = layout;
