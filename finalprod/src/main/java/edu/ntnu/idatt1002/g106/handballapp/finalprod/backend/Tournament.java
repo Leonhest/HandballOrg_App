@@ -124,7 +124,6 @@ public class Tournament {
     public double getTimeBetweenMatches(){
         int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
         double totalTime = totalDays * 12;
-        System.out.println(totalTime/totalIntervalsNeeded());
         return totalTime / totalIntervalsNeeded();
     }
 
