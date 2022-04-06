@@ -86,13 +86,21 @@ public class CupListController implements Initializable {
     public void confirmAddNewTeam(){
         try{
             teamInfoExceptions();
-            if(phoneNumTextFieldInput.getText().length() != 8) throw new IllegalArgumentException("*A phone number needs 8 digits!*");
             Team team = new Team(teamNameTextFieldInput.getText(), teamLeaderTextFieldInput.getText(),
                     regionTextFieldInput.getText(), Integer.valueOf(numPlayerInput.getValue()),
                     Integer.valueOf(phoneNumTextFieldInput.getText()));
-
-            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                    .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
+            if(phoneNumTextFieldInput.getText().length() != 8) throw new IllegalArgumentException("*A phone number needs 8 digits!*");
+            else if(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams().size() == HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                    .get(HandballApplication.chosenTournament).getNumTeams()) {
+                feedbackText.setFill(Color.RED);
+                feedbackText.setText("No more teams can be added");
+            }
+            else{
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                        .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
+                feedbackText.setText("");
+            }
 
         }
         catch (IllegalArgumentException e){
@@ -163,7 +171,19 @@ public class CupListController implements Initializable {
      * @throws IOException when path not found
      */
     public void toMatches(ActionEvent event) throws IOException{
-        SwitchScene.switchScene("SetUpMatches", event);
+        int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+        if(numTeams == 4){
+            SwitchScene.switchScene("TournamentBracket4", event);
+        }
+        else if(numTeams == 8){
+            SwitchScene.switchScene("TournamentBracket8", event);
+        }
+        else if(numTeams == 16){
+            SwitchScene.switchScene("TournamentBrackets16", event);
+        }
+        else if(numTeams == 32){
+            SwitchScene.switchScene("TournamentBrackets32", event);
+        };
     }
 
     public void toHelpPage(ActionEvent event) throws IOException {

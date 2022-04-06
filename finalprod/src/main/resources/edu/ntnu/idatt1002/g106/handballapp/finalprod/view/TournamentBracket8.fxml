@@ -52,18 +52,18 @@
                   <Font size="27.0" />
                </font>
             </Button>
-            <Button layoutX="311.0" layoutY="679.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="178.0" text="Generate next round">
+            <Button layoutX="311.0" layoutY="679.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="178.0" text="Generate next round">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <TextArea layoutX="139.0" layoutY="116.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="139.0" layoutY="290.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="139.0" layoutY="466.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="139.0" layoutY="641.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="340.0" layoutY="554.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="340.0" layoutY="203.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea layoutX="541.0" layoutY="376.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r1m1" layoutX="139.0" layoutY="116.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r1m2" layoutX="139.0" layoutY="290.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r1m3" layoutX="139.0" layoutY="466.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r1m4" layoutX="139.0" layoutY="641.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r2m2" layoutX="340.0" layoutY="554.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r2m1" layoutX="340.0" layoutY="203.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r3m1" layoutX="541.0" layoutY="376.0" prefHeight="65.0" prefWidth="123.0" />
          </children>
       </AnchorPane>
    </center>

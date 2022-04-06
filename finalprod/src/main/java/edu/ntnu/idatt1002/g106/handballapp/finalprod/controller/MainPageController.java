@@ -77,7 +77,19 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", event);
+        int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+        if(numTeams == 4){
+            SwitchScene.switchScene("TournamentBracket4", event);
+        }
+        else if(numTeams == 8){
+            SwitchScene.switchScene("TournamentBracket8", event);
+        }
+        else if(numTeams == 16){
+            SwitchScene.switchScene("TournamentBrackets16", event);
+        }
+        else if(numTeams == 32){
+            SwitchScene.switchScene("TournamentBrackets32", event);
+        };
     }
 
     /**

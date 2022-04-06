@@ -62,6 +62,8 @@ public class Match {
     public void addTeam(Team team1, Team team2){
         this.team1 = team1;
         this.team2 = team2;
+        this.teamScore.put(team1.getTeamName(), 0);
+        this.teamScore.put(team2.getTeamName(), 0);
     }
 
     /**
@@ -191,6 +193,7 @@ public class Match {
     @Override
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +
-                "***\n The game ended with " + getFinalResult() + " and the winner was " + getFinalResult();
+                "***\n The game ended with " + getFinalResult() + " and the winner was "
+                + getWinner();
     }
 }

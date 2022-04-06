@@ -97,6 +97,7 @@ public class SetUpTournamentController implements Initializable {
         if (correctInformation) {
             HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
             HandballApplication.setChosenTournament(tournament.getTournamentID());
+            tournament.generateTournament();
             SwitchScene.switchScene("MainPage", actionEvent);
         }
     }
