@@ -24,7 +24,7 @@
             <VBox prefHeight="138.0" prefWidth="155.0" />
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                <children>
-                  <Button  accessibleHelp="This button will take you to Southern region tournament list" accessibleText="Southern Region" mnemonicParsing="false" onAction="#toSouthernRegion" prefHeight="128.0" prefWidth="218.0">
+                  <Button fx:id="SouthernRegion" accessibleHelp="This button will take you to Southern region tournament list" accessibleText="Southern Region" mnemonicParsing="false" onAction="#toRegionController" prefHeight="128.0" prefWidth="218.0">
                      <graphic>
                                 <ImageView accessibleHelp="This button will take you to souther region tournament list" accessibleText="Southern Region" fitHeight="117.0" fitWidth="200.0">
                                     <image>
@@ -38,7 +38,7 @@
             <VBox prefHeight="150.0" prefWidth="204.0" />
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                <children>
-                  <Button accessibleHelp="This button will take you to eastern region tournament list" accessibleText="EasternRegion" mnemonicParsing="false" onAction="#toEasternRegion" prefHeight="128.0" prefWidth="218.0">
+                  <Button fx:id="EasternRegion" accessibleHelp="This button will take you to eastern region tournament list" accessibleText="EasternRegion" mnemonicParsing="false" onAction="#toRegionController" prefHeight="128.0" prefWidth="218.0">
                      <graphic>
                               <ImageView accessibleHelp="This button will take you to eastern region tournament list" accessibleText="Eastern Region" fitHeight="112.0" fitWidth="200.0">
                                   <image>
@@ -60,7 +60,7 @@
                 <VBox prefHeight="138.0" prefWidth="155.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                     <children>
-                        <Button accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" mnemonicParsing="false" onAction="#toNorthernRegion" prefHeight="128.0" prefWidth="218.0">
+                        <Button fx:id="NorthernRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" mnemonicParsing="false" onAction="#toRegionController" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
                                 <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>
@@ -74,7 +74,7 @@
                 <VBox prefHeight="150.0" prefWidth="204.0" />
                 <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
                     <children>
-                        <Button  accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" mnemonicParsing="false" onAction="#toWesternRegion" prefHeight="128.0" prefWidth="218.0">
+                        <Button fx:id="WesternRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" mnemonicParsing="false" onAction="#toRegionController" prefHeight="128.0" prefWidth="218.0">
                             <graphic>
                                 <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>

@@ -17,10 +17,7 @@ public class HandballApplication extends Application{
     //todo: tilgangsmodifikator?
     static List<Administrator> adminList = new ArrayList<>();
     static int chosenTournament = -1;
-    static String chosenRegion = null;
-    //todo: set the regions in an other class - own class for region and region register - kan lage enum
-    private static String[] regions = {"SouthernRegion", "EasternRegion", "NorthernRegion", "WesternRegion"};
-
+    static Region chosenRegion = null;
     //static Tournament tournament= HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament);//todo: taken in use - can simplify much code
 
 
@@ -107,35 +104,14 @@ public class HandballApplication extends Application{
     }
 
     /**
-     * Method to check if a region is valid
-     * @param region The region to check
-     * @return {@code true} if the param region matches a registered region, otherwise {@code false}
-     */
-    private static boolean validRegion(String region) {
-        if (region == null) {
-            return false;
-        }
-
-        boolean regionMatch = false;
-        int index = 0;
-        while (!regionMatch && index < regions.length) {
-            if (regions[index].equalsIgnoreCase(region)) {
-                regionMatch = true;
-            }
-            index++;
-        }
-        return regionMatch;
-    }
-
-    /**
      * Setter for the chosen region
      * @param region chosen region
      */
     public static void setChosenRegion(String region) {
-        if (!validRegion(region)) {
+        if (Region.findRegion(region) == null) {
             throw new IllegalArgumentException("The chosen region does not match a valid region");
         }
-        chosenRegion = region;
+        chosenRegion = Region.findRegion(region);
     }
 
     /**

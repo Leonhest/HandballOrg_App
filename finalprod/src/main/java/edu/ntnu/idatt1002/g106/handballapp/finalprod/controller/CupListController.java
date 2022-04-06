@@ -135,7 +135,7 @@ public class CupListController implements Initializable {
      * @throws IOException when path not found
      */
     public void toFrontPage(ActionEvent event) throws IOException{
-        SwitchScene.switchScene(HandballApplication.chosenRegion, event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
     }
 
     /**

@@ -113,7 +113,7 @@ public class RegisterResultController implements Initializable {
      */
     @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(HandballApplication.chosenRegion, event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
     }
 
     /**

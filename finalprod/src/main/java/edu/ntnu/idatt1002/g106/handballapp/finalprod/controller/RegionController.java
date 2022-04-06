@@ -37,7 +37,7 @@ public class RegionController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        regionHeader.setText(HandballApplication.chosenRegion);
+        regionHeader.setText(HandballApplication.chosenRegion.getRegionTxt());
 
 
         currentTournamentId = new AtomicInteger();
@@ -48,7 +48,7 @@ public class RegionController  implements Initializable {
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .forEach(t -> {
                             if (t.getTournamentName().equals(selectedTournament.getTournamentName())
-                                    && t.getRegion().equals(HandballApplication.chosenRegion)){
+                                    && t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())){
                                 currentTournamentId.set(t.getTournamentID());
 
                                 try {
@@ -88,7 +88,7 @@ public class RegionController  implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion)).toList()));
+                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())).toList()));
 
         tableView.refresh();
     }
