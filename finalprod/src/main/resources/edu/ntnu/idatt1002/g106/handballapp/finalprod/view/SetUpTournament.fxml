@@ -13,6 +13,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.SetUpTournamentController">
    <children>
+      <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#toRegionChoice" text="Region Selection" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="2.0" />
+      <Button layoutX="536.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" AnchorPane.topAnchor="7.0" />
       <TextField id="tournamentName" fx:id="tournamentNameTextFieldInput" layoutX="159.0" layoutY="14.0" prefHeight="26.0" prefWidth="427.0" promptText="Oslo open" AnchorPane.bottomAnchor="360.0" AnchorPane.topAnchor="66.0" />
       <TextField fx:id="tournamentPlaceTextFieldInput" layoutX="158.0" layoutY="48.0" prefHeight="26.0" prefWidth="427.0" promptText="Oslo" AnchorPane.bottomAnchor="326.0" AnchorPane.topAnchor="100.0" />
       <Text layoutX="9.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tournament name:" wrappingWidth="118.0" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="9.0" />
@@ -49,7 +51,7 @@
 
       <Text layoutX="12.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of fields" wrappingWidth="100.98307228088379" AnchorPane.bottomAnchor="111.0" />
       <Text layoutX="12.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of teams" wrappingWidth="108.21630859375" AnchorPane.bottomAnchor="73.0" />
-      <Button fx:id="tournamentConfirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="12.0">
+      <Button id="tournamentConfirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="12.0">
          <effect>
             <InnerShadow />
          </effect></Button>
@@ -61,8 +63,6 @@
             <Font name="Al Bayan Plain" size="23.0" />
          </font>
       </Text>
-      <Button layoutX="536.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" AnchorPane.topAnchor="7.0" />
-      <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#toRegionChoice" text="Region Selection" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="2.0" />
       <Text layoutX="386.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End date:" wrappingWidth="63.0" />
    </children>
 </AnchorPane>
