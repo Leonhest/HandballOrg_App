@@ -16,6 +16,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * this class is used for east region, and its methods
+ * it holds the tournament list and is new tournament button
+ * @author Gruppe 6.
+ */
 public class EastRegionController implements Initializable {
 
 
@@ -30,7 +35,13 @@ public class EastRegionController implements Initializable {
 
     private AtomicInteger currentTournamentId = new AtomicInteger();
 
-
+    /**
+     * {@inheritDoc}
+     * in addition, this method also keeps track if anythin in tableview is selected or click on, and will therefore
+     * send the user to that tournament when selected
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         currentTournamentId = new AtomicInteger();
@@ -58,21 +69,37 @@ public class EastRegionController implements Initializable {
         updateList();
     }
 
+    /**
+     * take the user to the current page when click twice
+     * @param event mouse event
+     * @throws IOException when path not found
+     */
     public void goToCurrentPage(Event event) throws IOException {
         HandballApplication.setChosenTournament(currentTournamentId.intValue());
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * this button takes the user back to region selection page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
 
-    public void logOutMethod(ActionEvent event) {
+    /**
+     * log out method
+     */
+    public void logOutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
     }
 
+    /**
+     * this method updates the tableview when new tournament in a specific region is created
+     */
     @FXML
     private void updateList(){
         tournamentNameColumn.setCellValueFactory(new PropertyValueFactory<Tournament, String>("tournamentName"));
@@ -86,7 +113,26 @@ public class EastRegionController implements Initializable {
         tableView.refresh();
     }
 
+    /**
+     * this method tkes the user to StUpTournament page.
+     * where they can create a new tournament
+     * @param event any event
+     * @throws IOException when path not found
+     */
+    @FXML
     public void toSetUpNewTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
+    }
+
+    /**
+     * this method works for to selected tournament button, and is mostly used for blind people
+     * who have a hard time navigating to tournaments with a mouse.
+     * @param event any event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void toSelectedTournament(ActionEvent event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
     }
 }

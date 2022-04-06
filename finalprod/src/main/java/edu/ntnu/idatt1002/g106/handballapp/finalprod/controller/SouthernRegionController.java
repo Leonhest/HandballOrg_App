@@ -11,11 +11,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * this class is used for east region, and its methods
+ * it holds the tournament list and is new tournament button
+ * @author Gruppe 6.
+ */
 public class SouthernRegionController implements Initializable {
 
     @FXML
@@ -29,6 +36,13 @@ public class SouthernRegionController implements Initializable {
 
     private AtomicInteger currentTournamentId = new AtomicInteger();
 
+    /**
+     * {@inheritDoc}
+     * in addition, this method also keeps track if anythin in tableview is selected or click on, and will therefore
+     * send the user to that tournament when selected
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         currentTournamentId = new AtomicInteger();
@@ -56,21 +70,37 @@ public class SouthernRegionController implements Initializable {
         updateList();
     }
 
+    /**
+     * take the user to the current page when click twice
+     * @param event mouse event
+     * @throws IOException when path not found
+     */
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    /**
+     * this button takes the user back to region selection page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
 
+    /**
+     * log out method
+     */
     public void logOutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
     }
 
-    public void goToCurrentPage(Event event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        SwitchScene.switchScene("MainPage", event);
-    }
-
+    /**
+     * this method updates the tableview when new tournament in a specific region is created
+     */
     @FXML
     private void updateList(){
         tournamentNameColumn.setCellValueFactory(new PropertyValueFactory<Tournament, String>("tournamentName"));
@@ -84,8 +114,26 @@ public class SouthernRegionController implements Initializable {
         tableView.refresh();
     }
 
+    /**
+     * this method tkes the user to StUpTournament page.
+     * where they can create a new tournament
+     * @param event any event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toSetUpTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
+    }
+
+    /**
+     * this method works for to selected tournament button, and is mostly used for blind people
+     * who have a hard time navigating to tournaments with a mouse.
+     * @param event any event
+     * @throws IOException when path not found
+     */
+    @FXML
+    public void toSelectedTournament(ActionEvent event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
     }
 }
