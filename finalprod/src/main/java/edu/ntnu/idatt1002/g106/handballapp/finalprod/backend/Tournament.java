@@ -25,6 +25,7 @@ public class Tournament {
     private String tournamentName;
     private List<List<Team>> roundTeamList;
     private List<List<Match>> roundMatchList;
+    private int currentRound = 1;
     private String region;//todo: if time find region hence on tournamentPlace
 
     /**
@@ -125,7 +126,6 @@ public class Tournament {
     public double getTimeBetweenMatches(){
         int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
         double totalTime = totalDays * 12;
-        System.out.println(totalTime/totalIntervalsNeeded());
         return totalTime / totalIntervalsNeeded();
     }
 
@@ -184,14 +184,30 @@ public class Tournament {
      * This method adds all the winning teams to matches for the next round.
      * @param round The current round of the tournament, represented as an int
      */
-    public void generateRoundWithTeams(int round){
-        if(round == 1 && teamRegister.getListTeams().size() == numTeams){
-            this.roundTeamList.get(0).addAll(teamRegister.getListTeams());
+    public void generateRoundWithTeams(int round) throws IllegalArgumentException{
+        if(this.teamRegister.getListTeams().size() == numTeams && this.roundTeamList.get(0).size() != numTeams) setFirstTeamsList();
+        if(this.teamRegister.getListTeams().size() != numTeams) throw new IllegalArgumentException("Not enough teams entered");
+        if(currentRound == this.checkAmountRounds() + 1) return;
+        List<Team> tempList = new ArrayList<>();
+        tempList.addAll(this.roundTeamList.get(round-1));
+        if(round != 1 && this.roundTeamList.get(round-1).size() != checkNumMatchesByRound(round)*2){
+            throw new IllegalArgumentException("All the winners from the previous round haven't been registered yet");
         }
-        if(this.roundTeamList.get(round-1).size() != checkNumMatchesByRound(round-1)) return;
-        for(int i = 0; i < this.roundMatchList.get(round - 1).size(); i++){
-                this.roundMatchList.get(round - 1).get(i).addTeam(this.roundTeamList.get(round-1).get(i), this.roundTeamList.get(round-1).get(this.roundMatchList.get(round - 1).size() - i));
+
+        for(int i = 0; i < this.roundMatchList.get(round-1).size(); i++){
+                this.roundMatchList.get(round-1).get(i).addTeam(tempList.get(0), tempList.get(1));
+                this.matchList.add(this.roundMatchList.get(round-1).get(i));
+                tempList.remove(0);
+                tempList.remove(0);
         }
+       currentRound++;
+    }
+
+    /**
+     * This method sets the first teams list full with the team register.
+     */
+    public void setFirstTeamsList(){
+        this.roundTeamList.get(0).addAll(this.teamRegister.getListTeams());
     }
 
     /**
@@ -275,6 +291,13 @@ public class Tournament {
 
     public List<List<Match>> getRoundMatchList() {
         return roundMatchList;
+    }
+
+    public int getCurrentRound(){
+        return currentRound;
+    }
+    public int getNumTeams(){
+        return numTeams;
     }
 
     public String getRegion() {

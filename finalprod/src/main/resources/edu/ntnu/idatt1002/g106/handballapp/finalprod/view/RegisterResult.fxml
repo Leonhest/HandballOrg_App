@@ -16,6 +16,16 @@
 
 <AnchorPane prefHeight="402.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegisterResultController">
     <children>
+      <ButtonBar layoutY="-6.0" prefHeight="40.0" prefWidth="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-6.0">
+        <buttons>
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" mnemonicParsing="false" onAction="#toCupList" text="Team" />
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+        </buttons>
+      </ButtonBar>
+      <Button accessibleHelp="this button wil ask you if you want to log out" accessibleText="logout button" layoutX="532.0" layoutY="1.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" />
         <VBox layoutY="27.0" prefHeight="375.0" prefWidth="600.0" spacing="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Matches">
@@ -36,7 +46,7 @@
                 <AnchorPane prefHeight="33.0" prefWidth="600.0">
                     <children>
                   <Label layoutX="245.0" layoutY="8.0" text="MatchId:" />
-                            <TextField fx:id="matchIDInput" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
+                            <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="142.0" prefWidth="600.0">
@@ -44,7 +54,7 @@
                         <VBox layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.leftAnchor="30.0">
                             <children>
                                 <Text fill="#282826" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" />
-                                <ChoiceBox fx:id="winnerTeamChoiceBox" prefWidth="150.0" />
+                                <ChoiceBox fx:id="winnerTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" prefWidth="150.0" />
                                 <HBox prefHeight="33.0" prefWidth="208.0">
                                     <children>
                                         <Label text="Goals:" />
@@ -56,7 +66,7 @@
                         <VBox layoutX="356.0" layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.rightAnchor="30.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" />
-                                <ChoiceBox fx:id="loserTeamChoiceBox" prefWidth="150.0" />
+                                <ChoiceBox fx:id="loserTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" prefWidth="150.0" />
                                 <HBox prefHeight="30.0" prefWidth="208.0">
                                     <children>
                                         <Label text="Goals:" />
@@ -65,22 +75,12 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <Button fx:id="submitButton" layoutX="243.0" layoutY="107.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
+                        <Button id="submitButton" accessibleHelp="this button submits your match selection" accessibleText="Submit" layoutX="243.0" layoutY="107.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
                     <Text fx:id="feedBackText" layoutX="37.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="48.0" />
                     </children>
                 </AnchorPane>
             </children>
         </VBox>
-      <ButtonBar layoutY="-6.0" prefHeight="40.0" prefWidth="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-6.0">
-        <buttons>
-            <Button minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
-          <Button mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
-            <Button mnemonicParsing="false" onAction="#toCupList" text="Team" />
-            <Button mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
-            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
-        </buttons>
-      </ButtonBar>
-      <Button layoutX="532.0" layoutY="1.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" />
     </children>
 
 </AnchorPane>

@@ -71,19 +71,16 @@ public class RegisterResultController implements Initializable {
         } catch (Exception e) {
             AlertBox.alertError("System fail");
         }
-        try {
-            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
-            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
-            updateTableView();
-            Team winner = match.getWinner();
-            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
-        } catch (Exception e) {
-            //todo: remove sysout - when exception handling is ok
-            System.out.println(e.getStackTrace());
-            System.out.println(e.getMessage());
-            System.out.println(e.getClass());
-        }
+
+        match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+        match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
+        updateTableView();
+        Team winner = match.getWinner();
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
+        SwitchScene.switchScene("MainPage", event);
     }
+
+    //TODO: Fix when the submit button is pressed multiple times and make sure a match actually getds the right score
 
     /**
      * {@inheritDoc}
@@ -140,7 +137,19 @@ public class RegisterResultController implements Initializable {
      * @throws IOException when path not found
      */
     public void toSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", event);
+        int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+        if(numTeams == 4){
+            SwitchScene.switchScene("TournamentBracket4", event);
+        }
+        else if(numTeams == 8){
+            SwitchScene.switchScene("TournamentBracket8", event);
+        }
+        else if(numTeams == 16){
+            SwitchScene.switchScene("TournamentBrackets16", event);
+        }
+        else if(numTeams == 32){
+            SwitchScene.switchScene("TournamentBrackets32", event);
+        };
     }
 
     /**

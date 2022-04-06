@@ -16,11 +16,11 @@
     <children>
       <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="315.0">
         <buttons>
-            <Button minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
-          <Button mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
-            <Button mnemonicParsing="false" onAction="#toResults" text="Results" />
-            <Button mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
-            <Button mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button accessibleHelp="this button will take you to the main page" accessibleText="to mainpage button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" text="Results" />
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
         <TableView fx:id="teamTableView" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
@@ -41,7 +41,7 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-      <TextField fx:id="teamNameTextFieldInput" layoutX="509.0" layoutY="85.0" prefHeight="0.0" prefWidth="153.0" promptText="Sandnes Il" />
+      <TextField fx:id="teamNameTextFieldInput" accessibleHelp="write new team name here" accessibleText="team name field" layoutX="509.0" layoutY="85.0" prefHeight="0.0" prefWidth="153.0" promptText="Sandnes Il" />
       <Text layoutX="472.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Team" wrappingWidth="103.16204833984375">
          <font>
             <Font name="Apple Braille Outline 6 Dot" size="14.0" />
@@ -51,19 +51,19 @@
       <Text layoutX="400.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Players" />
       <Text layoutX="400.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Leader" />
       <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
-      <TextField fx:id="teamLeaderTextFieldInput" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Eirik Elvestad" />
-      <TextField fx:id="regionTextFieldInput" layoutX="509.0" layoutY="266.0" prefHeight="0.0" prefWidth="153.0" promptText="Stavanger" />
+      <TextField fx:id="teamLeaderTextFieldInput" accessibleHelp="write the team representants name here" accessibleText="team representant field" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Eirik Elvestad" />
+      <TextField fx:id="regionTextFieldInput" accessibleHelp="write the place where the tournament is happending here" accessibleText="place of event field" layoutX="509.0" layoutY="266.0" prefHeight="0.0" prefWidth="153.0" promptText="Stavanger" />
       <Text layoutX="400.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
-      <TextField fx:id="phoneNumTextFieldInput" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
-      <ChoiceBox fx:id="numPlayerInput" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
-      <Button id="newTeamConfirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
-      <Button id="resetButton" layoutX="626.0" layoutY="504.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
+      <TextField fx:id="phoneNumTextFieldInput" accessibleHelp="write the teams phonenumber here" accessibleText="phonenumber field" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
+      <ChoiceBox fx:id="numPlayerInput" accessibleHelp="select number of players " accessibleText="number of players combobox" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
       <Text layoutX="489.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+47">
          <font>
             <Font size="12.0" />
          </font>
       </Text>
       <Text fx:id="feedbackText" layoutX="407.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
+      <Button id="resetButton" accessibleHelp="this button resets all information written" accessibleText="reset" layoutX="632.0" layoutY="506.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
     </children>
 
 </AnchorPane>

@@ -35,6 +35,13 @@ public class RegionController  implements Initializable {
 
     private AtomicInteger currentTournamentId = new AtomicInteger();
 
+    /**
+     * {@inheritDoc}
+     * in addition, this method also keeps track if anythin in tableview is selected or click on, and will therefore
+     * send the user to that tournament when selected
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         regionHeader.setText(HandballApplication.chosenRegion.getRegionTxt());
@@ -93,6 +100,12 @@ public class RegionController  implements Initializable {
         tableView.refresh();
     }
 
+    /**
+     * this method tkes the user to StUpTournament page.
+     * where they can create a new tournament
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void toSetUpNewTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
     }
