@@ -64,6 +64,9 @@ public class SetUpMatchesController implements Initializable {
     private ChoiceBox<String> refereeChoice;
 
     @FXML
+    private ChoiceBox<String> refereeChoice2;
+
+    @FXML
     private ChoiceBox<String> teamChoice1;
 
     @FXML
@@ -105,8 +108,10 @@ public class SetUpMatchesController implements Initializable {
         refereeChoice.getItems().add("Leon Hesthaug");
         refereeChoice.setValue("Referee");
 
-
-
+        refereeChoice2.getItems().add("Eirik Dommerstad");
+        refereeChoice2.getItems().add("Hans Magne Asheim");
+        refereeChoice2.getItems().add("Leon Hesthaug");
+        refereeChoice2.setValue("Second Referee");
     }
 
     /**
@@ -139,6 +144,8 @@ public class SetUpMatchesController implements Initializable {
                 createHourMinList(startTime.getCharacters()).get(1));
 
         referees.add(refereeChoice.getValue());
+        referees.add(refereeChoice2.getValue());
+        if (refereeChoice.equals(refereeChoice2)) AlertBox.alertError("You cant put the same referee twice");
 
         Match match = new Match(startDate, 1,team1, team2, matchList.size() + 1, fieldNum);
 

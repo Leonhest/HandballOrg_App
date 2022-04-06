@@ -179,16 +179,6 @@ public class SetUpTournamentController implements Initializable {
     }
 
     /**
-     * method that sends program to specific screen
-     * @param event button event
-     * @throws IOException when path not found
-     */
-    @FXML
-    private  void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("FrontPage", event);
-    }
-
-    /**
      * log out method
      */
     @FXML
