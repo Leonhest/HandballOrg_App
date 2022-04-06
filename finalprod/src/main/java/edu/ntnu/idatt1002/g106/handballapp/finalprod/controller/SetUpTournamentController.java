@@ -3,7 +3,6 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Tournament;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,11 +10,19 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * this class has the different methods and fields necessary for creating new tournaments
+ * @author Gruppe 6
+ */
 public class SetUpTournamentController implements Initializable {
 
     private Tournament tournament = null;
+
+    //trengs denne?
+    ArrayList<Tournament> observerList = new ArrayList<>();
 
     @FXML
     private TextField tournamentNameTextFieldInput;
@@ -40,6 +47,8 @@ public class SetUpTournamentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //observerList = new ArrayList<>();
+
         tournamentLayoutInput.getItems().add(0, "Layout 1");
         tournamentLayoutInput.getItems().add(1, "Layout 2");
         tournamentLayoutInput.setValue("Layout 1");
@@ -50,8 +59,8 @@ public class SetUpTournamentController implements Initializable {
 
         tournamentNumFieldsInput.setValue(1);
 
-        for (int i = 0; i < 7; i++) {
-            tournamentNumTeamsInput.getItems().add(i, i + 4);
+        for (int i = 2; i < 6; i++) {
+            tournamentNumTeamsInput.getItems().add(i-2, (int) Math.pow(2,i));
         }
         tournamentNumTeamsInput.setValue(4);
 
@@ -64,6 +73,8 @@ public class SetUpTournamentController implements Initializable {
      */
     @FXML
     public void confirmTournament (ActionEvent actionEvent) throws IOException {
+        //TODO Add tournamentID check
+        boolean correctInformation = false;
         String tournamentLayout = tournamentLayoutInput.getValue();
         String tournamentName = tournamentNameTextFieldInput.getText();
         String tournamentPlace = tournamentPlaceTextFieldInput.getText();
@@ -71,19 +82,24 @@ public class SetUpTournamentController implements Initializable {
         int tournamentNumTeams = tournamentNumTeamsInput.getValue();
         LocalDate tournamentStartDate = tournamentStartDateInput.getValue();
         LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
-
-        //TODO Add tournamentID check
-        try{
+        try {
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
                     tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, SwitchScene.getCurrentRegion());
-        }
-        catch (Exception e){
-            SwitchScene.switchScene("FrontPage", actionEvent);
+            correctInformation = true;
+        } catch (NullPointerException e) {
+            AlertBox.alertError("Remember to fill inn all information");
+        } catch (IllegalArgumentException e) {
+            AlertBox.alertError(e.getMessage());
+        } catch (Exception e){
+            AlertBox.alertError("System fail");
             return;
         }
-        HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
-        HandballApplication.setChosenTournament(tournament.getTournamentID());
-        SwitchScene.switchScene("MainPage", actionEvent);
+        if (correctInformation) {
+            HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
+            HandballApplication.setChosenTournament(tournament.getTournamentID());
+            tournament.generateTournament();
+            SwitchScene.switchScene("MainPage", actionEvent);
+        }
     }
 
     /**
@@ -104,8 +120,6 @@ public class SetUpTournamentController implements Initializable {
             System.exit(-1);
         }
     }
-
-
 }
 
 

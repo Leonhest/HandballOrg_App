@@ -45,6 +45,27 @@ public class Match {
         this.numField = numField;
     }
 
+    public Match(LocalDateTime startTime, int numField, int matchID, int roundNum) {
+        teamScore = new HashMap<>();
+        this.startTime = startTime;
+        this.numField = numField;
+        if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
+        this.matchID = matchID;
+        this.roundNum = roundNum;
+    }
+
+    /**
+     * This method adds two teams to the match
+     * @param team1
+     * @param team2
+     */
+    public void addTeam(Team team1, Team team2){
+        this.team1 = team1;
+        this.team2 = team2;
+        this.teamScore.put(team1.getTeamName(), 0);
+        this.teamScore.put(team2.getTeamName(), 0);
+    }
+
     /**
      * a getMethod for getting the first team registered
      * @return team1 as a team object
@@ -172,6 +193,7 @@ public class Match {
     @Override
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +
-                "***\n The game ended with " + getFinalResult() + " and the winner was " + getFinalResult();
+                "***\n The game ended with " + getFinalResult() + " and the winner was "
+                + getWinner();
     }
 }

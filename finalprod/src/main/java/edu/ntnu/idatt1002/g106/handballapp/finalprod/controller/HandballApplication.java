@@ -69,9 +69,9 @@ public class HandballApplication extends Application{
         Administrator admin = new Administrator(new User("Leon", "Hest", "123", "Leon.hesthaug@gmail.com"));
         adminList.add(admin);
 
-        Tournament oslo = new Tournament(0, "Oslo Tournament",LocalDate.now(), LocalDate.now().plusDays(2), "layout1", "Asker", 3, 16, "RegionSor");
-        Tournament trondheim = new Tournament(1, "Trondheim Tournament",LocalDate.now(), LocalDate.now().plusDays(7), "layout1", "Trondheim", 3, 8, "RegionNord");
-        Tournament asker = new Tournament(2, "Asker Tournament",LocalDate.now(), LocalDate.now().plusDays(5), "layout2", "Oslo", 2, 8, "RegionVest");
+        Tournament oslo = new Tournament(0, "Oslo Tournament",LocalDate.now(), LocalDate.now().plusDays(2), "layout1", "Asker", 3, 16, "WesternRegion");
+        Tournament trondheim = new Tournament(1, "Trondheim Tournament",LocalDate.now(), LocalDate.now().plusDays(7), "layout1", "Trondheim", 3, 8, "NorthernRegion");
+        Tournament asker = new Tournament(2, "Asker Tournament",LocalDate.now(), LocalDate.now().plusDays(5), "layout2", "Oslo", 2, 8, "WesternRegion");
 
         Tournament[] tournaments = {oslo, trondheim, asker};
 

@@ -31,9 +31,6 @@ public class RegisterResultController implements Initializable {
     @FXML private ChoiceBox<String> loserTeamChoiceBox;
     @FXML private TextField loserGoalsInput;
     @FXML private TextField matchIDInput;
-    @FXML private Button nextDateButton;
-    @FXML private Button backToResultsButton;
-    @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
     /**
@@ -47,33 +44,40 @@ public class RegisterResultController implements Initializable {
         scoreID.setCellValueFactory(new PropertyValueFactory<Match, String>("finalResult"));
         matchTable.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
         matchTable.refresh();
-        /*
-       String matchScoreTxt = String.valueOf(new PropertyValueFactory<Match, String>("matchScore"));
-
-       feedBackText.setText(matchScoreTxt);
-       System.out.println(matchScoreTxt);
-       if (matchScoreTxt == null || matchScoreTxt.isBlank()) {
-       } else {
-           matchScore.setCellValueFactory(new PropertyValueFactory<Match, String>("matchScore"));
-       }
-        */
     }
 
     /**
      * method for registering new results when a match is done
      */
     @FXML
-    public void registerResult() {//todo: add check for the input - is the input integer?
-        if(Integer.parseInt(winnerGoalsInput.getText()) >= Integer.parseInt(loserGoalsInput.getText())) {
-            Match match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
-            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
-            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
-        } else {
-            feedBackText.setFill(Color.RED);
-            feedBackText.setText("*The winner result must be greater than the loser score*");
+    public void registerResult(ActionEvent event) throws IOException {//todo: add check for the input - is the input integer?
+        Match match = null;
+        try {
+            match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
+
+            if (Integer.parseInt(winnerGoalsInput.getText()) < 0 || Integer.parseInt(loserGoalsInput.getText()) < 0) {
+                AlertBox.alertError("The goals can not be a negative value");
+            }
+           if (match == null) {
+                AlertBox.alertError("Please check the input for match id");
+            }
+        } catch (NumberFormatException e) {
+            AlertBox.alertError("Please check if the input field require an integer");
+        } catch (IndexOutOfBoundsException e) {
+            AlertBox.alertError("Please select an registered match");
+        } catch (Exception e) {
+            AlertBox.alertError("System fail");
         }
+
+        match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+        match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
         updateTableView();
+        Team winner = match.getWinner();
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
+        SwitchScene.switchScene("MainPage", event);
     }
+
+    //TODO: Fix when the submit button is pressed multiple times and make sure a match actually getds the right score
 
     /**
      * {@inheritDoc}
@@ -88,7 +92,7 @@ public class RegisterResultController implements Initializable {
         winnerTeamChoiceBox.setValue("Winner");
         loserTeamChoiceBox.setValue("Loser");
 
-        //todo: show just teams of interest when matchID is chosen
+        //todo: show just teams of interest when matchID is chosen!!
         List<Team> teams = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister().getListTeams();
         for (Team team:teams) {
             winnerTeamChoiceBox.getItems().add(team.getTeamName());
@@ -130,7 +134,19 @@ public class RegisterResultController implements Initializable {
      * @throws IOException when path not found
      */
     public void toSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", event);
+        int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+        if(numTeams == 4){
+            SwitchScene.switchScene("TournamentBracket4", event);
+        }
+        else if(numTeams == 8){
+            SwitchScene.switchScene("TournamentBracket8", event);
+        }
+        else if(numTeams == 16){
+            SwitchScene.switchScene("TournamentBrackets16", event);
+        }
+        else if(numTeams == 32){
+            SwitchScene.switchScene("TournamentBrackets32", event);
+        };
     }
 
     /**

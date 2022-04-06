@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -207,9 +208,17 @@ public class SetUpMatchesController implements Initializable {
      */
     private List<Integer> createHourMinList(CharSequence stringToBeConverted){
         return Arrays.stream(stringToBeConverted.toString().split(":"))
-                .map(timeUnit -> Integer.valueOf(timeUnit)).toList();
+                .map(Integer::valueOf).toList();
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void toHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
+    }
 }
 
 //TODO: Link better. Currently the menu bar, makes the linking difficult. We could always replace with buttons

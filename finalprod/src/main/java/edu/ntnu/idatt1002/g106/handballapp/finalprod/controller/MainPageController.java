@@ -7,11 +7,13 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -20,6 +22,7 @@ public class MainPageController implements Initializable {
     @FXML private TableColumn<Match, LocalDateTime> time;
     @FXML private TableColumn<Match, String> match;
     @FXML private TableColumn<Match, Integer> field;
+    @FXML private DatePicker dateSelect;
 
     //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
 
@@ -74,7 +77,19 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", event);
+        int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+        if(numTeams == 4){
+            SwitchScene.switchScene("TournamentBracket4", event);
+        }
+        else if(numTeams == 8){
+            SwitchScene.switchScene("TournamentBracket8", event);
+        }
+        else if(numTeams == 16){
+            SwitchScene.switchScene("TournamentBrackets16", event);
+        }
+        else if(numTeams == 32){
+            SwitchScene.switchScene("TournamentBrackets32", event);
+        };
     }
 
     /**
@@ -104,7 +119,13 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void SelectDate(ActionEvent event) {
-
+        if (dateSelect.getValue() == null) {
+            AlertBox.alertError("No date register.\n" +
+                    "Please select a date");
+        } else if (dateSelect.getValue().isBefore(LocalDate.now())) {
+            AlertBox.alertError("Not possible to select a day before current date");
+        }
+        //todo: implement functions
     }
 
     /**
