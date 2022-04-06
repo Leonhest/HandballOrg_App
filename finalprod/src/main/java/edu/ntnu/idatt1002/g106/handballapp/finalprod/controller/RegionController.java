@@ -8,16 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.scene.text.Text;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class EastRegionController implements Initializable {
-
+public class RegionController  implements Initializable {
 
     @FXML
     private TableColumn<Tournament, Integer> startDateColumn;
@@ -28,11 +30,16 @@ public class EastRegionController implements Initializable {
     @FXML
     private javafx.scene.control.TableView<Tournament> tableView;
 
-    private AtomicInteger currentTournamentId = new AtomicInteger();
+    @FXML
+    private Label regionHeader;
 
+    private AtomicInteger currentTournamentId = new AtomicInteger();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        regionHeader.setText(HandballApplication.chosenRegion);
+
+
         currentTournamentId = new AtomicInteger();
 
         tableView.setOnMouseClicked(event -> {
@@ -41,7 +48,7 @@ public class EastRegionController implements Initializable {
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .forEach(t -> {
                             if (t.getTournamentName().equals(selectedTournament.getTournamentName())
-                                    && t.getRegion().equals(SwitchScene.getCurrentRegion())){
+                                    && t.getRegion().equals(HandballApplication.chosenRegion)){
                                 currentTournamentId.set(t.getTournamentID());
 
                                 try {
@@ -58,19 +65,19 @@ public class EastRegionController implements Initializable {
         updateList();
     }
 
-    public void goToCurrentPage(Event event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        SwitchScene.switchScene("MainPage", event);
-    }
-
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
 
-    public void logOutMethod(ActionEvent event) {
+    public void logOutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }
+    }
+
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
     }
 
     @FXML
@@ -81,7 +88,7 @@ public class EastRegionController implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals("EasternRegion")).toList()));
+                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion)).toList()));
 
         tableView.refresh();
     }

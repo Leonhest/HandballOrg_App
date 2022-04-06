@@ -48,9 +48,6 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateTableView();
     }
-
-    //TODO: make button log close program
-
     /**
      * method for log out
      */
@@ -67,7 +64,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene("RegionController", event);
     }
 
     /**

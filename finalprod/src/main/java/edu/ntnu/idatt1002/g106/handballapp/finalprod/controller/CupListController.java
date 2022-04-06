@@ -17,7 +17,6 @@ import java.util.ResourceBundle;
 
 public class CupListController implements Initializable {
 
-    //todo: change menu to button menu
     @FXML
     private Text feedbackText;
     @FXML
@@ -136,7 +135,7 @@ public class CupListController implements Initializable {
      * @throws IOException when path not found
      */
     public void toFrontPage(ActionEvent event) throws IOException{
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion, event);
     }
 
     /**

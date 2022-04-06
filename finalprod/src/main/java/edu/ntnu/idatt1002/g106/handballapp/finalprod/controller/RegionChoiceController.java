@@ -16,23 +16,25 @@ public class RegionChoiceController implements Initializable {
     }
 
 
+    //todo: remove duplicate...
+
     public void toSouthernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("SouthernRegion");
-        SwitchScene.switchScene("SouthernRegion", event);
+        HandballApplication.setChosenRegion("SouthernRegion");
+        SwitchScene.switchScene("RegionController", event);
     }
 
     public void toEasternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("EasternRegion");
-        SwitchScene.switchScene("EasternRegion", event);
+        HandballApplication.setChosenRegion("EasternRegion");
+        SwitchScene.switchScene("RegionController", event);
     }
 
     public void toNorthernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("NorthernRegion");
-        SwitchScene.switchScene("NorthernRegion", event);
+        HandballApplication.setChosenRegion("NorthernRegion");
+        SwitchScene.switchScene("RegionController", event);
     }
 
     public void toWesternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("WesternRegion");
-        SwitchScene.switchScene("WesternRegion", event);
+        HandballApplication.setChosenRegion("WesternRegion");
+        SwitchScene.switchScene("RegionController", event);
     }
 }

@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class RegisterResultController implements Initializable {
-    private Tournament tournament;//todo must be choosen
+    private Tournament tournament;
 
     @FXML private TableView<Match> matchTable;
     @FXML private TableColumn<Match, LocalTime> matchTime;
@@ -53,10 +53,10 @@ public class RegisterResultController implements Initializable {
      * method for registering new results when a match is done
      */
     @FXML
-    public void registerResult() {//todo: add check for the input - is the input integer?
+    public void registerResult() {
         Match match = null;
         try {
-            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
+            match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
 
             if (Integer.parseInt(winnerGoalsInput.getText()) < 0 || Integer.parseInt(loserGoalsInput.getText()) < 0) {
                 AlertBox.alertError("The goals can not be a negative value");
@@ -71,12 +71,18 @@ public class RegisterResultController implements Initializable {
         } catch (Exception e) {
             AlertBox.alertError("System fail");
         }
-        match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
-        match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
-        updateTableView();
-        Team winner = match.getWinner();
-        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
-
+        try {
+            match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
+            match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
+            updateTableView();
+            Team winner = match.getWinner();
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
+        } catch (Exception e) {
+            //todo: remove sysout - when exception handling is ok
+            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(e.getClass());
+        }
     }
 
     /**
@@ -107,7 +113,7 @@ public class RegisterResultController implements Initializable {
      */
     @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion, event);
     }
 
     /**

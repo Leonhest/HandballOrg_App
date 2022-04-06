@@ -25,7 +25,7 @@ public class Tournament {
     private String tournamentName;
     private List<List<Team>> roundTeamList;
     private List<List<Match>> roundMatchList;
-    private String region;
+    private String region;//todo: if time find region hence on tournamentPlace
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital

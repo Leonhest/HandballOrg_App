@@ -78,7 +78,7 @@ public class SetUpTournamentController implements Initializable {
         LocalDate tournamentEndDate = tournamentEndDateInput.getValue();
         try {
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, SwitchScene.getCurrentRegion());
+                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, HandballApplication.chosenRegion);
             correctInformation = true;
         } catch (NullPointerException e) {
             AlertBox.alertError("Remember to fill inn all information");
@@ -101,7 +101,7 @@ public class SetUpTournamentController implements Initializable {
      * @throws IOException when path not found
      */
     public void toRegionChoice(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion, event);
     }
 
     /**
