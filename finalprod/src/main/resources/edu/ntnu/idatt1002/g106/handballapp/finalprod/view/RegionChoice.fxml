@@ -25,7 +25,7 @@
                      <graphic>
                                 <ImageView accessibleHelp="This button will take you to souther region tournament list" accessibleText="Southern Region" fitHeight="117.0" fitWidth="200.0">
                                     <image>
-                                        <Image url="@../../../../../../../TournamentPictures/nhf-logo_regionsor.jpg" />
+                                        <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
                                     </image>
                                 </ImageView>
                      </graphic>
@@ -39,7 +39,7 @@
                      <graphic>
                               <ImageView accessibleHelp="This button will take you to eastern region tournament list" accessibleText="Eastern Region" fitHeight="112.0" fitWidth="200.0">
                                   <image>
-                                      <Image url="@../../../../../../../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
+                                      <Image url="@../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
                                   </image>
                               </ImageView>
                      </graphic>
@@ -61,7 +61,7 @@
                             <graphic>
                                 <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>
-                                        <Image url="@../../../../../../../TournamentPictures/2019_nhf-rn_logo_bla.jpg" />
+                                        <Image url="@../TournamentPictures/2019_nhf-rn_logo_bla.jpg" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -75,7 +75,7 @@
                             <graphic>
                                 <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="112.0" fitWidth="207.0">
                                     <image>
-                                        <Image url="@../../../../../../../TournamentPictures/region-vest-rod-bakgrunn.png" />
+                                        <Image url="@../TournamentPictures/region-vest-rod-bakgrunn.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
