@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -70,7 +69,7 @@ public class CupListController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //Choice box for the numPlayers
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 8; i++){
             numPlayerInput.getItems().add(i,String.valueOf(i+7));
         }
         numPlayerInput.setValue("7");
@@ -125,7 +124,7 @@ public class CupListController implements Initializable {
         teamLeaderTextFieldInput.setText("");
         regionTextFieldInput.setText("");
         phoneNumTextFieldInput.setText("");
-        numPlayerInput.setValue("7");
+        numPlayerInput.setValue("");
     }
 
     /**

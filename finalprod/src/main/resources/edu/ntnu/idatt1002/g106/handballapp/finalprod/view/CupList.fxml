@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -22,6 +23,19 @@
             <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
+        <TableView fx:id="teamTableView" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
+            <columns>
+                <TableColumn fx:id="teamNameColumn" editable="false" prefWidth="75.0" resizable="false" text="Team name" />
+                <TableColumn fx:id="numPlayerColumn" editable="false" prefWidth="53.0" resizable="false" text="Players" />
+                <TableColumn fx:id="teamLeaderColumn" editable="false" prefWidth="79.0" resizable="false" text="Team leader" />
+                <TableColumn fx:id="regionColumn" editable="false" prefWidth="68.0" resizable="false" text="Region" />
+                <TableColumn fx:id="phoneNumColumn" editable="false" prefWidth="109.0" resizable="false" text="Phone" />
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+        <ScrollBar layoutX="593.0" layoutY="35.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
         <TextField layoutX="434.0" layoutY="8.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
             <opaqueInsets>
                 <Insets />
@@ -50,18 +64,6 @@
       <Text fx:id="feedbackText" layoutX="407.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
       <Button id="resetButton" accessibleHelp="this button resets all information written" accessibleText="reset" layoutX="632.0" layoutY="506.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
-        <TableView fx:id="teamTableView" accessibleHelp="this tableview hold all information for a team" accessibleText="tableview" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
-            <columns>
-                <TableColumn fx:id="teamNameColumn" editable="false" prefWidth="75.0" resizable="false" text="Team name" />
-                <TableColumn fx:id="numPlayerColumn" editable="false" prefWidth="53.0" resizable="false" text="Players" />
-                <TableColumn fx:id="teamLeaderColumn" editable="false" prefWidth="79.0" resizable="false" text="Team leader" />
-                <TableColumn fx:id="regionColumn" editable="false" prefWidth="68.0" resizable="false" text="Region" />
-                <TableColumn fx:id="phoneNumColumn" editable="false" prefWidth="109.0" resizable="false" text="Phone" />
-            </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-        </TableView>
     </children>
 
 </AnchorPane>

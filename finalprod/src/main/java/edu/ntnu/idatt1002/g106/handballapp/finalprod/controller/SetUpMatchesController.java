@@ -13,9 +13,11 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,6 +28,7 @@ public class SetUpMatchesController implements Initializable {
 
     List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
     TeamRegister tournamentTeamRegister = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister();
+    private ArrayList<String> referees = new ArrayList<>();
 
     Pattern hourMinPat = Pattern.compile("^[0-1]\\d:[0-5]\\d${5}");
     //TODO: Fix regex so there can't be 69 minutes
@@ -135,7 +138,7 @@ public class SetUpMatchesController implements Initializable {
                 dateField.getValue().getDayOfMonth(), createHourMinList(startTime.getCharacters()).get(0),
                 createHourMinList(startTime.getCharacters()).get(1));
 
-        String refereeName = refereeChoice.getValue();
+        referees.add(refereeChoice.getValue());
 
         Match match = new Match(startDate, 1,team1, team2, matchList.size() + 1, fieldNum);
 
@@ -169,16 +172,6 @@ public class SetUpMatchesController implements Initializable {
      * @throws IOException when path not found
      */
     @FXML
-    public void goToSetUpMatchesPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("SetUpPageMatches", actionEvent);
-    }
-
-    /**
-     * method that sends program to specific screen
-     * @param actionEvent button event
-     * @throws IOException when path not found
-     */
-    @FXML
     public void goToRegisterResult(ActionEvent actionEvent) throws IOException {
         SwitchScene.switchScene("RegisterResult", actionEvent);
     }
@@ -196,8 +189,9 @@ public class SetUpMatchesController implements Initializable {
      * method for log out
      */
     public void LogOutButton(){
-        AlertBox.logOut();
-        Platform.exit();
+        if(AlertBox.logOut() == 1){
+            System.exit(-1);
+        }
     }
     //TODO: CONNECT TO TEAM REGISTER DATABASE
 
