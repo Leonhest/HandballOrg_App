@@ -13,9 +13,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * this class has the different methods and fields necessary for creating new tournaments
+ * @author Gruppe 6
+ */
 public class SetUpTournamentController implements Initializable {
 
     private Tournament tournament = null;
+
+    //trengs denne?
     ArrayList<Tournament> observerList = new ArrayList<>();
 
     @FXML

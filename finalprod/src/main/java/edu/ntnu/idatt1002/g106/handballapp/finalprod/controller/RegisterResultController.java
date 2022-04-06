@@ -31,9 +31,6 @@ public class RegisterResultController implements Initializable {
     @FXML private ChoiceBox<String> loserTeamChoiceBox;
     @FXML private TextField loserGoalsInput;
     @FXML private TextField matchIDInput;
-    @FXML private Button nextDateButton;
-    @FXML private Button backToResultsButton;
-    @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
     /**
@@ -53,7 +50,7 @@ public class RegisterResultController implements Initializable {
      * method for registering new results when a match is done
      */
     @FXML
-    public void registerResult() {//todo: add check for the input - is the input integer?
+    public void registerResult(ActionEvent event) throws IOException {//todo: add check for the input - is the input integer?
         Match match = null;
         try {
             HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
@@ -61,7 +58,7 @@ public class RegisterResultController implements Initializable {
             if (Integer.parseInt(winnerGoalsInput.getText()) < 0 || Integer.parseInt(loserGoalsInput.getText()) < 0) {
                 AlertBox.alertError("The goals can not be a negative value");
             }
-            if (match == null) {
+           if (match == null) {
                 AlertBox.alertError("Please check the input for match id");
             }
         } catch (NumberFormatException e) {
@@ -71,12 +68,13 @@ public class RegisterResultController implements Initializable {
         } catch (Exception e) {
             AlertBox.alertError("System fail");
         }
+
         match.setScore(winnerTeamChoiceBox.getValue(), Integer.parseInt(winnerGoalsInput.getText()));
         match.setScore(loserTeamChoiceBox.getValue(), Integer.parseInt(loserGoalsInput.getText()));
         updateTableView();
         Team winner = match.getWinner();
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()-1).add(winner);
-
+        SwitchScene.switchScene("MainPage", event);
     }
 
     /**

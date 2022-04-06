@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,9 +18,9 @@
             <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
             </buttons>
         </ButtonBar>
-        <DatePicker id="date" fx:id="dateSelect" layoutX="480.0" layoutY="48.0" promptText="DD.MM.YYYY" />
-        <Label id="dateLabel" layoutX="412.0" layoutY="73.0" prefHeight="30.0" prefWidth="105.0" text="-----" />
-        <Button id="selectDateBtn" layoutX="567.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" />
+        <Button id="logOutButton" accessibleHelp="this button will ask for confirmation on if you want to log out" accessibleText="logout button" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
+        <DatePicker id="date" fx:id="dateSelect" accessibleHelp="write the date here and the click endter, Day,Month,Year" accessibleText="Date input field" layoutX="480.0" layoutY="48.0" promptText="DD.MM.YYYY" />
+        <Button id="selectDateBtn" accessibleHelp="this shows matches on specific date" accessibleText="Select Date" layoutX="567.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" />
         <!--Comment-->
         <TableView fx:id="table" accessibleHelp="This is the Overview of all upcoming matches" accessibleText="Table View / List" layoutX="6.0" layoutY="35.0" prefHeight="362.0" prefWidth="474.0">
             <columns>
@@ -30,6 +29,5 @@
                 <TableColumn fx:id="field" minWidth="0.0" prefWidth="117.0" text="Field" />
             </columns>
         </TableView>
-        <Button id="logOutButton" accessibleHelp="this button will ask for confirmation on if you want to log out" accessibleText="logout button" layoutX="595.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="59.0" text="logOut" />
     </children>
 </AnchorPane>
