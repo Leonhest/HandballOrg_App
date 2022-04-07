@@ -205,6 +205,75 @@ public class Tournament {
     }
 
     /**
+     * This method updates all the teams in the tournament's information.
+     */
+    public void updateAllTeamsInTournament(){
+        for(Team team : teamRegister.getListTeams()){
+            updateTeamInfoByName(team.getTeamName());
+        }
+    }
+
+    /**
+     * This method updates a given team's information (goals, wins, and losses).
+     * @param teamName Name of team, represented as a String
+     */
+    public void updateTeamInfoByName(String teamName){
+        setLosesOfTeamByName(teamName);
+        setWinsOfTeamByName(teamName);
+        setTotalGoalsOfTeamByName(teamName);
+    }
+
+    /**
+     * This method sets the total wins of a team, during the tournament, based on each match played
+     * @param teamName Name of the team, represented as a String
+     */
+    public void setWinsOfTeamByName(String teamName){
+        AtomicInteger totalWinsOfTournament = new AtomicInteger();
+        for(Team team : this.teamRegister.getListTeams()){
+            if(team.getTeamName().equals(teamName)){
+                this.matchList.stream().forEach(match -> {
+                    if(match.getWinner().equals(teamName)) totalWinsOfTournament.getAndIncrement();
+                });
+                team.setTotWins(totalWinsOfTournament.intValue());
+            }
+
+        }
+    }
+
+    /**
+     * This method sets the total losses of a team, during the tournament, based on each match played
+     * @param teamName Name of the team, represented as a String
+     */
+    public void setLosesOfTeamByName(String teamName){
+        AtomicInteger totalLossesOfTournament = new AtomicInteger();
+        for(Team team : this.teamRegister.getListTeams()){
+            if(team.getTeamName().equals(teamName)){
+                this.matchList.stream().forEach(match -> {
+                    if(match.getLoser().equals(teamName)) totalLossesOfTournament.getAndIncrement();
+                });
+                team.setTotWins(totalLossesOfTournament.intValue());
+            }
+
+        }
+    }
+
+    /**
+     * This methos sets the total goals of a team, during the tournament, based on each match played
+     * @param teamName Name of a team, represented as a String
+     */
+    public void setTotalGoalsOfTeamByName(String teamName){
+        AtomicInteger totalGoalsOfTournament = new AtomicInteger();
+        for(Team team : this.teamRegister.getListTeams()){
+            if(team.getTeamName().equals(teamName)){
+                this.matchList.stream().forEach(match -> {
+                    if(match.hasTeam(teamName)) totalGoalsOfTournament.addAndGet(match.getScoreByTeamName(teamName));
+                });
+                team.setTotWins(totalGoalsOfTournament.intValue());
+            }
+        }
+    }
+
+    /**
      * This method sets the first teams list full with the team register.
      */
     public void setFirstTeamsList(){
@@ -297,42 +366,9 @@ public class Tournament {
     public int getCurrentRound(){
         return currentRound;
     }
+
     public int getNumTeams(){
         return numTeams;
-    }
-
-    /**
-     * This method sets the total wins of a team, during the tournament, based on each match played
-     * @param teamName Name of the team, represented as a String
-     */
-    public void setWinsOfTeamByName(String teamName){
-        AtomicInteger totalWinsOfTournament = new AtomicInteger();
-        for(Team team : this.teamRegister.getListTeams()){
-            if(team.getTeamName().equals(teamName)){
-                this.matchList.stream().forEach(match -> {
-                    if(match.getWinner().equals(teamName)) totalWinsOfTournament.getAndIncrement();
-                });
-                team.setTotWins(totalWinsOfTournament.intValue());
-            }
-
-        }
-    }
-
-    /**
-     * This method sets the total losses of a team, during the tournament, based on each match played
-     * @param teamName Name of the team, represented as a String
-     */
-    public void setLosesOfTeamByName(String teamName){
-        AtomicInteger totalLossesOfTournament = new AtomicInteger();
-        for(Team team : this.teamRegister.getListTeams()){
-            if(team.getTeamName().equals(teamName)){
-                this.matchList.stream().forEach(match -> {
-                    if(match.getLoser().equals(teamName)) totalLossesOfTournament.getAndIncrement();
-                });
-                team.setTotWins(totalLossesOfTournament.intValue());
-            }
-
-        }
     }
 
     public String getRegion() {
