@@ -9,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -196,6 +194,9 @@ public class TournamentBracketController implements Initializable {
 
     private List<TextArea> bracket32Team;
 
+    @FXML
+    private Button generateButton;
+
     private static List<TextArea> currentBracket;
 
 
@@ -235,8 +236,6 @@ public class TournamentBracketController implements Initializable {
                 b32r4m1, b32r4m2, b32r5m1));
     }
 
-    //TODO: make button log close program
-
     /**
      * method for log out
      */
@@ -253,6 +252,8 @@ public class TournamentBracketController implements Initializable {
         printMatches();
     }
 
+    //TODO: generateButton.isVisible(false) when no more rounds can be generated?
+
     public void printMatches(){
         int roundNum = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getCurrentRound();
         int previousRoundNum = roundNum - 1;
@@ -264,12 +265,14 @@ public class TournamentBracketController implements Initializable {
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).generateRoundWithTeams(roundNum);
             }
             catch (IllegalArgumentException e){
-                //TODO: Make dialog pane
-                System.out.println(e.getMessage());
+                AlertBox.alertError(e.getMessage());
+                //TODO: What's better this or a textLabel on the screen?
+                disableGenerateButton();
                 return;
             }
             previousRoundNum = 1;
         }
+
 
         int textIndex = 0;
         for(int i = 1; i <= previousRoundNum; i++){
@@ -282,11 +285,12 @@ public class TournamentBracketController implements Initializable {
         }
     }
 
-     /*
-    The score wasn't changed properly maybe.
+    /**
+     * If all the teams aren't registered yet, the generate button should be disabled.
      */
-
-
+    public void disableGenerateButton(){
+        generateButton.setDisable(true);
+    }
 
 
     /**

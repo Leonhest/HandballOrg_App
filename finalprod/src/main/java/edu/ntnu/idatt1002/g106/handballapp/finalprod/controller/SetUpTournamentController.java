@@ -154,7 +154,7 @@ public class SetUpTournamentController implements Initializable {
                     tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, HandballApplication.chosenRegion.getRegionTxt());
             correctInformation = true;
         } catch (NullPointerException e) {
-            AlertBox.alertError("Remember to fill inn all information");
+            AlertBox.alertError("Remember to fill in all information");
         } catch (IllegalArgumentException e) {
             AlertBox.alertError(e.getMessage());
         } catch (Exception e){

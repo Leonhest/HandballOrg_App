@@ -188,7 +188,8 @@ public class Tournament {
      */
     public void generateRoundWithTeams(int round) throws IllegalArgumentException{
         if(this.teamRegister.getListTeams().size() == numTeams && this.roundTeamList.get(0).size() != numTeams) setFirstTeamsList();
-        if(this.teamRegister.getListTeams().size() != numTeams) throw new IllegalArgumentException("Not enough teams entered");
+        if(this.teamRegister.getListTeams().size() != numTeams) throw new IllegalArgumentException("Not enough teams entered! "
+                + (numTeams - this.teamRegister.getListTeams().size()) + " more teams need to be entered.");
         if(currentRound == this.checkAmountRounds() + 1) return;
         List<Team> tempList = new ArrayList<>();
         tempList.addAll(this.roundTeamList.get(round-1));

@@ -89,8 +89,6 @@ public class RegisterResultController implements Initializable {
 
     }
 
-    //TODO: Fix when the submit button is pressed multiple times and make sure a match actually getds the right score
-
     /**
      * {@inheritDoc}
      * @param url
@@ -104,7 +102,7 @@ public class RegisterResultController implements Initializable {
         leftTeamChoiceBox.setValue("Team 1");
         rightTeamChoiceBox.setValue("Team 2");
 
-        //todo: show just teams of interest when matchID is chosen
+            //todo: show just teams of interest when matchID is chosen
         List<Team> teams = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister().getListTeams();
         for (Team team:teams) {
             leftTeamChoiceBox.getItems().add(team.getTeamName());
