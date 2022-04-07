@@ -67,6 +67,15 @@ public class Match {
     }
 
     /**
+     * This method checks if the team is in the match based on the team name
+     * @param teamName Name of a team, represented as a String
+     * @return         Status of whether match contains team
+     */
+    public boolean hasTeam(String teamName){
+        return team1.getTeamName().equals(teamName) || team2.getTeamName().equals(teamName);
+    }
+
+    /**
      * a getMethod for getting the first team registered
      * @return team1 as a team object
      */
@@ -166,13 +175,26 @@ public class Match {
     }
 
     /**
+     * This method returns the losing team of the given match
+     * @return Team that lost
+     */
+    public Team getLoser(){
+        if(this.teamScore.get(team1.getTeamName()) > this.teamScore.get(team2.getTeamName())){
+            return team2;
+        }
+        else if(this.teamScore.get(team1.getTeamName()) < this.teamScore.get(team2.getTeamName())){
+            return team1;
+        }
+        return null;
+    }
+
+    /**
      * a getMethod for getting teams names
      * @return teams names as a vs String format
      */
     public String getPlayers() {
         return team1.getTeamName() + " vs. " + team2.getTeamName();
     }
-
 
     /**
      * method for getting start time
