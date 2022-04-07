@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class RegisterResultController implements Initializable {
-    private Tournament tournament;//todo must be choosen
+    private Tournament tournament;
 
     @FXML private TableView<Match> matchTable;
     @FXML private TableColumn<Match, LocalTime> matchTime;
@@ -32,6 +32,9 @@ public class RegisterResultController implements Initializable {
     @FXML private ChoiceBox<String> rightTeamChoiceBox;
     @FXML private TextField rightGoalsInput;
     @FXML private TextField matchIDInput;
+    @FXML private Button nextDateButton;
+    @FXML private Button backToResultsButton;
+    @FXML private Button submitButton;
     @FXML private Text feedBackText;
 
     private Match matchSelected;
@@ -53,7 +56,7 @@ public class RegisterResultController implements Initializable {
      * method for registering new results when a match is done
      */
     @FXML
-    public void registerResult(ActionEvent event) throws IOException {//todo: add check for the input - is the input integer?
+    public void registerResult() {
         Match match = null;
         try {
             match = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList().stream().filter(m -> m.getMatchID() == Integer.parseInt(matchIDInput.getText())).collect(Collectors.toList()).get(0);
@@ -61,7 +64,7 @@ public class RegisterResultController implements Initializable {
             if (Integer.parseInt(leftGoalsInput.getText()) < 0 || Integer.parseInt(rightGoalsInput.getText()) < 0) {
                 AlertBox.alertError("The goals can not be a negative value");
             }
-           if (match == null) {
+            if (match == null) {
                 AlertBox.alertError("Please check the input for match id");
             }
         } catch (NumberFormatException e) {
@@ -97,7 +100,7 @@ public class RegisterResultController implements Initializable {
         leftTeamChoiceBox.setValue("Team 1");
         rightTeamChoiceBox.setValue("Team 2");
 
-        //todo: show just teams of interest when matchID is chosen!!
+        //todo: show just teams of interest when matchID is chosen
         List<Team> teams = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister().getListTeams();
         for (Team team:teams) {
             leftTeamChoiceBox.getItems().add(team.getTeamName());
@@ -120,7 +123,7 @@ public class RegisterResultController implements Initializable {
      */
     @FXML
     public void toFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
     }
 
     /**

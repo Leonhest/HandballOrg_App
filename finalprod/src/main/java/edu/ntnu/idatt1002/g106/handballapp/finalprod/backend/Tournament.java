@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,8 +25,8 @@ public class Tournament {
     private String tournamentName;
     private List<List<Team>> roundTeamList;
     private List<List<Match>> roundMatchList;
-    private String region;
     private int currentRound = 1;
+    private String region;//todo: if time find region hence on tournamentPlace
 
     /**
      * This is a constructor which allows for a tournament object to be initialized. The constructor gathers the vital

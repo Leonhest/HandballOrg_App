@@ -10,14 +10,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TeamRegistryController implements Initializable {
 
-    //todo: change menu to button menu
     @FXML
     private Text feedbackText;
     @FXML
@@ -70,7 +68,7 @@ public class TeamRegistryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //Choice box for the numPlayers
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 8; i++){
             numPlayerInput.getItems().add(i,String.valueOf(i+7));
         }
         numPlayerInput.setValue("7");
@@ -127,7 +125,7 @@ public class TeamRegistryController implements Initializable {
         teamLeaderTextFieldInput.setText("");
         regionTextFieldInput.setText("");
         phoneNumTextFieldInput.setText("");
-        numPlayerInput.setValue("7");
+        numPlayerInput.setValue("");
     }
 
     /**
@@ -146,7 +144,7 @@ public class TeamRegistryController implements Initializable {
      * @throws IOException when path not found
      */
     public void toFrontPage(ActionEvent event) throws IOException{
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
     }
 
     /**

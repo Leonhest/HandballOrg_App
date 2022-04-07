@@ -3,6 +3,7 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,43 +26,9 @@ public class RegionChoiceController implements Initializable {
 
     }
 
-    /**
-     * this method takes the user to a specific region
-     * @param event any event
-     * @throws IOException when path not found
-     */
-    public void toSouthernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("SouthernRegion");
-        SwitchScene.switchScene("SouthernRegion", event);
-    }
-
-    /**
-     * this method takes the user to a specific region
-     * @param event any event
-     * @throws IOException when path not found
-     */
-    public void toEasternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("EasternRegion");
-        SwitchScene.switchScene("EasternRegion", event);
-    }
-
-    /**
-     * this method takes the user to a specific region
-     * @param event any event
-     * @throws IOException when path not found
-     */
-    public void toNorthernRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("NorthernRegion");
-        SwitchScene.switchScene("NorthernRegion", event);
-    }
-
-    /**
-     * this method takes the user to a specific region
-     * @param event any event
-     * @throws IOException when path not found
-     */
-    public void toWesternRegion(ActionEvent event) throws IOException {
-        SwitchScene.setCurrentRegion("WesternRegion");
-        SwitchScene.switchScene("WesternRegion", event);
+    public void toRegionController(ActionEvent event) throws IOException {
+        Button selected = (Button) event.getSource();
+        HandballApplication.setChosenRegion(selected.getId());
+        SwitchScene.switchScene("RegionController", event);
     }
 }

@@ -17,6 +17,7 @@ public class HandballApplication extends Application{
     //todo: tilgangsmodifikator?
     static List<Administrator> adminList = new ArrayList<>();
     static int chosenTournament = -1;
+    static Region chosenRegion = null;
     //static Tournament tournament= HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament);//todo: taken in use - can simplify much code
 
 
@@ -103,6 +104,17 @@ public class HandballApplication extends Application{
     }
 
     /**
+     * Setter for the chosen region
+     * @param region chosen region
+     */
+    public static void setChosenRegion(String region) {
+        if (Region.findRegion(region) == null) {
+            throw new IllegalArgumentException("The chosen region does not match a valid region");
+        }
+        chosenRegion = Region.findRegion(region);
+    }
+
+    /**
      * method that removes spaces when needed, used for creating an id for tournaments
      * @param text the text that id is going to bee created for
      * @return resultWord
@@ -122,7 +134,6 @@ public class HandballApplication extends Application{
      * @return ID as an int
      */
     public static int findID(String tournamentName) {
-        //todo: remove comments when sure of code
         return HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream().filter(t -> removeSpaces(t.getTournamentName()).equalsIgnoreCase(tournamentName)).collect(Collectors.toList()).get(0).getTournamentID();
 
     }

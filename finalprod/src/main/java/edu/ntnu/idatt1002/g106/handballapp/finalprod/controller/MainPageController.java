@@ -48,9 +48,6 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateTableView();
     }
-
-    //TODO: make button log close program
-
     /**
      * method for log out
      */
@@ -67,7 +64,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene("RegionController", event);
     }
 
     /**
@@ -78,6 +75,7 @@ public class MainPageController implements Initializable {
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
         int numTeams =  HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getNumTeams();
+
         if(numTeams == 4){
             SwitchScene.switchScene("TournamentBracket4", event);
         }
@@ -89,7 +87,7 @@ public class MainPageController implements Initializable {
         }
         else if(numTeams == 32){
             SwitchScene.switchScene("TournamentBrackets32", event);
-        };
+        }
     }
 
     /**

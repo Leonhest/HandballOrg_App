@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.HandballApplication;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,8 +11,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SwitchScene {
-
-    static String currentRegion = "";
 
     /**
      * a method that switches between screens/scenes in the application
@@ -27,13 +26,5 @@ public class SwitchScene {
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(page);
         window.show();
-    }
-
-    public static void setCurrentRegion(String region) {
-        currentRegion = region;
-    }
-
-    public static String getCurrentRegion() {
-        return currentRegion;
     }
 }

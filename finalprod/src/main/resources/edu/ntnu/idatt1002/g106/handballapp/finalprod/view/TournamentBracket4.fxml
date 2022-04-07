@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="681.0" fitWidth="800.0" layoutY="69.0">
                <image>
-                  <Image url="@../../../../../../../TournamentPictures/4TeamBracket.png" />
+                  <Image url="@../TournamentPictures/4TeamBracket.png" />
                </image>
             </ImageView>
             <ButtonBar layoutX="-15.0" layoutY="6.0" prefHeight="56.0" prefWidth="642.0">
