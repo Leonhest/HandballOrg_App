@@ -33,7 +33,11 @@ public class RegionController  implements Initializable {
     @FXML
     private Label regionHeader;
 
+    @FXML
     private AtomicInteger currentTournamentId = new AtomicInteger();
+
+    @FXML
+    private Tournament selectedTournament;
 
     /**
      * {@inheritDoc}
@@ -44,14 +48,13 @@ public class RegionController  implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(currentTournamentId);
         regionHeader.setText(HandballApplication.chosenRegion.getRegionTxt());
 
 
-        currentTournamentId = new AtomicInteger();
-
         tableView.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
-                Tournament selectedTournament = tableView.getSelectionModel().getSelectedItem();
+                selectedTournament = tableView.getSelectionModel().getSelectedItem();
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .forEach(t -> {
                             if (t.getTournamentName().equals(selectedTournament.getTournamentName())
@@ -88,6 +91,13 @@ public class RegionController  implements Initializable {
     }
 
     @FXML
+    public void toSelectedTournament(ActionEvent event) throws IOException{
+        selectedTournament = tableView.getSelectionModel().getSelectedItem();
+        HandballApplication.setChosenTournament(selectedTournament.getTournamentID());
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    @FXML
     private void updateList(){
         tournamentNameColumn.setCellValueFactory(new PropertyValueFactory<Tournament, String>("tournamentName"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<Tournament, Integer>("startDate"));
@@ -108,10 +118,5 @@ public class RegionController  implements Initializable {
      */
     public void toSetUpNewTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
-    }
-
-    @FXML
-    public void toSelectedTournament(ActionEvent event) throws IOException{
-
     }
 }
