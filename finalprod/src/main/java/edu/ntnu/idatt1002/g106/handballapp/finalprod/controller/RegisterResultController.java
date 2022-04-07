@@ -78,10 +78,6 @@ public class RegisterResultController implements Initializable {
 
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).updateAllTeamsInTournament();
 
-        System.out.println(match.getTeam1().getTotWins());
-        System.out.println(match.getTeam1().getTotLosses());
-        System.out.println(match.getTeam1().getTotGoals());
-
         updateTableView();
         Team winningTeam = match.getWinner();
 
