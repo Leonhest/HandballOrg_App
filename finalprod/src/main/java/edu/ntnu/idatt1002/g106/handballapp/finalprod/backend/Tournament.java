@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * This is a class which creates the structure of tournament. Therefore, it contains all the relevant fields and methods
@@ -298,6 +299,40 @@ public class Tournament {
     }
     public int getNumTeams(){
         return numTeams;
+    }
+
+    /**
+     * This method sets the total wins of a team, during the tournament, based on each match played
+     * @param teamName Name of the team, represented as a String
+     */
+    public void setWinsOfTeamByName(String teamName){
+        AtomicInteger totalWinsOfTournament = new AtomicInteger();
+        for(Team team : this.teamRegister.getListTeams()){
+            if(team.getTeamName().equals(teamName)){
+                this.matchList.stream().forEach(match -> {
+                    if(match.getWinner().equals(teamName)) totalWinsOfTournament.getAndIncrement();
+                });
+                team.setTotWins(totalWinsOfTournament.intValue());
+            }
+
+        }
+    }
+
+    /**
+     * This method sets the total losses of a team, during the tournament, based on each match played
+     * @param teamName Name of the team, represented as a String
+     */
+    public void setLosesOfTeamByName(String teamName){
+        AtomicInteger totalLossesOfTournament = new AtomicInteger();
+        for(Team team : this.teamRegister.getListTeams()){
+            if(team.getTeamName().equals(teamName)){
+                this.matchList.stream().forEach(match -> {
+                    if(match.getLoser().equals(teamName)) totalLossesOfTournament.getAndIncrement();
+                });
+                team.setTotWins(totalLossesOfTournament.intValue());
+            }
+
+        }
     }
 
     public String getRegion() {
