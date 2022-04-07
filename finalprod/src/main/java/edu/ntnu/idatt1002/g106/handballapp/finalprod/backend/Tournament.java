@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -218,8 +219,8 @@ public class Tournament {
      * @param teamName Name of team, represented as a String
      */
     public void updateTeamInfoByName(String teamName){
-        setLosesOfTeamByName(teamName);
         setWinsOfTeamByName(teamName);
+        setLosesOfTeamByName(teamName);
         setTotalGoalsOfTeamByName(teamName);
     }
 
@@ -232,7 +233,9 @@ public class Tournament {
         for(Team team : this.teamRegister.getListTeams()){
             if(team.getTeamName().equals(teamName)){
                 this.matchList.stream().forEach(match -> {
-                    if(match.getWinner().equals(teamName)) totalWinsOfTournament.getAndIncrement();
+                    if(match.hasTeam(teamName)){
+                        if(match.getWinner() != null && match.getWinner().getTeamName().equals(teamName))totalWinsOfTournament.getAndIncrement();
+                    }
                 });
                 team.setTotWins(totalWinsOfTournament.intValue());
             }
@@ -249,16 +252,17 @@ public class Tournament {
         for(Team team : this.teamRegister.getListTeams()){
             if(team.getTeamName().equals(teamName)){
                 this.matchList.stream().forEach(match -> {
-                    if(match.getLoser().equals(teamName)) totalLossesOfTournament.getAndIncrement();
+                    if(match.hasTeam(teamName)) {
+                        if (match.getLoser() != null && match.getLoser().getTeamName().equals(teamName)) totalLossesOfTournament.getAndIncrement();
+                    }
                 });
-                team.setTotWins(totalLossesOfTournament.intValue());
+                team.setTotLosses(totalLossesOfTournament.intValue());
             }
-
         }
     }
 
     /**
-     * This methos sets the total goals of a team, during the tournament, based on each match played
+     * This method sets the total goals of a team, during the tournament, based on each match played
      * @param teamName Name of a team, represented as a String
      */
     public void setTotalGoalsOfTeamByName(String teamName){
@@ -268,7 +272,7 @@ public class Tournament {
                 this.matchList.stream().forEach(match -> {
                     if(match.hasTeam(teamName)) totalGoalsOfTournament.addAndGet(match.getScoreByTeamName(teamName));
                 });
-                team.setTotWins(totalGoalsOfTournament.intValue());
+                team.setTotGoals(totalGoalsOfTournament.intValue());
             }
         }
     }

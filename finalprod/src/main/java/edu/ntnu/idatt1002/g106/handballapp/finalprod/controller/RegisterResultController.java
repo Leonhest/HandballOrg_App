@@ -76,36 +76,15 @@ public class RegisterResultController implements Initializable {
         match.setScore(leftTeamChoiceBox.getValue(), Integer.parseInt(leftGoalsInput.getText()));
         match.setScore(rightTeamChoiceBox.getValue(), Integer.parseInt(rightGoalsInput.getText()));
 
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).updateAllTeamsInTournament();
 
-        if (Integer.parseInt(leftGoalsInput.getText()) > Integer.parseInt(rightGoalsInput.getText())){
-            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament)
-                    .getTeamRegister().getListTeams()
-                    .forEach(t -> {
-                        if (t.getTeamName().equals(leftTeamChoiceBox.getValue())){
-                            t.setTotWins(t.getTotWins() + 1);
-                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
-                        } else if (t.getTeamName().equals(rightTeamChoiceBox.getValue())){
-                            t.setTotLosses(t.getTotLosses() + 1);
-                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
-                        }
-                    });
-
-        } else if (Integer.parseInt(leftGoalsInput.getText()) < Integer.parseInt(rightGoalsInput.getText())){
-            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament)
-                    .getTeamRegister().getListTeams()
-                    .forEach(t -> {
-                        if (t.getTeamName().equals(rightTeamChoiceBox.getValue())){
-                            t.setTotWins(t.getTotWins() + 1);
-                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(rightGoalsInput.getText()));
-                        } else if (t.getTeamName().equals(leftTeamChoiceBox.getValue())){
-                            t.setTotLosses(t.getTotLosses() + 1);
-                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
-                        }
-                    });
-        }
+        System.out.println(match.getTeam1().getTotWins());
+        System.out.println(match.getTeam1().getTotLosses());
+        System.out.println(match.getTeam1().getTotGoals());
 
         updateTableView();
         Team winningTeam = match.getWinner();
+
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()).add(winningTeam);
 
     }
