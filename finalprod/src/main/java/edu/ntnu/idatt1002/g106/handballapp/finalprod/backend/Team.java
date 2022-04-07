@@ -125,6 +125,14 @@ public class Team {
     }
 
     /**
+     * This method adds the given number of goals to the total goals scored
+     * @param goalsToAdd Goals to add, represented as an int
+     */
+    public void addTotGoals(int goalsToAdd){
+        this.totGoals += goalsToAdd;
+    }
+
+    /**
      * This method retrieves the team's total amount of victories.
      * @return Total number of wins, represented as an int
      */
@@ -141,6 +149,14 @@ public class Team {
     }
 
     /**
+     * This method adds the given number of wins to the total wins.
+     * @param winsToAdd Wins to add, given as an int
+     */
+    public void addTotWins(int winsToAdd){
+        this.totWins += winsToAdd;
+    }
+
+    /**
      * This method retrieves the total amount of losses a team has faced.
      * @return Total amount of losses, represented as an int
      */
@@ -154,6 +170,14 @@ public class Team {
      */
     public void setTotLosses(int totLosses) {
         this.totLosses = totLosses;
+    }
+
+    /**
+     * This method adds the given number of losses to the total losses.
+     * @param lossesToAdd Losses to add, given as an int
+     */
+    public void addTotLosses(int lossesToAdd){
+        this.totLosses += lossesToAdd;
     }
 
     /**
