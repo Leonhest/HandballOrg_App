@@ -28,7 +28,6 @@ public class RegionChoiceController implements Initializable {
 
     public void toRegionController(ActionEvent event) throws IOException {
         Button selected = (Button) event.getSource();
-        System.out.println(event.getSource());
         HandballApplication.setChosenRegion(selected.getId());
         //TODO: FXML scenes should not be named Controllers!
         SwitchScene.switchScene("RegionController", event);
