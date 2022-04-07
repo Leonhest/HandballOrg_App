@@ -48,9 +48,7 @@ public class RegionController  implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(currentTournamentId);
         regionHeader.setText(HandballApplication.chosenRegion.getRegionTxt());
-
 
         tableView.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){

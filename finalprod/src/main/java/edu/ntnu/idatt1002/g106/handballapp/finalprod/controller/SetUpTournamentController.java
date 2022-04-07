@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -125,7 +126,7 @@ public class SetUpTournamentController implements Initializable {
     @FXML
     public void confirmTournament (ActionEvent actionEvent) throws IOException {
         //TODO Add tournamentID check
-        boolean correctInformation = false;
+        boolean correctInformation = true;
         String tournamentLayout = tournamentLayoutInput.getValue();
         String tournamentName = tournamentNameTextFieldInput.getText();
         String tournamentPlace = tournamentPlaceTextFieldInput.getText();
@@ -152,19 +153,21 @@ public class SetUpTournamentController implements Initializable {
         try {
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
                     tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, HandballApplication.chosenRegion.getRegionTxt());
-            correctInformation = true;
+            tournament.generateTournament();
         } catch (NullPointerException e) {
             AlertBox.alertError("Remember to fill in all information");
-        } catch (IllegalArgumentException e) {
+            correctInformation = false;
+        } catch (IllegalArgumentException | DateTimeException e) {
             AlertBox.alertError(e.getMessage());
-        } catch (Exception e){
+            correctInformation = false;
+        }//TODO: Make better exception message
+        catch (Exception e){
             AlertBox.alertError("System fail");
             return;
         }
         if (correctInformation) {
             HandballApplication.adminList.get(0).getTournamentRegister().addTournament(tournament);
             HandballApplication.setChosenTournament(tournament.getTournamentID());
-            tournament.generateTournament();
             SwitchScene.switchScene("MainPage", actionEvent);
         }
     }
@@ -175,7 +178,7 @@ public class SetUpTournamentController implements Initializable {
      * @throws IOException when path not found
      */
     public void toRegionChoice(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
+        SwitchScene.switchScene("RegionController", event);
     }
 
     /**
