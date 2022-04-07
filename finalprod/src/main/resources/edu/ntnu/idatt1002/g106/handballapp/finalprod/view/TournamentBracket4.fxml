@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
    <center>
@@ -60,6 +61,7 @@
             <TextArea fx:id="b4r1m1" accessibleHelp="this field hold information of the first match" accessibleText="match field1" layoutX="76.0" layoutY="180.0" prefHeight="131.0" prefWidth="242.0" />
             <TextArea fx:id="b4r1m2" accessibleHelp="this field hold information about the second match" accessibleText="match field 2" layoutX="76.0" layoutY="533.0" prefHeight="131.0" prefWidth="242.0" />
             <TextArea fx:id="b4r2m1" accessibleHelp="this textfield hold information on the final match" accessibleText="match field 3" layoutX="469.0" layoutY="356.0" prefHeight="131.0" prefWidth="242.0" />
+            <Text fx:id="errorMessage" layoutX="587.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
    </center>
