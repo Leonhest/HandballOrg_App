@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class HandballApplication extends Application{
@@ -18,6 +19,7 @@ public class HandballApplication extends Application{
     static List<Administrator> adminList = new ArrayList<>();
     static int chosenTournament = -1;
     static Region chosenRegion = null;
+    //static AtomicInteger currentTournamentID;
     //static Tournament tournament= HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament);//todo: taken in use - can simplify much code
 
 
