@@ -7,6 +7,7 @@ import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.w3c.dom.Text;
@@ -295,7 +296,12 @@ public class TournamentBracketController implements Initializable {
      */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
+        SwitchScene.switchScene("RegionController", event);
+    }
+
+    @FXML
+    public void sendToMainPage(ActionEvent event) throws  IOException {
+        SwitchScene.switchScene("MainPage", event);
     }
 
     /**
@@ -305,7 +311,7 @@ public class TournamentBracketController implements Initializable {
      */
     @FXML
     public void sendToSetUpMatches(ActionEvent event) throws IOException {
-
+        SwitchScene.switchScene("SetUpMatches", event);
     }
 
     /**

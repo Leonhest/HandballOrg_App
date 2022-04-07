@@ -16,27 +16,27 @@
             </ImageView>
             <ButtonBar layoutX="-3.0" layoutY="6.0" prefHeight="57.0" prefWidth="800.0">
                <buttons>
-                  <Button fx:id="FrontPage" accessibleHelp="this button will take you to tournamentchoice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="68.0" prefWidth="239.0" text="Tournament">
+                  <Button id="FrontPage" accessibleHelp="this button will take you to tournament choice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="68.0" prefWidth="239.0" text="Tournament">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button accessibleHelp="this button will take you to the main page" accessibleText="to main page" minWidth="52.0" mnemonicParsing="false" prefHeight="68.0" text="MainPage">
+                  <Button accessibleHelp="this button will take you to the main page" accessibleText="to main page" minWidth="52.0" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="68.0" text="MainPage">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="RegisterResult" accessibleHelp="this button will take you to the results" accessibleText="to results" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="68.0" text="Result">
+                  <Button id="RegisterResult" accessibleHelp="this button will take you to the results" accessibleText="to results" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="68.0" text="Result">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
+                  <Button id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="56.0" text="Matches">
+                  <Button id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="56.0" text="Matches">
                      <font>
                         <Font size="19.0" />
                      </font>

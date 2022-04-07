@@ -21,7 +21,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button accessibleHelp="this button takes you to the mainpage" accessibleText="to mainpage" minWidth="52.0" mnemonicParsing="false" prefHeight="68.0" text="MainPage">
+                  <Button accessibleHelp="this button takes you to the mainpage" accessibleText="to mainpage" minWidth="52.0" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="68.0" text="MainPage">
                      <font>
                         <Font size="19.0" />
                      </font>
