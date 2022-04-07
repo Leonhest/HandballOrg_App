@@ -9,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
@@ -78,6 +76,33 @@ public class RegisterResultController implements Initializable {
         match.setScore(leftTeamChoiceBox.getValue(), Integer.parseInt(leftGoalsInput.getText()));
         match.setScore(rightTeamChoiceBox.getValue(), Integer.parseInt(rightGoalsInput.getText()));
 
+
+        if (Integer.parseInt(leftGoalsInput.getText()) > Integer.parseInt(rightGoalsInput.getText())){
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament)
+                    .getTeamRegister().getListTeams()
+                    .forEach(t -> {
+                        if (t.getTeamName().equals(leftTeamChoiceBox.getValue())){
+                            t.setTotWins(t.getTotWins() + 1);
+                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
+                        } else if (t.getTeamName().equals(rightTeamChoiceBox.getValue())){
+                            t.setTotLosses(t.getTotLosses() + 1);
+                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
+                        }
+                    });
+
+        } else if (Integer.parseInt(leftGoalsInput.getText()) < Integer.parseInt(rightGoalsInput.getText())){
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament)
+                    .getTeamRegister().getListTeams()
+                    .forEach(t -> {
+                        if (t.getTeamName().equals(rightTeamChoiceBox.getValue())){
+                            t.setTotWins(t.getTotWins() + 1);
+                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(rightGoalsInput.getText()));
+                        } else if (t.getTeamName().equals(leftTeamChoiceBox.getValue())){
+                            t.setTotLosses(t.getTotLosses() + 1);
+                            t.setTotGoals(t.getTotGoals() + Integer.parseInt(leftGoalsInput.getText()));
+                        }
+                    });
+        }
 
         updateTableView();
         Team winningTeam = match.getWinner();
