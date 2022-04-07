@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -197,6 +199,9 @@ public class TournamentBracketController implements Initializable {
     @FXML
     private Button generateButton;
 
+    @FXML
+    private Text errorMessage;
+
     private static List<TextArea> currentBracket;
 
 
@@ -247,8 +252,14 @@ public class TournamentBracketController implements Initializable {
 
     @FXML
     public void generateNextRound(ActionEvent event){
+        errorMessage.setText("");
         int roundNum = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getCurrentRound();
-        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).generateRoundWithTeams(roundNum);
+        try {
+            HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).generateRoundWithTeams(roundNum);
+        }catch (Exception e){
+            errorMessage.setText(e.getMessage());
+            errorMessage.setFill(Color.RED);
+        }
         printMatches();
     }
 
