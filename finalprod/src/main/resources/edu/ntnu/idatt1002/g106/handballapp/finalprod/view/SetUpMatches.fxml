@@ -16,7 +16,7 @@
                   <Button mnemonicParsing="false" onAction="#goToFrontPage" text="Tournament" />
                   <Button mnemonicParsing="false" onAction="#goMainPage" text="MainPage" />
                   <Button mnemonicParsing="false" onAction="#goToRegisterResult" text="Result" />
-                  <Button mnemonicParsing="false" onAction="#goToCupListPage" text="Team" />
+                  <Button mnemonicParsing="false" onAction="#goToTeamRegisterPage" text="Team" />
                   <Button mnemonicParsing="false" onAction="#toHelpPage" prefHeight="25.0" text="HelpPage" />
                </buttons>
             </ButtonBar>

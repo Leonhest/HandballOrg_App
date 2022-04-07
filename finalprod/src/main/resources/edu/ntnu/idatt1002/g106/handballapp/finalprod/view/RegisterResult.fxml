@@ -20,7 +20,7 @@
         <buttons>
             <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
           <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
-            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" mnemonicParsing="false" onAction="#toCupList" text="Team" />
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" mnemonicParsing="false" onAction="#toTeamRegister" text="Team" />
             <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
             <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
@@ -54,11 +54,11 @@
                         <VBox layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.leftAnchor="30.0">
                             <children>
                                 <Text fill="#282826" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" />
-                                <ChoiceBox fx:id="winnerTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" prefWidth="150.0" />
+                                <ChoiceBox fx:id="leftTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" prefWidth="150.0" />
                                 <HBox prefHeight="33.0" prefWidth="208.0">
                                     <children>
                                         <Label text="Goals:" />
-                              <TextField fx:id="winnerGoalsInput" prefHeight="25.0" prefWidth="114.0" promptText="2" />
+                              <TextField fx:id="leftGoalsInput" prefHeight="25.0" prefWidth="114.0" promptText="2" />
                                     </children>
                                 </HBox>
                             </children>
@@ -66,11 +66,11 @@
                         <VBox layoutX="356.0" layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.rightAnchor="30.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" />
-                                <ChoiceBox fx:id="loserTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" prefWidth="150.0" />
+                                <ChoiceBox fx:id="rightTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" prefWidth="150.0" />
                                 <HBox prefHeight="30.0" prefWidth="208.0">
                                     <children>
                                         <Label text="Goals:" />
-                                        <TextField fx:id="loserGoalsInput" prefHeight="25.0" prefWidth="115.0" promptText="1" />
+                                        <TextField fx:id="rightGoalsInput" prefHeight="25.0" prefWidth="115.0" promptText="1" />
                                     </children>
                                 </HBox>
                             </children>

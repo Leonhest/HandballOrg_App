@@ -13,7 +13,7 @@
             <buttons>
                 <Button id="FrontPage" accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="25.0" text="Tournament" />
                 <Button id="RegisterResult" accessibleHelp="this button will take you to the result overview" accessibleText="to Results button" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="25.0" text="Result" />
-                <Button id="CupList" accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
+                <Button id="TeamRegister" accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team" />
                 <Button id="SetUpMatches" accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="25.0" text="Matches" />
             <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
             </buttons>

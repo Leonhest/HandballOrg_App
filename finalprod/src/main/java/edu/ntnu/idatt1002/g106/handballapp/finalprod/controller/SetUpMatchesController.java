@@ -159,8 +159,8 @@ public class SetUpMatchesController implements Initializable {
      * @throws IOException when path not found
      */
     @FXML
-    public void goToCupListPage(ActionEvent actionEvent) throws IOException {
-        SwitchScene.switchScene("CupList", actionEvent);
+    public void goToTeamRegisterPage(ActionEvent actionEvent) throws IOException {
+        SwitchScene.switchScene("TeamRegister", actionEvent);
     }
 
     /**

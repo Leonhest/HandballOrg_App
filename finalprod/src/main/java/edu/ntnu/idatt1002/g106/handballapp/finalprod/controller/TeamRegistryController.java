@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CupListController implements Initializable {
+public class TeamRegistryController implements Initializable {
 
     //todo: change menu to button menu
     @FXML
@@ -100,6 +100,8 @@ public class CupListController implements Initializable {
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
                 feedbackText.setText("");
+                //TODO: REMOVE COMMENT FROM LINE BELOW
+                //resetInfo();
             }
 
         }

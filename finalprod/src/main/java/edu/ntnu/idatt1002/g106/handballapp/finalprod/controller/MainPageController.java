@@ -99,7 +99,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("CupList", event);
+        SwitchScene.switchScene("TeamRegister", event);
     }
 
     /**

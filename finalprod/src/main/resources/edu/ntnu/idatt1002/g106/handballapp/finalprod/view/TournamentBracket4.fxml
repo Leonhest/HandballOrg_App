@@ -35,7 +35,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="CupList" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
+                  <Button fx:id="TeamRegister" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
                      <font>
                         <Font size="19.0" />
                      </font>
