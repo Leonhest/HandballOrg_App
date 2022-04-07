@@ -7,7 +7,10 @@ public enum Region {
     SouthernRegion("SouthernRegion"),
     EasternRegion("EasternRegion"),
     NorthernRegion("NorthernRegion"),
-    WesternRegion("WesternRegion");
+    WesternRegion("WesternRegion"),
+    SouthWesternRegion("SouthWesternRegion"),
+    InlandRegion("InLandRegion");
+
 
     private String regionTxt;
 
@@ -41,6 +44,10 @@ public enum Region {
             return NorthernRegion;
         } else if (regionTxt.equalsIgnoreCase(EasternRegion.regionTxt)) {
             return EasternRegion;
+        } else if (regionTxt.equalsIgnoreCase(SouthWesternRegion.regionTxt)) {
+            return SouthWesternRegion;
+        } else if (regionTxt.equalsIgnoreCase(InlandRegion.regionTxt)) {
+            return InlandRegion;
         } else {
             return null;
         }
@@ -57,6 +64,6 @@ public enum Region {
             return false;
         }
 
-        return region.equalsIgnoreCase(SouthernRegion.regionTxt) || region.equalsIgnoreCase(WesternRegion.regionTxt) || region.equalsIgnoreCase(NorthernRegion.regionTxt) || region.equalsIgnoreCase(EasternRegion.regionTxt);
+        return region.equalsIgnoreCase(SouthernRegion.regionTxt) || region.equalsIgnoreCase(WesternRegion.regionTxt) || region.equalsIgnoreCase(NorthernRegion.regionTxt) || region.equalsIgnoreCase(EasternRegion.regionTxt) || region.equalsIgnoreCase(SouthWesternRegion.regionTxt) || region.equalsIgnoreCase(InlandRegion.regionTxt);
     }
 }

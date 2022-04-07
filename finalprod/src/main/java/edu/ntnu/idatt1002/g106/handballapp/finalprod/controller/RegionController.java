@@ -109,4 +109,9 @@ public class RegionController  implements Initializable {
     public void toSetUpNewTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
     }
+
+    @FXML
+    public void toSelectedTournament(ActionEvent event) throws IOException{
+
+    }
 }

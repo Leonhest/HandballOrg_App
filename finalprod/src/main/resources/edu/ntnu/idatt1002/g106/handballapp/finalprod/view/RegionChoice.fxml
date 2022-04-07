@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionChoiceController">
     <children>
@@ -94,11 +93,11 @@
             <VBox prefHeight="138.0" prefWidth="155.0" />
             <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="SouthNorthRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                  <Button fx:id="SouthWesternRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
                      <graphic>
-                        <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="90.0" fitWidth="200.0">
+                        <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="South-Western Region" fitHeight="90.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../../../../../../../TournamentPictures/nhf_region_sorVest.png" />
+                              <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -110,9 +109,9 @@
                <children>
                   <Button fx:id="InlandRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
                      <graphic>
-                        <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="90.0" fitWidth="200.0">
+                        <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="In-land Region" fitHeight="90.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../../../../../../../TournamentPictures/nhf_region_innlandet.jpg" />
+                              <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
                            </image>
                         </ImageView>
                      </graphic>

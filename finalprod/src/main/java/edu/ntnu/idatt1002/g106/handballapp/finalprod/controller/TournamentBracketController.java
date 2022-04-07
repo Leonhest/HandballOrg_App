@@ -295,7 +295,7 @@ public class TournamentBracketController implements Initializable {
      */
     @FXML
     public void sendToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(SwitchScene.getCurrentRegion(), event);
+        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
     }
 
     /**

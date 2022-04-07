@@ -9,11 +9,6 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionController">
    <children>
-      <Label layoutX="227.0" layoutY="15.0" text="Eastern Region">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
       <Button accessibleHelp="this button takes you back to button selection" accessibleText="back" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#backToRegionChoice" text="Back" />
       <Button accessibleHelp="this button will ask you if you want to log out" accessibleText="logout" layoutX="534.0" layoutY="18.0" mnemonicParsing="false" onAction="#logOutMethod" text="Logout" />
       <Button accessibleHelp="this button will take you to a new window where you can create a new tournament" accessibleText="new tournament" layoutX="480.0" layoutY="91.0" mnemonicParsing="false" onAction="#toSetUpNewTournament" text="New Tournament" />
@@ -24,7 +19,7 @@
             <TableColumn fx:id="endDateColumn" prefWidth="196.0" text="End Date" />
          </columns>
       </TableView>
-      <Label fx:id="regionHeader" layoutX="227.0" layoutY="15.0" text="Chossen Region">
+      <Label fx:id="regionHeader" layoutX="227.0" layoutY="15.0" text="Chosen Region">
          <font>
             <Font size="22.0" />
          </font>
