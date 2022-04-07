@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
 
+import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,10 +24,13 @@ public class RegionController  implements Initializable {
 
     @FXML
     private TableColumn<Tournament, Integer> startDateColumn;
+
     @FXML
     private TableColumn<Tournament, Integer> endDateColumn;
+
     @FXML
     private TableColumn<Tournament, String> tournamentNameColumn;
+
     @FXML
     private javafx.scene.control.TableView<Tournament> tableView;
 
@@ -67,32 +71,12 @@ public class RegionController  implements Initializable {
 
                             }
                         });
+            }else if (tableView.getSelectionModel().getSelectedItem() == null){
+                AlertBox.alertError("No tournament selected");
             }
         });
 
         updateList();
-    }
-
-    public void backToRegionChoice(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("RegionChoice", event);
-    }
-
-    public void logOutMethod() {
-        if (AlertBox.logOut() == 1){
-            System.exit(-1);
-        }
-    }
-
-    public void goToCurrentPage(Event event) throws IOException {
-        HandballApplication.setChosenTournament(currentTournamentId.intValue());
-        SwitchScene.switchScene("MainPage", event);
-    }
-
-    @FXML
-    public void toSelectedTournament(ActionEvent event) throws IOException{
-        selectedTournament = tableView.getSelectionModel().getSelectedItem();
-        HandballApplication.setChosenTournament(selectedTournament.getTournamentID());
-        SwitchScene.switchScene("MainPage", event);
     }
 
     @FXML
@@ -108,13 +92,42 @@ public class RegionController  implements Initializable {
         tableView.refresh();
     }
 
+    @FXML
+    public void goToCurrentPage(Event event) throws IOException {
+        HandballApplication.setChosenTournament(currentTournamentId.intValue());
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    @FXML
+    public void toSelectedTournament(ActionEvent event) throws IOException{
+        if(tableView.getSelectionModel().getSelectedItem() == null){
+            AlertBox.alertError("No tournament selected");
+            return;
+        }
+        HandballApplication.setChosenTournament(tableView.getSelectionModel().getSelectedItem().getTournamentID());
+        SwitchScene.switchScene("MainPage", event);
+    }
+
+    @FXML
+    public void backToRegionChoice(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("RegionChoice", event);
+    }
+
     /**
      * this method tkes the user to StUpTournament page.
      * where they can create a new tournament
      * @param event any event
      * @throws IOException when path not found
      */
+    @FXML
     public void toSetUpNewTournament(ActionEvent event) throws IOException {
         SwitchScene.switchScene("SetUpTournament", event);
+    }
+
+    @FXML
+    public void logOutMethod() {
+        if (AlertBox.logOut() == 1){
+            System.exit(-1);
+        }
     }
 }
