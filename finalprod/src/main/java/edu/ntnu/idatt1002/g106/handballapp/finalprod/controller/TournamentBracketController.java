@@ -325,16 +325,6 @@ public class TournamentBracketController implements Initializable {
      * @throws IOException when path not found
      */
     @FXML
-    public void sendToSetUpMatches(ActionEvent event) throws IOException {
-        SwitchScene.switchScene("SetUpMatches", event);
-    }
-
-    /**
-     * method that sends program to specific screen
-     * @param event button event
-     * @throws IOException when path not found
-     */
-    @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
         SwitchScene.switchScene("TeamRegister", event);
     }
@@ -349,4 +339,12 @@ public class TournamentBracketController implements Initializable {
         SwitchScene.switchScene("RegisterResult", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
+    public void sendToHelpPage(ActionEvent event) throws IOException {
+        SwitchScene.switchScene("HelpPage", event);
+    }
 }
