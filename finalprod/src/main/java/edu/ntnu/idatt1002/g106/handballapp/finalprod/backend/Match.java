@@ -194,6 +194,6 @@ public class Match {
     public String toString() {
         return "***At " + startTime.toString() + " " + team1.toString() + " played against " + team2.toString() +
                 "***\n The game ended with " + getFinalResult() + " and the winner was "
-                + getWinner();
+                + this.getWinner().toString();
     }
 }
