@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TeamRegistryController">
+<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TeamRegistryController">
     <children>
       <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="315.0">
         <buttons>
@@ -35,33 +28,32 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <ScrollBar layoutX="593.0" layoutY="35.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
-        <TextField layoutX="434.0" layoutY="8.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
+        <TextField layoutX="511.0" layoutY="9.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </TextField>
-      <TextField fx:id="teamNameTextFieldInput" accessibleHelp="write new team name here" accessibleText="team name field" layoutX="509.0" layoutY="85.0" prefHeight="0.0" prefWidth="153.0" promptText="Sandnes Il" />
       <Text layoutX="472.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Team" wrappingWidth="103.16204833984375">
          <font>
             <Font name="Apple Braille Outline 6 Dot" size="14.0" />
          </font>
       </Text>
       <Text layoutX="400.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Name" />
+      <TextField fx:id="teamNameTextFieldInput" accessibleHelp="write new team name here" accessibleText="team name field" layoutX="509.0" layoutY="85.0" prefHeight="0.0" prefWidth="153.0" promptText="Sandnes Il" />
       <Text layoutX="400.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Players" />
+      <ChoiceBox fx:id="numPlayerInput" accessibleHelp="select number of players " accessibleText="number of players combobox" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
       <Text layoutX="400.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Leader" />
-      <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
       <TextField fx:id="teamLeaderTextFieldInput" accessibleHelp="write the team representants name here" accessibleText="team representant field" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Eirik Elvestad" />
+      <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
       <TextField fx:id="regionTextFieldInput" accessibleHelp="write the place where the tournament is happending here" accessibleText="place of event field" layoutX="509.0" layoutY="266.0" prefHeight="0.0" prefWidth="153.0" promptText="Stavanger" />
       <Text layoutX="400.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
-      <TextField fx:id="phoneNumTextFieldInput" accessibleHelp="write the teams phonenumber here" accessibleText="phonenumber field" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
-      <ChoiceBox fx:id="numPlayerInput" accessibleHelp="select number of players " accessibleText="number of players combobox" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
       <Text layoutX="489.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+47">
          <font>
             <Font size="12.0" />
          </font>
       </Text>
-      <Text fx:id="feedbackText" layoutX="407.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextField fx:id="phoneNumTextFieldInput" accessibleHelp="write the teams phonenumber here" accessibleText="phonenumber field" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
+      <Text fx:id="feedbackText" layoutX="407.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="3.16204833984375" />
       <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
       <Button id="resetButton" accessibleHelp="this button resets all information written" accessibleText="reset" layoutX="632.0" layoutY="506.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
     </children>
