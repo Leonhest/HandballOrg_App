@@ -160,7 +160,7 @@ public class SetUpMatchesController implements Initializable {
      */
     @FXML
     public void goToFrontPage(ActionEvent event) throws IOException {
-        SwitchScene.switchScene(HandballApplication.chosenRegion.getRegionTxt(), event);
+        SwitchScene.switchScene("RegionController", event);
     }
 
     /**
