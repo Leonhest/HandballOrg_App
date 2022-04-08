@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This class allows for the switching between different scenes in the program.
+ */
 public class SwitchScene {
 
     /**
