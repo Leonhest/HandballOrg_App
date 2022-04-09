@@ -88,6 +88,8 @@ public class Tournament {
                 numMatchesTemp++;
             }
         }
+        //With this additional list, the last list will contain the winner of the whole tournament
+        this.roundTeamList.add(new ArrayList<>());
     }
 
 
@@ -241,7 +243,6 @@ public class Tournament {
                 });
                 team.setTotWins(totalWinsOfTournament.intValue());
             }
-
         }
     }
 
@@ -361,10 +362,18 @@ public class Tournament {
         return results;
     }
 
+    /**
+     * This method retrieves the list of winning teams for each round.
+     * @return List of winning teams, represented using Team objects
+     */
     public List<List<Team>> getRoundTeamList() {
         return roundTeamList;
     }
 
+    /**
+     * This method returns the list of matches for each round.
+     * @return List of Match objects for each round
+     */
     public List<List<Match>> getRoundMatchList() {
         return roundMatchList;
     }
