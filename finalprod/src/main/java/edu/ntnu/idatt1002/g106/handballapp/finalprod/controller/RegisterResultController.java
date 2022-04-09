@@ -107,7 +107,6 @@ public class RegisterResultController implements Initializable {
         //Configuring the table
         updateTableView();
 
-        //Configuring the table
         chosenChoiceBox = -1;
         updateTableView();
 
@@ -311,17 +310,6 @@ public class RegisterResultController implements Initializable {
         }
     }
 }
-
-
-
-/*
- If a team is selected, then all the teams which play against that team is placed in the other choice box.
- If two teams are picked, then the match ID is automatically set.
- */
-
-//    Team teamSelected = HandballApplication.adminList.get(0).getTournamentRegister()
-//            .getTournaments().get(HandballApplication.chosenTournament).getTeamRegister()
-//            .findTeamBasedOnTeamName(teamChoice.getValue());
 
 
 /*
