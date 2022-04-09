@@ -142,6 +142,14 @@ public class RegisterResultController implements Initializable {
         SwitchScene.switchScene("TeamRegister", event);
     }
 
+    public void setSelectedMatch() {
+        if (matchTable.getSelectionModel().getSelectedItem() == null){
+            AlertBox.alertError("No match selected");
+            return;
+        }
+        insertSelectedMatchInfo(matchTable.getSelectionModel().getSelectedItem());
+    }
+
     /**
      * method that sends program to specific screen
      * @param event button event
@@ -189,4 +197,5 @@ public class RegisterResultController implements Initializable {
     public void toHelpPage(ActionEvent event) throws IOException{
         SwitchScene.switchScene("HelpPage", event);
     }
+
 }

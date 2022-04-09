@@ -32,7 +32,7 @@
                         </columns>
                     </TableView>
                     <Button id="selectDateBtn" accessibleHelp="this shows matches on specific date" accessibleText="Select Date" layoutX="576.0" layoutY="46.0" mnemonicParsing="false" onAction="#SelectDate" prefHeight="30.0" prefWidth="85.0" text="Select date" AnchorPane.rightAnchor="0.0" />
-                    <DatePicker id="date" fx:id="dateSelect" accessibleHelp="write the date here and the click endter, Day,Month,Year" accessibleText="Date input field" layoutX="489.0" layoutY="2.0" promptText="DD.MM.YYYY" AnchorPane.rightAnchor="-2.0" />
+                    <DatePicker id="date" fx:id="dateSelect" accessibleHelp="write the date here and the click endter, Day,Month,Year" accessibleText="Date input field" layoutX="489.0" layoutY="2.0" prefHeight="25.0" prefWidth="188.0" promptText="DD.MM.YYYY" AnchorPane.rightAnchor="-2.0" />
                </children>
             </AnchorPane>
         </items>
