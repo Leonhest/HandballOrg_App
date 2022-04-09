@@ -21,7 +21,7 @@
                 <TableColumn fx:id="teamNameColumn" editable="false" prefWidth="75.0" resizable="false" text="Team name" />
                 <TableColumn fx:id="numPlayerColumn" editable="false" prefWidth="53.0" resizable="false" text="Players" />
                 <TableColumn fx:id="teamLeaderColumn" editable="false" prefWidth="79.0" resizable="false" text="Team leader" />
-                <TableColumn fx:id="regionColumn" editable="false" prefWidth="68.0" resizable="false" text="Region" />
+                <TableColumn fx:id="placeColumn" editable="false" prefWidth="68.0" resizable="false" text="Place" />
                 <TableColumn fx:id="phoneNumColumn" editable="false" prefWidth="109.0" resizable="false" text="Phone" />
             </columns>
          <columnResizePolicy>
@@ -44,7 +44,7 @@
       <ChoiceBox fx:id="numPlayerInput" accessibleHelp="select number of players " accessibleText="number of players combobox" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
       <Text layoutX="400.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Leader" />
       <TextField fx:id="teamLeaderTextFieldInput" accessibleHelp="write the team representants name here" accessibleText="team representant field" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Eirik Elvestad" />
-      <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
+      <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place" />
       <TextField fx:id="regionTextFieldInput" accessibleHelp="write the place where the tournament is happending here" accessibleText="place of event field" layoutX="509.0" layoutY="266.0" prefHeight="0.0" prefWidth="153.0" promptText="Stavanger" />
       <Text layoutX="400.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
       <Text layoutX="489.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+47">
@@ -53,7 +53,7 @@
          </font>
       </Text>
       <TextField fx:id="phoneNumTextFieldInput" accessibleHelp="write the teams phonenumber here" accessibleText="phonenumber field" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
-      <Text fx:id="feedbackText" layoutX="407.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="3.16204833984375" />
+      <Text fx:id="feedbackText" layoutX="388.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="293.16204833984375" />
       <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
       <Button id="resetButton" accessibleHelp="this button resets all information written" accessibleText="reset" layoutX="632.0" layoutY="506.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
     </children>

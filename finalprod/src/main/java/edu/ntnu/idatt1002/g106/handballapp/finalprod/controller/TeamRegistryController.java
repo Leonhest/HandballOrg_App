@@ -39,7 +39,7 @@ public class TeamRegistryController implements Initializable {
     @FXML
     private TableColumn<Team, String> teamLeaderColumn;
     @FXML
-    private TableColumn<Team, String> regionColumn;
+    private TableColumn<Team, String> placeColumn;
     @FXML
     private TableColumn<Team, Integer> phoneNumColumn;
 
@@ -50,7 +50,7 @@ public class TeamRegistryController implements Initializable {
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
         numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
         teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
-        regionColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
+        placeColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
         phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
 
         teamTableView.setItems(FXCollections.observableArrayList(
@@ -136,6 +136,10 @@ public class TeamRegistryController implements Initializable {
         if(teamNameTextFieldInput.getText().isEmpty() || teamNameTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Name is invalid!*");
         if(teamLeaderTextFieldInput.getText().isEmpty() || teamLeaderTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Team Leader is invalid!*");
         if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().forEach(tour -> tour.getTeamRegister().getListTeams()
+                .forEach(team -> {
+                    if (team.getTelephoneNum() == Integer.parseInt(phoneNumTextFieldInput.getText())) throw new IllegalArgumentException("*Phone number taken*");
+                }));
     }
 
     /**
