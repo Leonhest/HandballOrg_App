@@ -26,7 +26,7 @@
                     <VBox.margin>
                         <Insets left="4.0" top="2.0" />
                     </VBox.margin></Text>
-                <TableView fx:id="matchTable" prefHeight="158.0" prefWidth="669.0">
+                <TableView fx:id="matchTable" prefHeight="301.0" prefWidth="585.0">
                     <columns>
                         <TableColumn fx:id="matchTime" editable="false" prefWidth="123.0" resizable="false" text="Time" />
                         <TableColumn fx:id="matchPlayers" editable="false" prefWidth="202.0" resizable="false" text="Match" />
@@ -34,15 +34,16 @@
                   <TableColumn fx:id="scoreID" prefWidth="101.0" text="Score" />
                     </columns>
                 </TableView>
-                <AnchorPane prefHeight="33.0" prefWidth="600.0">
+                <AnchorPane prefHeight="77.0" prefWidth="585.0">
                     <children>
-                  <Label layoutX="245.0" layoutY="8.0" text="MatchId:" />
-                            <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="300.0" layoutY="4.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
+                  <Button layoutX="8.0" layoutY="-5.0" mnemonicParsing="false" onAction="#setSelectedMatch" text="Select Match" />
+                  <Label layoutX="246.0" layoutY="23.0" text="MatchId:" />
+                            <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="300.0" layoutY="20.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="142.0" prefWidth="600.0">
+                <AnchorPane prefHeight="0.0" prefWidth="585.0">
                     <children>
-                        <VBox layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.leftAnchor="30.0">
+                        <VBox layoutX="23.0" layoutY="17.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.leftAnchor="23.0">
                             <children>
                                 <Text fill="#282826" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" />
                                 <ChoiceBox fx:id="leftTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" prefWidth="150.0" />
@@ -54,7 +55,7 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <VBox layoutX="356.0" layoutY="14.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.rightAnchor="30.0">
+                        <VBox layoutX="346.0" layoutY="22.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.rightAnchor="31.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" />
                                 <ChoiceBox fx:id="rightTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" prefWidth="150.0" />

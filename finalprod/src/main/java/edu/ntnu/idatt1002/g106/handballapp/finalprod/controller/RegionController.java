@@ -76,6 +76,7 @@ public class RegionController  implements Initializable {
             }
         });
 
+
         updateList();
     }
 
