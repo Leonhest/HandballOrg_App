@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * this class handles events when a match is to be created
+ * @author Gruppe 6
+ */
 public class SetUpMatchesController implements Initializable {
 
     List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();

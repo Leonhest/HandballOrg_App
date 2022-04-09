@@ -20,6 +20,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * class for handling events in a regional page
+ * @author Gruppe 6
+ */
 public class RegionController  implements Initializable {
 
     @FXML

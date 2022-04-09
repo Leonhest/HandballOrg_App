@@ -2,6 +2,7 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
 /**
  * Class to provide constants for different regions
+ * @author Gruppe 6
  */
 public enum Region {
     SouthernRegion("SouthernRegion"),

@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  * This class creates a general structure for a handball team. It, therefore, contains essential attributes and methods
  * for altering and retrieving the statistics.
+ * @author Gruppe 6
  */
 public class Team {
     private String teamName;

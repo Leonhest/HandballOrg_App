@@ -26,6 +26,11 @@ public class RegionChoiceController implements Initializable {
 
     }
 
+    /**
+     * method that sends the program to a specific regional page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void toRegionController(ActionEvent event) throws IOException {
         Button selected = (Button) event.getSource();
         HandballApplication.setChosenRegion(selected.getId());

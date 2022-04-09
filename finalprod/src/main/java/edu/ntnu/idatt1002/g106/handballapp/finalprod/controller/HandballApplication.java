@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
+/**
+ * Starting class extends application. hase basic information that fills the application
+ * @author Gruppe 6
+ */
 public class HandballApplication extends Application{
 
     //todo: tilgangsmodifikator?

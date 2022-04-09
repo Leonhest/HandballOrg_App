@@ -17,6 +17,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+/**
+ * This is the mainpage class and hold information of matches, gets updated when initialized
+ * @author Gruppe 6
+ */
 public class MainPageController implements Initializable {
     @FXML private TableView<Match> table;
     @FXML private TableColumn<Match, LocalDateTime> time;

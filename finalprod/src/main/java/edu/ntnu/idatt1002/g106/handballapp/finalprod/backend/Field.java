@@ -6,12 +6,23 @@ import java.time.LocalTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.Map;
 
+/**
+ * this class is a construction class that describes how a field is going to look like;
+ * and different methods that will be used to handle a field
+ * @author Gruppe 6
+ */
 public class Field {
     private int numField;
     private Map<LocalDateTime, Boolean> availabilitySchedule;
     private LocalDate startDate;
     private LocalDate endDate;
 
+    /**
+     * this is the class constructor with needed variables
+     * @param numField
+     * @param startDate
+     * @param endDate
+     */
     public Field(int numField, LocalDate startDate, LocalDate endDate) {
         this.numField = numField;
         generateTimeSchedule(startDate, endDate);
@@ -20,10 +31,6 @@ public class Field {
 
         //Todo: exception handling
     }
-
-//    public Iterable<Map> getAvailabilitySchedule(){
-//
-//    }
 
     @Deprecated
     /**
@@ -88,6 +95,10 @@ public class Field {
         }
     }
 
+    /**
+     * toString method that prints out the fields information
+     * @return
+     */
     @Override
     public String toString() {
         return "Field{" +

@@ -16,6 +16,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * this class disused for generation of matches, and similar methods
+ * @author Gruppe 6
+ */
 public class TournamentBracketController implements Initializable {
 
 
@@ -250,8 +254,11 @@ public class TournamentBracketController implements Initializable {
         }
     }
 
+    /**
+     * this method is used for generating a next round of matches with remaining teams i  tournament
+     */
     @FXML
-    public void generateNextRound(ActionEvent event){
+    public void generateNextRound(){
         errorMessage.setText("");
         int roundNum = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getCurrentRound();
         try {
@@ -265,6 +272,9 @@ public class TournamentBracketController implements Initializable {
 
     //TODO: generateButton.isVisible(false) when no more rounds can be generated?
 
+    /**
+     * method that prints matches onn the view board in the brackets
+     */
     public void printMatches(){
         int roundNum = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getCurrentRound();
         int previousRoundNum = roundNum - 1;
@@ -314,6 +324,11 @@ public class TournamentBracketController implements Initializable {
         SwitchScene.switchScene("RegionController", event);
     }
 
+    /**
+     * method that sends program to specific screen
+     * @param event button event
+     * @throws IOException when path not found
+     */
     @FXML
     public void sendToMainPage(ActionEvent event) throws  IOException {
         SwitchScene.switchScene("MainPage", event);

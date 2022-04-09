@@ -6,8 +6,10 @@ import java.util.List;
 /**
  * This class serves as the structure of a tournament register. Therefore, at its core, it works with manipulating a
  * list of Tournament objects.
+ * @author Gruppe 6
  */
 public class TournamentRegister {
+
     private List<Tournament> tournaments = new ArrayList<>();
 
     /**

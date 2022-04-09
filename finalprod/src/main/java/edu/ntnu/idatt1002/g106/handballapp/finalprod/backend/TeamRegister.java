@@ -6,8 +6,10 @@ import java.util.*;
  * This is a class forming the structure of a team register. It, therefore, has a map which allows teams
  * to be navigated easily. Additionally, it contains methods that allow for the manipulation of the teams
  * and the list.
+ * @author Gruppe 6
  */
 public class TeamRegister {
+
     private Map<String, Team> teams;
 
     public TeamRegister() {
@@ -50,6 +52,11 @@ public class TeamRegister {
         return teams.get(teamName);
     }
 
+    /**
+     * method that registers a teams new number of wins
+     * @param teamName
+     * @param newTotWins new number of wins
+     */
     public void editTotWins(String teamName, int newTotWins){
         if(newTotWins < 0) throw new IllegalArgumentException("Total wins cannot be negative");
         for(Team i: this.teams.values()){

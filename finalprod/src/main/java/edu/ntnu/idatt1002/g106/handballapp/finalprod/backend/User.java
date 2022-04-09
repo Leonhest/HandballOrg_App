@@ -8,6 +8,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * Represents a user of the application
+ * @author Gruppe 6
  */
 public class User {
     private TournamentRegister tournamentRegister;

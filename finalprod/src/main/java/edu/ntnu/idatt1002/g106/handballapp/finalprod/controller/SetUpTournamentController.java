@@ -91,6 +91,9 @@ public class SetUpTournamentController implements Initializable {
         return new Image("file:src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/TournamentPictures/" + imageName +  ".png");
     }
 
+    /**
+     * method that sets a specific image on the screen when chosen by user
+     */
     @FXML
     public void setImageOn() {
         tournamentLayoutInput.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){

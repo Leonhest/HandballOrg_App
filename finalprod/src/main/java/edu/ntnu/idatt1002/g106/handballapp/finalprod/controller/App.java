@@ -1,5 +1,9 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 
+/**
+ * the apps starting class which doesn't implement application
+ * @author Gruppe 6
+ */
 public class App {
 
     /**

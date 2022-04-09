@@ -12,8 +12,4 @@ public class FieldRegister {
         fields = new HashMap<>();
     }
 
-//    public Iterator<Field> findFieldsAvailableBasedOnTime(LocalDateTime localDateTime){
-//
-//    }
-
 }

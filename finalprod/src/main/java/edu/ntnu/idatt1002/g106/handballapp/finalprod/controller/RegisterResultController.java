@@ -142,6 +142,9 @@ public class RegisterResultController implements Initializable {
         SwitchScene.switchScene("TeamRegister", event);
     }
 
+    /**
+     * this method auto-fills all information for a selected match
+     */
     public void setSelectedMatch() {
         if (matchTable.getSelectionModel().getSelectedItem() == null){
             AlertBox.alertError("No match selected");

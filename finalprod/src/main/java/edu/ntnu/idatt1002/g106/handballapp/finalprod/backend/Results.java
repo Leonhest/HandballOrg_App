@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * This class creates a structure for the results of the matches. The match results are stored using a Map.
+ * @author Gruppe 6
  */
 public class Results {
     private Map<Integer, Match> matchResults;

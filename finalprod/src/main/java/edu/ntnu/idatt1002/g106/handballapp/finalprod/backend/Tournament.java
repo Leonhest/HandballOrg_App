@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * This is a class which creates the structure of tournament. Therefore, it contains all the relevant fields and methods
  * which define a tournament. These methods include storage and manipulations of matches.
+ * @author Gruppe 6
  */
 public class Tournament {
     private int tournamentID;
@@ -392,9 +393,5 @@ public class Tournament {
                 ", endDate=" + endDate +
                 ", participatingTeams=" +
                 '}';
-    }
-
-    public String tournamentStringToList(){
-        return getTournamentName() +"\t\tStart date: "+getStartDate()+"\t\tEnd date:"+getEndDate();
     }
 }

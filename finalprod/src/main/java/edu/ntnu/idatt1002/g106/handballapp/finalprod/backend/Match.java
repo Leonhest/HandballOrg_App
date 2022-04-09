@@ -8,6 +8,7 @@ import java.util.Objects;
 
 /**
  * Represents a match in a tournament.
+ * @author Gruppe 6
  */
 public class Match {
 
@@ -45,6 +46,13 @@ public class Match {
         this.numField = numField;
     }
 
+    /**
+     * the class constructor with all variables needed
+     * @param startTime starting time
+     * @param numField the fields number
+     * @param matchID id of the match
+     * @param roundNum round number for the match
+     */
     public Match(LocalDateTime startTime, int numField, int matchID, int roundNum) {
         teamScore = new HashMap<>();
         this.startTime = startTime;
@@ -203,10 +211,6 @@ public class Match {
     public LocalTime getTime() {
         return startTime.toLocalTime();
     }
-
-//    public Team getTeamBasedOnScore(int score){
-//
-//    }
 
     /**
      * toString method for returning all match information

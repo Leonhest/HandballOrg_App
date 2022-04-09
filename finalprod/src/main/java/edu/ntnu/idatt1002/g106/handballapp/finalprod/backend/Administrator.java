@@ -1,6 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 /**
  * This is a class that creates an administrator
+ * @author Gruppe 6
  */
 public class Administrator extends User{
 

@@ -14,6 +14,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * this class handles team registration and different methods for user
+ * team registration will happen in the fxml page and is used here
+ * @author Gruppe 6
+ */
 public class TeamRegistryController implements Initializable {
 
     @FXML
@@ -190,6 +195,11 @@ public class TeamRegistryController implements Initializable {
         };
     }
 
+    /**
+     * method that send the user so the help page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void toHelpPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("HelpPage", event);
     }

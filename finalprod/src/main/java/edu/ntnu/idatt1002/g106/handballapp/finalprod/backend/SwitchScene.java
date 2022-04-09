@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * this class is a static class used for switching between the different pages/scenes in the program
+ * @author Gruppe 6
+ */
 public class SwitchScene {
 
     /**

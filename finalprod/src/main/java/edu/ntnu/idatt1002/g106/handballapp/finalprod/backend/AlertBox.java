@@ -1,20 +1,20 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+/**
+ * this class is used as a message class
+ * its purpose is to give the user different popup windows that alert the user about different events
+ * @author Gruppe 6
+ */
 public class AlertBox {
 
     /**
