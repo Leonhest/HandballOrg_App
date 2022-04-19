@@ -97,7 +97,7 @@
                      <graphic>
                         <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="South-Western Region" fitHeight="90.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
+                              <Image url="@../TournamentPictures/region_sorVest.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -111,7 +111,7 @@
                      <graphic>
                         <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="In-land Region" fitHeight="90.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
+                              <Image url="@../TournamentPictures/region_innlandet.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
