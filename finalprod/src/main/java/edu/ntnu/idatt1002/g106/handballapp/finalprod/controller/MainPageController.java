@@ -109,11 +109,10 @@ public class MainPageController implements Initializable {
 
     /**
      * method that sends program to specific screen
-     * @param event button event
      * @throws IOException when path not found
      */
     @FXML
-    public void SelectDate(ActionEvent event) {
+    public void selectDate() {
         if (dateSelect.getValue() == null) {
             AlertBox.alertError("No date register.\n" +
                     "Please select a date");

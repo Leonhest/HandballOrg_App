@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class TeamRegistryController implements Initializable {
+public class TeamRegisterController implements Initializable {
 
     @FXML
     private Text feedbackText;

@@ -251,7 +251,7 @@ public class TournamentBracketController implements Initializable {
     }
 
     @FXML
-    public void generateNextRound(ActionEvent event){
+    public void generateNextRound(){
         errorMessage.setText("");
         int roundNum = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getCurrentRound();
         try {

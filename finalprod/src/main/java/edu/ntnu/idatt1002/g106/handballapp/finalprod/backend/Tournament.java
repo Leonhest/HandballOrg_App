@@ -350,6 +350,7 @@ public class Tournament {
         return teamRegister;
     }
 
+    //todo: remove?
     /**
      * This method retrieves the list of winning teams for each round.
      * @return List of winning teams, represented using Team objects
