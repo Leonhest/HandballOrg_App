@@ -26,7 +26,7 @@
                     <VBox.margin>
                         <Insets left="4.0" top="2.0" />
                     </VBox.margin></Text>
-                <TableView fx:id="matchTable" prefHeight="301.0" prefWidth="585.0">
+                <TableView fx:id="matchTable" accessibleHelp="this table hold information about all matches" accessibleText="table view" prefHeight="301.0" prefWidth="585.0">
                     <columns>
                         <TableColumn fx:id="matchTime" editable="false" prefWidth="123.0" resizable="false" text="Time" />
                         <TableColumn fx:id="matchPlayers" editable="false" prefWidth="202.0" resizable="false" text="Match" />
@@ -36,7 +36,7 @@
                 </TableView>
                 <AnchorPane prefHeight="77.0" prefWidth="585.0">
                     <children>
-                  <Button layoutX="8.0" layoutY="-5.0" mnemonicParsing="false" onAction="#setSelectedMatch" text="Select Match" />
+                  <Button accessibleHelp="this button fill all information about a selected match" accessibleText="select natch" layoutX="8.0" layoutY="-5.0" mnemonicParsing="false" onAction="#setSelectedMatch" text="Select Match" />
                   <Label layoutX="246.0" layoutY="23.0" text="MatchId:" />
                             <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="300.0" layoutY="20.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
                     </children>
@@ -67,7 +67,7 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <Button id="submitButton" accessibleHelp="this button submits your match selection" accessibleText="Submit" layoutX="243.0" layoutY="107.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
+                        <Button id="submitButton" accessibleHelp="this button submits your match selection" accessibleText="Submit" layoutX="239.0" layoutY="103.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
                     <Text fx:id="feedBackText" layoutX="37.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="48.0" />
                     </children>
                 </AnchorPane>

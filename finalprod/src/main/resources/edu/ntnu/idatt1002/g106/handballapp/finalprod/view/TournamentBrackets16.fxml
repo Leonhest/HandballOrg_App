@@ -48,7 +48,7 @@
                   <Font size="27.0" />
                </font>
             </Button>
-            <Button fx:id="generateButton" accessibleText="generate next round" layoutX="311.0" layoutY="679.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="197.0" text="Generate next round">
+            <Button fx:id="generateButton" accessibleHelp="generates the next round ofmatches" accessibleText="generate next round" layoutX="311.0" layoutY="679.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="197.0" text="Generate next round">
                <font>
                   <Font size="18.0" />
                </font>

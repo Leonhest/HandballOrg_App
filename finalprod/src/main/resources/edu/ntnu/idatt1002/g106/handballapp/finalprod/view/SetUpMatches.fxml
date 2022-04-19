@@ -13,14 +13,14 @@
          <children>
             <ButtonBar prefHeight="25.0" prefWidth="273.0">
                <buttons>
-                  <Button mnemonicParsing="false" onAction="#goToFrontPage" text="Tournament" />
-                  <Button mnemonicParsing="false" onAction="#goMainPage" text="MainPage" />
-                  <Button mnemonicParsing="false" onAction="#goToRegisterResult" text="Result" />
-                  <Button mnemonicParsing="false" onAction="#goToTeamRegisterPage" text="Team" />
-                  <Button mnemonicParsing="false" onAction="#toHelpPage" prefHeight="25.0" text="HelpPage" />
+                  <Button accessibleHelp="this takes you to tournament selection" accessibleText="tournament" mnemonicParsing="false" onAction="#goToFrontPage" text="Tournament" />
+                  <Button accessibleHelp="this takes you to the main page" accessibleText="main page" mnemonicParsing="false" onAction="#goMainPage" text="MainPage" />
+                  <Button accessibleHelp="takes you to results registration" accessibleText="results" mnemonicParsing="false" onAction="#goToRegisterResult" text="Result" />
+                  <Button accessibleHelp="this takes you to team registration" accessibleText="team" mnemonicParsing="false" onAction="#goToTeamRegisterPage" text="Team" />
+                  <Button accessibleHelp="this takes you to the help page" accessibleText="help page" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="25.0" text="HelpPage" />
                </buttons>
             </ButtonBar>
-            <Button layoutX="547.0" mnemonicParsing="false" onAction="#LogOutButton" text="logOut" />
+            <Button accessibleHelp="this will ask you if you want to log out" accessibleText="log out" layoutX="547.0" mnemonicParsing="false" onAction="#LogOutButton" text="logOut" />
          </children>
       </AnchorPane>
         <TableView prefHeight="261.0" prefWidth="600.0">
@@ -51,18 +51,18 @@
                         <Font size="34.0" />
                     </font>
                 </Text>
-                <Button id="selectField" layoutX="250.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#submitMatch" prefHeight="40.0" prefWidth="101.0" text="Submit" />
+                <Button id="selectField" accessibleHelp="this button submits the match" accessibleText="submit" layoutX="250.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#submitMatch" prefHeight="40.0" prefWidth="101.0" text="Submit" />
 
-                <DatePicker fx:id="dateField" layoutX="14.0" layoutY="101.0" opacity="0.67" promptText="Wednesday 12:00" AnchorPane.bottomAnchor="73.0" />
-            <ChoiceBox fx:id="teamChoice1" layoutX="49.0" layoutY="22.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="teamChoice2" layoutX="395.0" layoutY="23.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="fieldChoice" layoutX="260.0" layoutY="93.0" prefHeight="26.0" prefWidth="80.0" />
-            <ChoiceBox fx:id="refereeChoice" layoutX="397.0" layoutY="160.0" prefWidth="150.0" />
+                <DatePicker fx:id="dateField" accessibleHelp="writhe the date of the match here" accessibleText="date innputt field.  dd.mm.yyyy" layoutX="14.0" layoutY="101.0" opacity="0.67" promptText="Wednesday 12:00" AnchorPane.bottomAnchor="73.0" />
+            <ChoiceBox fx:id="teamChoice1" accessibleHelp="chose a team 1 for the match" accessibleText="teams choicebox" layoutX="49.0" layoutY="22.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="teamChoice2" accessibleHelp="chose a team 2 for the match" accessibleText="team choice box" layoutX="395.0" layoutY="23.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="fieldChoice" accessibleHelp="chose the field the match is " accessibleText="field choicebox" layoutX="260.0" layoutY="93.0" prefHeight="26.0" prefWidth="80.0" />
+            <ChoiceBox fx:id="refereeChoice" accessibleHelp="chose the second referee" accessibleText="referee choice 2" layoutX="397.0" layoutY="160.0" prefWidth="150.0" />
             <Text layoutX="219.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field" />
-            <TextField fx:id="startTime" layoutX="44.0" layoutY="147.0" promptText="hh:mm" />
+            <TextField fx:id="startTime" accessibleHelp="writeh the time of the match here" accessibleText="date innputt field.  00:00" layoutX="44.0" layoutY="147.0" promptText="hh:mm" />
             <Text layoutX="8.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start time:" wrappingWidth="32.23095703125" />
             <Text fx:id="errorMessage" fill="#f50f0f" layoutX="44.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.5" />
-            <ChoiceBox fx:id="refereeChoice2" layoutX="397.0" layoutY="132.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="refereeChoice2" accessibleHelp="chose the first referee" accessibleText="referee choice 1" layoutX="397.0" layoutY="132.0" prefWidth="150.0" />
             </children>
         </AnchorPane>
     </children>

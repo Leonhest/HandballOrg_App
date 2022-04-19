@@ -28,7 +28,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <TextField layoutX="511.0" layoutY="9.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
+        <TextField accessibleText="search" layoutX="511.0" layoutY="9.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
