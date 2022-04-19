@@ -4,12 +4,12 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
  * Class to provide constants for different regions
  */
 public enum Region {
-    SouthernRegion("SouthernRegion"),
-    EasternRegion("EasternRegion"),
-    NorthernRegion("NorthernRegion"),
-    WesternRegion("WesternRegion"),
-    SouthWesternRegion("SouthWesternRegion"),
-    InlandRegion("InLandRegion");
+    SOUTHERN_REGION("SouthernRegion"),
+    EASTERN_REGION("EasternRegion"),
+    NORTHERN_REGION("NorthernRegion"),
+    WESTERN_REGION("WesternRegion"),
+    SOUTH_WESTERN_REGION("SouthWesternRegion"),
+    INLAND_REGION("InlandRegion");
 
 
     private String regionTxt;
@@ -36,18 +36,18 @@ public enum Region {
             return null;
         }
 
-        if (regionTxt.equalsIgnoreCase(SouthernRegion.regionTxt)) {
-            return SouthernRegion;
-        } else if (regionTxt.equalsIgnoreCase(WesternRegion.regionTxt)) {
-            return WesternRegion;
-        } else if (regionTxt.equalsIgnoreCase(NorthernRegion.regionTxt)) {
-            return NorthernRegion;
-        } else if (regionTxt.equalsIgnoreCase(EasternRegion.regionTxt)) {
-            return EasternRegion;
-        } else if (regionTxt.equalsIgnoreCase(SouthWesternRegion.regionTxt)) {
-            return SouthWesternRegion;
-        } else if (regionTxt.equalsIgnoreCase(InlandRegion.regionTxt)) {
-            return InlandRegion;
+        if (regionTxt.equalsIgnoreCase(SOUTHERN_REGION.regionTxt)) {
+            return SOUTHERN_REGION;
+        } else if (regionTxt.equalsIgnoreCase(WESTERN_REGION.regionTxt)) {
+            return WESTERN_REGION;
+        } else if (regionTxt.equalsIgnoreCase(NORTHERN_REGION.regionTxt)) {
+            return NORTHERN_REGION;
+        } else if (regionTxt.equalsIgnoreCase(EASTERN_REGION.regionTxt)) {
+            return EASTERN_REGION;
+        } else if (regionTxt.equalsIgnoreCase(SOUTH_WESTERN_REGION.regionTxt)) {
+            return SOUTH_WESTERN_REGION;
+        } else if (regionTxt.equalsIgnoreCase(INLAND_REGION.regionTxt)) {
+            return INLAND_REGION;
         } else {
             return null;
         }
@@ -64,6 +64,8 @@ public enum Region {
             return false;
         }
 
-        return region.equalsIgnoreCase(SouthernRegion.regionTxt) || region.equalsIgnoreCase(WesternRegion.regionTxt) || region.equalsIgnoreCase(NorthernRegion.regionTxt) || region.equalsIgnoreCase(EasternRegion.regionTxt) || region.equalsIgnoreCase(SouthWesternRegion.regionTxt) || region.equalsIgnoreCase(InlandRegion.regionTxt);
+        return region.equalsIgnoreCase(SOUTHERN_REGION.regionTxt) || region.equalsIgnoreCase(WESTERN_REGION.regionTxt)
+                || region.equalsIgnoreCase(NORTHERN_REGION.regionTxt) || region.equalsIgnoreCase(EASTERN_REGION.regionTxt)
+                || region.equalsIgnoreCase(SOUTH_WESTERN_REGION.regionTxt) || region.equalsIgnoreCase(INLAND_REGION.regionTxt);
     }
 }
