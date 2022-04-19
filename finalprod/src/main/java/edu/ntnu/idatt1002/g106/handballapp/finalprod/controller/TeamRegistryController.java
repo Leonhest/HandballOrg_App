@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TeamRegistryController implements Initializable {
@@ -98,8 +99,7 @@ public class TeamRegistryController implements Initializable {
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
                         .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
                 feedbackText.setText("");
-                //TODO: REMOVE COMMENT FROM LINE BELOW
-                //resetInfo();
+                resetInfo();
             }
 
         }
@@ -121,11 +121,11 @@ public class TeamRegistryController implements Initializable {
      */
     @FXML
     public void resetInfo(){
-        teamNameTextFieldInput.setText("");
-        teamLeaderTextFieldInput.setText("");
-        regionTextFieldInput.setText("");
-        phoneNumTextFieldInput.setText("");
-        numPlayerInput.setValue("");
+        teamNameTextFieldInput.clear();
+        teamLeaderTextFieldInput.clear();
+        regionTextFieldInput.clear();
+        phoneNumTextFieldInput.clear();
+        numPlayerInput.setValue(String.valueOf(7));
     }
 
     /**
@@ -138,7 +138,8 @@ public class TeamRegistryController implements Initializable {
         if(regionTextFieldInput.getText().isEmpty() || regionTextFieldInput.getText().isBlank()) throw new IllegalArgumentException("*Region is invalid!*");
         HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().forEach(tour -> tour.getTeamRegister().getListTeams()
                 .forEach(team -> {
-                    if (team.getTelephoneNum() == Integer.parseInt(phoneNumTextFieldInput.getText())) throw new IllegalArgumentException("*Phone number taken*");
+                    if(Objects.equals(team.getTeamName(), teamNameTextFieldInput.getText())) throw new IllegalArgumentException("Team is already registered!");
+                    else if (team.getTelephoneNum() == Integer.parseInt(phoneNumTextFieldInput.getText())) throw new IllegalArgumentException("*Phone number taken*");
                 }));
     }
 
