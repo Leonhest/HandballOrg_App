@@ -15,6 +15,10 @@ public enum Region {
 
     private String regionTxt;
 
+    /**
+     * this is a constructor for the region class
+     * @param regionTxt the text version of a region
+     */
     Region(String regionTxt) {
         this.regionTxt = regionTxt;
     }

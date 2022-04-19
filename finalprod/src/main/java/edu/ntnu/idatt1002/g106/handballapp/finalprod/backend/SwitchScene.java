@@ -1,6 +1,5 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
-import edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.HandballApplication;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

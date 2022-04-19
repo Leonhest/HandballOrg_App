@@ -12,9 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-import javafx.scene.text.Text;
-
-import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -84,6 +81,9 @@ public class RegionController  implements Initializable {
         updateList();
     }
 
+    /**
+     * this method is used for updating the list of tournaments in a region
+     */
     @FXML
     private void updateList(){
         tournamentNameColumn.setCellValueFactory(new PropertyValueFactory<Tournament, String>("tournamentName"));
@@ -92,17 +92,28 @@ public class RegionController  implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())).toList()));
+                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt()))
+                        .toList()));
 
         tableView.refresh();
     }
 
+    /**
+     * this takes the user tp a current page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     @FXML
     public void goToCurrentPage(Event event) throws IOException {
         HandballApplication.setChosenTournament(currentTournamentId.intValue());
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * this takes the user to selected tournament
+     * @param event any event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toSelectedTournament(ActionEvent event) throws IOException{
         if(tableView.getSelectionModel().getSelectedItem() == null){
@@ -113,13 +124,18 @@ public class RegionController  implements Initializable {
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * this takes the user to region selection
+     * @param event any event
+     * @throws IOException when path not found
+     */
     @FXML
     public void backToRegionChoice(ActionEvent event) throws IOException {
         SwitchScene.switchScene("RegionChoice", event);
     }
 
     /**
-     * this method tkes the user to StUpTournament page.
+     * this method takes the user to StUpTournament page.
      * where they can create a new tournament
      * @param event any event
      * @throws IOException when path not found
@@ -129,6 +145,9 @@ public class RegionController  implements Initializable {
         SwitchScene.switchScene("SetUpTournament", event);
     }
 
+    /**
+     * used for Logout
+     */
     @FXML
     public void logOutMethod() {
         if (AlertBox.logOut() == 1){

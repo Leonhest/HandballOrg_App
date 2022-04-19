@@ -12,15 +12,28 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * this class is used for the helpPage, send the user to different websides
+ * the user can report a problem as well
+ * @author Gruppe 6
+ */
 public class HelpPageController implements Initializable {
 
     @FXML private TextArea questionText;
 
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    /**
+     * method for loging out
+     */
     @FXML
     public void LogoutMethod() {
         if (AlertBox.logOut() == 1){
@@ -28,11 +41,20 @@ public class HelpPageController implements Initializable {
         }
     }
 
+    /**
+     * this method takes you to main page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     @FXML
     public void toMainPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("MainPage", event);
     }
 
+    /**
+     * this method send a question to us the programmers
+     * @throws IOException when web not found
+     */
     @FXML
     public void sendQuestion() throws IOException {
         String question = questionText.getText();
@@ -45,7 +67,5 @@ public class HelpPageController implements Initializable {
         bwr.write(question);
         bwr.close();
         wrt.close();
-
-
     }
 }

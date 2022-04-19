@@ -234,6 +234,9 @@ public class TournamentBracketController implements Initializable {
         printMatches();
     }
 
+    /**
+     * this method initializes the chosen bracket list
+     */
     private void initializeLists(){
         bracket4Team = new ArrayList<>(Arrays.asList(b4r1m1, b4r1m2, b4r2m1));
         bracket8Team = new ArrayList<>(Arrays.asList(b8r1m1, b8r1m2, b8r1m3, b8r1m4, b8r2m1, b8r2m2, b8r3m1));

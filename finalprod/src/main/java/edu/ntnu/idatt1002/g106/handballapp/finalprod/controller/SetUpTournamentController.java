@@ -150,7 +150,6 @@ public class SetUpTournamentController implements Initializable {
         }
         else {
             tournamentNumTeams = 32;
-
         }
 
         try {

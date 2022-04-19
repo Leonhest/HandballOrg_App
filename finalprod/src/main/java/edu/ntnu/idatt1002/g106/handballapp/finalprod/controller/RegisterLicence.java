@@ -8,12 +8,26 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * this will in future development be the licence registration page
+ */
 public class RegisterLicence implements Initializable {
+
+    /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    /**
+     * this takes the user to log in page
+     * @param event any event
+     * @throws IOException when path not found
+     */
     public void toLoginPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("Login", event);
     }

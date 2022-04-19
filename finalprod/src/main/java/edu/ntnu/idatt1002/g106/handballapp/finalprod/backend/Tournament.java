@@ -378,14 +378,26 @@ public class Tournament {
         return roundMatchList;
     }
 
+    /**
+     * this method gets the current round of the tournament, used when generations of matches
+     * @return int value of the current round
+     */
     public int getCurrentRound(){
         return currentRound;
     }
 
+    /**
+     * get the number of remaining teams
+     * @return in of remaining teams
+     */
     public int getNumTeams(){
         return numTeams;
     }
 
+    /**
+     * gets the region of the tournament
+     * @return string of the region
+     */
     public String getRegion() {
         return region;
     }

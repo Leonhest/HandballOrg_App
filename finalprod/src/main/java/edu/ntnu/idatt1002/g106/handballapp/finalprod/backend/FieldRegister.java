@@ -1,8 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class FieldRegister {
