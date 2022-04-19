@@ -204,10 +204,6 @@ public class Match {
         return startTime.toLocalTime();
     }
 
-//    public Team getTeamBasedOnScore(int score){
-//
-//    }
-
     /**
      * toString method for returning all match information
      * @return all match information as a String

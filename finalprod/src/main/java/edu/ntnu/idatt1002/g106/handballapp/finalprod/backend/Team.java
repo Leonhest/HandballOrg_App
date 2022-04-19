@@ -8,13 +8,10 @@ import java.util.Objects;
  */
 public class Team {
     private String teamName;
-    //teamLeader should be its own class (object)
     private String teamLeader;
     private final String region;
     private int numPlayers;
-    //telephoneNum should be an attribute in TeamLeader class
     private int telephoneNum;
-    //totals start at 0
     private int totGoals = 0;
     private int totWins = 0;
     private int totLosses = 0;

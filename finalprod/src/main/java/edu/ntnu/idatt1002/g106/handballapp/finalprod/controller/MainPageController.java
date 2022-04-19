@@ -24,8 +24,6 @@ public class MainPageController implements Initializable {
     @FXML private TableColumn<Match, Integer> field;
     @FXML private DatePicker dateSelect;
 
-    //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
-
     /**
      * method that updates MainPages tableView
      */
@@ -37,7 +35,6 @@ public class MainPageController implements Initializable {
         table.refresh();
     }
 
-    //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
 
     /**
      * {@inheritDoc}

@@ -20,7 +20,6 @@ public class Tournament {
     private LocalDate endDate;
     private TeamRegister teamRegister;
     private Results results;
-    private String layout;
     private String tournamentPlace;
     private int numFields;
     private int numTeams;
@@ -37,7 +36,7 @@ public class Tournament {
      * @param startDate    The date for which the tournament starts, represented as a LocalDate
      * @param endDate      The date for which the tournament ends, represented as a LocalDate
      */
-    public Tournament(int tournamentID, String tournamentName, LocalDate startDate, LocalDate endDate, String layout,
+    public Tournament(int tournamentID, String tournamentName, LocalDate startDate, LocalDate endDate,
                       String tournamentPlace, int numFields, int numTeams, String region) throws IllegalArgumentException{
         if(tournamentID < 0) throw new IllegalArgumentException("The tournament ID cannot be less than 0");
         this.tournamentID = tournamentID;
@@ -49,7 +48,6 @@ public class Tournament {
         if(endDate.isBefore(startDate)) throw new IllegalArgumentException("End date must be after start date");
         this.endDate = endDate;
         this.results = new Results();
-        this.layout = layout;
         if(tournamentPlace.isBlank() || tournamentPlace.isEmpty()) throw new IllegalArgumentException("Tournament place is invalid!");
         this.tournamentPlace = tournamentPlace;
         this.numFields = numFields;
@@ -60,7 +58,6 @@ public class Tournament {
         this.roundMatchList = new ArrayList<>();
         this.roundTeamList = new ArrayList<>();
 
-        int totalDays = (int)(ChronoUnit.DAYS.between(startDate, endDate) + 1);
         if(getTimeBetweenMatches() < 1.5) throw new IllegalArgumentException("Not possible to arrange");
     }
 
@@ -255,7 +252,7 @@ public class Tournament {
             if(team.getTeamName().equals(teamName)){
                 this.matchList.stream().forEach(match -> {
                     if(match.hasTeam(teamName)) {
-                        if (match.getLoser() != null && match.getLoser().getTeamName().equals(teamName)) totalLossesOfTournament.getAndIncrement();
+                        if(match.getLoser() != null && match.getLoser().getTeamName().equals(teamName)) totalLossesOfTournament.getAndIncrement();
                     }
                 });
                 team.setTotLosses(totalLossesOfTournament.intValue());
@@ -354,14 +351,6 @@ public class Tournament {
     }
 
     /**
-     * This method retrieves the results of the tournament.
-     * @return Results object of the tournament
-     */
-    public Results getResults() {
-        return results;
-    }
-
-    /**
      * This method retrieves the list of winning teams for each round.
      * @return List of winning teams, represented using Team objects
      */
@@ -403,7 +392,7 @@ public class Tournament {
                 '}';
     }
 
-    public String tournamentStringToList(){
-        return getTournamentName() +"\t\tStart date: "+getStartDate()+"\t\tEnd date:"+getEndDate();
-    }
+//    public String tournamentStringToList(){
+//        return getTournamentName() +"\t\tStart date: "+getStartDate()+"\t\tEnd date:"+getEndDate();
+//    }
 }

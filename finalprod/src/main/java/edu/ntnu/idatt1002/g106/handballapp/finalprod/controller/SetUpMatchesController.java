@@ -31,7 +31,6 @@ public class SetUpMatchesController implements Initializable {
     private ArrayList<String> referees = new ArrayList<>();
 
     Pattern hourMinPat = Pattern.compile("^[0-1]\\d:[0-5]\\d${5}");
-    //TODO: Fix regex so there can't be 69 minutes
 
     @FXML
     private TableColumn<?, ?> friColumn;

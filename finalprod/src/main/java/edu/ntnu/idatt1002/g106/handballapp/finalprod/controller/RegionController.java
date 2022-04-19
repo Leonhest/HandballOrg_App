@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RegionController  implements Initializable {
+public class RegionController implements Initializable {
 
     @FXML
     private TableColumn<Tournament, Integer> startDateColumn;
