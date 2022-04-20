@@ -1,8 +1,10 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * This class serves as the structure of a tournament register. Therefore, at its core, it works with manipulating a

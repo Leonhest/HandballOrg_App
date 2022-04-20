@@ -11,6 +11,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -68,6 +69,15 @@ public class HandballApplication extends Application {
     }
 
     /**
+     * Method for removing expired tournaments from the tournamentRegister given in {@code param}
+     * @param tournamentRegister TournamentRegister to check for expired tournaments and eventually remove tournaments from
+     */
+    private static TournamentRegister removeExpiredTournaments(TournamentRegister tournamentRegister) {
+        tournamentRegister.getTournaments().removeIf(tournament -> LocalDate.now().isAfter(tournament.getEndDate()) && tournamentRegister.getTournaments().contains(tournament));
+        return tournamentRegister;
+    }
+
+    /**
      * Method for starting data saved in program file
      */
     private static void startData(){
@@ -78,7 +88,7 @@ public class HandballApplication extends Application {
         try {
             tournamentRegister = HandBallAppFileHandling.deserializeTournamentRegister(new File("src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/data/HandBallData.ser"));
             if (tournamentRegister != null) {
-                HandballApplication.adminList.get(0).getTournamentRegister().addListOfTournaments(tournamentRegister.getTournaments());
+                HandballApplication.adminList.get(0).getTournamentRegister().addListOfTournaments(removeExpiredTournaments(tournamentRegister).getTournaments());
             }
         } catch (Exception e) {
             AlertBox.alertError("Could not load data");
