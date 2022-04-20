@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * list of Tournament objects.
  * @author Gruppe 6
  */
-public class TournamentRegister {
+public class TournamentRegister implements Serializable {
 
     private List<Tournament> tournaments = new ArrayList<>();
 
@@ -19,11 +20,25 @@ public class TournamentRegister {
      */
     public boolean addTournament(Tournament tournament){
         if(tournament == null) return false;
-        for(Tournament i: tournaments){
+        for(Tournament i: tournaments) {
             if(i.getTournamentID() == tournament.getTournamentID())
                 return false;
         }
         tournaments.add(tournament);
+        return true;
+    }
+
+    /**
+     * Method to add a list of tournaments to the TournamentRegister
+     * @param tournaments List with tournaments
+     * @return True if every tournament was added successfully, otherwise false
+     */
+    public boolean addListOfTournaments(List<Tournament> tournaments){
+        for (Tournament tournament:tournaments) {
+            if (!addTournament(tournament)) {
+                return false;
+            }
+        }
         return true;
     }
 

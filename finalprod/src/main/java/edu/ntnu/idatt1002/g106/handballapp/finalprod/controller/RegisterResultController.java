@@ -35,7 +35,6 @@ public class RegisterResultController implements Initializable {
     @FXML private TextField matchIDInput;
 
     private Match matchSelected;
-
     private List<ChoiceBox<String>> choiceBoxes = new ArrayList<>();
     private int chosenChoiceBox;
 

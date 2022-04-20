@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,7 @@ import java.util.Map;
  * This class creates a structure for the results of the matches. The match results are stored using a Map.
  * @author Gruppe 6
  */
-public class Results {
+public class Results implements Serializable {
     private Map<Integer, Match> matchResults;
 
     /**

@@ -10,8 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -19,7 +21,7 @@ import java.util.ResourceBundle;
  * team registration will happen in the fxml page and is used here
  * @author Gruppe 6
  */
-public class TeamRegistryController implements Initializable {
+public class TeamRegisterController implements Initializable {
 
     @FXML
     private Text feedbackText;

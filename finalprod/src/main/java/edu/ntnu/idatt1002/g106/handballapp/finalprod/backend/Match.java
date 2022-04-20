@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.Objects;
  * Represents a match in a tournament.
  * @author Gruppe 6
  */
-public class Match {
+public class Match implements Serializable {
 
     private Map<String, Integer> teamScore;
     private LocalDateTime startTime;

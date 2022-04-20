@@ -3,6 +3,7 @@ package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Tournament;
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.TournamentRegister;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -14,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -44,6 +46,8 @@ public class RegionController  implements Initializable {
     @FXML
     private Tournament selectedTournament;
 
+    private List<Tournament> tournaments = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments();
+
     /**
      * {@inheritDoc}
      * in addition, this method also keeps track if anythin in tableview is selected or click on, and will therefore
@@ -55,30 +59,29 @@ public class RegionController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         regionHeader.setText(HandballApplication.chosenRegion.getRegionTxt());
 
-        tableView.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
-                selectedTournament = tableView.getSelectionModel().getSelectedItem();
-                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                        .forEach(t -> {
-                            if (t.getTournamentName().equals(selectedTournament.getTournamentName())
-                                    && t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())){
-                                currentTournamentId.set(t.getTournamentID());
+        if (!tournaments.isEmpty()) {
+            tableView.setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+                    selectedTournament = tableView.getSelectionModel().getSelectedItem();
+                    tournaments.forEach(t -> {
+                                if (t.getTournamentName().equals(selectedTournament.getTournamentName())
+                                        && t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())){
+                                    currentTournamentId.set(t.getTournamentID());
 
-                                try {
-                                    goToCurrentPage(event);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
+                                    try {
+                                        goToCurrentPage(event);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
                                 }
-
-                            }
-                        });
-            }else if (tableView.getSelectionModel().getSelectedItem() == null){
-                AlertBox.alertError("No tournament selected");
-            }
-        });
-
-
-        updateList();
+                            });
+                }else if (tableView.getSelectionModel().getSelectedItem() == null){
+                    AlertBox.alertError("No tournament selected");
+                }
+            });
+            updateList();
+        }
     }
 
     /**
@@ -92,8 +95,7 @@ public class RegionController  implements Initializable {
 
         tableView.setItems(FXCollections.observableArrayList(
                 HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().stream()
-                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt()))
-                        .toList()));
+                        .filter(t -> t.getRegion().equals(HandballApplication.chosenRegion.getRegionTxt())).toList()));
 
         tableView.refresh();
     }
