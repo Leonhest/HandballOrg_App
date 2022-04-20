@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.AlertBox;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.SwitchScene;
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.Team;
 import javafx.collections.FXCollections;
@@ -195,6 +196,15 @@ public class TeamRegisterController implements Initializable {
         else if(numTeams == 32){
             SwitchScene.switchScene("TournamentBrackets32", event);
         };
+    }
+
+    /**
+     * method for log out
+     */
+    public void LogOutButton(){
+        if(AlertBox.logOut() == 1){
+            System.exit(-1);
+        }
     }
 
     /**
