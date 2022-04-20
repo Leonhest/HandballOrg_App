@@ -30,9 +30,6 @@ public class SetUpTournamentController implements Initializable {
 
     private Tournament tournament = null;
 
-    //trengs denne?
-    ArrayList<Tournament> observerList = new ArrayList<>();
-
     @FXML
     private TextField tournamentNameTextFieldInput;
     @FXML
@@ -71,8 +68,6 @@ public class SetUpTournamentController implements Initializable {
 
 
         tournamentLayoutInput.setValue("Layout 1: Max 4 teams");
-
-        //observerList = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
             tournamentNumFieldsInput.getItems().add(i, i + 1);
@@ -130,7 +125,6 @@ public class SetUpTournamentController implements Initializable {
     public void confirmTournament (ActionEvent actionEvent) throws IOException {
         //TODO Add tournamentID check
         boolean correctInformation = true;
-        String tournamentLayout = tournamentLayoutInput.getValue();
         String tournamentName = tournamentNameTextFieldInput.getText();
         String tournamentPlace = tournamentPlaceTextFieldInput.getText();
         int tournamentNumFields = tournamentNumFieldsInput.getValue();
@@ -154,7 +148,7 @@ public class SetUpTournamentController implements Initializable {
 
         try {
             tournament = new Tournament(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().size(), tournamentName, tournamentStartDate,
-                    tournamentEndDate, tournamentLayout, tournamentPlace, tournamentNumFields, tournamentNumTeams, HandballApplication.chosenRegion.getRegionTxt());
+                    tournamentEndDate, tournamentPlace, tournamentNumFields, tournamentNumTeams, HandballApplication.chosenRegion.getRegionTxt());
             tournament.generateTournament();
         } catch (NullPointerException e) {
             AlertBox.alertError("Remember to fill in all information");

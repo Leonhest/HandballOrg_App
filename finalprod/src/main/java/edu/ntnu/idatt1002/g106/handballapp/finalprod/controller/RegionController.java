@@ -135,7 +135,7 @@ public class RegionController  implements Initializable {
     }
 
     /**
-     * this method takes the user to StUpTournament page.
+     * this method takes the user to SetUpTournament page.
      * where they can create a new tournament
      * @param event any event
      * @throws IOException when path not found

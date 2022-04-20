@@ -35,7 +35,7 @@ public class HelpPageController implements Initializable {
      * method for loging out
      */
     @FXML
-    public void LogoutMethod() {
+    public void logoutMethod() {
         if (AlertBox.logOut() == 1){
             System.exit(-1);
         }

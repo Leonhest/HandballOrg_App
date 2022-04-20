@@ -28,8 +28,6 @@ public class MainPageController implements Initializable {
     @FXML private TableColumn<Match, Integer> field;
     @FXML private DatePicker dateSelect;
 
-    //ObservableList<Match> listTeams = FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList());
-
     /**
      * method that updates MainPages tableView
      */
@@ -41,7 +39,6 @@ public class MainPageController implements Initializable {
         table.refresh();
     }
 
-    //TODO: take code from Trym and use them to make list of the different teams, and make phone-number as REGEX
 
     /**
      * {@inheritDoc}
@@ -116,11 +113,10 @@ public class MainPageController implements Initializable {
 
     /**
      * method that sends program to specific screen
-     * @param event button event
      * @throws IOException when path not found
      */
     @FXML
-    public void SelectDate(ActionEvent event) {
+    public void selectDate() {
         if (dateSelect.getValue() == null) {
             AlertBox.alertError("No date register.\n" +
                     "Please select a date");

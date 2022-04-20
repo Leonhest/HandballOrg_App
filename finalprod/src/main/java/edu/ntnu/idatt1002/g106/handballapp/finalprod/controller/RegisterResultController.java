@@ -33,10 +33,6 @@ public class RegisterResultController implements Initializable {
     @FXML private ChoiceBox<String> rightTeamChoiceBox;
     @FXML private TextField rightGoalsInput;
     @FXML private TextField matchIDInput;
-    @FXML private Button nextDateButton;
-    @FXML private Button backToResultsButton;
-    @FXML private Button submitButton;
-    @FXML private Text feedBackText;
 
     private Match matchSelected;
 

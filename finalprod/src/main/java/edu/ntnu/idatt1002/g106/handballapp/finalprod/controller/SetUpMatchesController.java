@@ -30,12 +30,11 @@ import java.util.regex.Pattern;
  */
 public class SetUpMatchesController implements Initializable {
 
-    List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
-    TeamRegister tournamentTeamRegister = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister();
+    private List<Match> matchList = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList();
+    private TeamRegister tournamentTeamRegister = HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getTeamRegister();
     private ArrayList<String> referees = new ArrayList<>();
 
-    Pattern hourMinPat = Pattern.compile("^[0-1]\\d:[0-5]\\d${5}");
-    //TODO: Fix regex so there can't be 69 minutes
+    private Pattern hourMinPat = Pattern.compile("^[0-1]\\d:[0-5]\\d${5}");
 
     @FXML
     private TableColumn<?, ?> friColumn;
