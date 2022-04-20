@@ -126,6 +126,16 @@ public class RegionController  implements Initializable {
         SwitchScene.switchScene("MainPage", event);
     }
 
+    @FXML
+    public void removeSelectedTournament(ActionEvent event) throws IOException {
+        if(tableView.getSelectionModel().getSelectedItem() == null){
+            AlertBox.alertError("No tournament selected");
+            return;
+        }
+        HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().removeIf(t -> t.getTournamentID() == tableView.getSelectionModel().getSelectedItem().getTournamentID());
+        updateList();
+    }
+
     /**
      * this takes the user to region selection
      * @param event any event
