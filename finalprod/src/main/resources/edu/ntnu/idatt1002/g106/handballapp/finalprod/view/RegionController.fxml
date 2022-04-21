@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionController">
    <children>
       <Button accessibleHelp="this button takes you back to button selection" accessibleText="back" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#backToRegionChoice" text="Back" />
       <Button accessibleHelp="this button will ask you if you want to log out" accessibleText="logout" layoutX="534.0" layoutY="18.0" mnemonicParsing="false" onAction="#logOutMethod" text="Logout" />
@@ -22,5 +25,6 @@
          </font>
       </Label>
       <Button accessibleHelp="this button takes you to the selected tournament" accessibleText="go to tournament" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#toSelectedTournament" text="Go To Tournament" />
+      <Button fx:id="removeTournamentBtn" accessibleHelp="This button removes selescted tournaments" accessibleText="Remove tournament " layoutX="236.0" layoutY="91.0" mnemonicParsing="false" onAction="#removeSelectedTournament" text="Remove tournament" />
    </children>
 </AnchorPane>

@@ -9,7 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.util.Date;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -37,6 +38,12 @@ public class AlertBox {
 
         yesButton.setOnAction(e -> {
             answer.set(1);
+
+            try {
+                HandBallAppFileHandling.serializeTournamentRegister(HandballApplication.adminList.get(0).getTournamentRegister(),new File("src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/data/HandBallData.ser"));
+            } catch (IOException ex) {
+                alertError("Could not save data to file");
+            }
             window.close();
         });
         noButton.setOnAction(e -> {

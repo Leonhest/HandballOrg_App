@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -8,7 +9,7 @@ import java.util.*;
  * and the list.
  * @author Gruppe 6
  */
-public class TeamRegister {
+public class TeamRegister implements Serializable {
 
     private Map<String, Team> teams;
 

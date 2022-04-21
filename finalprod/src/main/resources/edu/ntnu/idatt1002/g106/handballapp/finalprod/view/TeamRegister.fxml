@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TeamRegisterController">
+<AnchorPane prefHeight="545.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TeamRegisterController">
     <children>
       <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="315.0">
         <buttons>
@@ -28,11 +33,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <TextField accessibleText="search" layoutX="511.0" layoutY="9.0" opacity="0.5" prefHeight="26.0" prefWidth="175.0" text="Search" AnchorPane.rightAnchor="7.0">
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-        </TextField>
       <Text layoutX="472.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Team" wrappingWidth="103.16204833984375">
          <font>
             <Font name="Apple Braille Outline 6 Dot" size="14.0" />
@@ -43,7 +43,7 @@
       <Text layoutX="400.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Players" />
       <ChoiceBox fx:id="numPlayerInput" accessibleHelp="select number of players " accessibleText="number of players combobox" layoutX="545.0" layoutY="137.0" prefHeight="26.0" prefWidth="60.0" />
       <Text layoutX="400.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Leader" />
-      <TextField fx:id="teamLeaderTextFieldInput" accessibleHelp="write the team representants name here" accessibleText="team representant field" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Eirik Elvestad" />
+      <TextField fx:id="teamLeaderTextFieldInput" accessibleHelp="write the team representants name here" accessibleText="team representant field" layoutX="509.0" layoutY="205.0" prefHeight="0.0" prefWidth="153.0" promptText="Ola Nordmann" />
       <Text layoutX="400.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place" />
       <TextField fx:id="regionTextFieldInput" accessibleHelp="write the place where the tournament is happending here" accessibleText="place of event field" layoutX="509.0" layoutY="266.0" prefHeight="0.0" prefWidth="153.0" promptText="Stavanger" />
       <Text layoutX="400.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
@@ -54,8 +54,9 @@
       </Text>
       <TextField fx:id="phoneNumTextFieldInput" accessibleHelp="write the teams phonenumber here" accessibleText="phonenumber field" layoutX="519.0" layoutY="315.0" prefHeight="26.0" prefWidth="143.0" promptText="95778665" />
       <Text fx:id="feedbackText" layoutX="388.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="293.16204833984375" />
-      <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00;" text="Confirm" />
+      <Button id="newTeamConfirm" accessibleHelp="when pressed this button will register the team with written information" accessibleText="confirm" layoutX="496.0" layoutY="386.0" mnemonicParsing="false" onAction="#confirmAddNewTeam" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Confirm" />
       <Button id="resetButton" accessibleHelp="this button resets all information written" accessibleText="reset" layoutX="632.0" layoutY="506.0" mnemonicParsing="false" onAction="#resetInfo" text="Reset" />
+      <Button accessibleHelp="this will ask you if you want to log out" accessibleText="log out" layoutX="635.0" layoutY="8.0" mnemonicParsing="false" onAction="#LogOutButton" text="logOut" />
     </children>
 
 </AnchorPane>

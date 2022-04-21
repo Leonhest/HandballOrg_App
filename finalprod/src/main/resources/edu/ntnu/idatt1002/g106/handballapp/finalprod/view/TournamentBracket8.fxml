@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="678.0" fitWidth="799.0" layoutX="2.0" layoutY="72.0">
+            <ImageView fitHeight="678.0" fitWidth="799.0" layoutX="2.0" layoutY="57.0">
                <image>
                   <Image url="@../TournamentPictures/8TeamBracket.png" />
                </image>
@@ -36,7 +41,7 @@
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="toHelpPage" accessibleHelp="this button takes you to the match handling menu" accessibleText="to matches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="56.0" text="HelpPage">
+                  <Button fx:id="toHelpPage" accessibleHelp="this button takes you to the match handling menu" accessibleText="to matches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="56.0" text="HelpPage">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -53,13 +58,34 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <TextArea fx:id="b8r1m1" layoutX="139.0" layoutY="116.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r1m2" layoutX="139.0" layoutY="290.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r1m3" layoutX="139.0" layoutY="466.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r1m4" layoutX="139.0" layoutY="641.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r2m2" layoutX="340.0" layoutY="554.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r2m1" layoutX="340.0" layoutY="203.0" prefHeight="65.0" prefWidth="123.0" />
-            <TextArea fx:id="b8r3m1" layoutX="541.0" layoutY="376.0" prefHeight="65.0" prefWidth="123.0" />
+            <TextArea fx:id="b8r1m1" layoutX="139.0" layoutY="101.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r1m2" layoutX="139.0" layoutY="277.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r1m3" layoutX="139.0" layoutY="452.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r1m4" layoutX="139.0" layoutY="627.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r2m2" layoutX="340.0" layoutY="540.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r2m1" layoutX="340.0" layoutY="189.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
+            <TextArea fx:id="b8r3m1" layoutX="541.0" layoutY="362.0" prefHeight="65.0" prefWidth="123.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font></TextArea>
             <Text fx:id="errorMessage" layoutX="578.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>

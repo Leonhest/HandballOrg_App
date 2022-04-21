@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * which define a tournament. These methods include storage and manipulations of matches.
  * @author Gruppe 6
  */
-public class Tournament {
+public class Tournament implements Serializable {
     private int tournamentID;
     private List<Match> matchList;
     private LocalDate startDate;

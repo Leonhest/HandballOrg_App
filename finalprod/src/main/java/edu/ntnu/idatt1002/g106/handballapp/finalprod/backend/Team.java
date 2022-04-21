@@ -1,5 +1,6 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * for altering and retrieving the statistics.
  * @author Gruppe 6
  */
-public class Team {
+public class Team implements Serializable {
     private String teamName;
     private String teamLeader;
     private final String region;

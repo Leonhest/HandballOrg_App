@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -196,6 +197,15 @@ public class TeamRegisterController implements Initializable {
         else if(numTeams == 32){
             SwitchScene.switchScene("TournamentBrackets32", event);
         };
+    }
+
+    /**
+     * method for log out
+     */
+    public void LogOutButton(){
+        if(AlertBox.logOut() == 1){
+            System.exit(-1);
+        }
     }
 
     /**

@@ -1,14 +1,17 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.controller;
 
 import edu.ntnu.idatt1002.g106.handballapp.finalprod.backend.*;
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.fileHandling.HandBallAppFileHandling;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -17,13 +20,11 @@ import java.util.stream.Collectors;
  * Starting class extends application. hase basic information that fills the application
  * @author Gruppe 6
  */
-public class HandballApplication extends Application{
+public class HandballApplication extends Application {
 
-    //todo: tilgangsmodifikator?
-    static List<Administrator> adminList = new ArrayList<>();
-    static int chosenTournament = -1;
-    static Region chosenRegion = null;
-
+    public static List<Administrator> adminList = new ArrayList<>();
+    public static int chosenTournament = -1;
+    public static Region chosenRegion = null;
 
     /**
      * main method that starts the application
@@ -68,33 +69,29 @@ public class HandballApplication extends Application{
     }
 
     /**
-     * method for all stating hardcoded data
+     * Method for removing expired tournaments from the tournamentRegister given in {@code param}
+     * @param tournamentRegister TournamentRegister to check for expired tournaments and eventually remove tournaments from
+     */
+    private static TournamentRegister removeExpiredTournaments(TournamentRegister tournamentRegister) {
+        tournamentRegister.getTournaments().removeIf(tournament -> LocalDate.now().isAfter(tournament.getEndDate()) && tournamentRegister.getTournaments().contains(tournament));
+        return tournamentRegister;
+    }
+
+    /**
+     * Method for starting data saved in program file
      */
     private static void startData(){
         Administrator admin = new Administrator(new User("Leon", "Hest", "123", "Leon.hesthaug@gmail.com"));
         adminList.add(admin);
 
-        Tournament oslo = new Tournament(0, "Oslo Tournament",LocalDate.now(), LocalDate.now().plusDays(2), "Asker", 3, 16, "WesternRegion");
-        Tournament trondheim = new Tournament(1, "Trondheim Tournament",LocalDate.now(), LocalDate.now().plusDays(7), "Trondheim", 3, 8, "NorthernRegion");
-        Tournament asker = new Tournament(2, "Asker Tournament",LocalDate.now(), LocalDate.now().plusDays(5), "Oslo", 2, 8, "WesternRegion");
-
-        Tournament[] tournaments = {oslo, trondheim, asker};
-
-
-        for (int i = 0; i < tournaments.length; i++) {
-            tournaments[i].getTeamRegister().addTeam(new Team("Asker Lions", "Leon Hest", "Asker", 12, 94506769));
-            tournaments[i].getTeamRegister().addTeam(new Team("Oslo Eagles", "Tore Tang", "Oslo", 14, 94503269));
-            tournaments[i].getTeamRegister().addTeam(new Team("Trondheim Sharks", "Hans", "Tronheim", 11, 94523769));
-            tournaments[i].getTeamRegister().addTeam(new Team("Drammen Rats", "Trym", "Drammen", 9, 94506734));
-            tournaments[i].getTeamRegister().addTeam(new Team("Bergen Bulls", "Eirik", "Bergen", 10, 94505649));
-
-            admin.getTournamentRegister().addTournament(tournaments[i]);
-
-            tournaments[i].addMatch(new Match(LocalDateTime.of(2022,
-                    4, 14, 9, 0), 1, admin.getTournamentRegister().getTournaments().get(i).getTeamRegister()
-                    .findTeamBasedOnTeamName("Asker Lions"), admin.getTournamentRegister().getTournaments().get(i)
-                    .getTeamRegister().findTeamBasedOnTeamName("Bergen Bulls"), 1, 3));
-
+        TournamentRegister tournamentRegister = null;
+        try {
+            tournamentRegister = HandBallAppFileHandling.deserializeTournamentRegister(new File("src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/data/HandBallData.ser"));
+            if (tournamentRegister != null) {
+                HandballApplication.adminList.get(0).getTournamentRegister().addListOfTournaments(removeExpiredTournaments(tournamentRegister).getTournaments());
+            }
+        } catch (Exception e) {
+            AlertBox.alertError("Could not load data");
         }
     }
 
