@@ -39,6 +39,29 @@ public class RegisterResultController implements Initializable {
     private int chosenChoiceBox;
 
     /**
+     * {@inheritDoc}
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Configuring the table
+        updateTableView();
+
+        chosenChoiceBox = -1;
+        updateTableView();
+
+        choiceBoxes.add(leftTeamChoiceBox);
+        choiceBoxes.add(rightTeamChoiceBox);
+
+        trackTableClick();
+        trackMatchIDInput();
+        trackTeamInput(leftTeamChoiceBox);
+        trackTeamInput(rightTeamChoiceBox);
+
+    }
+
+    /**
      * method for updating table view
      */
     @FXML
@@ -89,30 +112,8 @@ public class RegisterResultController implements Initializable {
             Team winningTeam = match.getWinner();
 
             HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getRoundTeamList().get(match.getRoundNum()).add(winningTeam);
+            AlertBox.confirmBox("The result has been registered");
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     * @param url
-     * @param resourceBundle
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Configuring the table
-        updateTableView();
-
-        chosenChoiceBox = -1;
-        updateTableView();
-
-        choiceBoxes.add(leftTeamChoiceBox);
-        choiceBoxes.add(rightTeamChoiceBox);
-
-        trackTableClick();
-        trackMatchIDInput();
-        trackTeamInput(leftTeamChoiceBox);
-        trackTeamInput(rightTeamChoiceBox);
-
     }
 
     /**

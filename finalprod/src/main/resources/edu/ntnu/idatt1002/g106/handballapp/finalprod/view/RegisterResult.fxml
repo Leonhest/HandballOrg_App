@@ -9,11 +9,11 @@
     <children>
       <ButtonBar layoutY="-6.0" prefHeight="40.0" prefWidth="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-6.0">
         <buttons>
-            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
-          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
-            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" mnemonicParsing="false" onAction="#toTeamRegister" text="Team" />
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
-            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#toTeamRegister" text="Team" />
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
       <Button accessibleHelp="this button wil ask you if you want to log out" accessibleText="logout button" layoutX="532.0" layoutY="1.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" />
