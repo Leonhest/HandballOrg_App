@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -58,6 +60,13 @@ public class AlertBox {
     public static void alertError(String message) {
         Alert dateAlert = new Alert(Alert.AlertType.ERROR);
         dateAlert.setTitle("Error");
+        dateAlert.setContentText(message);
+        dateAlert.showAndWait();
+    }
+
+    public static void confirmBox(String message){
+        Alert dateAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        dateAlert.setTitle("Confirmation");
         dateAlert.setContentText(message);
         dateAlert.showAndWait();
     }

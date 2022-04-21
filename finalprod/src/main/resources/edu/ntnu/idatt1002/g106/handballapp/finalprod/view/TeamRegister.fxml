@@ -9,11 +9,11 @@
     <children>
       <ButtonBar layoutX="-11.0" layoutY="4.0" prefHeight="32.0" prefWidth="315.0">
         <buttons>
-            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
-          <Button accessibleHelp="this button will take you to the main page" accessibleText="to mainpage button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament" minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button accessibleHelp="this button will take you to the main page" accessibleText="to mainpage" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
             <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" text="Results" />
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
-            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
         <TableView fx:id="teamTableView" cache="true" layoutY="35.0" prefHeight="510.0" prefWidth="385.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">

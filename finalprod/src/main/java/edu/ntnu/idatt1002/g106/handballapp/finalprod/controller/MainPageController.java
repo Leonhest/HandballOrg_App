@@ -29,6 +29,16 @@ public class MainPageController implements Initializable {
     @FXML private DatePicker dateSelect;
 
     /**
+     * {@inheritDoc}
+      * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        updateTableView();
+    }
+
+    /**
      * method that updates MainPages tableView
      */
     private void updateTableView() {
@@ -38,26 +48,6 @@ public class MainPageController implements Initializable {
         table.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
         table.refresh();
     }
-
-
-    /**
-     * {@inheritDoc}
-      * @param url
-     * @param resourceBundle
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        updateTableView();
-    }
-    /**
-     * method for log out
-     */
-    public void logout(){
-        if(AlertBox.logOut()==1){
-            System.exit(-1);
-        }
-    }
-
     /**
      * method that sends program to specific screen
      * @param event button event
@@ -98,6 +88,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
+        System.out.println("klah");
         SwitchScene.switchScene("TeamRegister", event);
     }
 
@@ -133,5 +124,14 @@ public class MainPageController implements Initializable {
      */
     public void toHelpPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("HelpPage", event);
+    }
+
+    /**
+     * method for log out
+     */
+    public void logout(){
+        if(AlertBox.logOut()==1){
+            System.exit(-1);
+        }
     }
 }
