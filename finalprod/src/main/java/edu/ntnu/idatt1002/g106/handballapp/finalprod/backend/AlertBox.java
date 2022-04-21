@@ -1,5 +1,7 @@
 package edu.ntnu.idatt1002.g106.handballapp.finalprod.backend;
 
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.HandballApplication;
+import edu.ntnu.idatt1002.g106.handballapp.finalprod.fileHandling.HandBallAppFileHandling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -71,6 +73,10 @@ public class AlertBox {
         dateAlert.showAndWait();
     }
 
+    /**
+     * This method provides the user with helpful information during submission or creation
+     * @param message popup message
+     */
     public static void confirmBox(String message){
         Alert dateAlert = new Alert(Alert.AlertType.CONFIRMATION);
         dateAlert.setTitle("Confirmation");
