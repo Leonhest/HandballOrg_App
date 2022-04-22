@@ -46,32 +46,36 @@
          <buttons>
             <Button id="FrontPage" accessibleHelp="this button will take you to tournament choice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="66.0" text="Tournament">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
             <Button accessibleHelp="this button will take you to the main page" accessibleText="to main page" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="66.0" text="MainPage">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
             <Button id="RegisterResult" accessibleHelp="this button will take you to the results" accessibleText="to results" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="66.0" text="Result">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
+            <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="Match">
+               <font>
+                  <Font name="Krungthep" size="23.0" />
+               </font></Button>
             <Button id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="66.0" text="Team">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
-            <Button id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" text="HelpPage">
+            <Button id="toHelpPage" accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" text="HelpPage">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
             <Button id="logOutButton" accessibleHelp="this button will ask if you want to logout" accessibleText="log out" mnemonicParsing="false" onAction="#logout" prefHeight="66.0" prefWidth="230.0" text="LogOut">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
          </buttons>

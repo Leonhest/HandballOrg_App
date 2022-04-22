@@ -16,23 +16,27 @@
         <buttons>
             <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" maxWidth="230.0" minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="66.0" text="Tournament">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font></Button>
           <Button accessibleHelp="this button will take you to the main page" accessibleText="to mainpage button" mnemonicParsing="false" onAction="#toMainPage" prefHeight="66.0" text="MainPage">
                <font>
-                  <Font name="Krungthep" size="26.0" />
-               </font></Button>
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toMatches" prefHeight="66.0" prefWidth="230.0" text="Matches">
-               <font>
-                  <Font name="Krungthep" size="26.0" />
-               </font></Button>
-            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
-               <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font></Button>
             <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" prefHeight="66.0" prefWidth="230.0" text="Results">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
+               </font></Button>
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toMatches" prefHeight="66.0" prefWidth="230.0" text="Matches">
+               <font>
+                  <Font name="Krungthep" size="23.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="Team">
+                <font>
+                    <Font name="Krungthep" size="23.0" />
+                </font></Button>
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
+               <font>
+                  <Font name="Krungthep" size="23.0" />
                </font></Button>
         </buttons>
       </ButtonBar>
@@ -106,7 +110,7 @@
          </font></Button>
       <Button accessibleHelp="this will ask you if you want to log out" accessibleText="log out" layoutX="1201.0" layoutY="11.0" mnemonicParsing="false" onAction="#LogOutButton" prefHeight="66.0" prefWidth="220.0" text="LogOut">
          <font>
-            <Font name="Krungthep" size="26.0" />
+            <Font name="Krungthep" size="23.0" />
          </font></Button>
     </children>
 

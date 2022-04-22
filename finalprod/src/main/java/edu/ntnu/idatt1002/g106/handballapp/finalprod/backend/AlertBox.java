@@ -31,12 +31,19 @@ public class AlertBox {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("LogOut");
-        window.setMinWidth(250);
+        window.setMinWidth(500);
+        window.setMinHeight(250);
         Label label = new Label();
         label.setText("Do you want to log out");
 
         Button yesButton = new Button("Yes");
         Button noButton = new Button("No");
+
+        yesButton.setAccessibleHelp("Press here to log out");
+        yesButton.setAccessibleText("yes, logOut");
+        noButton.setAccessibleHelp("Press here to go back to application");
+        noButton.setAccessibleText("no, go back");
+
 
         yesButton.setOnAction(e -> {
             answer.set(1);
