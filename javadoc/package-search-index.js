@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.ntnu.idatt1002.g106.handballapp.finalprod.backend"},{"l":"edu.ntnu.idatt1002.g106.handballapp.finalprod.controller"},{"l":"edu.ntnu.idatt1002.g106.handballapp.finalprod.fileHandling"}];updateSearchResults();
