@@ -59,7 +59,7 @@
                   <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="Match">
+            <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="Matches">
                <font>
                   <Font name="Krungthep" size="23.0" />
                </font></Button>
