@@ -22,15 +22,15 @@
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
+            <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" prefHeight="66.0" prefWidth="230.0" text="Results">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
             <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toMatches" prefHeight="66.0" prefWidth="230.0" text="Matches">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
             <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
-               <font>
-                  <Font name="Krungthep" size="26.0" />
-               </font></Button>
-            <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" prefHeight="66.0" prefWidth="230.0" text="Results">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>

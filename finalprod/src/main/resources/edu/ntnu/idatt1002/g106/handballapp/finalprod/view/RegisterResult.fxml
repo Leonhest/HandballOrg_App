@@ -26,11 +26,11 @@
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team" maxHeight="66.0" mnemonicParsing="false" onAction="#toTeamRegister" text="Team">
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" maxHeight="66.0" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" maxHeight="66.0" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches">
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team" maxHeight="66.0" mnemonicParsing="false" onAction="#toTeamRegister" text="Team">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
@@ -46,7 +46,7 @@
          </font></Button>
         <VBox layoutY="84.0" prefHeight="634.0" prefWidth="1447.0" spacing="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" textAlignment="CENTER" wrappingWidth="1442.5762786865234">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Result" textAlignment="CENTER" wrappingWidth="1442.5762786865234">
                     <font>
                         <Font name="Krungthep" size="46.0" />
                     </font>
