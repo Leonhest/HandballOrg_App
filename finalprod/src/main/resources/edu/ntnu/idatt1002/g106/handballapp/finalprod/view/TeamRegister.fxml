@@ -34,6 +34,11 @@
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament" minWidth="0.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
+          <Button accessibleHelp="this button will take you to the main page" accessibleText="to mainpage" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
+            <Button accessibleHelp="this button will take you to result handling menu" accessibleText="to Results " mnemonicParsing="false" onAction="#toResults" text="Results" />
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#toMatches" prefHeight="25.0" prefWidth="257.0" text="Matches" />
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
         </buttons>
       </ButtonBar>
         <TableView fx:id="teamTableView" cache="true" layoutX="-1.0" layoutY="150.0" prefHeight="569.0" prefWidth="811.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="150.0">

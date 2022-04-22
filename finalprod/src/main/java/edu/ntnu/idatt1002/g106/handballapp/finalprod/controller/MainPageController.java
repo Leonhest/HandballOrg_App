@@ -36,6 +36,16 @@ public class MainPageController implements Initializable {
     private Match matchSelected;
 
     /**
+     * {@inheritDoc}
+      * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        updateTableView();
+    }
+
+    /**
      * method that updates MainPages tableView
      */
     private void updateTableView() {
@@ -50,17 +60,6 @@ public class MainPageController implements Initializable {
 
 
     /**
-     * {@inheritDoc}
-      * @param url
-     * @param resourceBundle
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        updateTableView();
-        trackTableClick();
-    }
-
-    /**
      * This method attaches the event handler setOnMouseClicked on the match table in order to autofill the input
      * fields if a match is clicked.
      */
@@ -68,14 +67,6 @@ public class MainPageController implements Initializable {
         table.setOnMouseClicked(event -> {
             matchSelected = table.getSelectionModel().getSelectedItem();
         });
-    }
-    /**
-     * method for log out
-     */
-    public void logout(){
-        if(AlertBox.logOut()==1){
-            System.exit(-1);
-        }
     }
 
     /**
@@ -118,6 +109,7 @@ public class MainPageController implements Initializable {
      */
     @FXML
     public void sendToRegisterTeam(ActionEvent event) throws IOException {
+        System.out.println("klah");
         SwitchScene.switchScene("TeamRegister", event);
     }
 
@@ -172,6 +164,15 @@ public class MainPageController implements Initializable {
         else{
             matchSelected.setReferee2(refField2.getText());
             updateTableView();
+        }
+    }
+
+    /**
+     * method for log out
+     */
+    public void logout(){
+        if(AlertBox.logOut()==1){
+            System.exit(-1);
         }
     }
 }

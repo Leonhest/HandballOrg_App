@@ -52,22 +52,6 @@ public class TeamRegisterController implements Initializable {
     private TableColumn<Team, Integer> phoneNumColumn;
 
     /**
-     * method for updating the table view for new teams registries
-     */
-    private void updateTableView(){
-        teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
-        numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
-        teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
-        placeColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
-        phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
-
-        teamTableView.setItems(FXCollections.observableArrayList(
-                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
-                        .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
-        teamTableView.refresh();
-    }
-
-    /**
      * {@inheritDocq}
      * @param url
      * @param resourceBundle
@@ -81,6 +65,22 @@ public class TeamRegisterController implements Initializable {
         }
         numPlayerInput.setValue("7");
         updateTableView();
+    }
+
+    /**
+     * method for updating the table view for new teams registries
+     */
+    private void updateTableView(){
+        teamNameColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
+        numPlayerColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("numPlayers"));
+        teamLeaderColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("teamLeader"));
+        placeColumn.setCellValueFactory(new PropertyValueFactory<Team, String>("region"));
+        phoneNumColumn.setCellValueFactory(new PropertyValueFactory<Team, Integer>("telephoneNum"));
+
+        teamTableView.setItems(FXCollections.observableArrayList(
+                HandballApplication.adminList.get(0).getTournamentRegister().getTournaments()
+                        .get(HandballApplication.chosenTournament).getTeamRegister().getListTeams()));
+        teamTableView.refresh();
     }
 
     //TODO: Make one FXMLLoader class to take in the pathing!
@@ -107,6 +107,7 @@ public class TeamRegisterController implements Initializable {
                         .get(HandballApplication.chosenTournament).getTeamRegister().addTeam(team);
                 feedbackText.setText("");
                 resetInfo();
+                AlertBox.confirmBox("Your team has been registered");
             }
 
         }

@@ -17,7 +17,7 @@
          <font>
             <Font name="Krungthep" size="31.0" />
          </font></Button>
-      <Button layoutX="888.0" layoutY="99.0" mnemonicParsing="false" onAction="#toSetUpNewTournament" prefHeight="80.0" prefWidth="226.0" text="New Tournament">
+      <Button accessibleHelp="This Button takes you to tournament creation" accessibleText="New Tournament" layoutX="888.0" layoutY="99.0" mnemonicParsing="false" onAction="#toSetUpNewTournament" prefHeight="80.0" prefWidth="226.0" text="New Tournament">
          <font>
             <Font name="Krungthep" size="18.0" />
          </font></Button>

@@ -73,6 +73,17 @@ public class AlertBox {
         dateAlert.showAndWait();
     }
 
+    /**
+     * This method provides the user with helpful information during submission or creation
+     * @param message popup message
+     */
+    public static void confirmBox(String message){
+        Alert dateAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        dateAlert.setTitle("Confirmation");
+        dateAlert.setContentText(message);
+        dateAlert.showAndWait();
+    }
+
     //TODO: More methods to come
 }
 

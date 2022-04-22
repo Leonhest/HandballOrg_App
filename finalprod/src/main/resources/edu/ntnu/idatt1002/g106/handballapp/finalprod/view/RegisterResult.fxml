@@ -18,23 +18,23 @@
     <children>
       <ButtonBar prefHeight="87.0" prefWidth="1190.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <buttons>
-            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" maxHeight="66.0" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament">
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament" maxHeight="66.0" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" maxHeight="66.0" mnemonicParsing="false" onAction="#toMainPage" text="MainPage">
+          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams" maxHeight="66.0" mnemonicParsing="false" onAction="#toMainPage" text="MainPage">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" maxHeight="66.0" mnemonicParsing="false" onAction="#toTeamRegister" text="Team">
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team" maxHeight="66.0" mnemonicParsing="false" onAction="#toTeamRegister" text="Team">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" maxHeight="66.0" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches">
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches" maxHeight="66.0" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>
-            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
                <font>
                   <Font name="Krungthep" size="26.0" />
                </font></Button>

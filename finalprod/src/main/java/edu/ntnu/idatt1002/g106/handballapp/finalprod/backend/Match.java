@@ -15,7 +15,6 @@ public class Match implements Serializable {
 
     private Map<String, Integer> teamScore;
     private LocalDateTime startTime;
-    //Fields?
     private int numField;
     private int matchID;
     private int roundNum;
@@ -26,7 +25,6 @@ public class Match implements Serializable {
 
     /**
      * Initializes a new Match object with necessary variables.
-     *
      * @param startTime     Start time of the match as LocalTime
      * @param roundNum      Round the match is in as int
      * @param team1         First Team
