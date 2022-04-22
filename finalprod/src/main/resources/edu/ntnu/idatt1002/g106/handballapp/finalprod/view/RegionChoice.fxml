@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionChoiceController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegionChoiceController">
     <children>
-      <Label accessibleHelp="This is the Titel of this page" accessibleText="Region Choice" prefHeight="32.0" prefWidth="152.0" text="Region Choice">
+      <Label accessibleHelp="This is the Titel of this page" accessibleText="Region Choice" alignment="CENTER" prefHeight="88.0" prefWidth="1440.0" text=" Region Choice" textAlignment="CENTER">
          <font>
-            <Font size="22.0" />
+            <Font name="Krungthep" size="46.0" />
          </font>
       </Label>
-      <HBox prefHeight="138.0" prefWidth="349.0">
+      <HBox prefHeight="226.0" prefWidth="1440.0">
          <children>
-            <VBox prefHeight="138.0" prefWidth="155.0" />
-            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
+            <VBox prefHeight="138.0" prefWidth="288.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                <children>
-                  <Button fx:id="SouthernRegion" accessibleHelp="This button will take you to Southern region tournament list" accessibleText="Southern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                  <Button fx:id="SouthernRegion" accessibleHelp="This button will take you to Southern region tournament list" accessibleText="Southern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="288.0">
                      <graphic>
-                                <ImageView accessibleHelp="This button will take you to souther region tournament list" accessibleText="Southern Region" fitHeight="90.0" fitWidth="200.0">
+                                <ImageView accessibleHelp="This button will take you to souther region tournament list" accessibleText="Southern Region" fitHeight="138.0" fitWidth="279.0">
                                     <image>
                                         <Image url="@../TournamentPictures/nhf-logo_regionsor.jpg" />
                                     </image>
@@ -32,12 +32,12 @@
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="210.0" prefWidth="204.0" />
-            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
+            <VBox prefHeight="210.0" prefWidth="288.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                <children>
-                  <Button fx:id="EasternRegion" accessibleHelp="This button will take you to eastern region tournament list" accessibleText="EasternRegion" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                  <Button fx:id="EasternRegion" accessibleHelp="This button will take you to eastern region tournament list" accessibleText="EasternRegion" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="284.0">
                      <graphic>
-                              <ImageView accessibleHelp="This button will take you to eastern region tournament list" accessibleText="Eastern Region" fitHeight="90.0" fitWidth="200.0">
+                              <ImageView accessibleHelp="This button will take you to eastern region tournament list" accessibleText="Eastern Region" fitHeight="141.0" fitWidth="279.0">
                                   <image>
                                       <Image url="@../TournamentPictures/nhf_ro_logo_positiv_640.jpg" />
                                   </image>
@@ -46,20 +46,20 @@
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="138.0" prefWidth="123.0" />
+            <VBox prefHeight="138.0" prefWidth="288.0" />
          </children>
          <padding>
             <Insets left="10.0" />
          </padding>
       </HBox>
-        <HBox prefHeight="138.0" prefWidth="349.0">
+        <HBox prefHeight="226.0" prefWidth="1440.0">
             <children>
-                <VBox prefHeight="138.0" prefWidth="155.0" />
-                <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
+                <VBox prefHeight="138.0" prefWidth="288.0" />
+                <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                     <children>
-                        <Button fx:id="NorthernRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                        <Button fx:id="NorthernRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="286.0">
                             <graphic>
-                                <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="90.0" fitWidth="200.0">
+                                <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" fitHeight="143.0" fitWidth="279.0">
                                     <image>
                                         <Image url="@../TournamentPictures/2019_nhf-rn_logo_bla.jpg" />
                                     </image>
@@ -68,12 +68,12 @@
                         </Button>
                     </children>
                 </VBox>
-                <VBox prefHeight="150.0" prefWidth="204.0" />
-                <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
+                <VBox prefHeight="150.0" prefWidth="288.0" />
+                <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                     <children>
-                        <Button fx:id="WesternRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                        <Button fx:id="WesternRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="286.0">
                             <graphic>
-                                <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="90.0" fitWidth="200.0">
+                                <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="Western Region" fitHeight="145.0" fitWidth="281.0">
                                     <image>
                                         <Image url="@../TournamentPictures/region-vest-rod-bakgrunn.png" />
                                     </image>
@@ -82,20 +82,20 @@
                         </Button>
                     </children>
                 </VBox>
-                <VBox prefHeight="138.0" prefWidth="123.0" />
+                <VBox prefHeight="138.0" prefWidth="288.0" />
             </children>
             <padding>
                 <Insets left="10.0" />
             </padding>
         </HBox>
-      <HBox prefHeight="138.0" prefWidth="349.0">
+      <HBox prefHeight="226.0" prefWidth="1440.0">
          <children>
-            <VBox prefHeight="138.0" prefWidth="155.0" />
-            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="100.0">
+            <VBox prefHeight="138.0" prefWidth="288.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                <children>
-                  <Button fx:id="SouthWesternRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                  <Button fx:id="SouthWesternRegion" accessibleHelp="This button will take you to northern region tournament list" accessibleText="Northern Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="286.0">
                      <graphic>
-                        <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="South-Western Region" fitHeight="90.0" fitWidth="200.0">
+                        <ImageView accessibleHelp="This button will take you to northern region tournament list" accessibleText="South-Western Region" fitHeight="143.0" fitWidth="277.0">
                            <image>
                               <Image url="@../TournamentPictures/region_sorVest.png" />
                            </image>
@@ -104,12 +104,12 @@
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="150.0" prefWidth="204.0" />
-            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="127.0">
+            <VBox prefHeight="150.0" prefWidth="288.0" />
+            <VBox maxHeight="-Infinity" prefHeight="150.0" prefWidth="288.0">
                <children>
-                  <Button fx:id="InlandRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="95.0" prefWidth="218.0">
+                  <Button fx:id="InlandRegion" accessibleHelp="This button will take you to Western region tournament list" accessibleText="Western Region" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toRegionController" prefHeight="150.0" prefWidth="286.0">
                      <graphic>
-                        <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="In-land Region" fitHeight="90.0" fitWidth="200.0">
+                        <ImageView accessibleHelp="This button will take you to western region tournament list" accessibleText="In-land Region" fitHeight="143.0" fitWidth="281.0">
                            <image>
                               <Image url="@../TournamentPictures/region_innlandet.jpg" />
                            </image>
@@ -118,7 +118,7 @@
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="138.0" prefWidth="123.0" />
+            <VBox prefHeight="138.0" prefWidth="288.0" />
          </children>
          <padding>
             <Insets left="10.0" />

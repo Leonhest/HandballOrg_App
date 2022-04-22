@@ -43,9 +43,10 @@ public class HandballApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/edu/ntnu/idatt1002/g106/handballapp/finalprod/view/RegionChoice.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1440, 720);
         stage.setTitle("Tournament");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -91,7 +92,7 @@ public class HandballApplication extends Application {
                 HandballApplication.adminList.get(0).getTournamentRegister().addListOfTournaments(removeExpiredTournaments(tournamentRegister).getTournaments());
             }
         } catch (Exception e) {
-            AlertBox.alertError("Could not load data");
+//            AlertBox.alertError("Could not load data");
         }
     }
 

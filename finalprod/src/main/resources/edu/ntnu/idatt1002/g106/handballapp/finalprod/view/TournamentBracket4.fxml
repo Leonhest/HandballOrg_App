@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TextArea?>
@@ -10,68 +11,73 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
+<BorderPane prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="681.0" fitWidth="800.0" layoutY="24.0">
+            <ImageView fitHeight="636.0" fitWidth="1440.0" layoutX="-318.0" layoutY="-1.0">
                <image>
                   <Image url="@../TournamentPictures/4TeamBracket.png" />
                </image>
             </ImageView>
-            <ButtonBar layoutX="-7.0" layoutY="6.0" prefHeight="39.0" prefWidth="800.0" AnchorPane.bottomAnchor="707.0" AnchorPane.topAnchor="4.0">
-               <buttons>
-                  <Button id="FrontPage" accessibleHelp="this button will take you to tournament choice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="18.0" text="Tournament">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button accessibleHelp="this button will take you to the main page" accessibleText="to main page" mnemonicParsing="false" onAction="#sendToMainPage" text="MainPage">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="RegisterResult" accessibleHelp="this button will take you to the results" accessibleText="to results" mnemonicParsing="false" onAction="#sendToRegisterResult" text="Result">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" text="Team">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#sendToHelpPage" text="HelpPage">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="logOutButton" accessibleHelp="this button will ask if you want to logout" accessibleText="log out" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" text="logOut">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-               </buttons>
-            </ButtonBar>
-            <Button fx:id="generateButton" accessibleHelp="this button generates the next matches" accessibleText="generate next round" layoutX="311.0" layoutY="679.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="197.0" text="Generate next round">
+            <Button fx:id="generateButton" accessibleHelp="this button generates the next matches" accessibleText="generate next round" layoutX="271.0" layoutY="551.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="262.0" text="Generate next round">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Krungthep" size="18.0" />
                </font>
             </Button>
-            <TextArea fx:id="b4r1m1" accessibleHelp="this field hold information of the first match" accessibleText="match field1" layoutX="76.0" layoutY="135.0" prefHeight="131.0" prefWidth="242.0" wrapText="true">
+            <TextArea fx:id="b4r1m1" accessibleHelp="this field hold information of the first match" accessibleText="match field1" layoutX="-179.0" layoutY="105.0" prefHeight="118.0" prefWidth="432.0" wrapText="true">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Krungthep" size="36.0" />
                </font></TextArea>
-            <TextArea fx:id="b4r1m2" accessibleHelp="this field hold information about the second match" accessibleText="match field 2" layoutX="76.0" layoutY="488.0" prefHeight="131.0" prefWidth="242.0" wrapText="true">
+            <TextArea fx:id="b4r1m2" accessibleHelp="this field hold information about the second match" accessibleText="match field 2" layoutX="-178.0" layoutY="434.0" prefHeight="118.0" prefWidth="432.0" wrapText="true">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Krungthep" size="36.0" />
                </font></TextArea>
-            <TextArea fx:id="b4r2m1" accessibleHelp="this textfield hold information on the final match" accessibleText="match field 3" layoutX="469.0" layoutY="311.0" prefHeight="131.0" prefWidth="242.0" wrapText="true">
+            <TextArea fx:id="b4r2m1" accessibleHelp="this textfield hold information on the final match" accessibleText="match field 3" layoutX="529.0" layoutY="269.0" prefHeight="118.0" prefWidth="430.0" wrapText="true">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Krungthep" size="36.0" />
                </font></TextArea>
             <Text fx:id="errorMessage" layoutX="587.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <ButtonBar prefHeight="87.0" prefWidth="1440.0" BorderPane.alignment="CENTER">
+         <buttons>
+            <Button id="FrontPage" accessibleHelp="this button will take you to tournament choice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="66.0" text="Tournament">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button accessibleHelp="this button will take you to the main page" accessibleText="to main page" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="66.0" text="MainPage">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="RegisterResult" accessibleHelp="this button will take you to the results" accessibleText="to results" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="66.0" text="Result">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="66.0" text="Team">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" text="HelpPage">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="logOutButton" accessibleHelp="this button will ask if you want to logout" accessibleText="log out" mnemonicParsing="false" onAction="#logout" prefHeight="66.0" prefWidth="230.0" text="LogOut">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+         </buttons>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </ButtonBar>
+   </top>
 </BorderPane>

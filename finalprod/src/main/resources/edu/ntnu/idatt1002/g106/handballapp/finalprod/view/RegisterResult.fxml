@@ -1,74 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="402.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegisterResultController">
+<AnchorPane prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.RegisterResultController">
     <children>
-      <ButtonBar layoutY="-6.0" prefHeight="40.0" prefWidth="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-6.0">
+      <ButtonBar prefHeight="87.0" prefWidth="1190.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <buttons>
-            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament" />
-          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#toMainPage" text="MainPage" />
-            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" mnemonicParsing="false" onAction="#toTeamRegister" text="Team" />
-            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches" />
-            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" text="HelpPage" />
+            <Button accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" maxHeight="66.0" minWidth="38.0" mnemonicParsing="false" onAction="#toFrontPage" prefHeight="26.0" text="Tournament">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
+          <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" maxHeight="66.0" mnemonicParsing="false" onAction="#toMainPage" text="MainPage">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
+            <Button accessibleHelp="this button will take you to the teams handling menu" accessibleText="to team button" maxHeight="66.0" mnemonicParsing="false" onAction="#toTeamRegister" text="Team">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
+            <Button accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" maxHeight="66.0" mnemonicParsing="false" onAction="#toSetUpMatches" text="Matches">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
+            <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font></Button>
         </buttons>
       </ButtonBar>
-      <Button accessibleHelp="this button wil ask you if you want to log out" accessibleText="logout button" layoutX="532.0" layoutY="1.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" />
-        <VBox layoutY="27.0" prefHeight="375.0" prefWidth="600.0" spacing="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Button accessibleHelp="this button wil ask you if you want to log out" accessibleText="logout button" layoutX="1201.0" layoutY="11.0" mnemonicParsing="false" onAction="#logOutButton" prefHeight="66.0" prefWidth="220.0" text="LogOut">
+         <font>
+            <Font name="Krungthep" size="26.0" />
+         </font></Button>
+        <VBox layoutY="84.0" prefHeight="634.0" prefWidth="1447.0" spacing="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Matches">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" textAlignment="CENTER" wrappingWidth="1442.5762786865234">
                     <font>
-                        <Font size="17.0" />
+                        <Font name="Krungthep" size="46.0" />
                     </font>
                     <VBox.margin>
                         <Insets left="4.0" top="2.0" />
                     </VBox.margin></Text>
                 <TableView fx:id="matchTable" accessibleHelp="this table hold information about all matches" accessibleText="table view" prefHeight="301.0" prefWidth="585.0">
                     <columns>
-                        <TableColumn fx:id="matchTime" editable="false" prefWidth="123.0" resizable="false" text="Time" />
-                        <TableColumn fx:id="matchPlayers" editable="false" prefWidth="202.0" resizable="false" text="Match" />
-                        <TableColumn fx:id="matchID" editable="false" prefWidth="173.0" resizable="false" text="MatchID" />
-                  <TableColumn fx:id="scoreID" prefWidth="101.0" text="Score" />
+                        <TableColumn fx:id="matchTime" editable="false" prefWidth="360.0" resizable="false" text="Time" />
+                        <TableColumn fx:id="matchPlayers" editable="false" prefWidth="360.0" resizable="false" text="Match" />
+                        <TableColumn fx:id="matchID" editable="false" prefWidth="360.0" resizable="false" text="MatchID" />
+                  <TableColumn fx:id="scoreID" prefWidth="365.0" text="Score" />
                     </columns>
                 </TableView>
-                <AnchorPane prefHeight="77.0" prefWidth="585.0">
+                <AnchorPane prefHeight="77.0" prefWidth="1440.0">
                     <children>
-                  <Button accessibleHelp="this button fill all information about a selected match" accessibleText="select natch" layoutX="8.0" layoutY="-5.0" mnemonicParsing="false" onAction="#setSelectedMatch" text="Select Match" />
-                  <Label layoutX="246.0" layoutY="23.0" text="MatchId:" />
-                            <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="300.0" layoutY="20.0" prefHeight="25.0" prefWidth="114.0" promptText="1" />
+                  <Button accessibleHelp="this button fill all information about a selected match" accessibleText="select natch" layoutX="17.0" layoutY="2.0" mnemonicParsing="false" onAction="#setSelectedMatch" prefHeight="79.0" prefWidth="223.0" text="Select Match">
+                     <font>
+                        <Font name="Krungthep" size="26.0" />
+                     </font></Button>
+                  <Label layoutX="593.0" layoutY="22.0" text="MatchId:">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font></Label>
+                            <TextField fx:id="matchIDInput" accessibleHelp="write the match id for the wanted match" accessibleText="Match ID" layoutX="720.0" layoutY="12.0" prefHeight="52.0" prefWidth="217.0" promptText="1">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font></TextField>
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="0.0" prefWidth="585.0">
+                <AnchorPane prefHeight="0.0" prefWidth="1440.0">
                     <children>
                         <VBox layoutX="23.0" layoutY="17.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.leftAnchor="23.0">
                             <children>
-                                <Text fill="#282826" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" />
-                                <ChoiceBox fx:id="leftTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" prefWidth="150.0" />
-                                <HBox prefHeight="33.0" prefWidth="208.0">
-                                    <children>
-                                        <Label text="Goals:" />
-                              <TextField fx:id="leftGoalsInput" accessibleHelp="write the number of goals for team 1" accessibleText="goals imput field" prefHeight="25.0" prefWidth="114.0" promptText="2" />
-                                    </children>
-                                </HBox>
+                                <HBox prefHeight="33.0" prefWidth="208.0" />
                             </children>
                         </VBox>
                         <VBox layoutX="346.0" layoutY="22.0" prefHeight="98.0" prefWidth="208.0" spacing="10.0" AnchorPane.rightAnchor="31.0">
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" />
-                                <ChoiceBox fx:id="rightTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" prefWidth="150.0" />
-                                <HBox prefHeight="30.0" prefWidth="208.0">
-                                    <children>
-                                        <Label text="Goals:" />
-                                        <TextField fx:id="rightGoalsInput" accessibleHelp="write the number of goald for team 2" accessibleText="goals imput field" prefHeight="25.0" prefWidth="115.0" promptText="1" />
-                                    </children>
-                                </HBox>
+                                <HBox prefHeight="30.0" prefWidth="208.0" />
                             </children>
                         </VBox>
-                        <Button id="submitButton" accessibleHelp="this button submits your match selection" accessibleText="Submit" layoutX="239.0" layoutY="103.0" mnemonicParsing="false" onAction="#registerResult" text="Submit" />
+                        <Button id="submitButton" accessibleHelp="this button submits your match selection" accessibleText="Submit" layoutX="608.0" layoutY="79.0" mnemonicParsing="false" onAction="#registerResult" prefHeight="66.0" prefWidth="230.0" text="Submit">
+                     <font>
+                        <Font name="Krungthep" size="31.0" />
+                     </font></Button>
                     <Text fx:id="feedBackText" layoutX="37.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="48.0" />
+                  <TextField fx:id="leftGoalsInput" accessibleHelp="write the number of goals for team 1" accessibleText="goals imput field" layoutX="373.0" layoutY="70.0" prefHeight="41.0" prefWidth="150.0" promptText="2">
+                     <font>
+                        <Font name="Impact" size="21.0" />
+                     </font>
+                  </TextField>
+                            <Label layoutX="282.0" layoutY="77.0" text="Goals:">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font>
+                  </Label>
+                          <ChoiceBox fx:id="leftTeamChoiceBox" accessibleHelp="select the name of you first team" accessibleText="team 1 choicebox" layoutX="373.0" layoutY="11.0" prefHeight="40.0" prefWidth="150.0" />
+                          <Text fill="#282826" layoutX="278.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font>
+                  </Text>
+                            <Label layoutX="915.0" layoutY="76.0" text="Goals:">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font>
+                  </Label>
+                          <Text layoutX="912.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2">
+                     <font>
+                        <Font name="Krungthep" size="24.0" />
+                     </font>
+                  </Text>
+                          <ChoiceBox fx:id="rightTeamChoiceBox" accessibleHelp="select the name of team 2" accessibleText="teams 2 choicebox" layoutX="1012.0" layoutY="9.0" prefHeight="40.0" prefWidth="150.0" />
+                            <TextField fx:id="rightGoalsInput" accessibleHelp="write the number of goald for team 2" accessibleText="goals imput field" layoutX="1011.0" layoutY="70.0" prefHeight="41.0" prefWidth="150.0" promptText="1">
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                  </TextField>
                     </children>
                 </AnchorPane>
             </children>

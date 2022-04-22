@@ -25,9 +25,10 @@ public class SwitchScene {
         Parent viewPage = FXMLLoader.load(Objects.requireNonNull(SwitchScene.class.getResource("/edu/ntnu/idatt1002/g106" +
                 "/handballapp/finalprod/view/" + location + ".fxml")));
 
-        Scene page = new Scene(viewPage);
+        Scene page = new Scene(viewPage, 1440, 720);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(page);
+        window.setResizable(false);
         window.show();
     }
 }

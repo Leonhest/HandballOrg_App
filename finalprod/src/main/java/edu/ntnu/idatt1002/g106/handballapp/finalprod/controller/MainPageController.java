@@ -7,10 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -26,7 +25,15 @@ public class MainPageController implements Initializable {
     @FXML private TableColumn<Match, LocalDateTime> time;
     @FXML private TableColumn<Match, String> match;
     @FXML private TableColumn<Match, Integer> field;
+    @FXML private TableColumn<Match, Integer> firstRef;
+    @FXML private TableColumn<Match, Integer> secondRef;
     @FXML private DatePicker dateSelect;
+    @FXML private Button refAdd;
+    @FXML private TextField refField;
+    @FXML private Button refAdd2;
+    @FXML private TextField refField2;
+
+    private Match matchSelected;
 
     /**
      * method that updates MainPages tableView
@@ -35,6 +42,8 @@ public class MainPageController implements Initializable {
         time.setCellValueFactory(new PropertyValueFactory<Match, LocalDateTime>("time"));
         match.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
         field.setCellValueFactory(new PropertyValueFactory<Match, Integer>("numField"));
+        firstRef.setCellValueFactory(new PropertyValueFactory<Match, Integer>("referee1"));
+        secondRef.setCellValueFactory(new PropertyValueFactory<Match, Integer>("referee2"));
         table.setItems(FXCollections.observableArrayList(HandballApplication.adminList.get(0).getTournamentRegister().getTournaments().get(HandballApplication.chosenTournament).getMatchList()));
         table.refresh();
     }
@@ -48,6 +57,17 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateTableView();
+        trackTableClick();
+    }
+
+    /**
+     * This method attaches the event handler setOnMouseClicked on the match table in order to autofill the input
+     * fields if a match is clicked.
+     */
+    public void trackTableClick(){
+        table.setOnMouseClicked(event -> {
+            matchSelected = table.getSelectionModel().getSelectedItem();
+        });
     }
     /**
      * method for log out
@@ -133,5 +153,25 @@ public class MainPageController implements Initializable {
      */
     public void toHelpPage(ActionEvent event) throws IOException {
         SwitchScene.switchScene("HelpPage", event);
+    }
+
+    public void setFirstReferee(){
+        if(matchSelected == null){
+            throw new IllegalArgumentException("No match selected");
+        }
+        else{
+            matchSelected.setReferee1(refField.getText());
+            updateTableView();
+        }
+    }
+
+    public void setSecondReferee(){
+        if(matchSelected == null){
+            throw new IllegalArgumentException("No match selected");
+        }
+        else{
+            matchSelected.setReferee2(refField2.getText());
+            updateTableView();
+        }
     }
 }

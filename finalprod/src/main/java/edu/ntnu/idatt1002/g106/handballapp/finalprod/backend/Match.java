@@ -21,6 +21,8 @@ public class Match implements Serializable {
     private int roundNum;
     private Team team1;
     private Team team2;
+    private String referee1;
+    private String referee2;
 
     /**
      * Initializes a new Match object with necessary variables.
@@ -211,6 +213,42 @@ public class Match implements Serializable {
      */
     public LocalTime getTime() {
         return startTime.toLocalTime();
+    }
+
+    /**
+     * Gets referee 1 name.
+     *
+     * @return referee 1 as String
+     */
+    public String getReferee1() {
+        return referee1;
+    }
+
+    /**
+     * Gets referee 2 name.
+     *
+     * @return referee 2 as String
+     */
+    public String getReferee2() {
+        return referee2;
+    }
+
+    /**
+     * Sets referee 1 name.
+     *
+     * @param referee1 Referee 1 name
+     */
+    public void setReferee1(String referee1) {
+        this.referee1 = referee1;
+    }
+
+    /**
+     * Sets referee2 name.
+     *
+     * @param referee2 Referee 2 name
+     */
+    public void setReferee2(String referee2) {
+        this.referee2 = referee2;
     }
 
     /**

@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.SetUpTournamentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.SetUpTournamentController">
    <children>
-      <Text layoutX="9.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set up tournament" AnchorPane.leftAnchor="9.0">
+      <Text layoutX="5.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set up tournament" textAlignment="CENTER" wrappingWidth="1428.7336883544922" AnchorPane.leftAnchor="5.0">
          <font>
-            <Font name="Al Bayan Plain" size="23.0" />
+            <Font name="Krungthep" size="46.0" />
          </font>
       </Text>
-      <Button accessibleHelp="this button takes you back to tournament selection" accessibleText="back" layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#toRegionChoice" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="2.0" />
-      <Button accessibleHelp="this button ask if you want to log out" accessibleText="logout" layoutX="536.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOutButton" text="logOut" AnchorPane.topAnchor="7.0" />
-      <TextField id="tournamentName" fx:id="tournamentNameTextFieldInput" accessibleHelp="write the tournament name here" accessibleText="tournament name textfield" layoutX="159.0" layoutY="14.0" prefHeight="26.0" prefWidth="427.0" AnchorPane.bottomAnchor="360.0" AnchorPane.topAnchor="66.0" />
-      <TextField fx:id="tournamentPlaceTextFieldInput" accessibleHelp="write where the tournament is to take place" accessibleText="tournament place field" layoutX="158.0" layoutY="48.0" prefHeight="26.0" prefWidth="427.0" AnchorPane.bottomAnchor="326.0" AnchorPane.topAnchor="100.0" />
-      <Text layoutX="9.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tournament name:" wrappingWidth="118.0" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="9.0" />
-      <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place:" wrappingWidth="108.21630859375" AnchorPane.bottomAnchor="335.0" />
-      <DatePicker fx:id="tournamentStartDateInput" accessibleHelp="write start date, mm,dd,yyyy" accessibleText="start date imput field" layoutX="158.0" layoutY="82.0" prefHeight="26.0" prefWidth="118.0" promptText="Start date" AnchorPane.bottomAnchor="292.0" />
-      <DatePicker fx:id="tournamentEndDateInput" accessibleHelp="write end date, mm,dd,yyyy" accessibleText="end date input field" layoutX="372.0" layoutY="82.0" prefHeight="26.0" prefWidth="118.0" promptText="End date" AnchorPane.bottomAnchor="292.0" />
-      <Text layoutX="314.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="20.45361328125" AnchorPane.bottomAnchor="298.0" />
-      <Text layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" AnchorPane.bottomAnchor="297.0" />
-      <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Layout:" wrappingWidth="52.12353515625" AnchorPane.bottomAnchor="252.0" />
-
-
-      <Text layoutX="16.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of fields" wrappingWidth="100.98307228088379" AnchorPane.bottomAnchor="202.0" />
-      <ChoiceBox fx:id="tournamentLayoutInput" accessibleHelp="choose the wanted layout" accessibleText="layout choicebox" layoutX="139.0" layoutY="128.0" onMouseClicked="#setImageOn" prefHeight="26.0" prefWidth="138.0" AnchorPane.bottomAnchor="246.0" />
-      <ChoiceBox fx:id="tournamentNumFieldsInput" accessibleHelp="chose the number of field" accessibleText="number of field choicebox" layoutX="138.0" layoutY="229.0" prefHeight="26.0" prefWidth="64.0" AnchorPane.bottomAnchor="197.0" />
-      <Text fx:id="layoutText" layoutX="372.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max 4 teams" textAlignment="CENTER" underline="true" wrappingWidth="138.0">
+      <Button accessibleHelp="this button takes you back to tournament selection" accessibleText="back" layoutX="26.0" layoutY="16.0" mnemonicParsing="false" onAction="#toRegionChoice" prefHeight="41.0" prefWidth="150.0" text="Back" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="16.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Krungthep" size="20.0" />
+         </font></Button>
+      <Button accessibleHelp="this button ask if you want to log out" accessibleText="logout" layoutX="1267.0" layoutY="16.0" mnemonicParsing="false" onAction="#logOutButton" prefHeight="41.0" prefWidth="150.0" text="LogOut" AnchorPane.topAnchor="16.0">
+         <font>
+            <Font name="Krungthep" size="20.0" />
+         </font></Button>
+      <TextField id="tournamentName" fx:id="tournamentNameTextFieldInput" accessibleHelp="write the tournament name here" accessibleText="tournament name textfield" layoutX="274.0" layoutY="126.0" prefHeight="50.0" prefWidth="427.0" AnchorPane.bottomAnchor="544.0" AnchorPane.topAnchor="126.0" />
+      <TextField fx:id="tournamentPlaceTextFieldInput" accessibleHelp="write where the tournament is to take place" accessibleText="tournament place field" layoutX="274.0" layoutY="207.0" prefHeight="50.0" prefWidth="427.0" AnchorPane.bottomAnchor="463.0" AnchorPane.topAnchor="207.0" />
+      <Text layoutX="44.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tournament name:" wrappingWidth="213.03564453125" AnchorPane.bottomAnchor="554.0" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+      <Text layoutX="44.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place:" wrappingWidth="108.21630859375" AnchorPane.bottomAnchor="476.5703125">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+      <DatePicker fx:id="tournamentStartDateInput" accessibleHelp="write start date, mm,dd,yyyy" accessibleText="start date imput field" layoutX="274.0" layoutY="281.0" prefHeight="50.0" prefWidth="118.0" promptText="Start date" AnchorPane.bottomAnchor="389.0" />
+      <DatePicker fx:id="tournamentEndDateInput" accessibleHelp="write end date, mm,dd,yyyy" accessibleText="end date input field" layoutX="582.0" layoutY="280.0" prefHeight="50.0" prefWidth="118.0" promptText="End date" AnchorPane.bottomAnchor="390.0" />
+      <Text layoutX="476.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="34.5013427734375" AnchorPane.bottomAnchor="402.0">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+      <Text layoutX="44.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" AnchorPane.bottomAnchor="400.5703125">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+      <Text layoutX="44.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Layout:" wrappingWidth="111.90784278957739" AnchorPane.bottomAnchor="324.0">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+
+
+      <Text layoutX="44.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of fields:" wrappingWidth="214.60707658554793" AnchorPane.bottomAnchor="248.0">
+         <font>
+            <Font name="Krungthep" size="21.0" />
+         </font></Text>
+      <ChoiceBox fx:id="tournamentLayoutInput" accessibleHelp="choose the wanted layout" accessibleText="layout choicebox" layoutX="274.0" layoutY="359.0" onMouseClicked="#setImageOn" prefHeight="50.0" prefWidth="138.0" AnchorPane.bottomAnchor="311.0" />
+      <ChoiceBox fx:id="tournamentNumFieldsInput" accessibleHelp="chose the number of field" accessibleText="number of field choicebox" layoutX="274.0" layoutY="435.0" prefHeight="50.0" prefWidth="64.0" AnchorPane.bottomAnchor="235.0" />
+      <Text fx:id="layoutText" layoutX="463.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max 4 teams" textAlignment="CENTER" underline="true" wrappingWidth="166.81632245625315">
+         <font>
+            <Font name="Krungthep" size="21.0" />
          </font>
       </Text>
-      <Button id="tournamentConfirm" accessibleHelp="this button confirms your new tournament" accessibleText="confirm" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirmTournament" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="12.0">
+      <Button id="tournamentConfirm" accessibleHelp="this button confirms your new tournament" accessibleText="confirm" layoutX="645.0" layoutY="663.0" mnemonicParsing="false" onAction="#confirmTournament" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="16.0">
          <effect>
             <InnerShadow />
-         </effect></Button>
+         </effect>
+         <font>
+            <Font name="Krungthep" size="19.0" />
+         </font></Button>
 
-      <ImageView fx:id="layoutImageView" fitHeight="238.0" fitWidth="378.0" layoutX="211.0" layoutY="214.0" pickOnBounds="true">
+      <ImageView fx:id="layoutImageView" fitHeight="310.0" fitWidth="526.0" layoutX="793.0" layoutY="306.0" pickOnBounds="true">
          <image>
             <Image url="@../TournamentPictures/Layout1.png" /> <!-- TODO endre til layout 1-->
          </image></ImageView>

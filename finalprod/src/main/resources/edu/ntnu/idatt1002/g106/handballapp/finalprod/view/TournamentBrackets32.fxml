@@ -6,91 +6,211 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0">
-         <children>
-            <ImageView fitHeight="722.0" fitWidth="1203.0" layoutX="-4.0" layoutY="76.0">
-               <image>
-                  <Image url="@../TournamentPictures/32TeamBracket.png" />
-               </image>
-            </ImageView>
-            <ButtonBar layoutX="-14.0" layoutY="9.0" prefHeight="56.0" prefWidth="1038.0">
-               <buttons>
-                  <Button id="FrontPage" accessibleHelp="this button takes you to tounamentc hoice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="68.0" prefWidth="239.0" text="Tournament">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button accessibleHelp="this button takes you back to the mainpage" accessibleText="to mainpage" minWidth="52.0" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="68.0" text="MainPage">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="RegisterResult" accessibleHelp="this button takes you to result handling menu" accessibleText="to result" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="68.0" text="Result">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="TeamRegister" accessibleHelp="this button takes you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-                  <Button id="SetUpMatches" accessibleHelp="this button takes you to match handling menu" accessibleText="to match" minWidth="24.0" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="56.0" text="HelpPage">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
-               </buttons>
-            </ButtonBar>
-            <Button id="logOutButton" accessibleHelp="this button will ask if you want to log out" accessibleText="log out" layoutX="1052.0" layoutY="9.0" mnemonicParsing="false" onAction="#logout" prefHeight="56.0" prefWidth="135.0" text="logOut">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt1002.g106.handballapp.finalprod.controller.TournamentBracketController">
+   <children>
+      <ImageView fitHeight="645.0" fitWidth="1440.0" layoutY="76.0">
+         <image>
+            <Image url="@../TournamentPictures/32TeamBracket.png" />
+         </image>
+      </ImageView>
+      <ButtonBar prefHeight="87.0" prefWidth="1190.0">
+         <buttons>
+            <Button id="FrontPage" accessibleHelp="this button takes you to tounamentc hoice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="68.0" prefWidth="239.0" text="Tournament">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Krungthep" size="26.0" />
                </font>
             </Button>
-            <Button fx:id="generateButton" accessibleHelp="this button generates the next round of matches" accessibleText="generate next match" layoutX="501.0" layoutY="674.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="193.0" text="Generate next round">
+            <Button accessibleHelp="this button takes you back to the mainpage" accessibleText="to mainpage" minWidth="52.0" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="68.0" text="MainPage">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Krungthep" size="26.0" />
                </font>
             </Button>
-            <TextArea fx:id="b32r1m1" layoutX="46.0" layoutY="90.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m2" layoutX="46.0" layoutY="178.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m3" layoutX="46.0" layoutY="266.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m4" layoutX="46.0" layoutY="355.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m5" layoutX="46.0" layoutY="443.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m6" layoutX="46.0" layoutY="531.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m7" layoutX="46.0" layoutY="620.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m8" layoutX="46.0" layoutY="708.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m9" layoutX="1067.0" layoutY="90.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m10" layoutX="1067.0" layoutY="178.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m11" layoutX="1067.0" layoutY="266.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m12" layoutX="1067.0" layoutY="355.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m13" layoutX="1067.0" layoutY="443.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m14" layoutX="1067.0" layoutY="531.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m15" layoutX="1067.0" layoutY="620.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r1m16" layoutX="1067.0" layoutY="708.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m1" layoutX="185.0" layoutY="134.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m2" layoutX="185.0" layoutY="310.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m3" layoutX="185.0" layoutY="487.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m4" layoutX="185.0" layoutY="665.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m5" layoutX="928.0" layoutY="135.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m6" layoutX="928.0" layoutY="311.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m7" layoutX="928.0" layoutY="488.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r2m8" layoutX="928.0" layoutY="666.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r3m1" layoutX="323.0" layoutY="222.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r3m2" layoutX="323.0" layoutY="575.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r3m4" layoutX="790.0" layoutY="575.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r3m3" layoutX="790.0" layoutY="223.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r4m2" layoutX="651.0" layoutY="396.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r4m1" layoutX="462.0" layoutY="397.0" prefHeight="63.0" prefWidth="82.0" wrapText="true" />
-            <TextArea fx:id="b32r5m1" layoutX="549.0" layoutY="266.0" prefHeight="64.0" prefWidth="97.0" wrapText="true" />
-            <Text fx:id="errorMessage" layoutX="752.0" layoutY="713.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+            <Button id="RegisterResult" accessibleHelp="this button takes you to result handling menu" accessibleText="to result" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="68.0" text="Result">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="TeamRegister" accessibleHelp="this button takes you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+            <Button id="SetUpMatches" accessibleHelp="this button takes you to match handling menu" accessibleText="to match" minWidth="24.0" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
+               <font>
+                  <Font name="Krungthep" size="26.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
+      <Button id="logOutButton" accessibleHelp="this button will ask if you want to log out" accessibleText="log out" layoutX="1200.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="66.0" prefWidth="220.0" text="LogOut">
+         <font>
+            <Font name="Krungthep" size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="generateButton" accessibleHelp="this button generates the next round of matches" accessibleText="generate next match" layoutX="583.0" layoutY="622.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="273.0" text="Generate next round">
+         <font>
+            <Font name="Krungthep" size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="b32r1m1" layoutX="60.0" layoutY="88.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m2" layoutX="60.0" layoutY="168.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m3" layoutX="60.0" layoutY="246.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m4" layoutX="60.0" layoutY="325.0" prefHeight="56.0" prefWidth="99.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m5" layoutX="60.0" layoutY="404.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m6" layoutX="60.0" layoutY="482.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m7" layoutX="60.0" layoutY="562.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m8" layoutX="60.0" layoutY="640.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m9" layoutX="1282.0" layoutY="89.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m10" layoutX="1282.0" layoutY="167.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m11" layoutX="1282.0" layoutY="246.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m12" layoutX="1282.0" layoutY="325.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m13" layoutX="1282.0" layoutY="404.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m14" layoutX="1282.0" layoutY="483.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m15" layoutX="1282.0" layoutY="562.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r1m16" layoutX="1282.0" layoutY="640.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m1" layoutX="226.0" layoutY="128.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m2" layoutX="227.0" layoutY="286.0" prefHeight="56.0" prefWidth="96.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m3" layoutX="227.0" layoutY="443.0" prefHeight="56.0" prefWidth="96.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m4" layoutX="226.0" layoutY="601.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m5" layoutX="1117.0" layoutY="128.0" prefHeight="56.0" prefWidth="96.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m6" layoutX="1117.0" layoutY="286.0" prefHeight="56.0" prefWidth="96.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m7" layoutX="1116.0" layoutY="443.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r2m8" layoutX="1117.0" layoutY="601.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r3m1" layoutX="392.0" layoutY="207.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r3m2" layoutX="392.0" layoutY="522.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r3m4" layoutX="951.0" layoutY="522.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r3m3" layoutX="951.0" layoutY="206.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r4m2" layoutX="784.0" layoutY="362.0" prefHeight="56.0" prefWidth="98.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r4m1" layoutX="558.0" layoutY="363.0" prefHeight="56.0" prefWidth="97.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="b32r5m1" layoutX="663.0" layoutY="246.0" prefHeight="56.0" prefWidth="114.0" wrapText="true">
+         <font>
+            <Font name="Krungthep" size="11.0" />
+         </font>
+      </TextArea>
+      <Text fx:id="errorMessage" layoutX="752.0" layoutY="713.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>
