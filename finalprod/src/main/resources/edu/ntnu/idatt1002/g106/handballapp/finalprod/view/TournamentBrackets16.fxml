@@ -21,34 +21,38 @@
          <buttons>
             <Button id="FrontPage" accessibleHelp="this button takes you to tournament choice" accessibleText="to tournament" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="68.0" prefWidth="239.0" text="Tournament">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
             <Button accessibleHelp="this button takes you to the main page" accessibleText="to mainpage" minWidth="52.0" mnemonicParsing="false" onAction="#sendToMainPage" prefHeight="68.0" text="MainPage">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
             <Button id="RegisterResult" accessibleHelp="this button will take you to result handling menu" accessibleText="to results" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="68.0" text="Result">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
+            <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="Matches">
+               <font>
+                  <Font name="Krungthep" size="23.0" />
+               </font></Button>
             <Button id="TeamRegister" accessibleHelp="this button will take you to team handling menu" accessibleText="to team" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="68.0" text="Team">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
-            <Button id="SetUpMatches" accessibleHelp="this button will take you to match handling menu" accessibleText="to matches" minWidth="24.0" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" text="HelpPage">
+            <Button id="toHelpPage" accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#sendToHelpPage" prefHeight="66.0" text="HelpPage">
                <font>
-                  <Font name="Krungthep" size="26.0" />
+                  <Font name="Krungthep" size="23.0" />
                </font>
             </Button>
          </buttons>
       </ButtonBar>
       <Button id="logOutButton" accessibleHelp="this button will ask if you want to log out" accessibleText="logout" layoutX="1204.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="66.0" prefWidth="220.0" text="LogOut">
          <font>
-            <Font name="Krungthep" size="26.0" />
+            <Font name="Krungthep" size="23.0" />
          </font>
       </Button>
       <Button fx:id="generateButton" accessibleHelp="generates the next round ofmatches" accessibleText="generate next round" layoutX="604.0" layoutY="650.0" mnemonicParsing="false" onAction="#generateNextRound" prefHeight="69.0" prefWidth="232.0" text="Generate next round">

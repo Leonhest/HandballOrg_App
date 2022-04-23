@@ -20,36 +20,40 @@
                         <buttons>
                             <Button id="FrontPage" accessibleHelp="This button will take you to the tournament selection" accessibleText="to Tournament Button" mnemonicParsing="false" onAction="#sendToFrontPage" prefHeight="66.0" text="Tournament">
                            <font>
-                              <Font name="Krungthep" size="26.0" />
+                              <Font name="Krungthep" size="23.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" prefHeight="66.0" style="-fx-background-color: #30C5FF; -fx-border-color: #000000;" text="MainPage">
+                           <font>
+                              <Font name="Krungthep" size="23.0" />
                            </font></Button>
                             <Button id="RegisterResult" accessibleHelp="this button will take you to the result overview" accessibleText="to Results button" minWidth="53.0" mnemonicParsing="false" onAction="#sendToRegisterResult" prefHeight="66.0" text="Result">
                            <font>
-                              <Font name="Krungthep" size="26.0" />
-                           </font></Button>
-                            <Button id="TeamRegister" accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="66.0" text="Team">
-                           <font>
-                              <Font name="Krungthep" size="26.0" />
+                              <Font name="Krungthep" size="23.0" />
                            </font></Button>
                             <Button id="SetUpMatches" accessibleHelp="this button will take you to the match handling menu" accessibleText="to matches button" minWidth="24.0" mnemonicParsing="false" onAction="#sendToSetUpMatches" prefHeight="66.0" text="Matches">
                            <font>
-                              <Font name="Krungthep" size="26.0" />
+                              <Font name="Krungthep" size="23.0" />
+                           </font></Button>
+                            <Button id="TeamRegister" accessibleHelp="this button will take you to the teams handling menu" accessibleText="to teams button" mnemonicParsing="false" onAction="#sendToRegisterTeam" prefHeight="66.0" text="Team">
+                           <font>
+                              <Font name="Krungthep" size="23.0" />
                            </font></Button>
                         <Button accessibleHelp="this button will take you to the help page" accessibleText="to help page button" mnemonicParsing="false" onAction="#toHelpPage" prefHeight="66.0" prefWidth="230.0" text="HelpPage">
                            <font>
-                              <Font name="Krungthep" size="26.0" />
+                              <Font name="Krungthep" size="23.0" />
                            </font></Button>
                         </buttons>
                     </ButtonBar>
                     <Button id="logOutButton" accessibleHelp="this button will ask for confirmation on if you want to log out" accessibleText="logout button" layoutX="1203.0" layoutY="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="66.0" prefWidth="220.0" text="LogOut" AnchorPane.rightAnchor="15.0">
                      <font>
-                        <Font name="Krungthep" size="26.0" />
+                        <Font name="Krungthep" size="23.0" />
                      </font></Button>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="1438.0" SplitPane.resizableWithParent="false">
                <children>
                     <!--Comment-->
-                    <TableView fx:id="table" accessibleHelp="This is the Overview of all upcoming matches" accessibleText="Table View / List" layoutY="32.0" prefHeight="557.0" prefWidth="983.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="32.0">
+                    <TableView fx:id="table" accessibleHelp="This is the Overview of all upcoming matches" accessibleText="Table View / List" layoutY="111.0" prefHeight="478.0" prefWidth="983.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="111.0">
                         <columns>
                             <TableColumn fx:id="time" prefWidth="197.0" text="Time" />
                             <TableColumn fx:id="match" prefWidth="197.0" text="Match" />
@@ -88,6 +92,11 @@
                         <Font name="Krungthep" size="19.0" />
                      </font>
                   </Button>
+                  <Text layoutX="602.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main page" textAlignment="CENTER" wrappingWidth="195.19207763671875" AnchorPane.leftAnchor="602.0" AnchorPane.rightAnchor="640.8079223632812">
+                     <font>
+                        <Font name="Krungthep" size="30.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
         </items>

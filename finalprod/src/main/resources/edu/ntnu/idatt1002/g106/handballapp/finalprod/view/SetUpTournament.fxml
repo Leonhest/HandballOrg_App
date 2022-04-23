@@ -58,9 +58,9 @@
          </font></Text>
       <ChoiceBox fx:id="tournamentLayoutInput" accessibleHelp="choose the wanted layout" accessibleText="layout choicebox" layoutX="274.0" layoutY="359.0" onMouseClicked="#setImageOn" prefHeight="50.0" prefWidth="138.0" AnchorPane.bottomAnchor="311.0" />
       <ChoiceBox fx:id="tournamentNumFieldsInput" accessibleHelp="chose the number of field" accessibleText="number of field choicebox" layoutX="274.0" layoutY="435.0" prefHeight="50.0" prefWidth="64.0" AnchorPane.bottomAnchor="235.0" />
-      <Text fx:id="layoutText" layoutX="463.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max 4 teams" textAlignment="CENTER" underline="true" wrappingWidth="166.81632245625315">
+      <Text fx:id="layoutText" accessibleHelp="This text says max 4 teams" accessibleText="max 4 teams" layoutX="954.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max 4 teams" textAlignment="CENTER" underline="true" wrappingWidth="268.81632245625315">
          <font>
-            <Font name="Krungthep" size="21.0" />
+            <Font name="Krungthep" size="36.0" />
          </font>
       </Text>
       <Button id="tournamentConfirm" accessibleHelp="this button confirms your new tournament" accessibleText="confirm" layoutX="645.0" layoutY="663.0" mnemonicParsing="false" onAction="#confirmTournament" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: #00FF00#00FF00; -fx-text-fill: #000; -fx-border-color: #000;" text="Confirm" AnchorPane.bottomAnchor="16.0">
@@ -71,7 +71,7 @@
             <Font name="Krungthep" size="19.0" />
          </font></Button>
 
-      <ImageView fx:id="layoutImageView" fitHeight="310.0" fitWidth="526.0" layoutX="793.0" layoutY="306.0" pickOnBounds="true">
+      <ImageView fx:id="layoutImageView" fitHeight="409.0" fitWidth="658.0" layoutX="749.0" layoutY="207.0" pickOnBounds="true">
          <image>
             <Image url="@../TournamentPictures/Layout1.png" /> <!-- TODO endre til layout 1-->
          </image></ImageView>
