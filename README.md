@@ -71,7 +71,7 @@ To run the application, a configuration is needed
    2. Click "Apply"<br>
    3. Click "Ok"<br>
 
-Now the application is ready to run**
+Now the application is ready to run
 
 For illustration visit [Installation Guide](https://gitlab.stud.idi.ntnu.no/G1-06/idatt-1002-2022-1-06/-/wikis/Home/System/Installation%20Guide)
 
