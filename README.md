@@ -11,7 +11,7 @@ Handball Cup is a ***easy-to-use*** application used to sets up ***handball tour
  - Visual presentation of match setup as brackets
 
 ## USAGE
-Handball Cup is a application that is used to make handball tournaments in all 6 regions in Norway. The application does the administrative work needed to organize a tournament simplified and less time consuming with a straightforward user interface
+Handball Cup is a application that is used to make handball tournaments in all 6 regions in Norway. <br>The application does the administrative work needed to organize a tournament simplified and <br>less time consuming with a straightforward user interface
 
 ## Demo
 ![](finalprod/src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/TournamentPictures/Siste_utgave.mp4)
@@ -77,4 +77,4 @@ To run the application, a configuration is needed
 
 Now the application is ready to run
 
-For illustration visit [Installation Guide](https://gitlab.stud.idi.ntnu.no/G1-06/idatt-1002-2022-1-06/-/wikis/Home/System/Installation%20Guide)
+#### For illustration visit [Installation Guide](https://gitlab.stud.idi.ntnu.no/G1-06/idatt-1002-2022-1-06/-/wikis/Home/System/Installation%20Guide)
