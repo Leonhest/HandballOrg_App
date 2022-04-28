@@ -22,6 +22,7 @@ public class Match implements Serializable {
     private Team team2;
     private String referee1;
     private String referee2;
+    private String timeNow;
 
     /**
      * Initializes a new Match object with necessary variables.
@@ -45,6 +46,7 @@ public class Match implements Serializable {
         this.teamScore.put(team2.getTeamName(), 0);
         this.matchID = matchID;
         this.numField = numField;
+        this.timeNow = startTime.getDayOfWeek() + " " + startTime.toLocalTime();
     }
 
     /**
@@ -61,6 +63,8 @@ public class Match implements Serializable {
         if(matchID < 0) throw new IllegalArgumentException("matchId cannot be negative");
         this.matchID = matchID;
         this.roundNum = roundNum;
+        this.timeNow = startTime.getDayOfWeek() + " " + startTime.toLocalTime();
+
     }
 
     /**
@@ -133,6 +137,13 @@ public class Match implements Serializable {
         return startTime;
     }
 
+    public String getTimeNow() {
+        return timeNow;
+   }
+
+    public String displayStartTime(){
+        return startTime.getDayOfWeek() + " " + startTime.toLocalTime();
+    }
     /**
      * Gets field number
      *
