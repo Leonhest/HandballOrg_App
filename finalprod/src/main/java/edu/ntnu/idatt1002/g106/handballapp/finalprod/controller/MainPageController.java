@@ -9,11 +9,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;;
+;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 /**
@@ -22,7 +21,7 @@ import java.util.ResourceBundle;
  */
 public class MainPageController implements Initializable {
     @FXML private TableView<Match> table;
-    @FXML private TableColumn<Match, LocalDateTime> time;
+    @FXML private TableColumn<Match, String> time;
     @FXML private TableColumn<Match, String> match;
     @FXML private TableColumn<Match, Integer> field;
     @FXML private TableColumn<Match, Integer> firstRef;
@@ -50,7 +49,7 @@ public class MainPageController implements Initializable {
      * method that updates MainPages tableView
      */
     private void updateTableView() {
-        time.setCellValueFactory(new PropertyValueFactory<Match, LocalDateTime>("time"));
+        time.setCellValueFactory(new PropertyValueFactory<Match, String>("timeNow"));
         match.setCellValueFactory(new PropertyValueFactory<Match, String>("players"));
         field.setCellValueFactory(new PropertyValueFactory<Match, Integer>("numField"));
         firstRef.setCellValueFactory(new PropertyValueFactory<Match, Integer>("referee1"));
