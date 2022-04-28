@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ public class HandballApplication extends Application {
     public static List<Administrator> adminList = new ArrayList<>();
     public static int chosenTournament = -1;
     public static Region chosenRegion = null;
+    public static String file;
 
     /**
      * main method that starts the application
@@ -85,9 +87,14 @@ public class HandballApplication extends Application {
         Administrator admin = new Administrator(new User("Leon", "Hest", "123", "Leon.hesthaug@gmail.com"));
         adminList.add(admin);
 
+        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
+        dialog.setMode(FileDialog.LOAD);
+        dialog.setVisible(true);
+        file = dialog.getDirectory()+dialog.getFile();
+
         TournamentRegister tournamentRegister = null;
         try {
-            tournamentRegister = HandBallAppFileHandling.deserializeTournamentRegister(new File("src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/data/HandBallData.ser"));
+            tournamentRegister = HandBallAppFileHandling.deserializeTournamentRegister(new File(file));
             if (tournamentRegister != null) {
                 HandballApplication.adminList.get(0).getTournamentRegister().addListOfTournaments(removeExpiredTournaments(tournamentRegister).getTournaments());
             }

@@ -49,7 +49,7 @@ public class AlertBox {
             answer.set(1);
 
             try {
-                HandBallAppFileHandling.serializeTournamentRegister(HandballApplication.adminList.get(0).getTournamentRegister(),new File("src/main/resources/edu/ntnu/idatt1002/g106/handballapp/finalprod/data/HandBallData.ser"));
+                HandBallAppFileHandling.serializeTournamentRegister(HandballApplication.adminList.get(0).getTournamentRegister(),new File(HandballApplication.file));
             } catch (IOException ex) {
                 alertError("Could not save data to file");
             }
