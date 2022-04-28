@@ -5,21 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f4375db-1752-4447-9eb7-dfa49658a7f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/finalprod/HandballApplicationMac/SavedTournaments.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalprod/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/finalprod/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalprod/src/main/java/edu/ntnu/idatt1002/g106/handballapp/finalprod/backend/AlertBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/finalprod/src/main/java/edu/ntnu/idatt1002/g106/handballapp/finalprod/backend/AlertBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalprod/src/main/java/edu/ntnu/idatt1002/g106/handballapp/finalprod/controller/HandballApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/finalprod/src/main/java/edu/ntnu/idatt1002/g106/handballapp/finalprod/controller/HandballApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finalprod/HandballApplicationWin/SavedTournament.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_aarch64_17_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_aarch64_17_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_aarch64_17_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_aarch64_17_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="28RLpQJcokCigvjiDuuCPfhyU7R" />
   <component name="ProjectViewState">
@@ -29,25 +40,68 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/finalprod/HandballApplicationMac" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/finalprod/HandballApplicationWin" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\idatt-1002-2022-1-06\finalprod\HandballApplicationWin" />
       <recent name="$PROJECT_DIR$/finalprod/HandballApplicationMac" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/finalprod/HandballApplicationMac" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.handball-application-1.1-SNAPSHOT.jar (2)">
+    <configuration name="handball-application-1.1-SNAPSHOT.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/finalprod/target/handball-application-1.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="handball-application-1.1-SNAPSHOT.jar (2)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/finalprod/HandballApplicationWin/handball-application-1.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="handball-application-1.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/finalprod/HandballApplicationMac/handball-application-1.1-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="handball-application [package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/finalprod" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar" />
+      <item itemvalue="Maven.handball-application [package]" />
+      <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar (1)" />
+      <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar (2)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar (2)" />
+        <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar (1)" />
         <item itemvalue="JAR Application.handball-application-1.1-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -63,6 +117,7 @@
       <workItem from="1651174636189" duration="86000" />
       <workItem from="1651174726557" duration="2000" />
       <workItem from="1651175478570" duration="657000" />
+      <workItem from="1651176529330" duration="480000" />
     </task>
     <servers />
   </component>
@@ -79,5 +134,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
